@@ -1,0 +1,120 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "element": "",
+            "gesture": "swipe_up",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 1.1,
+            "element": "Phone",
+            "gesture": "drag_drop",
+            "args": "",
+            "x": "534",
+            "y": "721"
+        },
+        {
+            "sequence": "Verify App is on the desktop",
+            "element": "Phone",
+            "gesture": "findelement_ByAccessibility_ID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "element": "Phone",
+            "gesture": "drag_drop",
+            "args": "",
+            "x": "1068",
+            "y": "721"
+        },
+        {
+            "sequence": "Verify the app is on second view",
+            "element": "Phone",
+            "gesture": "findelement_ByAccessibility_ID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": "get the hot seat element",
+            "element": "android.widget.TextView",
+            "gesture": "findelement_ByClassName",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": "Verify the app is on hot seat",
+            "element": "Messages",
+            "gesture": "isElement_onHotseat",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "element": "Messages",
+            "gesture": "tap",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": "Verify current acitvity is expected",
+            "element": "com.google.android.apps.messaging",
+            "gesture": "isCurrentApp_excepted",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "element": "",
+            "gesture": "overview",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4.1,
+            "element": "",
+            "gesture": "swipe_up",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": "Verify app is in the background",
+            "element": "com.google.android.apps.messaging",
+            "gesture": "isActivityBackgroung",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "element": "",
+            "gesture": "screenshot",
+            "args": [
+                "TestScreenShot"
+            ],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": "Verify ScreenShot worked",
+            "element": "",
+            "gesture": "isScreenShotEnable",
+            "args": [
+                "TestScreenShots"
+            ],
+            "x": "",
+            "y": ""
+        }
+    ]
+}

@@ -8,7 +8,6 @@ desired_caps = {}
 desired_caps['platformName'] = config.platformName
 desired_caps['platformVersion'] = config.platformVersion
 desired_caps['deviceName'] = config.deviceName
-desired_caps['udid'] = config.udid
 
 # Step 2 : Create Driver object
 driver = webdriver.Remote(

@@ -1,4 +1,6 @@
 """Gesture Class."""
+import cv2
+import numpy as np
 import subprocess
 from appium.webdriver.common.touch_action import TouchAction
 from selenium.webdriver.support.ui import WebDriverWait
@@ -25,7 +27,7 @@ class Gesture:
     ) -> None:
         # Tap fuction
         self.touch_action.tap(element).perform()
-        self.logger.debug('tap complete.')
+        self.logger.info('tap complete.')
 
     def drag_drop_bylocation(
         self,
@@ -54,9 +56,14 @@ class Gesture:
         # doublefinger use
         pass
 
-    def longpress(self) -> None:
+    def longpress_element(self, element) -> None:
         # longpress fuction
+        self.touch_action.long_press(element, duration=5000)
         pass
+
+    def longpress_location(self, location_x, location_y):
+        self.touch_action.long_press(
+            el=None, x=location_x, y=location_y, duration=5000).perform()
 
     def home_page(self) -> None:
         # home page button
@@ -114,3 +121,24 @@ class Gesture:
                 self.logger.error(f"{element} is not in the background")
         else:
             self.logger.error("No overview activities found.")
+
+    def compare_images_pixel(self):
+        image_path1 = "1.png"  # 第一张图片的路径
+        image_path2 = "2.png"  # 第二张图片的路径
+        # 读取两张图片
+        img1 = cv2.imread(image_path1)
+        img2 = cv2.imread(image_path2)
+        x, y, w, h = 50, 50, 100, 100
+
+        # 提取左上角区域
+        img1 = img1[y:y+h, x:x+w]
+        img2 = img2[y:y+h, x:x+w]
+        # 计算每个像素通道的颜色值差异
+        diff_image = cv2.absdiff(img1, img2)
+        diff_pixels = np.sum(diff_image, axis=2)  # 计算通道差异总和
+        different_pixel_count = np.count_nonzero(diff_pixels)
+        print(different_pixel_count)
+        if different_pixel_count > 5000:
+            self.logger.info('Wallpaper changed success')
+        else:
+            self.logger.error('Wallpaper changed fail')

@@ -1,9 +1,8 @@
 '''Device setting'''
 
 platformName = 'Android'
-platformVersion = '14'
-deviceName = 'emlator-5554'
-udid = 'emulator-5554'
+platformVersion = '11'
+deviceName = 'VBS200'
 
 '''Appium Connect setting'''
 host = 'localhost'

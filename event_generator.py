@@ -41,9 +41,16 @@ class EventGen():
     def gesture_cases(self, event, gesture, driver, json_sequence, json_element, json_gesture, location_x, location_y):
         gesture = Gesture(driver)
         match json_gesture:
-            case 'tap':
+            case 'tap_byXpath':
                 element = driver.find_element(
-                    AppiumBy.ACCESSIBILITY_ID,
+                    AppiumBy.XPATH,
+                    json_element
+                )
+                gesture.tap(element)
+
+            case 'tap_byID':
+                element = driver.find_element(
+                    AppiumBy.ID,
                     json_element
                 )
                 gesture.tap(element)
@@ -59,11 +66,14 @@ class EventGen():
                 time.sleep(3)
                 now_time = time.strftime("%Y%m%d.%H.%M.%S")
                 filename = event['args'][-1]
-                gesture.screenshot(f'./{filename}-{now_time}.png')
+                gesture.screenshot(f'./{filename}.png')
                 time.sleep(3)
 
             case 'swipe_up':
                 gesture.swipe_up()
+
+            case 'longpress_location':
+                gesture.longpress_location(location_x, location_y)
 
             case 'overview':
                 gesture.overview_page()
@@ -117,6 +127,8 @@ class EventGen():
                 gesture.get_overview_activities()
                 gesture.check_background_activities(json_element)
 
+            case 'compare_images_pixel':
+                gesture.compare_images_pixel()
             case _:
                 self.logger.warring(
                     f'gesture type: {json_gesture} not defined.')

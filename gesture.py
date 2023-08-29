@@ -15,11 +15,15 @@ class Gesture:
             raise ValueError('driver can not be null.')
         self.driver = driver
         self.touch_action = TouchAction(self.driver)
-
         # implicitly_wait setting
         self.wait = WebDriverWait(self.driver, 2)
         self.implicitly_wait_timeout = 5
         self.driver.implicitly_wait(self.implicitly_wait_timeout)
+
+    def open_activity(self, element) -> None:
+        package = element[0]
+        activity = element[1]
+        self.driver.start_activity(package, activity)
 
     def tap(
             self,
@@ -28,6 +32,20 @@ class Gesture:
         # Tap fuction
         self.touch_action.tap(element).perform()
         self.logger.info('tap complete.')
+
+    def send_keys(self, element, keyword) -> None:
+        try:
+            element.send_keys(keyword)
+            self.logger.info('send key success')
+        except:
+            self.logger.error('send key fail')
+
+    def clear_keys(self, element) -> None:
+        try:
+            element.clear()
+            self.logger.info('clear key success')
+        except:
+            self.logger.error('clear key fail')
 
     def drag_drop_bylocation(
         self,

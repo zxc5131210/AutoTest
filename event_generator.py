@@ -39,16 +39,35 @@ class EventGen():
                                json_element, json_gesture, location_x, location_y)
             self.logger.info(
                 f'Sequence {json_sequence} {json_gesture} complete.')
+        self.logger.info("Flow complete")
 
     def gesture_cases(self, event, gesture, driver, json_sequence, json_element, json_gesture, location_x, location_y):
         gesture = Gesture(driver)
         match json_gesture:
+            case 'open_activity':
+                gesture.open_activity(json_element)
+
             case 'tap_byXpath':
                 element = driver.find_element(
                     AppiumBy.XPATH,
                     json_element
                 )
                 gesture.tap(element)
+
+            case 'sendKey_byID':
+                element = driver.find_element(
+                    AppiumBy.ID,
+                    json_element
+                )
+                keyword = event['args'][-1]
+                gesture.send_keys(element, keyword)
+
+            case 'clearKey_byID':
+                element = driver.find_element(
+                    AppiumBy.ID,
+                    json_element
+                )
+                gesture.clear_keys(element)
 
             case 'tap_byID':
                 element = driver.find_element(

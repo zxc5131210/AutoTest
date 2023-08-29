@@ -16,7 +16,11 @@ driver = webdriver.Remote(
 # Step 3 : Create gesture automation flow
 event_gen = EventGen()
 event_gen.generate_event(
-    json_path='./Test_Jason/motion_flow.json', driver=driver)
+    json_path='./Test_Jason/motion_flow.json', driver=driver
+)
+event_gen.generate_event(
+    json_path='./Test_Jason/screenLock.json', driver=driver
+)
 
-# Step4:quit driver
+# Step 4 : quit driver
 driver.quit()

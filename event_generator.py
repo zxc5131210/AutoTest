@@ -25,6 +25,8 @@ class EventGen():
             return flow
 
     def generate_event(self, json_path: str, driver):
+        gesture = Gesture(driver)
+        gesture.home_page()
         evnet_flow = self. read_json(json_path)
         flow = evnet_flow['steps']
         for event in flow:
@@ -78,6 +80,9 @@ class EventGen():
             case 'overview':
                 gesture.overview_page()
 
+            case 'homepage':
+                gesture.home_page()
+
             case 'findelement_ByAccessibility_ID':
                 try:
                     element = driver.find_element(
@@ -128,7 +133,18 @@ class EventGen():
                 gesture.check_background_activities(json_element)
 
             case 'compare_images_pixel':
-                gesture.compare_images_pixel()
+                compare_1 = event['element'][0]
+                compare_2 = event['element'][1]
+                gesture.compare_images_pixel(compare_1, compare_2)
+
+            case 'clean_package':
+                gesture.clear_package(element)
+
+            case 'end_activity':
+                gesture.close_app()
+                gesture.home_page()
+                gesture.clean_activity(json_element)
+
             case _:
                 self.logger.warring(
                     f'gesture type: {json_gesture} not defined.')

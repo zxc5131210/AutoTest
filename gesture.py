@@ -122,23 +122,34 @@ class Gesture:
         else:
             self.logger.error("No overview activities found.")
 
-    def compare_images_pixel(self):
-        image_path1 = "1.png"  # 第一张图片的路径
-        image_path2 = "2.png"  # 第二张图片的路径
+    def compare_images_pixel(self, compare_1, compare_2) -> None:
+        image_path1 = compare_1  # 第一张图片的路径
+        image_path2 = compare_2  # 第二张图片的路径
         # 读取两张图片
         img1 = cv2.imread(image_path1)
         img2 = cv2.imread(image_path2)
-        x, y, w, h = 50, 50, 100, 100
+        x, y, x_offset, y_offset = 50, 50, 100, 100
 
         # 提取左上角区域
-        img1 = img1[y:y+h, x:x+w]
-        img2 = img2[y:y+h, x:x+w]
+        img1 = img1[y:y+y_offset, x:x+x_offset]
+        img2 = img2[y:y+y_offset, x:x+x_offset]
         # 计算每个像素通道的颜色值差异
         diff_image = cv2.absdiff(img1, img2)
         diff_pixels = np.sum(diff_image, axis=2)  # 计算通道差异总和
         different_pixel_count = np.count_nonzero(diff_pixels)
-        print(different_pixel_count)
         if different_pixel_count > 5000:
             self.logger.info('Wallpaper changed success')
         else:
             self.logger.error('Wallpaper changed fail')
+
+    def clean_activity(self, element):
+        command = ['adb', 'shell', 'pm', 'clear', element]
+        try:
+            result = subprocess.run(
+                command, capture_output=True, text=True, check=True)
+            self.logger.info(f'clear activity data:{result.stdout}')
+        except subprocess.CalledProcessError as e:
+            self.logger.error(e.stderr)
+
+    def close_app(self):
+        self.driver.close_app()

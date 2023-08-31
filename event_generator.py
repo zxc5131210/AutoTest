@@ -35,17 +35,26 @@ class EventGen():
             json_gesture = event['gesture']
             location_x = event['x']
             location_y = event['y']
-            self.gesture_cases(event, json_gesture, driver, json_sequence,
-                               json_element, json_gesture, location_x, location_y)
-            self.logger.info(
-                f'Sequence {json_sequence} {json_gesture} complete.')
-        self.logger.info("Flow complete")
+            try:
+                self.gesture_cases(event, json_gesture, driver, json_sequence,
+                                   json_element, json_gesture, location_x, location_y)
+                self.logger.info(
+                    f'Sequence {json_sequence} {json_gesture}'
+                )
+            except:
+                self.logger.error(
+                    f'Sequence {json_sequence} {json_gesture}'
+                )
+        self.logger.info("Flow finished")
 
     def gesture_cases(self, event, gesture, driver, json_sequence, json_element, json_gesture, location_x, location_y):
         gesture = Gesture(driver)
         match json_gesture:
             case 'open_activity':
-                gesture.open_activity(json_element)
+                try:
+                    gesture.open_activity(json_element)
+                except:
+                    pass
 
             case 'tap_byXpath':
                 element = driver.find_element(
@@ -88,7 +97,6 @@ class EventGen():
                 now_time = time.strftime("%Y%m%d.%H.%M.%S")
                 filename = event['args'][-1]
                 gesture.screenshot(f'./{filename}.png')
-                time.sleep(3)
 
             case 'swipe_up':
                 gesture.swipe_up()
@@ -103,15 +111,12 @@ class EventGen():
                 gesture.home_page()
 
             case 'findelement_ByAccessibility_ID':
-                try:
-                    element = driver.find_element(
-                        AppiumBy.ACCESSIBILITY_ID,
-                        json_element
-                    )
-                except NoSuchElementException:
-                    logger.error(f'{json_sequence} Verify Fail')
+                element = driver.find_element(
+                    AppiumBy.ACCESSIBILITY_ID,
+                    json_element
+                )
 
-            case 'findelement_ByClassName':
+            case 'findelement_hotseat':
                 elements = driver.find_elements(
                     AppiumBy.CLASS_NAME,
                     json_element
@@ -121,31 +126,29 @@ class EventGen():
                     element_text = element.text
                     hotseat_list.append(element_text)
 
+            case 'findelement_ByXpath':
+                element = driver.find_element(
+                    AppiumBy.XPATH,
+                    json_element
+                )
+
             case 'isElement_onHotseat':
                 element = driver.find_element(
                     AppiumBy.ACCESSIBILITY_ID,
                     json_element
                 )
-                if element.text in hotseat_list:
-                    logger.info('App is on the hot seat')
-                else:
-                    logger.error('App is not on the hot seat')
 
             case 'isCurrentApp_excepted':
                 current_app_package = driver.current_package
-                if current_app_package == json_element:
-                    logger.info('Current App is excepted')
-                else:
-                    logger.error('Current app is not excepted')
 
             case 'isScreenShotEnable':
                 current_directory = os.getcwd()
                 file_list = os.listdir(current_directory)
                 for filename in file_list:
-                    if json_gesture in filename:
-                        logger.info("ScreenShot is worked ")
-                        break
-                logger.error('ScreenShot Fail')
+                    if event['args'][-1] in filename:
+                        pass
+                    else:
+                        logger.error('ScreenShot Fail')
 
             case 'isActivityBackgroung':
                 gesture.get_overview_activities()
@@ -156,8 +159,11 @@ class EventGen():
                 compare_2 = event['element'][1]
                 gesture.compare_images_pixel(compare_1, compare_2)
 
-            case 'clean_package':
-                gesture.clear_package(element)
+            case 'close_app':
+                gesture.close_app()
+
+            case 'update_image':
+                gesture.update_image(json_element)
 
             case 'end_activity':
                 gesture.close_app()

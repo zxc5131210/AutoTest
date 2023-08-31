@@ -63,11 +63,11 @@ def wallpaper_Byupdate(driver):
 
 
 # first choice
-first_choice = input("請選擇操作(1: ScreenLock 2: Wallpaper):")
+first_choice = input("Please select action\n 1: ScreenLock\n 2: Wallpaper:\n")
 if first_choice == '1':
     # second choice
     second_choice = input(
-        "請選擇操作(1 : Set Password 2 : Change Password 3 : Remove Password,ALL):").split(',')
+        "Please select action\n 1 : Set Password\n 2 : Change Password\n 3 : Remove Password\n ALL\n").split(',')
     for choices in second_choice:
         if choices.lower() == 'all':
             screen_lock_ALL(driver)
@@ -86,7 +86,7 @@ if first_choice == '1':
 
 elif first_choice == '2':
     second_choice = input(
-        "請選擇操作(1 : Change Bydefault 2 : Change Byupdate ,ALL):").split(',')
+        "Please select action\n 1 : Change Bydefault\n 2 : Change Byupdate\n ALL\n:").split(',')
     for choices in second_choice:
         if choices.lower() == 'all':
             wallpaper_ALL(driver)

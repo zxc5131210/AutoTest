@@ -153,7 +153,6 @@ class Gesture:
         try:
             result = subprocess.run(
                 command, capture_output=True, text=True, check=True)
-            self.logger.info(f'clear activity data:{result.stdout}')
 
         except subprocess.CalledProcessError as e:
             self.logger.error(e.stderr)

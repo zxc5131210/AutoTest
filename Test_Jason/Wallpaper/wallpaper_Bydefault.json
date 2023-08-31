@@ -9,7 +9,7 @@
             "y": "433"
         },
         {
-            "sequence": 1.1,
+            "sequence": 2,
             "element": "//*[@resource-id='com.viewsonic.vlauncher:id/popup_container']/android.widget.FrameLayout[1]",
             "gesture": "tap_byXpath",
             "args": "",
@@ -17,7 +17,7 @@
             "y": ""
         },
         {
-            "sequence": 1.2,
+            "sequence": 3,
             "element": "//android.widget.FrameLayout[@content-desc='Wallpaper 1 of 7']/android.widget.ImageView",
             "gesture": "tap_byXpath",
             "args": "",
@@ -25,7 +25,7 @@
             "y": ""
         },
         {
-            "sequence": 1.3,
+            "sequence": 4,
             "element": "com.viewsonic.wallpaperpicker:id/btn_set_wallpaper",
             "gesture": "tap_byID",
             "args": "",
@@ -33,7 +33,7 @@
             "y": ""
         },
         {
-            "sequence": 1.4,
+            "sequence": 5,
             "element": "",
             "gesture": "screenshot",
             "args": [
@@ -43,7 +43,7 @@
             "y": ""
         },
         {
-            "sequence": 2,
+            "sequence": 6,
             "element": "",
             "gesture": "longpress_location",
             "args": "",
@@ -51,7 +51,7 @@
             "y": "433"
         },
         {
-            "sequence": 2.1,
+            "sequence": 7,
             "element": "//*[@resource-id='com.viewsonic.vlauncher:id/popup_container']/android.widget.FrameLayout[1]",
             "gesture": "tap_byXpath",
             "args": "",
@@ -59,7 +59,7 @@
             "y": ""
         },
         {
-            "sequence": 2.2,
+            "sequence": 8,
             "element": "//android.widget.FrameLayout[@content-desc='Wallpaper 2 of 7']/android.widget.ImageView",
             "gesture": "tap_byXpath",
             "args": "",
@@ -67,7 +67,7 @@
             "y": ""
         },
         {
-            "sequence": 2.3,
+            "sequence": 9,
             "element": "com.viewsonic.wallpaperpicker:id/btn_set_wallpaper",
             "gesture": "tap_byID",
             "args": "",
@@ -75,7 +75,7 @@
             "y": ""
         },
         {
-            "sequence": 2.4,
+            "sequence": 10,
             "element": "",
             "gesture": "screenshot",
             "args": [
@@ -85,7 +85,7 @@
             "y": ""
         },
         {
-            "sequence": 3,
+            "sequence": 11,
             "element": [
                 "compareshot_1.png",
                 "compareshot_2.png"
@@ -96,7 +96,7 @@
             "y": ""
         },
         {
-            "sequence": "end",
+            "sequence": "END",
             "element": "com.viewsonic.wallpaperpicker",
             "gesture": "end_activity",
             "args": "",

@@ -17,7 +17,7 @@ class Gesture:
         self.touch_action = TouchAction(self.driver)
         # implicitly_wait setting
         self.wait = WebDriverWait(self.driver, 2)
-        self.implicitly_wait_timeout = 5
+        self.implicitly_wait_timeout = 3
         self.driver.implicitly_wait(self.implicitly_wait_timeout)
 
     def open_activity(self, element) -> None:
@@ -31,21 +31,12 @@ class Gesture:
     ) -> None:
         # Tap fuction
         self.touch_action.tap(element).perform()
-        self.logger.info('tap complete.')
 
     def send_keys(self, element, keyword) -> None:
-        try:
-            element.send_keys(keyword)
-            self.logger.info('send key success')
-        except:
-            self.logger.error('send key fail')
+        element.send_keys(keyword)
 
     def clear_keys(self, element) -> None:
-        try:
-            element.clear()
-            self.logger.info('clear key success')
-        except:
-            self.logger.error('clear key fail')
+        element.clear()
 
     def drag_drop_bylocation(
         self,
@@ -77,7 +68,6 @@ class Gesture:
     def longpress_element(self, element) -> None:
         # longpress fuction
         self.touch_action.long_press(element, duration=5000)
-        pass
 
     def longpress_location(self, location_x, location_y):
         self.touch_action.long_press(
@@ -116,16 +106,13 @@ class Gesture:
         self.driver.swipe(start_x, start_y, end_x, end_y, duration=500)
 
     def get_overview_activities(self) -> None:
-        try:
-            result = subprocess.check_output(
-                ["adb", "shell", "dumpsys", "activity", "recents"], universal_newlines=True)
-            lines = result.split("\n")
-            activities = []
-            activities = [line.split(
-            )[2] for line in lines if "ActivityRecord" in line and len(line.split()) >= 4]
-            return activities
-        except subprocess.CalledProcessError:
-            self.logger.error("Error executing ADB command.")
+        result = subprocess.check_output(
+            ["adb", "shell", "dumpsys", "activity", "recents"], universal_newlines=True)
+        lines = result.split("\n")
+        activities = []
+        activities = [line.split(
+        )[2] for line in lines if "ActivityRecord" in line and len(line.split()) >= 4]
+        return activities
 
     def check_background_activities(self, element) -> None:
         # check background activities match the app or not
@@ -156,7 +143,8 @@ class Gesture:
         diff_pixels = np.sum(diff_image, axis=2)  # 计算通道差异总和
         different_pixel_count = np.count_nonzero(diff_pixels)
         if different_pixel_count > 5000:
-            self.logger.info('Wallpaper changed success')
+            pass
+
         else:
             self.logger.error('Wallpaper changed fail')
 
@@ -166,8 +154,13 @@ class Gesture:
             result = subprocess.run(
                 command, capture_output=True, text=True, check=True)
             self.logger.info(f'clear activity data:{result.stdout}')
+
         except subprocess.CalledProcessError as e:
             self.logger.error(e.stderr)
+
+    def update_image(self, element):
+        command = ['adb', 'push', element, '/sdcard/']
+        subprocess.run(command)
 
     def close_app(self):
         self.driver.close_app()

@@ -98,16 +98,18 @@
         },
         {
             "sequence": 11,
-            "element": "com.viewsonic.screenlock:id/btnBottomLeft",
-            "gesture": "tap_byID",
-            "args": "",
+            "element": "com.viewsonic.screenlock:id/edittextPassword",
+            "gesture": "sendKey_byID",
+            "args": [
+                "1234"
+            ],
             "x": "",
             "y": ""
         },
         {
             "sequence": 12,
-            "element": "com.viewsonic.screenlock:id/btnCancel",
-            "gesture": "tap_byID",
+            "element": "com.viewsonic.screenlock:id/edittextPassword",
+            "gesture": "clearKey_byID",
             "args": "",
             "x": "",
             "y": ""
@@ -122,7 +124,7 @@
         },
         {
             "sequence": 14,
-            "element": "com.viewsonic.screenlock:id/btnConfirm",
+            "element": "com.viewsonic.screenlock:id/btnCancel",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -130,16 +132,22 @@
         },
         {
             "sequence": 15,
-            "element": "com.viewsonic.screenlock:id/edittextPassword",
-            "gesture": "sendKey_byID",
-            "args": [
-                "1111"
-            ],
+            "element": "com.viewsonic.screenlock:id/btnBottomLeft",
+            "gesture": "tap_byID",
+            "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 16,
+            "element": "com.viewsonic.screenlock:id/btnConfirm",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 17,
             "element": "com.viewsonic.screenlock:id/edittextPassword",
             "gesture": "sendKey_byID",
             "args": [
@@ -149,17 +157,9 @@
             "y": ""
         },
         {
-            "sequence": 17,
-            "element": "com.viewsonic.screenlock:id/next",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
             "sequence": 18,
-            "element": "com.viewsonic.screenlock:id/btnBottomRight",
-            "gesture": "tap_byID",
+            "element": "com.viewsonic.screenlock:id/edittextPassword",
+            "gesture": "clearKey_byID",
             "args": "",
             "x": "",
             "y": ""
@@ -176,32 +176,6 @@
         },
         {
             "sequence": 20,
-            "element": "com.viewsonic.screenlock:id/btnRevealPassword",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 21,
-            "element": "",
-            "gesture": "screenshot",
-            "args": [
-                "RevealPassword"
-            ],
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 22,
-            "element": "com.viewsonic.screenlock:id/edittextPassword",
-            "gesture": "clearKey_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": "change password success",
             "element": "com.viewsonic.screenlock:id/edittextPassword",
             "gesture": "sendKey_byID",
             "args": [
@@ -211,7 +185,67 @@
             "y": ""
         },
         {
+            "sequence": 21,
+            "element": "com.viewsonic.screenlock:id/next",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 22,
+            "element": "com.viewsonic.screenlock:id/btnBottomRight",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
             "sequence": 23,
+            "element": "com.viewsonic.screenlock:id/edittextPassword",
+            "gesture": "sendKey_byID",
+            "args": [
+                "1111"
+            ],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 24,
+            "element": "com.viewsonic.screenlock:id/btnRevealPassword",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 25,
+            "element": "//*[@text='1111']",
+            "gesture": "findelement_ByXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 26,
+            "element": "com.viewsonic.screenlock:id/edittextPassword",
+            "gesture": "clearKey_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": "27 change password success",
+            "element": "com.viewsonic.screenlock:id/edittextPassword",
+            "gesture": "sendKey_byID",
+            "args": [
+                "1234"
+            ],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 28,
             "element": [
                 "com.viewsonic.screenlock",
                 "com.viewsonic.screenlock.DialogActivity"
@@ -222,7 +256,7 @@
             "y": ""
         },
         {
-            "sequence": 24,
+            "sequence": 29,
             "element": "com.viewsonic.screenlock:id/btnBottomRight",
             "gesture": "tap_byID",
             "args": "",
@@ -230,7 +264,7 @@
             "y": ""
         },
         {
-            "sequence": 25,
+            "sequence": 30,
             "element": "com.viewsonic.screenlock:id/btnConfirm",
             "gesture": "tap_byID",
             "args": "",
@@ -238,7 +272,31 @@
             "y": ""
         },
         {
-            "sequence": 26,
+            "sequence": 31,
+            "element": "com.viewsonic.screenlock:id/close",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 32,
+            "element": "com.viewsonic.screenlock:id/btnBottomRight",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 33,
+            "element": "com.viewsonic.screenlock:id/btnConfirm",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 34,
             "element": "com.viewsonic.screenlock:id/edittextPassword",
             "gesture": "sendKey_byID",
             "args": [
@@ -248,9 +306,17 @@
             "y": ""
         },
         {
-            "sequence": 27,
+            "sequence": 35,
             "element": "com.viewsonic.screenlock:id/btnBottomCenter",
             "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": "END",
+            "element": "com.viewsonic.screenlock",
+            "gesture": "end_activity",
             "args": "",
             "x": "",
             "y": ""

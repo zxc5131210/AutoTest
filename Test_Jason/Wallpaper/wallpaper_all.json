@@ -18,8 +18,8 @@
         },
         {
             "sequence": 3,
-            "element": "//android.widget.FrameLayout[@content-desc='Wallpaper 1 of 7']/android.widget.ImageView",
-            "gesture": "tap_byXpath",
+            "element": "com.viewsonic.wallpaperpicker:id/wallpaper_image",
+            "gesture": "change_wallpaper_first",
             "args": "",
             "x": "",
             "y": ""
@@ -60,8 +60,8 @@
         },
         {
             "sequence": 8,
-            "element": "//android.widget.FrameLayout[@content-desc='Wallpaper 2 of 7']/android.widget.ImageView",
-            "gesture": "tap_byXpath",
+            "element": "com.viewsonic.wallpaperpicker:id/wallpaper_image",
+            "gesture": "change_wallpaper_second",
             "args": "",
             "x": "",
             "y": ""

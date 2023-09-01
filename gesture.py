@@ -128,11 +128,9 @@ class Gesture:
             self.logger.error("No overview activities found.")
 
     def compare_images_pixel(self, compare_1, compare_2) -> None:
-        image_path1 = compare_1
-        image_path2 = compare_2
         # 读取两张图片
-        img1 = cv2.imread(image_path1)
-        img2 = cv2.imread(image_path2)
+        img1 = cv2.imread(compare_1)
+        img2 = cv2.imread(compare_2)
         x, y, x_offset, y_offset = 50, 50, 100, 100
 
         # 提取左上角区域

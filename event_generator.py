@@ -47,7 +47,9 @@ class EventGen():
                 )
         self.logger.info("Flow finished")
 
-    def gesture_cases(self, event, gesture, driver, json_element, json_gesture, location_x, location_y):
+    def gesture_cases(
+            self, event, gesture, driver, json_element, json_gesture, location_x, location_y
+    ):
         gesture = Gesture(driver)
         match json_gesture:
             case 'open_activity':
@@ -94,7 +96,6 @@ class EventGen():
 
             case 'screenshot':
                 time.sleep(3)
-                now_time = time.strftime("%Y%m%d.%H.%M.%S")
                 filename = event['args'][-1]
                 gesture.screenshot(f'./{filename}.png')
 
@@ -116,15 +117,11 @@ class EventGen():
                     json_element
                 )
 
-            case 'findelement_hotseat':
+            case 'findelements_ByID':
                 elements = driver.find_elements(
-                    AppiumBy.CLASS_NAME,
+                    AppiumBy.ID,
                     json_element
                 )
-                hotseat_list = []
-                for element in elements:
-                    element_text = element.text
-                    hotseat_list.append(element_text)
 
             case 'findelement_ByXpath':
                 element = driver.find_element(
@@ -132,11 +129,21 @@ class EventGen():
                     json_element
                 )
 
-            case 'isElement_onHotseat':
-                element = driver.find_element(
-                    AppiumBy.ACCESSIBILITY_ID,
+            case 'change_wallpaper_first':
+                elements = driver.find_elements(
+                    AppiumBy.ID,
                     json_element
                 )
+                first_element = elements[1]
+                gesture.tap(first_element)
+
+            case 'change_wallpaper_second':
+                elements = driver.find_elements(
+                    AppiumBy.ID,
+                    json_element
+                )
+                first_element = elements[2]
+                gesture.tap(first_element)
 
             case 'isCurrentApp_excepted':
                 current_app_package = driver.current_package

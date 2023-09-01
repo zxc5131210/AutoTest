@@ -1,3 +1,6 @@
+"""
+log and csv output setting
+"""
 import logging
 import csv
 from datetime import datetime
@@ -8,7 +11,6 @@ FORMAT = '%(asctime)s %(levelname)-2s %(message)s'
 
 
 class Logger:
-
     def __init__(self, log_file=f'log-{datetime.now()}.csv') -> None:
         self.logger = logging
         self.logger.basicConfig(
@@ -27,7 +29,7 @@ class Logger:
 
     def warning(self, msg: str) -> None:
         self.logger.warning(msg)
-        self._write_to_csv('WARNING', msg)
+        self._write_to_csv('WARNING', msg, 'Warning')
 
     def error(self, msg: str) -> None:
         self.logger.error(msg)
@@ -35,10 +37,10 @@ class Logger:
 
     def critical(self, msg: str) -> None:
         self.logger.critical(msg)
-        self._write_to_csv('CRITICAL', msg)
+        self._write_to_csv('CRITICAL', msg, 'Critical')
 
     def _write_to_csv(self, level: str, msg: str, status: str) -> None:
-        with open(self.log_file, 'a', newline='') as csvfile:
+        with open(self.log_file, 'a', encoding='utf-8', newline='') as csvfile:
             csv_writer = csv.writer(csvfile)
             csv_writer.writerow([level, msg, status])
 

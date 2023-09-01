@@ -18,6 +18,12 @@ event_gen = EventGen()
 # ScreenLock
 
 
+def TestJson(driver):
+    event_gen.generate_event(
+        json_path='./Test_Jason/Test/Test.json', driver=driver
+    )
+
+
 def screen_lock_ALL(driver):
     event_gen.generate_event(
         json_path='./Test_Jason/ScreenLock/screenLock_all.json', driver=driver
@@ -64,7 +70,10 @@ def wallpaper_Byupdate(driver):
 
 # first choice
 first_choice = input("Please select action\n 1: ScreenLock\n 2: Wallpaper:\n")
-if first_choice == '1':
+if first_choice == '0':
+    TestJson(driver)
+
+elif first_choice == '1':
     # second choice
     second_choice = input(
         "Please select action\n 1 : Set Password\n 2 : Change Password\n 3 : Remove Password\n ALL\n").split(',')

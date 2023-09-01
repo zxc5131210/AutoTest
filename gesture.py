@@ -128,8 +128,8 @@ class Gesture:
             self.logger.error("No overview activities found.")
 
     def compare_images_pixel(self, compare_1, compare_2) -> None:
-        image_path1 = compare_1  # 第一张图片的路径
-        image_path2 = compare_2  # 第二张图片的路径
+        image_path1 = compare_1
+        image_path2 = compare_2
         # 读取两张图片
         img1 = cv2.imread(image_path1)
         img2 = cv2.imread(image_path2)
@@ -150,16 +150,12 @@ class Gesture:
 
     def clean_activity(self, element):
         command = ['adb', 'shell', 'pm', 'clear', element]
-        try:
-            result = subprocess.run(
-                command, capture_output=True, text=True, check=True)
-
-        except subprocess.CalledProcessError as e:
-            self.logger.error(e.stderr)
+        subprocess.run(
+            command, capture_output=True, text=True, check=True)
 
     def update_image(self, element):
         command = ['adb', 'push', element, '/sdcard/']
-        subprocess.run(command)
+        subprocess.run(command, check=False)
 
     def close_app(self):
         self.driver.close_app()

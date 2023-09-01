@@ -36,24 +36,24 @@ class EventGen():
             location_x = event['x']
             location_y = event['y']
             try:
-                self.gesture_cases(event, json_gesture, driver, json_sequence,
+                self.gesture_cases(event, json_gesture, driver,
                                    json_element, json_gesture, location_x, location_y)
                 self.logger.info(
                     f'Sequence {json_sequence} {json_gesture}'
                 )
-            except:
+            except NoSuchElementException:
                 self.logger.error(
                     f'Sequence {json_sequence} {json_gesture}'
                 )
         self.logger.info("Flow finished")
 
-    def gesture_cases(self, event, gesture, driver, json_sequence, json_element, json_gesture, location_x, location_y):
+    def gesture_cases(self, event, gesture, driver, json_element, json_gesture, location_x, location_y):
         gesture = Gesture(driver)
         match json_gesture:
             case 'open_activity':
                 try:
                     gesture.open_activity(json_element)
-                except:
+                except NoSuchElementException:
                     pass
 
             case 'tap_byXpath':
@@ -171,7 +171,7 @@ class EventGen():
                 gesture.clean_activity(json_element)
 
             case _:
-                self.logger.warring(
+                self.logger.warning(
                     f'gesture type: {json_gesture} not defined.')
 
 

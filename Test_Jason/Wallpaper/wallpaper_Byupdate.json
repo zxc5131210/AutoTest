@@ -75,7 +75,7 @@
             "y": ""
         },
         {
-            "sequence": 9,
+            "sequence": 10,
             "element": "com.android.documentsui:id/icon_thumb",
             "gesture": "tap_byID",
             "args": "",
@@ -83,7 +83,7 @@
             "y": ""
         },
         {
-            "sequence": 10,
+            "sequence": 11,
             "element": "com.viewsonic.wallpaperpicker:id/btn_set_wallpaper",
             "gesture": "tap_byID",
             "args": "",
@@ -91,7 +91,7 @@
             "y": ""
         },
         {
-            "sequence": 11,
+            "sequence": 12,
             "element": "",
             "gesture": "screenshot",
             "args": [
@@ -101,7 +101,7 @@
             "y": ""
         },
         {
-            "sequence": 12,
+            "sequence": 13,
             "element": [
                 "compareshot_1.png",
                 "compareshot_2.png"

@@ -1,7 +1,7 @@
 """Gesture Class."""
+import subprocess
 import cv2
 import numpy as np
-import subprocess
 from appium.webdriver.common.touch_action import TouchAction
 from selenium.webdriver.support.ui import WebDriverWait
 from logger import Logger

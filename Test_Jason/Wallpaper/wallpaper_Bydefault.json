@@ -3,7 +3,7 @@
         {
             "sequence": 1,
             "element": "",
-            "gesture": "longpress_location",
+            "gesture": "long_press_location",
             "args": "",
             "x": "1838",
             "y": "433"
@@ -45,7 +45,7 @@
         {
             "sequence": 6,
             "element": "",
-            "gesture": "longpress_location",
+            "gesture": "long_press_location",
             "args": "",
             "x": "1838",
             "y": "433"

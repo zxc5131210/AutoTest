@@ -29,7 +29,7 @@ class Gesture:
             self,
             element
     ) -> None:
-        # Tap fuction
+        # Tap function
         self.touch_action.tap(element).perform()
 
     def send_keys(self, element, keyword) -> None:
@@ -44,12 +44,12 @@ class Gesture:
         location_x,
         location_y
     ) -> None:
-        # darg drop fuction
+        # drag drop function
         self.touch_action.long_press(el=drag_element, duration=5000).move_to(
             x=location_x, y=location_y).release().perform()
 
     def double_tap(self, element) -> None:
-        # double tap fuction
+        # double tap function
         self.tap(element).tap(element).perform()
         self.logger.debug('tap complete.')
 
@@ -62,14 +62,14 @@ class Gesture:
         self.driver.save_screenshot(save_location)
 
     def double_finger(self) -> None:
-        # doublefinger use
+        # double_finger use
         pass
 
-    def longpress_element(self, element) -> None:
-        # longpress fuction
+    def long_press_element(self, element) -> None:
+        # long_press fuction
         self.touch_action.long_press(element, duration=5000)
 
-    def longpress_location(self, location_x, location_y):
+    def long_press_location(self, location_x, location_y):
         self.touch_action.long_press(
             el=None, x=location_x, y=location_y, duration=5000).perform()
 
@@ -92,7 +92,7 @@ class Gesture:
         end_x: float = 50,
         end_y: float = 954
     ) -> None:
-        # swipe left fuction
+        # swipe left function
         self.driver.swipe(start_x, start_y, end_x, end_y, duration=500)
 
     def swipe_up(
@@ -102,7 +102,7 @@ class Gesture:
         end_x: float = 481,
         end_y: float = 229
     ) -> None:
-        # Swipe up fuction
+        # Swipe up function
         self.driver.swipe(start_x, start_y, end_x, end_y, duration=500)
 
     def get_overview_activities(self) -> None:

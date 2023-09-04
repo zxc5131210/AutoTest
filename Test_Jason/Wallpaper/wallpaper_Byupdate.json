@@ -3,7 +3,7 @@
         {
             "sequence": 1,
             "element": "",
-            "gesture": "longpress_location",
+            "gesture": "long_press_location",
             "args": "",
             "x": "1838",
             "y": "433"
@@ -44,7 +44,7 @@
         },
         {
             "sequence": 6,
-            "element": "./Test_Photo/Wallpaper_TestPhoto.jpg",
+            "element": "./Test_File/Wallpaper_TestPhoto.jpg",
             "gesture": "update_image",
             "args": "",
             "x": "",
@@ -53,7 +53,7 @@
         {
             "sequence": 7,
             "element": "",
-            "gesture": "longpress_location",
+            "gesture": "long_press_location",
             "args": "",
             "x": "1838",
             "y": "433"

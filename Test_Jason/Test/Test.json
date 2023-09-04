@@ -1,26 +1,12 @@
 {
     "steps": [
         {
-            "sequence": 1,
+            "sequence": 5,
             "element": "",
-            "gesture": "longpress_location",
-            "args": "",
-            "x": "1838",
-            "y": "433"
-        },
-        {
-            "sequence": 2,
-            "element": "//*[@resource-id='com.viewsonic.vlauncher:id/popup_container']/android.widget.FrameLayout[1]",
-            "gesture": "tap_byXpath",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 3,
-            "element": "com.viewsonic.wallpaperpicker:id/wallpaper_image",
-            "gesture": "change_wallpaper",
-            "args": "",
+            "gesture": "screenshot",
+            "args": [
+                "compareshot_1"
+            ],
             "x": "",
             "y": ""
         }

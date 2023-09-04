@@ -20,52 +20,44 @@ event_gen = EventGen()
 
 def TestJson(driver):
     event_gen.generate_event(
-        json_path='./Test_Jason/Test/Test.json', driver=driver
-    )
+        json_path='./Test_Jason/Test/Test.json', driver=driver)
 
 
 def screen_lock_ALL(driver):
     event_gen.generate_event(
-        json_path='./Test_Jason/ScreenLock/screenLock_all.json', driver=driver
-    )
+        json_path='./Test_Jason/ScreenLock/screenLock_all.json', driver=driver)
 
 
 def screen_lock_setPassword(driver):
     event_gen.generate_event(
-        json_path='./Test_Jason/ScreenLock/screenLock_setPassword.json', driver=driver
-    )
+        json_path='./Test_Jason/ScreenLock/screenLock_setPassword.json', driver=driver)
 
 
 def screen_lock_changePassword(driver):
     event_gen.generate_event(
-        json_path='./Test_Jason/ScreenLock/screenLock_changePassword.json', driver=driver
-    )
+        json_path='./Test_Jason/ScreenLock/screenLock_changePassword.json', driver=driver)
 
 
 def screen_lock_removePassword(driver):
     event_gen.generate_event(
-        json_path='./Test_Jason/ScreenLock/screenLock_removePassword.json', driver=driver
-    )
+        json_path='./Test_Jason/ScreenLock/screenLock_removePassword.json', driver=driver)
 
 # wallpaper
 
 
 def wallpaper_ALL(driver):
     event_gen.generate_event(
-        json_path='./Test_Jason/Wallpaper/wallpaper_all.json', driver=driver
-    )
+        json_path='./Test_Jason/Wallpaper/wallpaper_all.json', driver=driver)
 
 
-def wallpaper_Bydefault(driver):
+def wallpaper_By_default(driver):
     event_gen.generate_event(
-        json_path='./Test_Jason/Wallpaper/wallpaper_Bydefault.json', driver=driver
-    )
+        json_path='./Test_Jason/Wallpaper/wallpaper_By_default.json', driver=driver)
 
 
-def wallpaper_Byupdate(driver):
+def wallpaper_By_update(driver):
     event_gen.generate_event(
-        json_path='./Test_Jason/Wallpaper/wallpaper_Byupdate.json', driver=driver
-    )
+        json_path='./Test_Jason/Wallpaper/wallpaper_By_update.json', driver=driver)
 
 
 # first choice
@@ -96,17 +88,17 @@ elif first_choice == '1':
 
 elif first_choice == '2':
     second_choice = input(
-        "Please select action\n 1 : Change Bydefault\n 2 : Change Byupdate\n ALL\n:"
+        "Please select action\n 1 : Change By_default\n 2 : Change By_update\n ALL\n:"
     ).split(',')
     for choices in second_choice:
         if choices.lower() == 'all':
             wallpaper_ALL(driver)
 
         elif choices == '1':
-            wallpaper_Bydefault(driver)
+            wallpaper_By_default(driver)
 
         elif choices == '2':
-            wallpaper_Byupdate(driver)
+            wallpaper_By_update(driver)
 
         else:
             print(f"Invalid option：{choices}")

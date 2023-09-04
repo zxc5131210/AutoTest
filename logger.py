@@ -11,7 +11,7 @@ FORMAT = '%(asctime)s %(levelname)-2s %(message)s'
 
 
 class Logger:
-    def __init__(self, log_file=f'log-{datetime.now()}.csv') -> None:
+    def __init__(self, log_file=f'./Log/log-{datetime.now()}.csv') -> None:
         self.logger = logging
         self.logger.basicConfig(
             level=LOGGING_LEVEL,

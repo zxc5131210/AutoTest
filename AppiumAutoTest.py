@@ -76,7 +76,8 @@ if first_choice == '0':
 elif first_choice == '1':
     # second choice
     second_choice = input(
-        "Please select action\n 1 : Set Password\n 2 : Change Password\n 3 : Remove Password\n ALL\n").split(',')
+        "Please select action\n 1 : Set Password\n 2 : Change Password\n 3 : Remove Password\n ALL\n"
+    ).split(',')
     for choices in second_choice:
         if choices.lower() == 'all':
             screen_lock_ALL(driver)
@@ -91,11 +92,12 @@ elif first_choice == '1':
             screen_lock_removePassword(driver)
 
         else:
-            print(f"無效的選項：{choices}")
+            print(f"Invalid option：{choices}")
 
 elif first_choice == '2':
     second_choice = input(
-        "Please select action\n 1 : Change Bydefault\n 2 : Change Byupdate\n ALL\n:").split(',')
+        "Please select action\n 1 : Change Bydefault\n 2 : Change Byupdate\n ALL\n:"
+    ).split(',')
     for choices in second_choice:
         if choices.lower() == 'all':
             wallpaper_ALL(driver)
@@ -107,10 +109,10 @@ elif first_choice == '2':
             wallpaper_Byupdate(driver)
 
         else:
-            print(f"無效的選項：{choices}")
+            print(f"Invalid option：{choices}")
 
 else:
-    print("無效的選項")
+    print("Invalid option")
 
 
 # Step 4 : quit driver

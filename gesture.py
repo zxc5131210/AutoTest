@@ -128,17 +128,17 @@ class Gesture:
             self.logger.error("No overview activities found.")
 
     def compare_images_pixel(self, compare_1, compare_2) -> None:
-        # 读取两张图片
+        # read two pictures
         img1 = cv2.imread(compare_1)
         img2 = cv2.imread(compare_2)
         x, y, x_offset, y_offset = 50, 50, 100, 100
 
-        # 提取左上角区域
+        # 提取左上角區域
         img1 = img1[y:y+y_offset, x:x+x_offset]
         img2 = img2[y:y+y_offset, x:x+x_offset]
-        # 计算每个像素通道的颜色值差异
+        # 計算每個像素顏色差異
         diff_image = cv2.absdiff(img1, img2)
-        diff_pixels = np.sum(diff_image, axis=2)  # 计算通道差异总和
+        diff_pixels = np.sum(diff_image, axis=2)  # 计算差異總和
         different_pixel_count = np.count_nonzero(diff_pixels)
         if different_pixel_count > 5000:
             pass

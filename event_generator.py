@@ -27,8 +27,8 @@ class EventGen():
     def generate_event(self, json_path: str, driver):
         gesture = Gesture(driver)
         gesture.home_page()
-        evnet_flow = self. read_json(json_path)
-        flow = evnet_flow['steps']
+        event_flow = self. read_json(json_path)
+        flow = event_flow['steps']
         for event in flow:
             json_sequence = event['sequence']
             json_element = event['element']
@@ -102,8 +102,8 @@ class EventGen():
             case 'swipe_up':
                 gesture.swipe_up()
 
-            case 'longpress_location':
-                gesture.longpress_location(location_x, location_y)
+            case 'long_press_location':
+                gesture.long_press_location(location_x, location_y)
 
             case 'overview':
                 gesture.overview_page()
@@ -157,7 +157,7 @@ class EventGen():
                     else:
                         logger.error('ScreenShot Fail')
 
-            case 'isActivityBackgroung':
+            case 'isActivityBackground':
                 gesture.get_overview_activities()
                 gesture.check_background_activities(json_element)
 

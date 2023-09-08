@@ -1,9 +1,0 @@
-INFO,Sequence 1 tap_byID,Complete
-INFO,Sequence 2 tap_byID,Complete
-INFO,Sequence 3 tap_byID,Complete
-INFO,Sequence 4 open_hot_seat_all_app,Complete
-INFO,Sequence 5 tap_byID,Complete
-INFO,Sequence 6 tap_byID,Complete
-INFO,Sequence 7 recent_app_clear,Complete
-INFO,Sequence 8 tap_byID,Complete
-INFO,Flow finished,Complete

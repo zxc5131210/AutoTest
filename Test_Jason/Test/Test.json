@@ -1,11 +1,11 @@
 {
     "steps": [
         {
-            "sequence": 5,
+            "sequence": 10,
             "element": "",
             "gesture": "screenshot",
             "args": [
-                "compareshot_1"
+                "compareshot_2"
             ],
             "x": "",
             "y": ""

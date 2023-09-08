@@ -5,8 +5,8 @@
             "element": "",
             "gesture": "long_press_location",
             "args": "",
-            "x": "1838",
-            "y": "433"
+            "x": 1838,
+            "y": 433
         },
         {
             "sequence": 2,
@@ -55,8 +55,8 @@
             "element": "",
             "gesture": "long_press_location",
             "args": "",
-            "x": "1838",
-            "y": "433"
+            "x": 1838,
+            "y": 433
         },
         {
             "sequence": 8,
@@ -76,14 +76,30 @@
         },
         {
             "sequence": 10,
-            "element": "com.android.documentsui:id/icon_thumb",
-            "gesture": "tap_byID",
+            "element": "//*[@content-desc='Show roots']",
+            "gesture": "tap_byXpath",
             "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 11,
+            "element": "//*[@resource-id='com.android.documentsui:id/roots_list']/android.widget.LinearLayout[3]",
+            "gesture": "tap_byXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 12,
+            "element": "//*[@content-desc='Wallpaper_TestPhoto.jpg, 543 kB, Sep 1']",
+            "gesture": "tap_byXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 13,
             "element": "com.viewsonic.wallpaperpicker:id/btn_set_wallpaper",
             "gesture": "tap_byID",
             "args": "",
@@ -91,7 +107,7 @@
             "y": ""
         },
         {
-            "sequence": 12,
+            "sequence": 14,
             "element": "",
             "gesture": "screenshot",
             "args": [
@@ -101,7 +117,7 @@
             "y": ""
         },
         {
-            "sequence": 13,
+            "sequence": 15,
             "element": [
                 "compareshot_1.png",
                 "compareshot_2.png"
@@ -112,8 +128,24 @@
             "y": ""
         },
         {
+            "sequence": 16,
+            "element": "Wallpaper_TestPhoto.jpg",
+            "gesture": "delete_file",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
             "sequence": "END",
             "element": "com.viewsonic.wallpaperpicker",
+            "gesture": "end_activity",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": "END",
+            "element": "com.viewsonic.vlauncher",
             "gesture": "end_activity",
             "args": "",
             "x": "",

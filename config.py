@@ -1,9 +1,7 @@
 '''Device setting'''
 
-platformName = 'Android'
-platformVersion = '11'
-deviceName = 'VBS200'
+# VBS200
+host = '172.21.10.20:5555'
 
-'''Appium Connect setting'''
-host = 'localhost'
-port = '4723'
+# lab
+# host = '172.21.8.199:5555'

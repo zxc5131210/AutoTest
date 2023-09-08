@@ -2,8 +2,6 @@
 import subprocess
 import cv2
 import numpy as np
-from appium.webdriver.common.touch_action import TouchAction
-from selenium.webdriver.support.ui import WebDriverWait
 from logger import Logger
 
 
@@ -14,52 +12,32 @@ class Gesture:
         if not driver:
             raise ValueError('driver can not be null.')
         self.driver = driver
-        self.touch_action = TouchAction(self.driver)
-        # implicitly_wait setting
-        self.wait = WebDriverWait(self.driver, 2)
-        self.implicitly_wait_timeout = 3
-        self.driver.implicitly_wait(self.implicitly_wait_timeout)
 
     def open_activity(self, element) -> None:
         package = element[0]
-        activity = element[1]
-        self.driver.start_activity(package, activity)
+        self.driver.app_start(package, stop=True)
 
-    def tap(
-            self,
-            element
-    ) -> None:
+    def tap(self, element) -> None:
         # Tap function
-        self.touch_action.tap(element).perform()
+        element.click()
 
     def send_keys(self, element, keyword) -> None:
         element.send_keys(keyword)
 
     def clear_keys(self, element) -> None:
-        element.clear()
-
-    def drag_drop_bylocation(
-        self,
-        drag_element,
-        location_x,
-        location_y
-    ) -> None:
-        # drag drop function
-        self.touch_action.long_press(el=drag_element, duration=5000).move_to(
-            x=location_x, y=location_y).release().perform()
+        element.clear_text()
 
     def double_tap(self, element) -> None:
         # double tap function
-        self.tap(element).tap(element).perform()
-        self.logger.debug('tap complete.')
+        element.double_click()
 
     def back(self) -> None:
         # back button
-        self.driver.press_keycode(4)
+        self.driver.keyevent("back")
 
     def screenshot(self, save_location) -> None:
         # screenshot current screen
-        self.driver.save_screenshot(save_location)
+        self.driver.screenshot(save_location)
 
     def double_finger(self) -> None:
         # double_finger use
@@ -67,19 +45,18 @@ class Gesture:
 
     def long_press_element(self, element) -> None:
         # long_press fuction
-        self.touch_action.long_press(element, duration=5000)
+        element.long_click(duration=2)
 
     def long_press_location(self, location_x, location_y):
-        self.touch_action.long_press(
-            el=None, x=location_x, y=location_y, duration=5000).perform()
+        self.driver.long_click(x=location_x, y=location_y, duration=2)
 
     def home_page(self) -> None:
         # home page button
-        self.driver.press_keycode(3)
+        self.driver.keyevent("home")
 
     def overview_page(self) -> None:
         # overview button
-        self.driver.press_keycode(187)
+        self.driver.keyevent("overview")
 
     def quit_driver(self) -> None:
         # quit driver
@@ -104,6 +81,14 @@ class Gesture:
     ) -> None:
         # Swipe up function
         self.driver.swipe(start_x, start_y, end_x, end_y, duration=500)
+
+    def install_app(self, element) -> None:
+        command = ['adb', 'install', "-r", element]
+        subprocess.run(command, check=False)
+
+    def uninstall_app(self, element) -> None:
+        command = ['adb', 'uninstall', element]
+        subprocess.run(command, check=False)
 
     def get_overview_activities(self) -> None:
         result = subprocess.check_output(
@@ -131,14 +116,15 @@ class Gesture:
         # read two pictures
         img1 = cv2.imread(compare_1)
         img2 = cv2.imread(compare_2)
-        x, y, x_offset, y_offset = 50, 50, 100, 100
 
-        # 提取左上角區域
+        # choose left-up area
+        x, y, x_offset, y_offset = 50, 50, 100, 100
         img1 = img1[y:y+y_offset, x:x+x_offset]
         img2 = img2[y:y+y_offset, x:x+x_offset]
-        # 計算每個像素顏色差異
+
+        # compare all pixel different
         diff_image = cv2.absdiff(img1, img2)
-        diff_pixels = np.sum(diff_image, axis=2)  # 计算差異總和
+        diff_pixels = np.sum(diff_image, axis=2)  # count different pixel
         different_pixel_count = np.count_nonzero(diff_pixels)
         if different_pixel_count > 5000:
             pass
@@ -151,9 +137,14 @@ class Gesture:
         subprocess.run(
             command, capture_output=True, text=True, check=True)
 
-    def update_image(self, element):
+    def update_file(self, element):
         command = ['adb', 'push', element, '/sdcard/']
         subprocess.run(command, check=False)
 
-    def close_app(self):
-        self.driver.close_app()
+    def delete_file(self, element):
+        command = ['adb', 'shell', 'rm', '/sdcard/', element]
+        subprocess.run(command, shell=True, capture_output=True,
+                       text=True, check=False)
+
+    def close_app(self, element):
+        self.driver.app_stop(element)

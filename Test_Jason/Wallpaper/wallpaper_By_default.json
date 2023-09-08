@@ -5,8 +5,8 @@
             "element": "",
             "gesture": "long_press_location",
             "args": "",
-            "x": "1838",
-            "y": "433"
+            "x": 1838,
+            "y": 433
         },
         {
             "sequence": 2,
@@ -47,8 +47,8 @@
             "element": "",
             "gesture": "long_press_location",
             "args": "",
-            "x": "1838",
-            "y": "433"
+            "x": 1838,
+            "y": 433
         },
         {
             "sequence": 7,
@@ -98,6 +98,14 @@
         {
             "sequence": "END",
             "element": "com.viewsonic.wallpaperpicker",
+            "gesture": "end_activity",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": "END",
+            "element": "com.viewsonic.vlauncher",
             "gesture": "end_activity",
             "args": "",
             "x": "",

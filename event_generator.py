@@ -5,7 +5,6 @@ Event generator will read a .json file and generate event.
 import os
 import time
 import json
-from appium.webdriver.common.appiumby import AppiumBy
 from selenium.common.exceptions import NoSuchElementException
 from logger import Logger
 from gesture import Gesture
@@ -26,8 +25,9 @@ class EventGen():
 
     def generate_event(self, json_path: str, driver):
         gesture = Gesture(driver)
+        # 設定初始
         gesture.home_page()
-        event_flow = self. read_json(json_path)
+        event_flow = self.read_json(json_path)
         flow = event_flow['steps']
         for event in flow:
             json_sequence = event['sequence']
@@ -41,7 +41,9 @@ class EventGen():
                 self.logger.info(
                     f'Sequence {json_sequence} {json_gesture}'
                 )
-            except NoSuchElementException:
+                time.sleep(1)
+
+            except Exception:
                 self.logger.error(
                     f'Sequence {json_sequence} {json_gesture}'
                 )
@@ -59,40 +61,32 @@ class EventGen():
                     pass
 
             case 'tap_byXpath':
-                element = driver.find_element(
-                    AppiumBy.XPATH,
-                    json_element
-                )
+                element = driver.xpath(json_element)
+                gesture.tap(element)
+
+            case 'open_hot_seat_all_app':
+                elements = driver(resourceId=json_element)
+                for element in elements:
+                    gesture.tap(element)
+                    time.sleep(3)
+                    gesture.home_page()
+
+            case 'tap_byID':
+                element = driver(resourceId=json_element)
+                gesture.tap(element)
+
+            case 'tap_byText':
+                element = driver(text=json_element)
                 gesture.tap(element)
 
             case 'sendKey_byID':
-                element = driver.find_element(
-                    AppiumBy.ID,
-                    json_element
-                )
+                element = driver(resourceId=json_element)
                 keyword = event['args'][-1]
                 gesture.send_keys(element, keyword)
 
             case 'clearKey_byID':
-                element = driver.find_element(
-                    AppiumBy.ID,
-                    json_element
-                )
+                element = driver(resourceId=json_element)
                 gesture.clear_keys(element)
-
-            case 'tap_byID':
-                element = driver.find_element(
-                    AppiumBy.ID,
-                    json_element
-                )
-                gesture.tap(element)
-
-            case 'drag_drop':
-                element = driver.find_element(
-                    AppiumBy.ACCESSIBILITY_ID,
-                    json_element
-                )
-                gesture.drag_drop_bylocation(element, location_x, location_y)
 
             case 'screenshot':
                 time.sleep(3)
@@ -108,58 +102,91 @@ class EventGen():
             case 'overview':
                 gesture.overview_page()
 
+            case 'back_btn':
+                gesture.back()
+
             case 'homepage':
                 gesture.home_page()
 
-            case 'findelement_ByAccessibility_ID':
-                element = driver.find_element(
-                    AppiumBy.ACCESSIBILITY_ID,
-                    json_element
-                )
-
             case 'findelements_ByID':
-                elements = driver.find_elements(
-                    AppiumBy.ID,
-                    json_element
-                )
+                element = driver(resourceId=json_element)
 
             case 'findelement_ByXpath':
-                element = driver.find_element(
-                    AppiumBy.XPATH,
-                    json_element
-                )
+                element = driver.xpath(json_element)
 
             case 'change_wallpaper_first':
-                elements = driver.find_elements(
-                    AppiumBy.ID,
-                    json_element
-                )
-                first_element = elements[1]
+                element = driver(resourceId=json_element)
+                first_element = element[1]
                 gesture.tap(first_element)
 
             case 'change_wallpaper_second':
-                elements = driver.find_elements(
-                    AppiumBy.ID,
-                    json_element
-                )
-                first_element = elements[2]
+                element = driver(resourceId=json_element)
+                first_element = element[2]
                 gesture.tap(first_element)
 
-            case 'isCurrentApp_excepted':
-                current_app_package = driver.current_package
-
-            case 'isScreenShotEnable':
+            case 'is_screenShot_enable':
                 current_directory = os.getcwd()
                 file_list = os.listdir(current_directory)
                 for filename in file_list:
                     if event['args'][-1] in filename:
                         pass
                     else:
-                        logger.error('ScreenShot Fail')
+                        self.logger.error('ScreenShot Fail')
 
-            case 'isActivityBackground':
+            case 'install_app':
+                gesture.install_app(json_element)
+
+            case 'uninstall_app':
+                gesture.uninstall_app(json_element)
+
+            case 'is_activity_background':
                 gesture.get_overview_activities()
                 gesture.check_background_activities(json_element)
+
+            case 'recent_app_clear':
+                element = driver.xpath(json_element)
+                if element.exists:
+                    # if element exists ,get element location x,y
+                    element_bounds = element.info['bounds']
+
+                    # count begin and end
+                    start_x = element_bounds['left'] + 50  # start
+                    # center of element
+                    start_y = (element_bounds['top'] +
+                               element_bounds['bottom']) / 2
+                    end_x = element_bounds['left'] - 500  # end
+                    end_y = start_y
+
+                    # swipe to left
+                    driver.swipe(start_x, start_y, end_x, end_y)
+                    time.sleep(2)
+
+                    if element.exists:
+                        self.logger.error(f'{element} still in recent app')
+                    else:
+                        pass
+
+                else:
+                    self.logger.error('recent app not found')
+
+            case 'swipe_to_find_in_all_apps':
+                x_a, y_a = driver(
+                    resourceId="com.viewsonic.vlauncher:id/all_app_cell_5").center()
+                x_b, y_b = driver(
+                    resourceId="com.viewsonic.vlauncher:id/all_app_cell_1").center()
+                determine_swipe = driver(
+                    resourceId='com.viewsonic.vlauncher:id/all_app_cell_10')
+                element = driver(text=json_element)
+                while True:
+                    if element.exists:
+                        break
+
+                    elif determine_swipe.exists:
+                        driver.swipe(x_a, y_a, x_b, y_b)
+
+                    else:
+                        self.logger.error("Not Found App")
+                        break
 
             case 'compare_images_pixel':
                 compare_1 = event['element'][0]
@@ -167,13 +194,16 @@ class EventGen():
                 gesture.compare_images_pixel(compare_1, compare_2)
 
             case 'close_app':
-                gesture.close_app()
+                gesture.close_app(json_element)
 
             case 'update_image':
-                gesture.update_image(json_element)
+                gesture.update_file(json_element)
+
+            case 'delete_file':
+                gesture.delete_file(json_element)
 
             case 'end_activity':
-                gesture.close_app()
+                gesture.close_app(json_element)
                 gesture.home_page()
                 gesture.clean_activity(json_element)
 

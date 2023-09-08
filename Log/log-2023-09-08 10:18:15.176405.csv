@@ -1,0 +1,20 @@
+INFO,Sequence 1 open_activity,Complete
+INFO,Sequence 2 tap_byID,Complete
+INFO,Sequence 3 sendKey_byID,Complete
+INFO,Sequence 4 tap_byID,Complete
+INFO,Sequence END end_activity,Complete
+INFO,Flow finished,Complete
+INFO,Sequence 1 open_activity,Complete
+INFO,Sequence 2 tap_byID,Complete
+INFO,Sequence 3 sendKey_byID,Complete
+INFO,Sequence 4 tap_byID,Complete
+INFO,Sequence 5 tap_byID,Complete
+INFO,Sequence 6 tap_byID,Complete
+ERROR,Sequence 7 tap_byID,Fail
+ERROR,Sequence 8 sendKey_byID,Fail
+ERROR,Sequence 9 sendKey_byID,Fail
+ERROR,Sequence 10 tap_byID,Fail
+INFO,Sequence 11 tap_byID,Complete
+ERROR,Sequence 12 sendKey_byID,Fail
+INFO,Sequence END end_activity,Complete
+INFO,Flow finished,Complete

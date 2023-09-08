@@ -1,0 +1,3 @@
+INFO,Sequence 1 long_press_location,Complete
+ERROR,Sequence 2 tap_byXpath,Fail
+ERROR,Sequence 3 change_wallpaper_first,Fail

@@ -97,7 +97,7 @@
         },
         {
             "sequence": 12,
-            "element": "./Test_Photo/Wallpaper_TestPhoto.jpg",
+            "element": "./Test_File/Wallpaper_TestPhoto.jpg",
             "gesture": "update_image",
             "args": "",
             "x": "",

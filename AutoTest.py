@@ -97,11 +97,11 @@ def recent_app_clear_all_btn(driver):
 def screen_lock_menu(driver):
     while True:
         print("ScreenLock Options:")
+        print("0: Back to main menu")
         print("1: Set Password")
         print("2: Change Password")
         print("3: Remove Password")
-        print("4: ALL")
-        print("0: Back to main menu")
+        print("ALL")
 
         choice = input("Enter your choice: ")
 
@@ -113,7 +113,7 @@ def screen_lock_menu(driver):
             screen_lock_changePassword(driver)
         elif choice == '3':
             screen_lock_removePassword(driver)
-        elif choice == '4':
+        elif choice.lower() == 'all':
             screen_lock_ALL(driver)
         else:
             print("Invalid option")
@@ -122,10 +122,10 @@ def screen_lock_menu(driver):
 def wallpaper_menu(driver):
     while True:
         print("Wallpaper Options:")
+        print("0: Back to main menu")
         print("1: Change By_default")
         print("2: Change By_update")
-        print("3: ALL")
-        print("0: Back to main menu")
+        print("ALL")
 
         choice = input("Enter your choice: ")
 
@@ -135,7 +135,7 @@ def wallpaper_menu(driver):
             wallpaper_By_default(driver)
         elif choice == '2':
             wallpaper_By_update(driver)
-        elif choice == '3':
+        elif choice.lower() == 'all':
             wallpaper_ALL(driver)
         else:
             print("Invalid option")
@@ -144,10 +144,10 @@ def wallpaper_menu(driver):
 def edit_launcher_menu(driver):
     while True:
         print("Edit Launcher Options:")
+        print("0: Back to main menu")
         print("1: Add_delete_re-range app on hot seat")
         print("2:install Testapp and find in all apps")
-        print("3: ALL")
-        print("0: Back to main menu")
+        print("ALL")
 
         choice = input("Enter your choice: ")
 
@@ -157,7 +157,7 @@ def edit_launcher_menu(driver):
             edit_launcher_add_app(driver)
         elif choice == '2':
             edit_launcher_find_all(driver)
-        elif choice == '3':
+        elif choice.lower() == 'all':
             edit_launcher_all(driver)
         else:
             print("Invalid option")
@@ -166,10 +166,10 @@ def edit_launcher_menu(driver):
 def recent_app_menu(driver):
     while True:
         print("Recent App Options:")
+        print("0: Back to main menu")
         print("1:clear app")
         print("2:clear all button")
-        print("3: ALL")
-        print("0: Back to main menu")
+        print("ALL")
 
         choice = input("Enter your choice: ")
 
@@ -179,25 +179,26 @@ def recent_app_menu(driver):
             recent_app_clear_app(driver)
         elif choice == '2':
             recent_app_clear_all_btn(driver)
-        elif choice == '3':
+        elif choice.lower() == 'all':
             recent_app_all(driver)
         else:
             print("Invalid option")
-# Add more functions for Edit Launcher and Recent App menus similarly
+
+# Step 4 : choose test option
 
 
 while True:
     print("Main Menu:")
+    print("0: Quit")
     print("1: ScreenLock")
     print("2: Wallpaper")
     print("3: Edit Launcher")
     print("4: Recent App")
-    print("0: Quit")
 
     first_choice = input("Please select action: ")
 
     if first_choice == '0':
-        # Step 4 : quit driver
+        # quit driver
         driver.service('uiautomator').stop()
         exit()
     elif first_choice == '1':

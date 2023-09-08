@@ -154,7 +154,7 @@ class EventGen():
                     # center of element
                     start_y = (element_bounds['top'] +
                                element_bounds['bottom']) / 2
-                    end_x = element_bounds['left'] - 500  # end
+                    end_x = element_bounds['left'] - 1000  # end
                     end_y = start_y
 
                     # swipe to left
@@ -180,13 +180,10 @@ class EventGen():
                 while True:
                     if element.exists:
                         break
-
                     elif determine_swipe.exists:
                         driver.swipe(x_a, y_a, x_b, y_b)
-
                     else:
                         self.logger.error("Not Found App")
-                        break
 
             case 'compare_images_pixel':
                 compare_1 = event['element'][0]

@@ -7,6 +7,7 @@ from logger import Logger
 
 class Gesture:
     # define gesture
+
     def __init__(self, driver) -> None:
         self.logger = Logger()
         if not driver:
@@ -15,11 +16,22 @@ class Gesture:
 
     def open_activity(self, element) -> None:
         package = element[0]
-        self.driver.app_start(package, stop=True)
+        activity = element[1]
+        self.driver.app_start(package, activity)
 
     def tap(self, element) -> None:
         # Tap function
         element.click()
+
+    def zoom_in(self, element=None) -> None:
+        if element is None:
+            element = self.driver()
+        element.pinch_out(percent=10, steps=10)
+
+    def zoom_out(self, element=None) -> None:
+        if element is None:
+            element = self.driver()
+        element.pinch_in(percent=10, steps=10)
 
     def send_keys(self, element, keyword) -> None:
         element.send_keys(keyword)
@@ -62,25 +74,33 @@ class Gesture:
         # quit driver
         self.driver.quit()
 
-    def swipe_left(
-        self,
-        start_x: float = 992,
-        start_y: float = 954,
-        end_x: float = 50,
-        end_y: float = 954
-    ) -> None:
-        # swipe left function
-        self.driver.swipe(start_x, start_y, end_x, end_y, duration=500)
+    def current_app(self) -> None:
+        # get current app
+        return self.driver.app_current()
 
-    def swipe_up(
-        self,
-        start_x: float = 523,
-        start_y: float = 1560,
-        end_x: float = 481,
-        end_y: float = 229
-    ) -> None:
+    def swipe_left(self, element=None) -> None:
+        # swipe left function
+        if element is None:
+            element = self.driver()
+        element.swipe("left")
+
+    def swipe_right(self, element=None) -> None:
+        # swipe left function
+        if element is None:
+            element = self.driver()
+        element.swipe("right")
+
+    def swipe_up(self, element=None) -> None:
         # Swipe up function
-        self.driver.swipe(start_x, start_y, end_x, end_y, duration=500)
+        if element is None:
+            element = self.driver()
+        element.swipe("up")
+
+    def swipe_down(self, element=None) -> None:
+        # Swipe up function
+        if element is None:
+            element = self.driver()
+        element.swipe("down")
 
     def install_app(self, element) -> None:
         command = ['adb', 'install', "-r", element]
@@ -117,11 +137,6 @@ class Gesture:
         img1 = cv2.imread(compare_1)
         img2 = cv2.imread(compare_2)
 
-        # choose left-up area
-        x, y, x_offset, y_offset = 50, 50, 100, 100
-        img1 = img1[y:y+y_offset, x:x+x_offset]
-        img2 = img2[y:y+y_offset, x:x+x_offset]
-
         # compare all pixel different
         diff_image = cv2.absdiff(img1, img2)
         diff_pixels = np.sum(diff_image, axis=2)  # count different pixel
@@ -130,7 +145,7 @@ class Gesture:
             pass
 
         else:
-            self.logger.error('Wallpaper changed fail')
+            self.logger.error('compare different fail')
 
     def clean_activity(self, element):
         command = ['adb', 'shell', 'pm', 'clear', element]
@@ -145,6 +160,14 @@ class Gesture:
         command = ['adb', 'shell', 'rm', '/sdcard/', element]
         subprocess.run(command, shell=True, capture_output=True,
                        text=True, check=False)
+
+    def reboot(self):
+        command = ['adb', 'reboot']
+        subprocess.run(command, check=True)
+
+    def wait_for_device(self):
+        command = ['adb', 'wait-for-device']
+        subprocess.run(command, check=True)
 
     def close_app(self, element):
         self.driver.app_stop(element)

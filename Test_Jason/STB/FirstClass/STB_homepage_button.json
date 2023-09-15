@@ -1,0 +1,55 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "element": "./Test_File/test.apk",
+            "gesture": "install_app",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "element": [
+                "com.viewsonic.myapplication",
+                ".MainActivity"
+            ],
+            "gesture": "open_activity",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "element": "com.viewsonic.sidetoolbar:id/arrow",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "element": "com.viewsonic.sidetoolbar:id/btnHome",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "element": "//*[@text='This is a text view']",
+            "gesture": "findelement_ByXpath",
+            "args": "False",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 6,
+            "element": "com.viewsonic.myapplication",
+            "gesture": "uninstall_app",
+            "args": "",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

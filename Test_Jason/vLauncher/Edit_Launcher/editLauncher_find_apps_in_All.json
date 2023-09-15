@@ -1,0 +1,68 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "element": "./Test_File/test.apk",
+            "gesture": "install_app",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "element": "",
+            "gesture": "long_press_location",
+            "args": "",
+            "x": 1838,
+            "y": 433
+        },
+        {
+            "sequence": 3,
+            "element": "//*[@text='Edit Launcher']",
+            "gesture": "tap_byXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "element": "My Application",
+            "gesture": "swipe_to_find_in_all_apps",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "element": "My Application",
+            "gesture": "tap_byText",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 6,
+            "element": "",
+            "gesture": "back_btn",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 7,
+            "element": "com.viewsonic.myapplication",
+            "gesture": "uninstall_app",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": "END",
+            "element": "com.viewsonic.vlauncher",
+            "gesture": "end_activity",
+            "args": "",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

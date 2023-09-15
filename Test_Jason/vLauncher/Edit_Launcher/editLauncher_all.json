@@ -1,0 +1,132 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "element": "",
+            "gesture": "long_press_location",
+            "args": "",
+            "x": 1838,
+            "y": 433
+        },
+        {
+            "sequence": 2,
+            "element": "//*[@text='Edit Launcher']",
+            "gesture": "tap_byXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "element": "//*[@resource-id='com.viewsonic.vlauncher:id/shortcuts_view']/android.widget.RelativeLayout[1]/android.widget.ImageView[1]",
+            "gesture": "tap_byXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "element": "",
+            "gesture": "back_btn",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "element": "",
+            "gesture": "long_press_location",
+            "args": "",
+            "x": 1838,
+            "y": 433
+        },
+        {
+            "sequence": 6,
+            "element": "//*[@text='Edit Launcher']",
+            "gesture": "tap_byXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 7,
+            "element": "//*[@resource-id='com.viewsonic.vlauncher:id/all_app_cell_4']",
+            "gesture": "tap_byXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 8,
+            "element": "",
+            "gesture": "back_btn",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 9,
+            "element": "./Test_File/test.apk",
+            "gesture": "install_app",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 10,
+            "element": "",
+            "gesture": "long_press_location",
+            "args": "",
+            "x": 1838,
+            "y": 433
+        },
+        {
+            "sequence": 11,
+            "element": "//*[@text='Edit Launcher']",
+            "gesture": "tap_byXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 12,
+            "element": "My Application",
+            "gesture": "swipe_to_find_in_all_apps",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 13,
+            "element": "My Application",
+            "gesture": "tap_byText",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 14,
+            "element": "",
+            "gesture": "back_btn",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 15,
+            "element": "com.viewsonic.myapplication",
+            "gesture": "uninstall_app",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": "END",
+            "element": "com.viewsonic.vlauncher",
+            "gesture": "end_activity",
+            "args": "",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

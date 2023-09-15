@@ -5,6 +5,7 @@ import logging
 import csv
 from datetime import datetime
 
+
 LOGGING_LEVEL = logging.DEBUG
 DATE_FORMAT = '%Y%m%d %H:%M:%S'
 FORMAT = '%(asctime)s %(levelname)-2s %(message)s'
@@ -38,6 +39,9 @@ class Logger:
     def critical(self, msg: str) -> None:
         self.logger.critical(msg)
         self._write_to_csv('CRITICAL', msg, 'Critical')
+
+    def Test(self, msg: str) -> None:
+        self._write_to_csv('Test describe', msg, None)
 
     def _write_to_csv(self, level: str, msg: str, status: str) -> None:
         with open(self.log_file, 'a', encoding='utf-8', newline='') as csvfile:

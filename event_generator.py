@@ -41,12 +41,15 @@ class EventGen():
                 self.logger.info(
                     f'Sequence {json_sequence} {json_gesture}'
                 )
-                time.sleep(1)
+                time.sleep(0.5)
 
             except Exception:
                 self.logger.error(
                     f'Sequence {json_sequence} {json_gesture}'
                 )
+                gesture.screenshot(f'./{json_sequence} {json_gesture}.png')
+                time.sleep(0.5)
+
         self.logger.info("Flow finished")
 
     def gesture_cases(
@@ -75,6 +78,9 @@ class EventGen():
                 element = driver(resourceId=json_element)
                 gesture.tap(element)
 
+            case 'tap_byImage':
+                driver.image.click(json_element)
+
             case 'tap_byText':
                 element = driver(text=json_element)
                 gesture.tap(element)
@@ -96,6 +102,31 @@ class EventGen():
             case 'swipe_up':
                 gesture.swipe_up()
 
+            case 'swipe_left':
+                gesture.swipe_left()
+
+            case 'swipe_right':
+                gesture.swipe_right()
+
+            case 'swipe_down':
+                gesture.swipe_down()
+
+            case 'swipe_left_element':
+                element = driver(resourceId=json_element)
+                gesture.swipe_left(element)
+
+            case 'swipe_right_element':
+                element = driver(resourceId=json_element)
+                gesture.swipe_right(element)
+
+            case 'screen_zoom_in':
+                element = driver()
+                gesture.zoom_in(element)
+
+            case 'screen_zoom_out':
+                element = driver()
+                gesture.zoom_out(element)
+
             case 'long_press_location':
                 gesture.long_press_location(location_x, location_y)
 
@@ -107,6 +138,14 @@ class EventGen():
 
             case 'homepage':
                 gesture.home_page()
+
+            case 'reboot_to_homepage':
+                gesture.reboot()
+                gesture.wait_for_device()
+                driver.uiautomator.start()
+                time.sleep(5)
+                gesture.tap(
+                    driver(resourceId='com.viewsonic.vlauncher:id/btn_guest'))
 
             case 'findelements_ByID':
                 element = driver(resourceId=json_element)
@@ -184,6 +223,81 @@ class EventGen():
                         driver.swipe(x_a, y_a, x_b, y_b)
                     else:
                         self.logger.error("Not Found App")
+
+            case 'STB_scroll_horiz_to_element':
+                x_a, y_a = driver(
+                    resourceId="com.viewsonic.sidetoolbar:id/RlAllAppsTagFiveTeen").center()
+                x_b, y_b = driver(
+                    resourceId="com.viewsonic.sidetoolbar:id/RlAllAppsTagEleven").center()
+                determine_swipe = driver(
+                    resourceId='com.viewsonic.sidetoolbar:id/RlAllAppsTagFiveTeen')
+                element = driver(text=json_element)
+                while True:
+                    if element.exists:
+                        break
+                    elif determine_swipe.exists:
+                        driver.swipe(x_a, y_a, x_b, y_b)
+                    else:
+                        self.logger.error("Not Found App")
+                        break
+
+            case 'STB_secondClass_initialization':
+                gesture.tap(
+                    driver(resourceId='com.viewsonic.sidetoolbar:id/arrow'))
+                if driver(resourceId='com.viewsonic.sidetoolbar:id/RlAllAppTagFirst').exists or \
+                        driver(resourceId='com.viewsonic.sidetoolbar:id/RlAllAppTagSecond').exists or \
+                        driver(resourceId='com.viewsonic.sidetoolbar:id/RlAllAppTagThird').exists:
+
+                    gesture.tap(driver(
+                        resourceId='com.viewsonic.sidetoolbar:id/btnAllApp'))
+                    gesture.tap(driver(
+                        resourceId="com.viewsonic.sidetoolbar:id/iv_all_app_edit_status"))
+                    gesture.tap(driver(
+                        resourceId="com.viewsonic.sidetoolbar:id/RlAllAppTagFirst"))
+                    gesture.tap(driver(
+                        resourceId="com.viewsonic.sidetoolbar:id/RlAllAppTagSecond"))
+                    gesture.tap(driver(
+                        resourceId="com.viewsonic.sidetoolbar:id/RlAllAppTagThird"))
+                    gesture.tap(
+                        driver(resourceId="com.viewsonic.sidetoolbar:id/btnHome"))
+                else:
+                    gesture.tap(
+                        driver(resourceId="com.viewsonic.sidetoolbar:id/btnHome"))
+
+            case 'STB_ThirdClass_initialization':
+                gesture.tap(
+                    driver(resourceId='com.viewsonic.sidetoolbar:id/arrow'))
+                if driver(resourceId='com.viewsonic.sidetoolbar:id/RlAllToolsTagFirst').exists or \
+                        driver(resourceId='com.viewsonic.sidetoolbar:id/RlAllToolsTagSecond').exists:
+
+                    gesture.tap(driver(
+                        resourceId='com.viewsonic.sidetoolbar:id/btnAllTools'))
+                    gesture.tap(driver(
+                        resourceId='com.viewsonic.sidetoolbar:id/iv_all_tools_edit_status'))
+                    gesture.tap(driver(
+                        resourceId='com.viewsonic.sidetoolbar:id/RlAllToolsTagFirst'))
+                    gesture.tap(driver(
+                        resourceId='com.viewsonic.sidetoolbar:id/RlAllToolsTagSecond'))
+                    gesture.tap(
+                        driver(resourceId="com.viewsonic.sidetoolbar:id/btnHome"))
+                else:
+                    gesture.tap(
+                        driver(resourceId="com.viewsonic.sidetoolbar:id/btnHome"))
+
+            case 'STB_spotlight_initialization':
+                driver().pinch_in(percent=10, steps=10)
+                gesture.tap(
+                    driver(resourceId='com.viewsonic.sidetoolbar:id/settings_btn'))
+                gesture.swipe_left(driver(
+                    resourceId='com.viewsonic.sidetoolbar:id/seekbar_alpha'))
+
+            case 'STB_current_app_compare':
+                current_app = gesture.current_app()
+                if current_app['package'] == json_element[0] and \
+                        current_app['activity'] == json_element[1]:
+                    pass
+                else:
+                    self.logger.error(f'{json_element} is not current')
 
             case 'compare_images_pixel':
                 compare_1 = event['element'][0]

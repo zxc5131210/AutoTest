@@ -1,0 +1,170 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "element": "com.viewsonic.sidetoolbar:id/arrow",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "element": "com.viewsonic.sidetoolbar:id/btnAllTools",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "element": "//*[@text='Spotlight']",
+            "gesture": "tap_byXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": "initialization",
+            "element": "",
+            "gesture": "STB_spotlight_initialization",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "element": "",
+            "gesture": "screenshot",
+            "args": [
+                "compareshot_1"
+            ],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "element": "",
+            "gesture": "swipe_left",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 6,
+            "element": "",
+            "gesture": "screenshot",
+            "args": [
+                "compareshot_2"
+            ],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 7,
+            "element": [
+                "compareshot_1.png",
+                "compareshot_2.png"
+            ],
+            "gesture": "compare_images_pixel",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 8,
+            "element": "",
+            "gesture": "swipe_up",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 9,
+            "element": "",
+            "gesture": "screenshot",
+            "args": [
+                "compareshot_1"
+            ],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 10,
+            "element": [
+                "compareshot_1.png",
+                "compareshot_2.png"
+            ],
+            "gesture": "compare_images_pixel",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 11,
+            "element": "",
+            "gesture": "swipe_right",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 12,
+            "element": "",
+            "gesture": "screenshot",
+            "args": [
+                "compareshot_2"
+            ],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 13,
+            "element": [
+                "compareshot_1.png",
+                "compareshot_2.png"
+            ],
+            "gesture": "compare_images_pixel",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 14,
+            "element": "",
+            "gesture": "swipe_down",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 15,
+            "element": "",
+            "gesture": "screenshot",
+            "args": [
+                "compareshot_1"
+            ],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 16,
+            "element": [
+                "compareshot_1.png",
+                "compareshot_2.png"
+            ],
+            "gesture": "compare_images_pixel",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 17,
+            "element": "",
+            "gesture": "homepage",
+            "args": "",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

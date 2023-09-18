@@ -250,6 +250,7 @@ def STB_stopwatch_All(driver):
     STB_stopwatch_start_pause(driver)
     STB_stopwatch_lap(driver)
     STB_stopwatch_expand(driver)
+    STB_stopwatch_resume_reset(driver)
 
 
 def STB_stopwatch_start_pause(driver):
@@ -268,6 +269,12 @@ def STB_stopwatch_expand(driver):
     logger.Test('STB stopwatch-expand')
     event_gen.generate_event(
         json_path='./Test_Jason/STB/Tools/Stopwatch/STB_stopwatch_expand.json', driver=driver)
+
+
+def STB_stopwatch_resume_reset(driver):
+    logger.Test('STB stopwatch-resume & reset')
+    event_gen.generate_event(
+        json_path='./Test_Jason/STB/Tools/Stopwatch/STB_stopwatch_resume_reset.json', driver=driver)
 
 # def menu
 
@@ -468,7 +475,7 @@ def stopwatch_menu(driver):
         elif choice == '3':
             STB_stopwatch_expand(driver)
         elif choice == '4':
-            pass
+            STB_stopwatch_resume_reset(driver)
         elif choice.lower() == 'all':
             STB_stopwatch_All(driver)
         else:

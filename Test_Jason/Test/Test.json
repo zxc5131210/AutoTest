@@ -2,49 +2,9 @@
     "steps": [
         {
             "sequence": 1,
-            "element": "com.viewsonic.sidetoolbar:id/arrow",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 2,
-            "element": "com.viewsonic.sidetoolbar:id/btnAllTools",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 3,
-            "element": "//*[@text='Stopwatch']",
-            "gesture": "tap_byXpath",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 3,
-            "element": "com.viewsonic.sidetoolbar:id/btnStart",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 3,
-            "element": "com.viewsonic.sidetoolbar:id/btnPause",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 3,
-            "element": "",
-            "gesture": "homepage",
-            "args": "",
+            "element": "//*[@resource-id='com.viewsonic.sidetoolbar:id/hour_wheelview']/android.widget.FrameLayout[2]/android.widget.LinearLayout[1]/android.widget.TextView[1]",
+            "gesture": "Timer_scroll_to_findText",
+            "args": "10",
             "x": "",
             "y": ""
         }

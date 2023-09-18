@@ -95,7 +95,8 @@ def STB_all(driver):
     STB_tools_order_in_shortcut(driver)
     # STB Tools
     STB_freezer_all(driver)
-    STB_spotlight_All(driver)
+    STB_spotlight_all(driver)
+    STB_stopwatch_all(driver)
 # STB_first class
 
 
@@ -213,7 +214,7 @@ def STB_freezer_reboot_to_use(driver):
 # def Spotlight
 
 
-def STB_spotlight_All(driver):
+def STB_spotlight_all(driver):
     STB_spotlight_zoom_in_out_button(driver)
     STB_spotlight_zoom_in_out_fingers(driver)
     STB_spotlight_transparency(driver)
@@ -246,11 +247,12 @@ def STB_spotlight_move(driver):
 # def stopwatch
 
 
-def STB_stopwatch_All(driver):
+def STB_stopwatch_all(driver):
     STB_stopwatch_start_pause(driver)
     STB_stopwatch_lap(driver)
     STB_stopwatch_expand(driver)
     STB_stopwatch_resume_reset(driver)
+    STB_stopwatch_move(driver)
 
 
 def STB_stopwatch_start_pause(driver):
@@ -275,6 +277,12 @@ def STB_stopwatch_resume_reset(driver):
     logger.Test('STB stopwatch-resume & reset')
     event_gen.generate_event(
         json_path='./Test_Jason/STB/Tools/Stopwatch/STB_stopwatch_resume_reset.json', driver=driver)
+
+
+def STB_stopwatch_move(driver):
+    logger.Test('STB stopwatch-move')
+    event_gen.generate_event(
+        json_path='./Test_Jason/STB/Tools/Stopwatch/STB_stopwatch_move.json', driver=driver)
 
 # def menu
 
@@ -449,7 +457,7 @@ def spotlight_menu(driver):
         elif choice == '4':
             STB_spotlight_move(driver)
         elif choice.lower() == 'all':
-            STB_spotlight_All(driver)
+            STB_spotlight_all(driver)
         else:
             print("Invalid option")
 
@@ -461,7 +469,8 @@ def stopwatch_menu(driver):
         print("1: start and pause")
         print("2: lap")
         print("3: expand")
-        print("4: ")
+        print("4: resume_reset")
+        print("5: moving")
         print("ALL")
 
         choice = input("Enter your choice: ")
@@ -476,8 +485,10 @@ def stopwatch_menu(driver):
             STB_stopwatch_expand(driver)
         elif choice == '4':
             STB_stopwatch_resume_reset(driver)
+        elif choice == '5':
+            STB_stopwatch_move(driver)
         elif choice.lower() == 'all':
-            STB_stopwatch_All(driver)
+            STB_stopwatch_all(driver)
         else:
             print("Invalid option")
 

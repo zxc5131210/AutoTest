@@ -119,6 +119,14 @@ class EventGen():
                 element = driver(resourceId=json_element)
                 gesture.swipe_right(element)
 
+            case 'swipe_up_element':
+                element = driver(resourceId=json_element)
+                gesture.swipe_up(element)
+
+            case 'swipe_down_element':
+                element = driver(resourceId=json_element)
+                gesture.swipe_down(element)
+
             case 'screen_zoom_in':
                 element = driver()
                 gesture.zoom_in(element)
@@ -291,6 +299,24 @@ class EventGen():
                     pass
                 else:
                     self.logger.error(f'{json_element} is not current')
+
+            case 'Timer_scroll_to_findText':
+                target_text = event['args']
+                target_scrollbar = json_element
+                # 循环滑动并查找文本
+                for _ in range(60):
+                    if driver(text=target_text).exists:
+                        # 找到文本后执行操作，例如点击元素
+                        element = driver(text=target_text)
+                        driver(resourceId=target_scrollbar).swipe('up')
+                        break  # 找到后跳出循环
+                    else:
+                        # 如果未找到文本，继续滑动
+                        driver(resourceId=target_scrollbar).swipe('up')
+
+                # 如果循环结束仍未找到文本，可以添加适当的处理
+                if not driver(text=target_text).exists:
+                    self.logger.error(f'not found {target_text} Text element')
 
             case 'compare_images_pixel':
                 compare_1 = event['element'][0]

@@ -141,7 +141,7 @@ class Gesture:
         diff_image = cv2.absdiff(img1, img2)
         diff_pixels = np.sum(diff_image, axis=2)  # count different pixel
         different_pixel_count = np.count_nonzero(diff_pixels)
-        if different_pixel_count > 1000:
+        if different_pixel_count > 3000:
             pass
 
         else:

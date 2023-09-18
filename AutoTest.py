@@ -249,6 +249,7 @@ def STB_spotlight_move(driver):
 def STB_stopwatch_All(driver):
     STB_stopwatch_start_pause(driver)
     STB_stopwatch_lap(driver)
+    STB_stopwatch_expand(driver)
 
 
 def STB_stopwatch_start_pause(driver):
@@ -262,6 +263,11 @@ def STB_stopwatch_lap(driver):
     event_gen.generate_event(
         json_path='./Test_Jason/STB/Tools/Stopwatch/STB_stopwatch_lap.json', driver=driver)
 
+
+def STB_stopwatch_expand(driver):
+    logger.Test('STB stopwatch-expand')
+    event_gen.generate_event(
+        json_path='./Test_Jason/STB/Tools/Stopwatch/STB_stopwatch_expand.json', driver=driver)
 
 # def menu
 
@@ -447,7 +453,7 @@ def stopwatch_menu(driver):
         print("0: Back to main menu")
         print("1: start and pause")
         print("2: lap")
-        print("3: ")
+        print("3: expand")
         print("4: ")
         print("ALL")
 
@@ -460,11 +466,11 @@ def stopwatch_menu(driver):
         elif choice == '2':
             STB_stopwatch_lap(driver)
         elif choice == '3':
-            pass
+            STB_stopwatch_expand(driver)
         elif choice == '4':
             pass
         elif choice.lower() == 'all':
-            pass
+            STB_stopwatch_All(driver)
         else:
             print("Invalid option")
 

@@ -183,30 +183,11 @@ class EventGen():
                 gesture.check_background_activities(json_element)
 
             case 'recent_app_clear':
-                element = driver.xpath(json_element)
+                element = driver(resourceId=json_element)
                 if element.exists:
-                    # if element exists ,get element location x,y
-                    element_bounds = element.info['bounds']
-
-                    # count begin and end
-                    start_x = element_bounds['left'] + 50  # start
-                    # center of element
-                    start_y = (element_bounds['top'] +
-                               element_bounds['bottom']) / 2
-                    end_x = element_bounds['left'] - 1000  # end
-                    end_y = start_y
-
-                    # swipe to left
-                    driver.swipe(start_x, start_y, end_x, end_y)
-                    time.sleep(2)
-
-                    if element.exists:
-                        self.logger.error(f'{element} still in recent app')
-                    else:
-                        pass
-
+                    element.click()
                 else:
-                    self.logger.error('recent app not found')
+                    self.logger.error('app not found in recent app')
 
             case 'swipe_to_find_in_all_apps':
                 x_a, y_a = driver(

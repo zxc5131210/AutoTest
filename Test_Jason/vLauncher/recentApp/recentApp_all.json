@@ -50,7 +50,7 @@
         },
         {
             "sequence": 7,
-            "element": "//*[@content-desc='myViewBoard Manager']",
+            "element": "com.viewsonic.vlauncher:id/remove_task",
             "gesture": "recent_app_clear",
             "args": "",
             "x": "",

@@ -23,22 +23,6 @@
             "args": "",
             "x": "",
             "y": ""
-        },
-        {
-            "sequence": 3,
-            "element": "com.viewsonic.sidetoolbar:id/btnStart",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 3,
-            "element": "com.viewsonic.sidetoolbar:id/btnPause",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
         }
     ]
 }

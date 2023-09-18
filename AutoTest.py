@@ -243,6 +243,25 @@ def STB_spotlight_move(driver):
     event_gen.generate_event(
         json_path='./Test_Jason/STB/Tools/Spotlight/STB_spotlight_move.json', driver=driver)
 
+# def stopwatch
+
+
+def STB_stopwatch_All(driver):
+    STB_stopwatch_start_pause(driver)
+    STB_stopwatch_lap(driver)
+
+
+def STB_stopwatch_start_pause(driver):
+    logger.Test('STB stopwatch-start and pause')
+    event_gen.generate_event(
+        json_path='./Test_Jason/STB/Tools/Stopwatch/STB_stopwatch_start_pause.json', driver=driver)
+
+
+def STB_stopwatch_lap(driver):
+    logger.Test('STB stopwatch-lap')
+    event_gen.generate_event(
+        json_path='./Test_Jason/STB/Tools/Stopwatch/STB_stopwatch_lap.json', driver=driver)
+
 
 # def menu
 
@@ -344,6 +363,7 @@ def STB_tools_menu(driver):
         print("0: Back to main menu")
         print("1: Freezer")
         print("2: Spotlight")
+        print("3: Stopwatch")
         print("ALL")
 
         choice = input("Enter your choice: ")
@@ -354,6 +374,8 @@ def STB_tools_menu(driver):
             freezer_menu(driver)
         elif choice == '2':
             spotlight_menu(driver)
+        elif choice == '3':
+            stopwatch_menu(driver)
         elif choice.lower() == 'all':
             pass
         else:
@@ -413,6 +435,34 @@ def spotlight_menu(driver):
             STB_spotlight_transparency(driver)
         elif choice == '4':
             STB_spotlight_move(driver)
+        elif choice.lower() == 'all':
+            STB_spotlight_All(driver)
+        else:
+            print("Invalid option")
+
+
+def stopwatch_menu(driver):
+    while True:
+        print("Spotlight Options:")
+        print("0: Back to main menu")
+        print("1: start and pause")
+        print("2: lap")
+        print("3: ")
+        print("4: ")
+        print("ALL")
+
+        choice = input("Enter your choice: ")
+
+        if choice == '0':
+            return
+        elif choice == '1':
+            STB_stopwatch_start_pause(driver)
+        elif choice == '2':
+            STB_stopwatch_lap(driver)
+        elif choice == '3':
+            pass
+        elif choice == '4':
+            pass
         elif choice.lower() == 'all':
             pass
         else:

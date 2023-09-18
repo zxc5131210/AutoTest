@@ -153,6 +153,13 @@ class EventGen():
             case 'findelement_ByXpath':
                 element = driver.xpath(json_element)
 
+            case 'findelement_ByText':
+                element = driver(text=json_element)
+                if element.exists:
+                    pass
+                else:
+                    self.logger.error('Find Text FAIL')
+
             case 'change_wallpaper_first':
                 element = driver(resourceId=json_element)
                 first_element = element[1]
@@ -162,6 +169,11 @@ class EventGen():
                 element = driver(resourceId=json_element)
                 first_element = element[2]
                 gesture.tap(first_element)
+
+            case 'stopwatch_lap':
+                element = driver(resourceId=json_element)
+                for lap in range(10):
+                    gesture.tap(element)
 
             case 'is_screenShot_enable':
                 current_directory = os.getcwd()

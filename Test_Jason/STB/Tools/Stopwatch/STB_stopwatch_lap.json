@@ -25,7 +25,7 @@
             "y": ""
         },
         {
-            "sequence": 3,
+            "sequence": 4,
             "element": "com.viewsonic.sidetoolbar:id/btnStart",
             "gesture": "tap_byID",
             "args": "",
@@ -33,17 +33,25 @@
             "y": ""
         },
         {
-            "sequence": 3,
-            "element": "com.viewsonic.sidetoolbar:id/btnPause",
-            "gesture": "tap_byID",
+            "sequence": 5,
+            "element": "com.viewsonic.sidetoolbar:id/lap",
+            "gesture": "stopwatch_lap",
             "args": "",
             "x": "",
             "y": ""
         },
         {
-            "sequence": 3,
-            "element": "",
-            "gesture": "homepage",
+            "sequence": 6,
+            "element": "LAP (THE MAXIMUM LAPS IS 10)",
+            "gesture": "findelement_ByText",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 7,
+            "element": "com.viewsonic.sidetoolbar:id/close",
+            "gesture": "tap_byID",
             "args": "",
             "x": "",
             "y": ""

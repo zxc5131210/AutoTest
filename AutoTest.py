@@ -548,7 +548,7 @@ def timer_menu(driver):
         elif choice == '5':
             pass
         elif choice.lower() == 'all':
-            STB_stopwatch_all(driver)
+            STB_timer_all(driver)
         else:
             print("Invalid option")
 

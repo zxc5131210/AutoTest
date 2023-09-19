@@ -23,6 +23,9 @@ class Gesture:
         # Tap function
         element.click()
 
+    def tap_image(self, element) -> None:
+        self.driver.image.click(element)
+
     def zoom_in(self, element=None) -> None:
         if element is None:
             element = self.driver()

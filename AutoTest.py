@@ -316,12 +316,19 @@ def STB_timer_expand(driver):
 
 def STB_marker_all(driver):
     STB_marker_selector(driver)
+    STB_marker_pen(driver)
 
 
 def STB_marker_selector(driver):
     logger.Test('STB marker-selector')
     event_gen.generate_event(
         json_path='./Test_Jason/STB/Tools/Marker/STB_marker_selector.json', driver=driver)
+
+
+def STB_marker_pen(driver):
+    logger.Test('STB marker-pen')
+    event_gen.generate_event(
+        json_path='./Test_Jason/STB/Tools/Marker/STB_marker_pen.json', driver=driver)
 # def menu
 
 
@@ -573,7 +580,7 @@ def marker_menu(driver):
         print("Spotlight Options:")
         print("0: Back to main menu")
         print("1: selector")
-        print("2: ")
+        print("2: pen")
         print("3: ")
         print("4: ")
         print("5: ")
@@ -586,7 +593,7 @@ def marker_menu(driver):
         elif choice == '1':
             STB_marker_selector(driver)
         elif choice == '2':
-            pass
+            STB_marker_pen(driver)
         elif choice == '3':
             pass
         elif choice == '4':

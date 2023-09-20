@@ -215,6 +215,14 @@ class EventGen():
                 else:
                     self.logger.error('app not found in recent app')
 
+            case 'marker_fill_up':
+                element_bounds = driver.info
+                center_x = (element_bounds['displayWidth']) // 2
+                for i in range(50):
+                    y_start = i
+                    driver.swipe(fx=0, fy=y_start, tx=center_x,
+                                 ty=y_start, steps=1)
+
             case 'swipe_to_find_in_all_apps':
                 x_a, y_a = driver(
                     resourceId="com.viewsonic.vlauncher:id/all_app_cell_5").center()

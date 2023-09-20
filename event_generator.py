@@ -47,7 +47,6 @@ class EventGen():
                 self.logger.error(
                     f'Sequence {json_sequence} {json_gesture}'
                 )
-                gesture.screenshot(f'./{json_sequence} {json_gesture}.png')
                 time.sleep(0.5)
 
         self.logger.info("Flow finished")
@@ -127,16 +126,11 @@ class EventGen():
                 element = driver(resourceId=json_element)
                 gesture.swipe_down(element)
 
-            case 'drag_element_screen':
+            case 'drag_element_to_screen_edge':
                 element = driver(resourceId=json_element)
-                if event['args'] != '':
-                    end_x = event['args'][0]
-                    end_y = event['args'][1]
-                else:
-                    end_x = None
-                    end_y = None
-                gesture.drag_element_screen(
-                    element, horizontal=end_x, vertical=end_y)
+                direction = event['args']
+                gesture.drag_element_to_screen_edge(
+                    element, direction=direction)
 
             case 'screen_zoom_in':
                 element = driver()

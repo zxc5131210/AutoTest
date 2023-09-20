@@ -105,20 +105,28 @@ class Gesture:
             element = self.driver()
         element.swipe("down")
 
-    def drag_element_screen(self, element, horizontal, vertical) -> None:
-        '''Default is upper right corner'''
+    def drag_element_to_screen_edge(self, element, direction) -> None:
+        '''
+        Args:
+            element (str): the drag element
+            direction (str): one of ("left", "right", "up", "down")
+        '''
         element_bounds = element.info['bounds']
-        # center x,y is element center , target x , y is screen width , height
+        # center x,y is element center , edge x , y is screen edge , height
         center_x = (element_bounds['left'] + element_bounds['right']) // 2
         center_y = (element_bounds['top'] + element_bounds['bottom']) // 2
+        edge_x = self.driver.info['displayWidth'] - 1
+        edge_y = self.driver.info['displayHeight'] - 1
 
-        if horizontal is None:
-            # 屏幕的宽度减 1，即最右侧的位置
-            horizontal = self.driver.info['displayWidth'] - 1
-        if vertical is None:
-            vertical = 0
-
-        self.driver.drag(center_x, center_y, horizontal, vertical)
+        assert direction in ("left", "right", "up", "down")
+        if direction == 'up':
+            self.driver.drag(center_x, center_y, center_x, 0)
+        elif direction == 'down':
+            self.driver.drag(center_x, center_y, center_x, edge_y)
+        elif direction == 'left':
+            self.driver.drag(center_x, center_y, 0, center_y)
+        elif direction == 'right':
+            self.driver.drag(center_x, center_y, edge_x, center_y)
 
     def install_app(self, element) -> None:
         command = ['adb', 'install', "-r", element]

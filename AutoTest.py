@@ -98,6 +98,7 @@ def STB_all(driver):
     STB_spotlight_all(driver)
     STB_stopwatch_all(driver)
     STB_timer_all(driver)
+
 # STB_first class
 
 
@@ -310,6 +311,17 @@ def STB_timer_expand(driver):
     logger.Test('STB timer-expand')
     event_gen.generate_event(
         json_path='./Test_Jason/STB/Tools/Timer/STB_timer_expand.json', driver=driver)
+# def marker
+
+
+def STB_marker_all(driver):
+    STB_marker_selector(driver)
+
+
+def STB_marker_selector(driver):
+    logger.Test('STB marker-selector')
+    event_gen.generate_event(
+        json_path='./Test_Jason/STB/Tools/Marker/STB_marker_selector.json', driver=driver)
 # def menu
 
 
@@ -412,6 +424,7 @@ def STB_tools_menu(driver):
         print("2: Spotlight")
         print("3: Stopwatch")
         print("4: Timer")
+        print("5: Marker")
         print("ALL")
 
         choice = input("Enter your choice: ")
@@ -426,6 +439,8 @@ def STB_tools_menu(driver):
             stopwatch_menu(driver)
         elif choice == '4':
             timer_menu(driver)
+        elif choice == '5':
+            marker_menu(driver)
         elif choice.lower() == 'all':
             pass
         else:
@@ -549,6 +564,37 @@ def timer_menu(driver):
             pass
         elif choice.lower() == 'all':
             STB_timer_all(driver)
+        else:
+            print("Invalid option")
+
+
+def marker_menu(driver):
+    while True:
+        print("Spotlight Options:")
+        print("0: Back to main menu")
+        print("1: selector")
+        print("2: ")
+        print("3: ")
+        print("4: ")
+        print("5: ")
+        print("ALL")
+
+        choice = input("Enter your choice: ")
+
+        if choice == '0':
+            return
+        elif choice == '1':
+            STB_marker_selector(driver)
+        elif choice == '2':
+            pass
+        elif choice == '3':
+            pass
+        elif choice == '4':
+            pass
+        elif choice == '5':
+            pass
+        elif choice.lower() == 'all':
+            STB_marker_all(driver)
         else:
             print("Invalid option")
 

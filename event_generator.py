@@ -130,12 +130,13 @@ class EventGen():
             case 'drag_element_screen':
                 element = driver(resourceId=json_element)
                 if event['args'] != '':
-                    x = event['args'][0]
-                    y = event['args'][1]
+                    end_x = event['args'][0]
+                    end_y = event['args'][1]
                 else:
-                    x = None
-                    y = None
-                gesture.drag_element_screen(element, horizontal=x, vertical=y)
+                    end_x = None
+                    end_y = None
+                gesture.drag_element_screen(
+                    element, horizontal=end_x, vertical=end_y)
 
             case 'screen_zoom_in':
                 element = driver()

@@ -131,6 +131,7 @@ class EventGen():
                 direction = event['args']
                 gesture.drag_element_to_screen_edge(
                     element, direction=direction)
+                time.sleep(2)
 
             case 'screen_zoom_in':
                 element = driver()

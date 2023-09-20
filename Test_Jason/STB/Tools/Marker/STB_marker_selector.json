@@ -39,6 +39,49 @@
             "args": "up",
             "x": "",
             "y": ""
+        },
+        {
+            "sequence": 6,
+            "element": "com.viewsonic.sidetoolbar:id/select",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 7,
+            "element": "//*[@text='myViewBoard Display']",
+            "gesture": "tap_byXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 8,
+            "element": [
+                "com.mvbcast.crosswalk",
+                ".EulaActivity"
+            ],
+            "gesture": "STB_current_app_compare",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 9,
+            "element": "com.viewsonic.sidetoolbar:id/close",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 10,
+            "element": "",
+            "gesture": "homepage",
+            "args": "",
+            "x": "",
+            "y": ""
         }
     ]
 }

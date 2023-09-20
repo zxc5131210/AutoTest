@@ -2,9 +2,9 @@
     "steps": [
         {
             "sequence": 1,
-            "element": "min",
-            "gesture": "Timer_scroll_to_findText",
-            "args": "10",
+            "element": "com.viewsonic.sidetoolbar:id/iv_annotation_bar_right",
+            "gesture": "drag_element_screen",
+            "args": "",
             "x": "",
             "y": ""
         }

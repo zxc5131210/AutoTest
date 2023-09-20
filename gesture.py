@@ -105,6 +105,21 @@ class Gesture:
             element = self.driver()
         element.swipe("down")
 
+    def drag_element_screen(self, element, horizontal, vertical) -> None:
+        '''Default is upper right corner'''
+        element_bounds = element.info['bounds']
+        # center x,y is element center , target x , y is screen width , height
+        center_x = (element_bounds['left'] + element_bounds['right']) // 2
+        center_y = (element_bounds['top'] + element_bounds['bottom']) // 2
+
+        if horizontal is None:
+            # 屏幕的宽度减 1，即最右侧的位置
+            horizontal = self.driver.info['displayWidth'] - 1
+        if vertical is None:
+            vertical = 0
+
+        self.driver.drag(center_x, center_y, horizontal, vertical)
+
     def install_app(self, element) -> None:
         command = ['adb', 'install', "-r", element]
         subprocess.run(command, check=False)

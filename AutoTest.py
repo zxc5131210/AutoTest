@@ -320,6 +320,7 @@ def STB_marker_all(driver):
     STB_marker_highlighter(driver)
     STB_marker_eraser(driver)
     STB_marker_undo_redo(driver)
+    STB_marker_delete(driver)
 
 
 def STB_marker_selector(driver):
@@ -350,6 +351,12 @@ def STB_marker_undo_redo(driver):
     logger.Test('STB marker-undo & redo')
     event_gen.generate_event(
         json_path='./Test_Jason/STB/Tools/Marker/STB_marker_undo_redo.json', driver=driver)
+
+
+def STB_marker_delete(driver):
+    logger.Test('STB marker-delete')
+    event_gen.generate_event(
+        json_path='./Test_Jason/STB/Tools/Marker/STB_marker_delete.json', driver=driver)
 # def menu
 
 
@@ -470,7 +477,7 @@ def STB_tools_menu(driver):
         elif choice == '5':
             marker_menu(driver)
         elif choice.lower() == 'all':
-            pass
+            STB_all(driver)
         else:
             print("Invalid option")
 
@@ -603,6 +610,7 @@ def marker_menu(driver):
         print("3: highlighter")
         print("4: eraser")
         print("5: undo & redo")
+        print("6: delete")
         print("ALL")
 
         choice = input("Enter your choice: ")
@@ -619,6 +627,8 @@ def marker_menu(driver):
             STB_marker_eraser(driver)
         elif choice == '5':
             STB_marker_undo_redo(driver)
+        elif choice == '6':
+            STB_marker_delete(driver)
         elif choice.lower() == 'all':
             STB_marker_all(driver)
         else:

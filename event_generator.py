@@ -33,6 +33,14 @@ class EventGen():
             else:
                 pass
 
+    def crash_exclusion(self, driver):
+        gesture = Gesture(driver)
+        guest_btn = driver(resourceId='com.viewsonic.vlauncher:id/btn_guest')
+        if guest_btn.exists:
+            gesture.tap(guest_btn)
+        else:
+            pass
+
     def generate_event(self, json_path: str, driver):
         gesture = Gesture(driver)
         # 設定初始
@@ -46,6 +54,7 @@ class EventGen():
             location_x = event['x']
             location_y = event['y']
             try:
+                self.crash_exclusion(driver)
                 self.gesture_cases(event, json_gesture, driver,
                                    json_element, json_gesture, location_x, location_y)
                 self.logger.info(

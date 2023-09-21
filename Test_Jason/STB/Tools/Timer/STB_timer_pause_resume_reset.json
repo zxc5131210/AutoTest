@@ -44,7 +44,7 @@
             "sequence": 6,
             "element": "sec",
             "gesture": "Timer_scroll_to_findText",
-            "args": "00",
+            "args": "10",
             "x": "",
             "y": ""
         },

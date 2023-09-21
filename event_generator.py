@@ -243,6 +243,13 @@ class EventGen():
                     driver.swipe(fx=0, fy=y_start, tx=center_x,
                                  ty=y_start, duration=0.05)
 
+            case 'marker_verify_file_is_exists':
+                # get toast msg and verify the file is exists
+                toast = driver.toast.get_message(wait_timeout=5)
+                filename = toast.split("/")[-1]
+                filepath = f'/sdcard/pictures/{filename}'
+                gesture.file_is_exists(filepath)
+
             case 'swipe_to_find_in_all_apps':
                 x_a, y_a = driver(
                     resourceId="com.viewsonic.vlauncher:id/all_app_cell_5").center()

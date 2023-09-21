@@ -136,6 +136,27 @@ class Gesture:
         command = ['adb', 'uninstall', element]
         subprocess.run(command, check=False)
 
+    def file_is_exists(self, filepath) -> None:
+        '''
+        verify the file is exists
+        args: filepath
+        '''
+        command = f'adb shell ls {filepath}'
+        try:
+            result = subprocess.run(command, check=False, stdout=subprocess.PIPE,
+                                    stderr=subprocess.PIPE, shell=True, text=True)
+            # 检查命令是否成功执行
+            if result.returncode == 0:
+                file_exists = bool(result.stdout.strip())
+                if file_exists:
+                    pass
+                else:
+                    self.logger.error('file is not exist')
+            else:
+                self.logger.error('file is not exist')
+        except subprocess.CalledProcessError:
+            self.logger.error('file is not exist')
+
     def get_overview_activities(self) -> None:
         result = subprocess.check_output(
             ["adb", "shell", "dumpsys", "activity", "recents"], universal_newlines=True)

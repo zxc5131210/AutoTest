@@ -23,6 +23,16 @@ class EventGen():
             flow = json.load(flow)
             return flow
 
+    def delete_temporarily_screenshots(self):
+        current_directory = os.getcwd()
+        files_to_delete = ['compareshot_1.png', 'compareshot_2.png']
+        for filename in files_to_delete:
+            filepath = os.path.join(current_directory, filename)
+            if os.path.exists(filepath) and os.path.isfile(filepath):
+                os.remove(filepath)
+            else:
+                pass
+
     def generate_event(self, json_path: str, driver):
         gesture = Gesture(driver)
         # 設定初始
@@ -50,16 +60,7 @@ class EventGen():
                 time.sleep(0.5)
 
         self.logger.info("Flow finished")
-
-        # delete temporarily saved screenshots
-        current_directory = os.getcwd()
-        files_to_delete = ['compareshot_1.png', 'compareshot_2.png']
-        for filename in files_to_delete:
-            filepath = os.path.join(current_directory, filename)
-            if os.path.exists(filepath) and os.path.isfile(filepath):
-                os.remove(filepath)
-            else:
-                pass
+        self.delete_temporarily_screenshots()
 
     def gesture_cases(
             self, event, gesture, driver, json_element, json_gesture, location_x, location_y

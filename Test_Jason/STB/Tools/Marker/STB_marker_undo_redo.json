@@ -68,7 +68,7 @@
         },
         {
             "sequence": 9,
-            "element": "com.viewsonic.sidetoolbar:id/eraser",
+            "element": "com.viewsonic.sidetoolbar:id/undo",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -76,14 +76,6 @@
         },
         {
             "sequence": 10,
-            "element": "",
-            "gesture": "swipe_right",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 11,
             "element": "",
             "gesture": "screenshot",
             "args": [
@@ -93,7 +85,7 @@
             "y": ""
         },
         {
-            "sequence": 12,
+            "sequence": 11,
             "element": [
                 "compareshot_1.png",
                 "compareshot_2.png"
@@ -104,7 +96,36 @@
             "y": ""
         },
         {
+            "sequence": 12,
+            "element": "com.viewsonic.sidetoolbar:id/redo",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
             "sequence": 13,
+            "element": "",
+            "gesture": "screenshot",
+            "args": [
+                "compareshot_1"
+            ],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 14,
+            "element": [
+                "compareshot_1.png",
+                "compareshot_2.png"
+            ],
+            "gesture": "compare_images_pixel",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 15,
             "element": "com.viewsonic.sidetoolbar:id/close",
             "gesture": "tap_byID",
             "args": "",

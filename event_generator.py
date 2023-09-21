@@ -51,6 +51,16 @@ class EventGen():
 
         self.logger.info("Flow finished")
 
+        # delete temporarily saved screenshots
+        current_directory = os.getcwd()
+        files_to_delete = ['compareshot_1.png', 'compareshot_2.png']
+        for filename in files_to_delete:
+            filepath = os.path.join(current_directory, filename)
+            if os.path.exists(filepath) and os.path.isfile(filepath):
+                os.remove(filepath)
+            else:
+                pass
+
     def gesture_cases(
             self, event, gesture, driver, json_element, json_gesture, location_x, location_y
     ):
@@ -221,7 +231,7 @@ class EventGen():
                 for i in range(50):
                     y_start = i
                     driver.swipe(fx=0, fy=y_start, tx=center_x,
-                                 ty=y_start, steps=1)
+                                 ty=y_start, duration=0.05)
 
             case 'swipe_to_find_in_all_apps':
                 x_a, y_a = driver(

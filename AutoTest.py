@@ -10,7 +10,6 @@ from event_generator import EventGen
 # driver = u2.connect(config.host)
 driver = u2.connect()
 driver.uiautomator.start()
-driver.implicitly_wait(3)
 # Step 3 : Create gesture automation flow
 event_gen = EventGen()
 logger = Logger()
@@ -98,6 +97,7 @@ def STB_all(driver):
     STB_spotlight_all(driver)
     STB_stopwatch_all(driver)
     STB_timer_all(driver)
+    STB_marker_all(driver)
 
 # STB_first class
 
@@ -318,6 +318,7 @@ def STB_marker_all(driver):
     STB_marker_selector(driver)
     STB_marker_pen(driver)
     STB_marker_highlighter(driver)
+    STB_marker_eraser(driver)
 
 
 def STB_marker_selector(driver):
@@ -336,6 +337,14 @@ def STB_marker_highlighter(driver):
     logger.Test('STB marker-highlighter')
     event_gen.generate_event(
         json_path='./Test_Jason/STB/Tools/Marker/STB_marker_highlighter.json', driver=driver)
+
+
+def STB_marker_eraser(driver):
+    logger.Test('STB marker-eraser')
+    event_gen.generate_event(
+        json_path='./Test_Jason/STB/Tools/Marker/STB_marker_eraser.json', driver=driver)
+
+
 # def menu
 
 
@@ -589,7 +598,7 @@ def marker_menu(driver):
         print("1: selector")
         print("2: pen")
         print("3: highlighter")
-        print("4: ")
+        print("4: eraser")
         print("5: ")
         print("ALL")
 
@@ -604,7 +613,7 @@ def marker_menu(driver):
         elif choice == '3':
             STB_marker_highlighter(driver)
         elif choice == '4':
-            pass
+            STB_marker_eraser(driver)
         elif choice == '5':
             pass
         elif choice.lower() == 'all':

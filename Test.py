@@ -1,12 +1,15 @@
-import time
 import uiautomator2 as u2
-
-# 连接到设备
+import concurrent.futures
+import time
+import os
+# 初始化连接到设备
 d = u2.connect()
-element_bounds = d.info
-center_x = (element_bounds['displayWidth']) // 2
-center_y = (element_bounds['displayHeight']) // 2
-print(center_x, center_y)
-for i in range(100):
-    y_start = i
-    d.swipe(fx=0, fy=y_start, tx=center_x, ty=y_start)
+
+# d.screenshot("QAQ.png")
+screenshot = './QAQ.png'
+
+current_directory = os.getcwd()
+for filename in os.listdir(current_directory):
+    filepath = os.path.join(current_directory, filename)
+    if os.path.isfile(screenshot):
+        os.remove(screenshot)

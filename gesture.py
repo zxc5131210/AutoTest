@@ -6,7 +6,10 @@ from logger import Logger
 
 
 class Gesture:
-    # define gesture
+    '''
+    define gesture needed
+    '''
+    location_storage = []
 
     def __init__(self, driver) -> None:
         self.logger = Logger()
@@ -105,6 +108,23 @@ class Gesture:
         if element is None:
             element = self.driver()
         element.swipe("down")
+
+    def get_element_location(self, element) -> None:
+        element_bounds = element.info['bounds']
+        center_x = (element_bounds['left'] + element_bounds['right']) // 2
+        center_y = (element_bounds['top'] + element_bounds['bottom']) // 2
+        self.location_storage.append(center_x)
+        self.location_storage.append(center_y)
+
+    def compare_location_different(self) -> None:
+        x_before = self.location_storage[0]
+        y_before = self.location_storage[1]
+        x_after = self.location_storage[2]
+        y_after = self.location_storage[3]
+        if x_before != x_after or y_before != y_after:
+            pass
+        else:
+            self.logger.error('the element does not move')
 
     def drag_element_to_screen_edge(self, element, direction) -> None:
         '''

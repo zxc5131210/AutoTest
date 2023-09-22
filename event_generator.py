@@ -153,6 +153,13 @@ class EventGen():
                     element, direction=direction)
                 time.sleep(2)
 
+            case 'get_element_location':
+                element = driver(resourceId=json_element)
+                gesture.get_element_location(element)
+
+            case 'compare_location_different':
+                gesture.compare_location_different()
+
             case 'screen_zoom_in':
                 element = driver()
                 gesture.zoom_in(element)

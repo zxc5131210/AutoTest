@@ -322,6 +322,7 @@ def STB_marker_all(driver):
     STB_marker_undo_redo(driver)
     STB_marker_delete(driver)
     STB_marker_save(driver)
+    STB_marker_close(driver)
 
 
 def STB_marker_selector(driver):
@@ -364,6 +365,12 @@ def STB_marker_save(driver):
     logger.Test('STB marker-save')
     event_gen.generate_event(
         json_path='./Test_Jason/STB/Tools/Marker/STB_marker_save.json', driver=driver)
+
+
+def STB_marker_close(driver):
+    logger.Test('STB marker-close')
+    event_gen.generate_event(
+        json_path='./Test_Jason/STB/Tools/Marker/STB_marker_close.json', driver=driver)
 # def menu
 
 
@@ -639,6 +646,8 @@ def marker_menu(driver):
             STB_marker_delete(driver)
         elif choice == '7':
             STB_marker_save(driver)
+        elif choice == '8':
+            STB_marker_close(driver)
         elif choice.lower() == 'all':
             STB_marker_all(driver)
         else:

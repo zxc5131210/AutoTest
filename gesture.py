@@ -15,12 +15,19 @@ class Gesture:
         self.driver = driver
 
     def open_activity(self, element) -> None:
+        '''
+        open activity by package name and activity name
+        args:
+            element=[{package},{activity}]
+        '''
         package = element[0]
         activity = element[1]
         self.driver.app_start(package, activity)
 
     def tap(self, element) -> None:
-        # Tap function
+        '''
+        Tap function
+        '''
         element.click()
 
     def tap_image(self, element) -> None:
@@ -42,21 +49,15 @@ class Gesture:
     def clear_keys(self, element) -> None:
         element.clear_text()
 
-    def double_tap(self, element) -> None:
-        # double tap function
-        element.double_click()
-
     def back(self) -> None:
-        # back button
+        '''
+        back by physical button
+        '''
         self.driver.keyevent("back")
 
     def screenshot(self, save_location) -> None:
         # screenshot current screen
         self.driver.screenshot(save_location)
-
-    def double_finger(self) -> None:
-        # double_finger use
-        pass
 
     def long_press_element(self, element) -> None:
         # long_press fuction
@@ -133,6 +134,11 @@ class Gesture:
         subprocess.run(command, check=False)
 
     def uninstall_app(self, element) -> None:
+        '''
+        uninstall the application
+        args:
+            element= package name
+        '''
         command = ['adb', 'uninstall', element]
         subprocess.run(command, check=False)
 
@@ -145,13 +151,9 @@ class Gesture:
         try:
             result = subprocess.run(command, check=False, stdout=subprocess.PIPE,
                                     stderr=subprocess.PIPE, shell=True, text=True)
-            # 检查命令是否成功执行
+            # check the command success or not
             if result.returncode == 0:
-                file_exists = bool(result.stdout.strip())
-                if file_exists:
-                    pass
-                else:
-                    self.logger.error('file is not exist')
+                pass
             else:
                 self.logger.error('file is not exist')
         except subprocess.CalledProcessError:
@@ -167,7 +169,9 @@ class Gesture:
         return activities
 
     def check_background_activities(self, element) -> None:
-        # check background activities match the app or not
+        '''
+         check background activities match the app or not
+        '''
         overview_activities = self.get_overview_activities()
         activity_list = []
         if overview_activities:
@@ -180,6 +184,10 @@ class Gesture:
             self.logger.error("No overview activities found.")
 
     def compare_images_pixel(self, compare_1, compare_2) -> None:
+        '''
+        compare two pixel different , if different pixel over 3000
+        determine the difference between two pictures
+        '''
         # read two pictures
         img1 = cv2.imread(compare_1)
         img2 = cv2.imread(compare_2)
@@ -195,6 +203,10 @@ class Gesture:
             self.logger.error('compare different fail')
 
     def clean_activity(self, element):
+        '''
+        clean activity user data
+        arg: element= package name
+        '''
         command = ['adb', 'shell', 'pm', 'clear', element]
         subprocess.run(
             command, capture_output=True, text=True, check=True)

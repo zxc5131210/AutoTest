@@ -125,6 +125,7 @@ class Gesture:
             pass
         else:
             self.logger.error('the element does not move')
+        self.location_storage.clear()
 
     def drag_element_to_screen_edge(self, element, direction) -> None:
         '''

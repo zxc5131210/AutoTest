@@ -244,7 +244,9 @@ class EventGen():
                                  ty=y_start, duration=0.05)
 
             case 'marker_verify_file_is_exists':
-                # get toast msg and verify the file is exists
+                '''
+                    get toast msg and verify the file is exists
+                '''
                 toast = driver.toast.get_message(wait_timeout=5)
                 filename = toast.split("/")[-1]
                 filepath = f'/sdcard/pictures/{filename}'

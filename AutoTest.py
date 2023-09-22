@@ -9,7 +9,7 @@ from event_generator import EventGen
 # step 1 : connect driver
 # driver = u2.connect(config.host)
 driver = u2.connect()
-driver.uiautomator.start()
+driver.service("uiautomator").start()
 # Step 3 : Create gesture automation flow
 event_gen = EventGen()
 logger = Logger()

@@ -26,11 +26,9 @@
         },
         {
             "sequence": 4,
-            "element": "",
-            "gesture": "screenshot",
-            "args": [
-                "compareshot_1"
-            ],
+            "element": "com.viewsonic.sidetoolbar:id/contentView",
+            "gesture": "get_element_location",
+            "args": "",
             "x": "",
             "y": ""
         },
@@ -44,114 +42,22 @@
         },
         {
             "sequence": 6,
-            "element": "",
-            "gesture": "screenshot",
-            "args": [
-                "compareshot_2"
-            ],
+            "element": "com.viewsonic.sidetoolbar:id/contentView",
+            "gesture": "get_element_location",
+            "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 7,
-            "element": [
-                "compareshot_1.png",
-                "compareshot_2.png"
-            ],
-            "gesture": "compare_images_pixel",
+            "element": "",
+            "gesture": "compare_location_different",
             "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 8,
-            "element": "com.viewsonic.sidetoolbar:id/contentView",
-            "gesture": "swipe_right_element",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 9,
-            "element": "",
-            "gesture": "screenshot",
-            "args": [
-                "compareshot_1"
-            ],
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 10,
-            "element": [
-                "compareshot_1.png",
-                "compareshot_2.png"
-            ],
-            "gesture": "compare_images_pixel",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 11,
-            "element": "com.viewsonic.sidetoolbar:id/contentView",
-            "gesture": "swipe_up_element",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 12,
-            "element": "",
-            "gesture": "screenshot",
-            "args": [
-                "compareshot_2"
-            ],
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 13,
-            "element": [
-                "compareshot_1.png",
-                "compareshot_2.png"
-            ],
-            "gesture": "compare_images_pixel",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 14,
-            "element": "com.viewsonic.sidetoolbar:id/contentView",
-            "gesture": "swipe_down",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 15,
-            "element": "",
-            "gesture": "screenshot",
-            "args": [
-                "compareshot_1"
-            ],
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 16,
-            "element": [
-                "compareshot_1.png",
-                "compareshot_2.png"
-            ],
-            "gesture": "compare_images_pixel",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 17,
             "element": "com.viewsonic.sidetoolbar:id/close",
             "gesture": "tap_byID",
             "args": "",

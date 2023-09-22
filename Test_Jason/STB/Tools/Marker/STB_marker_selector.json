@@ -41,6 +41,14 @@
             "y": ""
         },
         {
+            "sequence": "initial",
+            "element": "com.viewsonic.sidetoolbar:id/pen",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
             "sequence": 6,
             "element": "com.viewsonic.sidetoolbar:id/select",
             "gesture": "tap_byID",

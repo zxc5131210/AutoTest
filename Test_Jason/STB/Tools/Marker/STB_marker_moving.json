@@ -41,9 +41,17 @@
             "y": ""
         },
         {
+            "sequence": "initial",
+            "element": "com.viewsonic.sidetoolbar:id/pen",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
             "sequence": 6,
-            "element": "com.viewsonic.sidetoolbar:id/iv_annotation_bar_right",
-            "gesture": "get_element_location",
+            "element": "com.viewsonic.sidetoolbar:id/select",
+            "gesture": "tap_byID",
             "args": "",
             "x": "",
             "y": ""
@@ -51,8 +59,8 @@
         {
             "sequence": 7,
             "element": "com.viewsonic.sidetoolbar:id/iv_annotation_bar_right",
-            "gesture": "drag_element_to_screen_edge",
-            "args": "left",
+            "gesture": "get_element_location",
+            "args": "",
             "x": "",
             "y": ""
         },

@@ -1,7 +1,6 @@
-'''
+"""
 Start activity , to choose option u want to test for
-'''
-from ScreenLock import ScreenLock
+"""
 from logger import Logger
 import uiautomator2 as u2
 import config
@@ -150,6 +149,28 @@ def STB_tools_order_in_shortcut(driver):
 
 # STB_ScreenLock
 
+
+def screen_lock_ALL(driver):
+    event_gen.generate_event(
+        json_path='./Test_Jason/ScreenLock/screenLock_all.json', driver=driver)
+
+
+def screen_lock_setPassword(driver):
+    logger.Test('Set Password')
+    event_gen.generate_event(
+        json_path='./Test_Jason/ScreenLock/screenLock_setPassword.json', driver=driver)
+
+
+def screen_lock_changePassword(driver):
+    logger.Test('Change Password')
+    event_gen.generate_event(
+        json_path='./Test_Jason/ScreenLock/screenLock_changePassword.json', driver=driver)
+
+
+def screen_lock_removePassword(driver):
+    logger.Test('Remove Password')
+    event_gen.generate_event(
+        json_path='./Test_Jason/ScreenLock/screenLock_removePassword.json', driver=driver)
 
 # def STB tools
 # def Freezer
@@ -360,6 +381,31 @@ def STB_marker_moving(driver):
 
 
 # def menu
+
+
+def screen_lock_menu(driver):
+    while True:
+        print("ScreenLock Options:")
+        print("0: Back to main menu")
+        print("1: Set Password")
+        print("2: Change Password")
+        print("3: Remove Password")
+        print("ALL")
+
+        choice = input("Enter your choice: ")
+
+        if choice == '0':
+            return
+        elif choice == '1':
+            screen_lock_setPassword(driver)
+        elif choice == '2':
+            screen_lock_changePassword(driver)
+        elif choice == '3':
+            screen_lock_removePassword(driver)
+        elif choice.lower() == 'all':
+            screen_lock_ALL(driver)
+        else:
+            print("Invalid option")
 
 
 def wallpaper_menu(driver):
@@ -681,7 +727,7 @@ while True:
     if first_choice == '0':
         exit()
     elif first_choice == '1':
-        ScreenLock(event_gen, logger, driver).run()
+        screen_lock_menu(driver)
     elif first_choice == '2':
         wallpaper_menu(driver)
     elif first_choice == '3':

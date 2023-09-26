@@ -1,24 +1,29 @@
-from event_generator import EventGen
-from logger import Logger
+from AutoTest import event_gen, logger, driver
 
 
-class ScreenLock(event_gen, logger, driver):
+class ScreenLock:
+    """screen lock test case"""
 
-    def screen_lock_ALL(self):
+    def __init__(self):
+        self.event_gen = event_gen
+        self.logger = logger
+        self.driver = driver
+
+    def _screen_lock_all(self):
         self.event_gen.generate_event(
             json_path='./Test_Jason/ScreenLock/screenLock_all.json', driver=self.driver)
 
-    def screen_lock_setPassword(self):
+    def _screen_lock_set_password(self):
         self.logger.Test('Set Password')
         self.event_gen.generate_event(
             json_path='./Test_Jason/ScreenLock/screenLock_setPassword.json', driver=self.driver)
 
-    def screen_lock_changePassword(self):
+    def _screen_lock_change_password(self):
         self.logger.Test('Change Password')
         self.event_gen.generate_event(
             json_path='./Test_Jason/ScreenLock/screenLock_changePassword.json', driver=self.driver)
 
-    def screen_lock_removePassword(self):
+    def _screen_lock_remove_password(self):
         self.logger.Test('Remove Password')
         self.event_gen.generate_event(
             json_path='./Test_Jason/ScreenLock/screenLock_removePassword.json', driver=self.driver)
@@ -37,12 +42,12 @@ class ScreenLock(event_gen, logger, driver):
             if choice == '0':
                 return
             elif choice == '1':
-                self.screen_lock_setPassword(self.driver)
+                self._screen_lock_set_password()
             elif choice == '2':
-                self.screen_lock_changePassword(self.driver)
+                self._screen_lock_change_password()
             elif choice == '3':
-                self.screen_lock_removePassword(self.driver)
+                self._screen_lock_remove_password()
             elif choice.lower() == 'all':
-                self.screen_lock_ALL(self.driver)
+                self._screen_lock_all()
             else:
                 print("Invalid option")

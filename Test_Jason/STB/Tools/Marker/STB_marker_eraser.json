@@ -18,7 +18,7 @@
         },
         {
             "sequence": 3,
-            "element": "//*[@text='Timer']",
+            "element": "//*[@text='Marker']",
             "gesture": "tap_byXpath",
             "args": "",
             "x": "",
@@ -26,56 +26,58 @@
         },
         {
             "sequence": 4,
-            "element": "hour",
-            "gesture": "Timer_scroll_to_findText",
-            "args": "00",
+            "element": "com.viewsonic.sidetoolbar:id/iv_annotation_bar_right",
+            "gesture": "drag_element_to_screen_edge",
+            "args": "right",
             "x": "",
             "y": ""
         },
         {
             "sequence": 5,
-            "element": "min",
-            "gesture": "Timer_scroll_to_findText",
-            "args": "01",
+            "element": "com.viewsonic.sidetoolbar:id/iv_annotation_bar_right",
+            "gesture": "drag_element_to_screen_edge",
+            "args": "up",
             "x": "",
             "y": ""
         },
         {
             "sequence": 6,
-            "element": "sec",
-            "gesture": "Timer_scroll_to_findText",
-            "args": "10",
+            "element": "com.viewsonic.sidetoolbar:id/highlighter",
+            "gesture": "tap_byID",
+            "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 7,
-            "element": "com.viewsonic.sidetoolbar:id/start",
-            "gesture": "tap_byID",
+            "element": "",
+            "gesture": "swipe_right",
             "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 8,
-            "element": "com.viewsonic.sidetoolbar:id/btnLeft",
+            "element": "",
+            "gesture": "screenshot",
+            "args": [
+                "compareshot_1"
+            ],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 9,
+            "element": "com.viewsonic.sidetoolbar:id/eraser",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
             "y": ""
         },
         {
-            "sequence": 9,
-            "element": "",
-            "gesture": "time_wait",
-            "args": "5",
-            "x": "",
-            "y": ""
-        },
-        {
             "sequence": 10,
-            "element": "com.viewsonic.sidetoolbar:id/btnLeft",
-            "gesture": "tap_byID",
+            "element": "",
+            "gesture": "swipe_right",
             "args": "",
             "x": "",
             "y": ""
@@ -83,22 +85,27 @@
         {
             "sequence": 11,
             "element": "",
-            "gesture": "time_wait",
-            "args": "5",
+            "gesture": "screenshot",
+            "args": [
+                "compareshot_2"
+            ],
             "x": "",
             "y": ""
         },
         {
             "sequence": 12,
-            "element": "com.viewsonic.sidetoolbar:id/btnReset",
-            "gesture": "tap_byID",
+            "element": [
+                "compareshot_1.png",
+                "compareshot_2.png"
+            ],
+            "gesture": "compare_images_pixel",
             "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 13,
-            "element": "com.viewsonic.sidetoolbar:id/cancel",
+            "element": "com.viewsonic.sidetoolbar:id/close",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

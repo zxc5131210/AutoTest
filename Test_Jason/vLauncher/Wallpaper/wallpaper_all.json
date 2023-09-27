@@ -145,7 +145,7 @@
         },
         {
             "sequence": 18,
-            "element": "//*[@content-desc='Wallpaper_TestPhoto.jpg, 543 kB, Sep 1']",
+            "element": "//*[contains(@content-desc, 'Wallpaper_TestPhoto.jpg')]",
             "gesture": "tap_byXpath",
             "args": "",
             "x": "",

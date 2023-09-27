@@ -18,7 +18,7 @@
         },
         {
             "sequence": 3,
-            "element": "//*[@text='Timer']",
+            "element": "//*[@text='Marker']",
             "gesture": "tap_byXpath",
             "args": "",
             "x": "",
@@ -26,79 +26,63 @@
         },
         {
             "sequence": 4,
-            "element": "hour",
-            "gesture": "Timer_scroll_to_findText",
-            "args": "00",
+            "element": "com.viewsonic.sidetoolbar:id/iv_annotation_bar_right",
+            "gesture": "drag_element_to_screen_edge",
+            "args": "right",
             "x": "",
             "y": ""
         },
         {
             "sequence": 5,
-            "element": "min",
-            "gesture": "Timer_scroll_to_findText",
-            "args": "01",
+            "element": "com.viewsonic.sidetoolbar:id/iv_annotation_bar_right",
+            "gesture": "drag_element_to_screen_edge",
+            "args": "up",
             "x": "",
             "y": ""
         },
         {
             "sequence": 6,
-            "element": "sec",
-            "gesture": "Timer_scroll_to_findText",
-            "args": "10",
+            "element": "com.viewsonic.sidetoolbar:id/iv_annotation_bar_right",
+            "gesture": "get_element_location",
+            "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 7,
-            "element": "com.viewsonic.sidetoolbar:id/start",
-            "gesture": "tap_byID",
-            "args": "",
+            "element": "com.viewsonic.sidetoolbar:id/iv_annotation_bar_right",
+            "gesture": "drag_element_to_screen_edge",
+            "args": "left",
             "x": "",
             "y": ""
         },
         {
             "sequence": 8,
-            "element": "com.viewsonic.sidetoolbar:id/btnLeft",
-            "gesture": "tap_byID",
-            "args": "",
+            "element": "com.viewsonic.sidetoolbar:id/iv_annotation_bar_right",
+            "gesture": "drag_element_to_screen_edge",
+            "args": "down",
             "x": "",
             "y": ""
         },
         {
             "sequence": 9,
-            "element": "",
-            "gesture": "time_wait",
-            "args": "5",
+            "element": "com.viewsonic.sidetoolbar:id/iv_annotation_bar_right",
+            "gesture": "get_element_location",
+            "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 10,
-            "element": "com.viewsonic.sidetoolbar:id/btnLeft",
-            "gesture": "tap_byID",
+            "element": "",
+            "gesture": "compare_location_different",
             "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 11,
-            "element": "",
-            "gesture": "time_wait",
-            "args": "5",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 12,
-            "element": "com.viewsonic.sidetoolbar:id/btnReset",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 13,
-            "element": "com.viewsonic.sidetoolbar:id/cancel",
+            "element": "com.viewsonic.sidetoolbar:id/close",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

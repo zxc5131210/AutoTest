@@ -18,7 +18,7 @@
         },
         {
             "sequence": 3,
-            "element": "//*[@text='Stopwatch']",
+            "element": "//*[@text='Marker']",
             "gesture": "tap_byXpath",
             "args": "",
             "x": "",
@@ -26,24 +26,32 @@
         },
         {
             "sequence": 4,
-            "element": "com.viewsonic.sidetoolbar:id/contentView",
-            "gesture": "get_element_location",
-            "args": "",
+            "element": "com.viewsonic.sidetoolbar:id/iv_annotation_bar_right",
+            "gesture": "drag_element_to_screen_edge",
+            "args": "right",
             "x": "",
             "y": ""
         },
         {
             "sequence": 5,
-            "element": "com.viewsonic.sidetoolbar:id/contentView",
-            "gesture": "swipe_left_element",
+            "element": "com.viewsonic.sidetoolbar:id/iv_annotation_bar_right",
+            "gesture": "drag_element_to_screen_edge",
+            "args": "up",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": "initial",
+            "element": "com.viewsonic.sidetoolbar:id/pen",
+            "gesture": "tap_byID",
             "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 6,
-            "element": "com.viewsonic.sidetoolbar:id/contentView",
-            "gesture": "get_element_location",
+            "element": "com.viewsonic.sidetoolbar:id/save",
+            "gesture": "tap_byID",
             "args": "",
             "x": "",
             "y": ""
@@ -51,7 +59,7 @@
         {
             "sequence": 7,
             "element": "",
-            "gesture": "compare_location_different",
+            "gesture": "marker_verify_file_is_exists",
             "args": "",
             "x": "",
             "y": ""

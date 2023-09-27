@@ -15,14 +15,6 @@ logger = Logger()
 
 class EventGen():
     # Gen Event for use
-    def __init__(self) -> None:
-        self.logger = Logger()
-
-    def read_json(self, json_path: str) -> dict:
-        with open(json_path, encoding='utf-8') as flow:
-            flow = json.load(flow)
-            return flow
-
     def generate_event(self, json_path: str, driver):
         gesture = Gesture(driver)
         # 設定初始
@@ -36,6 +28,7 @@ class EventGen():
             location_x = event['x']
             location_y = event['y']
             try:
+                self.crash_exclusion(driver)
                 self.gesture_cases(event, json_gesture, driver,
                                    json_element, json_gesture, location_x, location_y)
                 self.logger.info(
@@ -47,10 +40,10 @@ class EventGen():
                 self.logger.error(
                     f'Sequence {json_sequence} {json_gesture}'
                 )
-                gesture.screenshot(f'./{json_sequence} {json_gesture}.png')
                 time.sleep(0.5)
 
         self.logger.info("Flow finished")
+        self.delete_temporarily_screenshots()
 
     def gesture_cases(
             self, event, gesture, driver, json_element, json_gesture, location_x, location_y
@@ -126,6 +119,20 @@ class EventGen():
             case 'swipe_down_element':
                 element = driver(resourceId=json_element)
                 gesture.swipe_down(element)
+
+            case 'drag_element_to_screen_edge':
+                element = driver(resourceId=json_element)
+                direction = event['args']
+                gesture.drag_element_to_screen_edge(
+                    element, direction=direction)
+                time.sleep(2)
+
+            case 'get_element_location':
+                element = driver(resourceId=json_element)
+                gesture.get_element_location(element)
+
+            case 'compare_location_different':
+                gesture.compare_location_different()
 
             case 'screen_zoom_in':
                 element = driver()
@@ -208,6 +215,21 @@ class EventGen():
                     element.click()
                 else:
                     self.logger.error('app not found in recent app')
+
+            case 'marker_fill_up':
+                element_bounds = driver.info
+                center_x = (element_bounds['displayWidth']) // 2
+                for i in range(50):
+                    y_start = i
+                    driver.swipe(fx=0, fy=y_start, tx=center_x,
+                                 ty=y_start, duration=0.05)
+
+            case 'marker_verify_file_is_exists':
+                # get toast msg and verify the file is exists
+                toast = driver.toast.get_message(wait_timeout=5)
+                filename = toast.split("/")[-1]
+                filepath = f'/sdcard/pictures/{filename}'
+                gesture.file_is_exists(filepath)
 
             case 'swipe_to_find_in_all_apps':
                 x_a, y_a = driver(
@@ -346,6 +368,32 @@ class EventGen():
             case _:
                 self.logger.warning(
                     f'gesture type: {json_gesture} not defined.')
+
+    def __init__(self) -> None:
+        self.logger = Logger()
+
+    def read_json(self, json_path: str) -> dict:
+        with open(json_path, encoding='utf-8') as flow:
+            flow = json.load(flow)
+            return flow
+
+    def delete_temporarily_screenshots(self):
+        current_directory = os.getcwd()
+        files_to_delete = ['compareshot_1.png', 'compareshot_2.png']
+        for filename in files_to_delete:
+            filepath = os.path.join(current_directory, filename)
+            if os.path.exists(filepath) and os.path.isfile(filepath):
+                os.remove(filepath)
+            else:
+                pass
+
+    def crash_exclusion(self, driver):
+        gesture = Gesture(driver)
+        guest_btn = driver(resourceId='com.viewsonic.vlauncher:id/btn_guest')
+        if guest_btn.exists:
+            gesture.tap(guest_btn)
+        else:
+            pass
 
 
 if __name__ == '__main__':

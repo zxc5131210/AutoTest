@@ -6,7 +6,10 @@ from logger import Logger
 
 
 class Gesture:
-    # define gesture
+    '''
+    define gesture needed
+    '''
+    location_storage = []
 
     def __init__(self, driver) -> None:
         self.logger = Logger()
@@ -15,12 +18,19 @@ class Gesture:
         self.driver = driver
 
     def open_activity(self, element) -> None:
+        '''
+        open activity by package name and activity name
+        args:
+            element=[{package},{activity}]
+        '''
         package = element[0]
         activity = element[1]
         self.driver.app_start(package, activity)
 
     def tap(self, element) -> None:
-        # Tap function
+        '''
+        Tap function
+        '''
         element.click()
 
     def tap_image(self, element) -> None:
@@ -42,21 +52,15 @@ class Gesture:
     def clear_keys(self, element) -> None:
         element.clear_text()
 
-    def double_tap(self, element) -> None:
-        # double tap function
-        element.double_click()
-
     def back(self) -> None:
-        # back button
+        '''
+        back by physical button
+        '''
         self.driver.keyevent("back")
 
     def screenshot(self, save_location) -> None:
         # screenshot current screen
         self.driver.screenshot(save_location)
-
-    def double_finger(self) -> None:
-        # double_finger use
-        pass
 
     def long_press_element(self, element) -> None:
         # long_press fuction
@@ -105,13 +109,76 @@ class Gesture:
             element = self.driver()
         element.swipe("down")
 
+    def get_element_location(self, element) -> None:
+        element_bounds = element.info['bounds']
+        center_x = (element_bounds['left'] + element_bounds['right']) // 2
+        center_y = (element_bounds['top'] + element_bounds['bottom']) // 2
+        self.location_storage.append(center_x)
+        self.location_storage.append(center_y)
+
+    def compare_location_different(self) -> None:
+        x_before = self.location_storage[0]
+        y_before = self.location_storage[1]
+        x_after = self.location_storage[2]
+        y_after = self.location_storage[3]
+        if x_before != x_after or y_before != y_after:
+            pass
+        else:
+            self.logger.error('the element does not move')
+        self.location_storage.clear()
+
+    def drag_element_to_screen_edge(self, element, direction) -> None:
+        '''
+        Args:
+            element (str): the drag element
+            direction (str): one of ("left", "right", "up", "down")
+        '''
+        element_bounds = element.info['bounds']
+        # center x,y is element center , edge x , y is screen edge , height
+        center_x = (element_bounds['left'] + element_bounds['right']) // 2
+        center_y = (element_bounds['top'] + element_bounds['bottom']) // 2
+        edge_x = self.driver.info['displayWidth'] - 1
+        edge_y = self.driver.info['displayHeight'] - 1
+
+        assert direction in ("left", "right", "up", "down")
+        if direction == 'up':
+            self.driver.drag(center_x, center_y, center_x, 0)
+        elif direction == 'down':
+            self.driver.drag(center_x, center_y, center_x, edge_y)
+        elif direction == 'left':
+            self.driver.drag(center_x, center_y, 0, center_y)
+        elif direction == 'right':
+            self.driver.drag(center_x, center_y, edge_x, center_y)
+
     def install_app(self, element) -> None:
         command = ['adb', 'install', "-r", element]
         subprocess.run(command, check=False)
 
     def uninstall_app(self, element) -> None:
+        '''
+        uninstall the application
+        args:
+            element= package name
+        '''
         command = ['adb', 'uninstall', element]
         subprocess.run(command, check=False)
+
+    def file_is_exists(self, filepath) -> None:
+        '''
+        verify the file is exists
+        args: filepath
+        '''
+        command = f'adb shell ls {filepath}'
+        try:
+            result = subprocess.run(command, check=False, stdout=subprocess.PIPE,
+                                    stderr=subprocess.PIPE, shell=True, text=True)
+            # check the command success or not
+            if result.returncode == 0:
+                pass
+            else:
+                self.logger.error('file is not exist')
+        except subprocess.CalledProcessError:
+            self.logger.error('file is not exist')
 
     def get_overview_activities(self) -> None:
         result = subprocess.check_output(
@@ -123,7 +190,9 @@ class Gesture:
         return activities
 
     def check_background_activities(self, element) -> None:
-        # check background activities match the app or not
+        '''
+         check background activities match the app or not
+        '''
         overview_activities = self.get_overview_activities()
         activity_list = []
         if overview_activities:
@@ -136,6 +205,10 @@ class Gesture:
             self.logger.error("No overview activities found.")
 
     def compare_images_pixel(self, compare_1, compare_2) -> None:
+        '''
+        compare two pixel different , if different pixel over 3000
+        determine the difference between two pictures
+        '''
         # read two pictures
         img1 = cv2.imread(compare_1)
         img2 = cv2.imread(compare_2)
@@ -151,6 +224,10 @@ class Gesture:
             self.logger.error('compare different fail')
 
     def clean_activity(self, element):
+        '''
+        clean activity user data
+        arg: element= package name
+        '''
         command = ['adb', 'shell', 'pm', 'clear', element]
         subprocess.run(
             command, capture_output=True, text=True, check=True)

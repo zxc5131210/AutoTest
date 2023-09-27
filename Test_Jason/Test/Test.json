@@ -2,9 +2,17 @@
     "steps": [
         {
             "sequence": 1,
-            "element": "min",
-            "gesture": "Timer_scroll_to_findText",
-            "args": "10",
+            "element": "com.viewsonic.sidetoolbar:id/save",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 1,
+            "element": "",
+            "gesture": "marker_verify_file_is_exists",
+            "args": "",
             "x": "",
             "y": ""
         }

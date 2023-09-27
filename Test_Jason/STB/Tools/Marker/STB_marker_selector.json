@@ -18,7 +18,7 @@
         },
         {
             "sequence": 3,
-            "element": "//*[@text='Timer']",
+            "element": "//*[@text='Marker']",
             "gesture": "tap_byXpath",
             "args": "",
             "x": "",
@@ -26,80 +26,67 @@
         },
         {
             "sequence": 4,
-            "element": "hour",
-            "gesture": "Timer_scroll_to_findText",
-            "args": "00",
+            "element": "com.viewsonic.sidetoolbar:id/iv_annotation_bar_right",
+            "gesture": "drag_element_to_screen_edge",
+            "args": "right",
             "x": "",
             "y": ""
         },
         {
             "sequence": 5,
-            "element": "min",
-            "gesture": "Timer_scroll_to_findText",
-            "args": "01",
+            "element": "com.viewsonic.sidetoolbar:id/iv_annotation_bar_right",
+            "gesture": "drag_element_to_screen_edge",
+            "args": "up",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": "initial",
+            "element": "com.viewsonic.sidetoolbar:id/pen",
+            "gesture": "tap_byID",
+            "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 6,
-            "element": "sec",
-            "gesture": "Timer_scroll_to_findText",
-            "args": "10",
+            "element": "com.viewsonic.sidetoolbar:id/select",
+            "gesture": "tap_byID",
+            "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 7,
-            "element": "com.viewsonic.sidetoolbar:id/start",
-            "gesture": "tap_byID",
+            "element": "//*[@text='myViewBoard Display']",
+            "gesture": "tap_byXpath",
             "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 8,
-            "element": "com.viewsonic.sidetoolbar:id/btnLeft",
-            "gesture": "tap_byID",
+            "element": [
+                "com.mvbcast.crosswalk",
+                ".EulaActivity"
+            ],
+            "gesture": "STB_current_app_compare",
             "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 9,
-            "element": "",
-            "gesture": "time_wait",
-            "args": "5",
+            "element": "com.viewsonic.sidetoolbar:id/close",
+            "gesture": "tap_byID",
+            "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 10,
-            "element": "com.viewsonic.sidetoolbar:id/btnLeft",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 11,
             "element": "",
-            "gesture": "time_wait",
-            "args": "5",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 12,
-            "element": "com.viewsonic.sidetoolbar:id/btnReset",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 13,
-            "element": "com.viewsonic.sidetoolbar:id/cancel",
-            "gesture": "tap_byID",
+            "gesture": "homepage",
             "args": "",
             "x": "",
             "y": ""

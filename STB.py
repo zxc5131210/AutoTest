@@ -3,6 +3,7 @@ from RecentApp import RecentApp
 from STBToolsFreezer import Freezer
 from STBToolsSpotlight import Spotlight
 from STBToolsStopwatch import Stopwatch
+from STBToolsTimer import Timer
 
 
 class STB:
@@ -30,7 +31,8 @@ class STB:
                   driver=self.driver).STB_spotlight_all()
         Stopwatch(event_gen=self.event_gen, logger=self.logger,
                   driver=self.driver).STB_stopwatch_all()
-        # self._STB_timer_all()
+        Timer(event_gen=self.event_gen, logger=self.logger,
+              driver=self.driver).STB_timer_all()
         # self._STB_marker_all()
 
     # STB_first class

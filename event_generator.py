@@ -341,9 +341,8 @@ class EventGen:
                     resourceId='com.viewsonic.sidetoolbar:id/seekbar_alpha'))
 
             case 'STB_current_app_compare':
-                current_app = gesture.current_app()
-                if current_app['package'] == json_element[0] and \
-                        current_app['activity'] == json_element[1]:
+                if gesture.current_app['package'] == json_element[0] and \
+                        gesture.current_app['activity'] == json_element[1]:
                     pass
                 else:
                     self.logger.error(f'{json_element} is not current')
@@ -353,13 +352,16 @@ class EventGen:
                 # timer hour/min/sec setting
                 if json_element == 'hour':
                     target_scrollbar = 'com.viewsonic.sidetoolbar:id/hour_wheelview'
-                    element = '//*[@resource-id="com.viewsonic.sidetoolbar:id/hour_wheelview"]/android.widget.FrameLayout[2]/android.widget.LinearLayout[1]/android.widget.TextView[1]'
+                    element = ('//*[@resource-id="com.viewsonic.sidetoolbar:id/hour_wheelview"]/android.widget'
+                               '.FrameLayout[2]/android.widget.LinearLayout[1]/android.widget.TextView[1]')
                 elif json_element == 'min':
                     target_scrollbar = 'com.viewsonic.sidetoolbar:id/minute_wheelview'
-                    element = '//*[@resource-id="com.viewsonic.sidetoolbar:id/minute_wheelview"]/android.widget.FrameLayout[2]/android.widget.LinearLayout[1]/android.widget.TextView[1]'
+                    element = ('//*[@resource-id="com.viewsonic.sidetoolbar:id/minute_wheelview"]/android.widget'
+                               '.FrameLayout[2]/android.widget.LinearLayout[1]/android.widget.TextView[1]')
                 elif json_element == 'sec':
                     target_scrollbar = 'com.viewsonic.sidetoolbar:id/second_wheelview'
-                    element = '//*[@resource-id="com.viewsonic.sidetoolbar:id/second_wheelview"]/android.widget.FrameLayout[2]/android.widget.LinearLayout[1]/android.widget.TextView[1]'
+                    element = ('//*[@resource-id="com.viewsonic.sidetoolbar:id/second_wheelview"]/android.widget'
+                               '.FrameLayout[2]/android.widget.LinearLayout[1]/android.widget.TextView[1]')
 
                 # scroll to find
                 for _ in range(60):

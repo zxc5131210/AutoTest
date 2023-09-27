@@ -1,10 +1,9 @@
-from AutoTest import event_gen, logger, driver
+"""screen lock test case"""
 
 
 class ScreenLock:
-    """screen lock test case"""
 
-    def __init__(self):
+    def __init__(self, event_gen, logger, driver):
         self.event_gen = event_gen
         self.logger = logger
         self.driver = driver

@@ -2,6 +2,7 @@
 from STBToolsFreezer import Freezer
 from STBToolsSpotlight import Spotlight
 from STBToolsStopwatch import Stopwatch
+from STBToolsTimer import Timer
 
 
 class STBTools:
@@ -33,8 +34,7 @@ class STBTools:
             elif choice == '3':
                 Stopwatch(self.event_gen, self.logger, self.driver).run()
             elif choice == '4':
-                # timer_menu(driver)
-                pass
+                Timer(self.event_gen, self.logger, self.driver).run()
             elif choice == '5':
                 # marker_menu(driver)
                 pass

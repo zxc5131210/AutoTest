@@ -26,31 +26,6 @@ def TestJson(driver):
     event_gen.generate_event(
         json_path='./Test_Jason/Test/Test.json', driver=driver)
 
-# def timer
-
-
-def STB_timer_all(driver):
-    STB_timer_start_ring(driver)
-    STB_timer_pause_resume_reset(driver)
-    STB_timer_expand(driver)
-
-
-def STB_timer_start_ring(driver):
-    logger.Test('STB timer-start to wait the bell ring')
-    event_gen.generate_event(
-        json_path='./Test_Jason/STB/Tools/Timer/STB_timer_start_ring.json', driver=driver)
-
-
-def STB_timer_pause_resume_reset(driver):
-    logger.Test('STB timer-pause & resume & reset button')
-    event_gen.generate_event(
-        json_path='./Test_Jason/STB/Tools/Timer/STB_timer_pause_resume_reset.json', driver=driver)
-
-
-def STB_timer_expand(driver):
-    logger.Test('STB timer-expand')
-    event_gen.generate_event(
-        json_path='./Test_Jason/STB/Tools/Timer/STB_timer_expand.json', driver=driver)
 # def marker
 
 
@@ -121,35 +96,6 @@ def STB_marker_moving(driver):
 
 
 # def menu
-
-def timer_menu(driver):
-    while True:
-        print("Spotlight Options:")
-        print("0: Back to main menu")
-        print("1: start and pause")
-        print("2: pause & resume & reset")
-        print("3: expand")
-        print("ALL")
-
-        choice = input("Enter your choice: ")
-
-        if choice == '0':
-            return
-        elif choice == '1':
-            STB_timer_start_ring(driver)
-        elif choice == '2':
-            STB_timer_pause_resume_reset(driver)
-        elif choice == '3':
-            STB_timer_expand(driver)
-        elif choice == '4':
-            pass
-        elif choice == '5':
-            pass
-        elif choice.lower() == 'all':
-            STB_timer_all(driver)
-        else:
-            print("Invalid option")
-
 
 def marker_menu(driver):
     while True:

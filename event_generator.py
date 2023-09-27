@@ -13,13 +13,39 @@ from gesture import Gesture
 logger = Logger()
 
 
-class EventGen():
+def read_json(json_path: str) -> dict:
+    with open(json_path, encoding='utf-8') as flow:
+        flow = json.load(flow)
+        return flow
+
+
+def delete_temporarily_screenshots():
+    current_directory = os.getcwd()
+    files_to_delete = ['compareshot_1.png', 'compareshot_2.png']
+    for filename in files_to_delete:
+        filepath = os.path.join(current_directory, filename)
+        if os.path.exists(filepath) and os.path.isfile(filepath):
+            os.remove(filepath)
+        else:
+            pass
+
+
+def crash_exclusion(driver):
+    gesture = Gesture(driver)
+    guest_btn = driver(resourceId='com.viewsonic.vlauncher:id/btn_guest')
+    if guest_btn.exists:
+        gesture.tap(guest_btn)
+    else:
+        pass
+
+
+class EventGen:
     # Gen Event for use
     def generate_event(self, json_path: str, driver):
         gesture = Gesture(driver)
         # 設定初始
         gesture.home_page()
-        event_flow = self.read_json(json_path)
+        event_flow = read_json(json_path)
         flow = event_flow['steps']
         for event in flow:
             json_sequence = event['sequence']
@@ -28,7 +54,7 @@ class EventGen():
             location_x = event['x']
             location_y = event['y']
             try:
-                self.crash_exclusion(driver)
+                crash_exclusion(driver)
                 self.gesture_cases(event, json_gesture, driver,
                                    json_element, json_gesture, location_x, location_y)
                 self.logger.info(
@@ -43,7 +69,7 @@ class EventGen():
                 time.sleep(0.5)
 
         self.logger.info("Flow finished")
-        self.delete_temporarily_screenshots()
+        delete_temporarily_screenshots()
 
     def gesture_cases(
             self, event, gesture, driver, json_element, json_gesture, location_x, location_y
@@ -371,29 +397,6 @@ class EventGen():
 
     def __init__(self) -> None:
         self.logger = Logger()
-
-    def read_json(self, json_path: str) -> dict:
-        with open(json_path, encoding='utf-8') as flow:
-            flow = json.load(flow)
-            return flow
-
-    def delete_temporarily_screenshots(self):
-        current_directory = os.getcwd()
-        files_to_delete = ['compareshot_1.png', 'compareshot_2.png']
-        for filename in files_to_delete:
-            filepath = os.path.join(current_directory, filename)
-            if os.path.exists(filepath) and os.path.isfile(filepath):
-                os.remove(filepath)
-            else:
-                pass
-
-    def crash_exclusion(self, driver):
-        gesture = Gesture(driver)
-        guest_btn = driver(resourceId='com.viewsonic.vlauncher:id/btn_guest')
-        if guest_btn.exists:
-            gesture.tap(guest_btn)
-        else:
-            pass
 
 
 if __name__ == '__main__':

@@ -6,9 +6,9 @@ from logger import Logger
 
 
 class Gesture:
-    '''
+    """
     define gesture needed
-    '''
+    """
     location_storage = []
 
     def __init__(self, driver) -> None:
@@ -18,19 +18,16 @@ class Gesture:
         self.driver = driver
 
     def open_activity(self, element) -> None:
-        '''
+        """
         open activity by package name and activity name
         args:
             element=[{package},{activity}]
-        '''
+        """
         package = element[0]
         activity = element[1]
         self.driver.app_start(package, activity)
 
     def tap(self, element) -> None:
-        '''
-        Tap function
-        '''
         element.click()
 
     def tap_image(self, element) -> None:
@@ -53,9 +50,9 @@ class Gesture:
         element.clear_text()
 
     def back(self) -> None:
-        '''
+        """
         back by physical button
-        '''
+        """
         self.driver.keyevent("back")
 
     def screenshot(self, save_location) -> None:
@@ -63,7 +60,7 @@ class Gesture:
         self.driver.screenshot(save_location)
 
     def long_press_element(self, element) -> None:
-        # long_press fuction
+        # long_press function
         element.long_click(duration=2)
 
     def long_press_location(self, location_x, location_y):
@@ -128,11 +125,11 @@ class Gesture:
         self.location_storage.clear()
 
     def drag_element_to_screen_edge(self, element, direction) -> None:
-        '''
+        """
         Args:
             element (str): the drag element
             direction (str): one of ("left", "right", "up", "down")
-        '''
+        """
         element_bounds = element.info['bounds']
         # center x,y is element center , edge x , y is screen edge , height
         center_x = (element_bounds['left'] + element_bounds['right']) // 2
@@ -155,19 +152,19 @@ class Gesture:
         subprocess.run(command, check=False)
 
     def uninstall_app(self, element) -> None:
-        '''
+        """
         uninstall the application
         args:
             element= package name
-        '''
+        """
         command = ['adb', 'uninstall', element]
         subprocess.run(command, check=False)
 
     def file_is_exists(self, filepath) -> None:
-        '''
-        verify the file is exists
+        """
+        verify the file is existing
         args: filepath
-        '''
+        """
         command = f'adb shell ls {filepath}'
         try:
             result = subprocess.run(command, check=False, stdout=subprocess.PIPE,
@@ -180,7 +177,7 @@ class Gesture:
         except subprocess.CalledProcessError:
             self.logger.error('file is not exist')
 
-    def get_overview_activities(self) -> None:
+    def get_overview_activities(self) -> list[str]:
         result = subprocess.check_output(
             ["adb", "shell", "dumpsys", "activity", "recents"], universal_newlines=True)
         lines = result.split("\n")
@@ -190,9 +187,9 @@ class Gesture:
         return activities
 
     def check_background_activities(self, element) -> None:
-        '''
+        """
          check background activities match the app or not
-        '''
+        """
         overview_activities = self.get_overview_activities()
         activity_list = []
         if overview_activities:
@@ -205,10 +202,10 @@ class Gesture:
             self.logger.error("No overview activities found.")
 
     def compare_images_pixel(self, compare_1, compare_2) -> None:
-        '''
+        """
         compare two pixel different , if different pixel over 3000
         determine the difference between two pictures
-        '''
+        """
         # read two pictures
         img1 = cv2.imread(compare_1)
         img2 = cv2.imread(compare_2)
@@ -224,10 +221,10 @@ class Gesture:
             self.logger.error('compare different fail')
 
     def clean_activity(self, element):
-        '''
+        """
         clean activity user data
         arg: element= package name
-        '''
+        """
         command = ['adb', 'shell', 'pm', 'clear', element]
         subprocess.run(
             command, capture_output=True, text=True, check=True)

@@ -27,7 +27,8 @@ class Gesture:
         activity = element[1]
         self.driver.app_start(package, activity)
 
-    def tap(self, element) -> None:
+    @staticmethod
+    def tap(element) -> None:
         element.click()
 
     def tap_image(self, element) -> None:
@@ -43,10 +44,12 @@ class Gesture:
             element = self.driver()
         element.pinch_in(percent=10, steps=10)
 
-    def send_keys(self, element, keyword) -> None:
+    @staticmethod
+    def send_keys(element, keyword) -> None:
         element.send_keys(keyword)
 
-    def clear_keys(self, element) -> None:
+    @staticmethod
+    def clear_keys(element) -> None:
         element.clear_text()
 
     def back(self) -> None:
@@ -58,10 +61,6 @@ class Gesture:
     def screenshot(self, save_location) -> None:
         # screenshot current screen
         self.driver.screenshot(save_location)
-
-    def long_press_element(self, element) -> None:
-        # long_press function
-        element.long_click(duration=2)
 
     def long_press_location(self, location_x, location_y):
         self.driver.long_click(x=location_x, y=location_y, duration=2)
@@ -147,11 +146,13 @@ class Gesture:
         elif direction == 'right':
             self.driver.drag(center_x, center_y, edge_x, center_y)
 
-    def install_app(self, element) -> None:
+    @staticmethod
+    def install_app(element) -> None:
         command = ['adb', 'install', "-r", element]
         subprocess.run(command, check=False)
 
-    def uninstall_app(self, element) -> None:
+    @staticmethod
+    def uninstall_app(element) -> None:
         """
         uninstall the application
         args:
@@ -177,7 +178,8 @@ class Gesture:
         except subprocess.CalledProcessError:
             self.logger.error('file is not exist')
 
-    def get_overview_activities(self) -> list[str]:
+    @staticmethod
+    def get_overview_activities() -> list[str]:
         result = subprocess.check_output(
             ["adb", "shell", "dumpsys", "activity", "recents"], universal_newlines=True)
         lines = result.split("\n")
@@ -220,7 +222,8 @@ class Gesture:
         else:
             self.logger.error('compare different fail')
 
-    def clean_activity(self, element):
+    @staticmethod
+    def clean_activity(element):
         """
         clean activity user data
         arg: element= package name
@@ -229,20 +232,24 @@ class Gesture:
         subprocess.run(
             command, capture_output=True, text=True, check=True)
 
-    def update_file(self, element):
+    @staticmethod
+    def update_file(element):
         command = ['adb', 'push', element, '/sdcard/']
         subprocess.run(command, check=False)
 
-    def delete_file(self, element):
+    @staticmethod
+    def delete_file(element):
         command = ['adb', 'shell', 'rm', '/sdcard/', element]
         subprocess.run(command, shell=True, capture_output=True,
                        text=True, check=False)
 
-    def reboot(self):
+    @staticmethod
+    def reboot():
         command = ['adb', 'reboot']
         subprocess.run(command, check=True)
 
-    def wait_for_device(self):
+    @staticmethod
+    def wait_for_device():
         command = ['adb', 'wait-for-device']
         subprocess.run(command, check=True)
 

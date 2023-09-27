@@ -3,6 +3,7 @@ from STBToolsFreezer import Freezer
 from STBToolsSpotlight import Spotlight
 from STBToolsStopwatch import Stopwatch
 from STBToolsTimer import Timer
+from STBToolsMarker import Marker
 
 
 class STBTools:
@@ -36,7 +37,7 @@ class STBTools:
             elif choice == '4':
                 Timer(self.event_gen, self.logger, self.driver).run()
             elif choice == '5':
-                # marker_menu(driver)
+                Marker(self.event_gen, self.logger, self.driver).run()
                 pass
             elif choice.lower() == 'all':
                 pass

@@ -362,6 +362,10 @@ class EventGen:
                     target_scrollbar = 'com.viewsonic.sidetoolbar:id/second_wheelview'
                     element = ('//*[@resource-id="com.viewsonic.sidetoolbar:id/second_wheelview"]/android.widget'
                                '.FrameLayout[2]/android.widget.LinearLayout[1]/android.widget.TextView[1]')
+                else:
+                    element = json_element
+                    target_scrollbar = None
+                    self.logger.error(f'{element} is not found')
 
                 # scroll to find
                 for _ in range(60):

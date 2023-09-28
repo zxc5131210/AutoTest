@@ -100,7 +100,7 @@ class Marker:
             elif choice == '9':
                 self._STB_marker_moving()
             elif choice.lower() == 'all':
-                self._STB_marker_all()
+                self.STB_marker_all()
             else:
                 print("Invalid option")
 

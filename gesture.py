@@ -80,6 +80,7 @@ class Gesture:
     def current_app(self) -> None:
         """
         get current app
+        @rtype: dict
         """
         return self.driver.app_current()
 

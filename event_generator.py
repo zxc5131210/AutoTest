@@ -79,6 +79,7 @@ class EventGen:
             case 'open_activity':
                 try:
                     gesture.open_activity(json_element)
+                    time.sleep(3)
                 except NoSuchElementException:
                     pass
 

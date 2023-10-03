@@ -1,9 +1,9 @@
 {
     "steps": [
         {
-            "sequence": 4,
-            "element": "Pictures/*",
-            "gesture": "delete_file",
+            "sequence": 11,
+            "element": "",
+            "gesture": "tap_by_device_model",
             "args": "",
             "x": "",
             "y": ""

@@ -9,8 +9,8 @@ class EditLauncher:
         self.driver = driver
 
     def _edit_launcher_all(self):
-        self.event_gen.generate_event(
-            json_path='./Test_Jason/vLauncher/Edit_Launcher/editLauncher_all.json', driver=self.driver)
+        self._edit_launcher_add_app()
+        self._edit_launcher_find_all()
 
     def _edit_launcher_add_app(self):
         self.logger.Test('Add_delete_re-range app on hot seat')

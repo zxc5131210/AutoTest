@@ -63,30 +63,6 @@
             "args": "",
             "x": "",
             "y": ""
-        },
-        {
-            "sequence": 9,
-            "element": "com.viewsonic.sidetoolbar:id/arrow",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 10,
-            "element": "com.viewsonic.sidetoolbar:id/btnRecent",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 11,
-            "element": "com.viewsonic.vlauncher:id/btn_clear_all",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
         }
     ]
 }

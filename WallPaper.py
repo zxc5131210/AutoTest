@@ -9,8 +9,8 @@ class WallPaper:
         self.driver = driver
 
     def _wallpaper_all(self):
-        self.event_gen.generate_event(
-            json_path='./Test_Jason/vLauncher/Wallpaper/wallpaper_all.json', driver=self.driver)
+        self._wallpaper_by_default()
+        self._wallpaper_by_update()
 
     def _wallpaper_by_default(self):
         self.logger.Test('Change By_default')

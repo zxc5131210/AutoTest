@@ -9,10 +9,9 @@ class RecentApp:
         self.driver = driver
 
     def recent_app_all(self):
-        self.logger.Test('recent-All')
-        self.event_gen.generate_event(
-            json_path='./Test_Jason/vLauncher/recentApp/recentApp_all.json', driver=self.driver)
-
+        self._recent_app_clear_app()
+        self._recent_app_clear_all_btn()
+        
     def _recent_app_clear_app(self):
         self.logger.Test('recent-clear app')
         self.event_gen.generate_event(

@@ -9,23 +9,30 @@ class ScreenLock:
         self.driver = driver
 
     def _screen_lock_all(self):
-        self.event_gen.generate_event(
-            json_path='./Test_Jason/ScreenLock/screenLock_all.json', driver=self.driver)
+        self._screen_lock_set_password()
+        self._screen_lock_change_password()
+        self._screen_lock_remove_password()
+        self._screen_lock_reveal_password()
 
     def _screen_lock_set_password(self):
         self.logger.Test('Set Password')
         self.event_gen.generate_event(
-            json_path='./Test_Jason/ScreenLock/screenLock_setPassword.json', driver=self.driver)
+            json_path='Test_Jason/ScreenLock/screenLock_set_password.json', driver=self.driver)
 
     def _screen_lock_change_password(self):
         self.logger.Test('Change Password')
         self.event_gen.generate_event(
-            json_path='./Test_Jason/ScreenLock/screenLock_changePassword.json', driver=self.driver)
+            json_path='Test_Jason/ScreenLock/screenLock_change_password.json', driver=self.driver)
 
     def _screen_lock_remove_password(self):
         self.logger.Test('Remove Password')
         self.event_gen.generate_event(
-            json_path='./Test_Jason/ScreenLock/screenLock_removePassword.json', driver=self.driver)
+            json_path='Test_Jason/ScreenLock/screenLock_remove_password.json', driver=self.driver)
+
+    def _screen_lock_reveal_password(self):
+        self.logger.Test('Reveal Password')
+        self.event_gen.generate_event(
+            json_path='./Test_Jason/ScreenLock/screenLock_reveal_password.json', driver=self.driver)
 
     def run(self):
         while True:
@@ -46,6 +53,8 @@ class ScreenLock:
                 self._screen_lock_change_password()
             elif choice == '3':
                 self._screen_lock_remove_password()
+            elif choice == '4':
+                self._screen_lock_reveal_password()
             elif choice.lower() == 'all':
                 self._screen_lock_all()
             else:

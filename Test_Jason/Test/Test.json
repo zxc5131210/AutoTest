@@ -1,17 +1,9 @@
 {
     "steps": [
         {
-            "sequence": 1,
-            "element": "com.viewsonic.sidetoolbar:id/save",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 1,
-            "element": "",
-            "gesture": "marker_verify_file_is_exists",
+            "sequence": 4,
+            "element": "Pictures/*",
+            "gesture": "delete_file",
             "args": "",
             "x": "",
             "y": ""

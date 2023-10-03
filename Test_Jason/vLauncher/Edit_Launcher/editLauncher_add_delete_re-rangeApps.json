@@ -63,6 +63,14 @@
             "args": "",
             "x": "",
             "y": ""
+        },
+        {
+            "sequence": "END",
+            "element": "com.viewsonic.vlauncher",
+            "gesture": "end_activity",
+            "args": "",
+            "x": "",
+            "y": ""
         }
     ]
 }

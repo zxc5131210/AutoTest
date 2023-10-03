@@ -386,6 +386,12 @@ class EventGen:
             case 'STB_screenshot_verify_saving':
                 gesture.get_file_count(json_element)
 
+            case 'tap_by_device_model':
+                device=gesture.get_device_info()
+                device_model = device['model']
+                element = driver(resourceId=json_element).child(text=device_model)
+                gesture.tap(element)
+
             case 'time_wait':
                 wait_time = event['args']
                 time.sleep(int(wait_time))

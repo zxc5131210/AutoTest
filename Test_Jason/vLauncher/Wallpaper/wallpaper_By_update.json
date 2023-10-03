@@ -84,8 +84,8 @@
         },
         {
             "sequence": 11,
-            "element": "./Test_File/deviceIcon.png",
-            "gesture": "tap_byImage",
+            "element": "com.android.documentsui:id/roots_list",
+            "gesture": "tap_by_device_model",
             "args": "",
             "x": "",
             "y": ""

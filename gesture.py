@@ -84,6 +84,13 @@ class Gesture:
         """
         return self.driver.app_current()
 
+    def get_device_info(self) -> None:
+        """
+        get device info
+        @rtype: dict
+        """
+        return self.driver.device_info
+
     def swipe_left(self, element=None) -> None:
         # swipe left function
         if element is None:

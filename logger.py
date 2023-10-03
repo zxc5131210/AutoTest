@@ -41,7 +41,7 @@ class Logger:
         self._write_to_csv('CRITICAL', msg, 'Critical')
 
     def Test(self, msg: str) -> None:
-        self._write_to_csv('Test describe', msg, None)
+        self._write_to_csv('Test describe', msg, '')
 
     def _write_to_csv(self, level: str, msg: str, status: str) -> None:
         with open(self.log_file, 'a', encoding='utf-8', newline='') as csvfile:

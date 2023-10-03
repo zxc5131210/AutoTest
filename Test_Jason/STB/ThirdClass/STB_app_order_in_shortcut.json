@@ -57,7 +57,7 @@
             "y": ""
         },
         {
-            "sequence": 8,
+            "sequence": 7,
             "element": "com.viewsonic.sidetoolbar:id/arrow",
             "gesture": "tap_byID",
             "args": "",
@@ -65,7 +65,7 @@
             "y": ""
         },
         {
-            "sequence": 2,
+            "sequence": 8,
             "element": "com.viewsonic.sidetoolbar:id/btnAllTools",
             "gesture": "tap_byID",
             "args": "",
@@ -73,7 +73,7 @@
             "y": ""
         },
         {
-            "sequence": 3,
+            "sequence": 9,
             "element": "com.viewsonic.sidetoolbar:id/iv_all_tools_edit_status",
             "gesture": "tap_byID",
             "args": "",
@@ -81,7 +81,7 @@
             "y": ""
         },
         {
-            "sequence": 3,
+            "sequence": 10,
             "element": "com.viewsonic.sidetoolbar:id/RlAllToolsTagFirst",
             "gesture": "tap_byID",
             "args": "",
@@ -89,7 +89,7 @@
             "y": ""
         },
         {
-            "sequence": 6,
+            "sequence": 11,
             "element": "com.viewsonic.sidetoolbar:id/btnHome",
             "gesture": "tap_byID",
             "args": "",
@@ -97,7 +97,7 @@
             "y": ""
         },
         {
-            "sequence": 1,
+            "sequence": 12,
             "element": "com.viewsonic.sidetoolbar:id/arrow",
             "gesture": "tap_byID",
             "args": "",
@@ -105,7 +105,7 @@
             "y": ""
         },
         {
-            "sequence": 2,
+            "sequence": 13,
             "element": "com.viewsonic.sidetoolbar:id/btnAllTools",
             "gesture": "tap_byID",
             "args": "",
@@ -113,7 +113,7 @@
             "y": ""
         },
         {
-            "sequence": 3,
+            "sequence": 14,
             "element": "com.viewsonic.sidetoolbar:id/iv_all_tools_edit_status",
             "gesture": "tap_byID",
             "args": "",
@@ -121,7 +121,7 @@
             "y": ""
         },
         {
-            "sequence": 4,
+            "sequence": 15,
             "element": "com.viewsonic.sidetoolbar:id/RlAllToolsTagOne",
             "gesture": "tap_byID",
             "args": "",
@@ -129,7 +129,7 @@
             "y": ""
         },
         {
-            "sequence": 6,
+            "sequence": 16,
             "element": "com.viewsonic.sidetoolbar:id/btnHome",
             "gesture": "tap_byID",
             "args": "",
@@ -137,7 +137,7 @@
             "y": ""
         },
         {
-            "sequence": 1,
+            "sequence": 17,
             "element": "com.viewsonic.sidetoolbar:id/arrow",
             "gesture": "tap_byID",
             "args": "",
@@ -145,7 +145,7 @@
             "y": ""
         },
         {
-            "sequence": 1,
+            "sequence": 18,
             "element": "com.viewsonic.sidetoolbar:id/RlAllToolsTagFirst",
             "gesture": "tap_byID",
             "args": "",
@@ -153,7 +153,7 @@
             "y": ""
         },
         {
-            "sequence": 20,
+            "sequence": 19,
             "element": [
                 "com.viewsonic.sidetoolbar",
                 ".zoom.ZoomActivity"
@@ -164,7 +164,7 @@
             "y": ""
         },
         {
-            "sequence": 21,
+            "sequence": 20,
             "element": "",
             "gesture": "homepage",
             "args": "",

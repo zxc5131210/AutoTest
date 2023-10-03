@@ -1,10 +1,6 @@
 """STB test case"""
 from RecentApp import RecentApp
-from STBToolsFreezer import Freezer
-from STBToolsSpotlight import Spotlight
-from STBToolsStopwatch import Stopwatch
-from STBToolsTimer import Timer
-from STBToolsMarker import Marker
+from STBTools import STBTools
 
 
 class STB:
@@ -18,24 +14,14 @@ class STB:
         # STB root_view
         self._STB_back_btn()
         self._STB_homepage_btn()
-        RecentApp(event_gen=self.event_gen, logger=self.logger,
-                  driver=self.driver).recent_app_all()
+        RecentApp(event_gen=self.event_gen, logger=self.logger,driver=self.driver).recent_app_all()
         self._STB_element_in_all_apps()
         self._STB_apps_add_delete_app_in_shortcut()
         self._STB_apps_order_in_shortcut()
         self._STB_tools_add_delete_app_in_shortcut()
         self._STB_tools_order_in_shortcut()
         # STB Tools
-        Freezer(event_gen=self.event_gen, logger=self.logger,
-                driver=self.driver).STB_freezer_all()
-        Spotlight(event_gen=self.event_gen, logger=self.logger,
-                  driver=self.driver).STB_spotlight_all()
-        Stopwatch(event_gen=self.event_gen, logger=self.logger,
-                  driver=self.driver).STB_stopwatch_all()
-        Timer(event_gen=self.event_gen, logger=self.logger,
-              driver=self.driver).STB_timer_all()
-        Marker(event_gen=self.event_gen, logger=self.logger,
-               driver=self.driver).STB_marker_all()
+        STBTools(event_gen=self.event_gen, logger=self.logger,driver=self.driver).STB_tools_all()
 
     # STB first class
     def _STB_back_btn(self):
@@ -113,7 +99,7 @@ class STB:
             elif choice == '8':
                 self._STB_tools_order_in_shortcut()
             elif choice == '9':
-                pass
+                STBTools(event_gen=self.event_gen, logger=self.logger,driver=self.driver).run()
             elif choice.lower() == 'all':
                 self._STB_all()
             else:

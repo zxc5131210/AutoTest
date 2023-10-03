@@ -183,23 +183,31 @@ class EventGen:
             case 'reboot_to_homepage':
                 gesture.reboot()
                 gesture.wait_for_device()
-                driver.uiautomator.start()
+                driver.service("uiautomator").start()
                 time.sleep(5)
                 gesture.tap(
                     driver(resourceId='com.viewsonic.vlauncher:id/btn_guest'))
 
             case 'findelements_ByID':
                 element = driver(resourceId=json_element)
+                if element.exists:
+                    pass
+                else:
+                    self.logger.error(f'Find {element} FAIL')
 
             case 'findelement_ByXpath':
                 element = driver.xpath(json_element)
+                if element.exists:
+                    pass
+                else:
+                    self.logger.error(f'Find {element} FAIL')
 
             case 'findelement_ByText':
                 element = driver(text=json_element)
                 if element.exists:
                     pass
                 else:
-                    self.logger.error('Find Text FAIL')
+                    self.logger.error(f'Find {element} FAIL')
 
             case 'change_wallpaper_first':
                 element = driver(resourceId=json_element)
@@ -251,7 +259,7 @@ class EventGen:
                                  ty=y_start, duration=0.05)
 
             case 'marker_verify_file_is_exists':
-                # get toast msg and verify the file is exists
+                # get toast msg and verify the file is existing
                 toast = driver.toast.get_message(wait_timeout=5)
                 filename = toast.split("/")[-1]
                 filepath = f'/sdcard/pictures/{filename}'
@@ -341,8 +349,9 @@ class EventGen:
                     resourceId='com.viewsonic.sidetoolbar:id/seekbar_alpha'))
 
             case 'STB_current_app_compare':
-                if gesture.current_app['package'] == json_element[0] and \
-                        gesture.current_app['activity'] == json_element[1]:
+                dictionary = gesture.current_app()
+                if dictionary['package'] == json_element[0] and \
+                        dictionary['activity'] == json_element[1]:
                     pass
                 else:
                     self.logger.error(f'{json_element} is not current')
@@ -373,6 +382,9 @@ class EventGen:
                         break
                     else:
                         driver(resourceId=target_scrollbar).swipe('up')
+
+            case 'STB_screenshot_verify_saving':
+                gesture.get_file_count(json_element)
 
             case 'time_wait':
                 wait_time = event['args']

@@ -78,7 +78,9 @@ class Gesture:
         self.driver.quit()
 
     def current_app(self) -> None:
-        # get current app
+        """
+        get current app
+        """
         return self.driver.app_current()
 
     def swipe_left(self, element=None) -> None:
@@ -239,9 +241,18 @@ class Gesture:
 
     @staticmethod
     def delete_file(element):
-        command = ['adb', 'shell', 'rm', '/sdcard/', element]
+        command = f'adb shell rm /sdcard/{element}'
         subprocess.run(command, shell=True, capture_output=True,
                        text=True, check=False)
+
+    def get_file_count(self, element):
+        command = f'adb shell ls -1 /sdcard/{element} | wc -l'
+        result = subprocess.run(command, shell=True, capture_output=True, text=True)
+        file_count = int(result.stdout.strip())
+        if file_count >= 1:
+            pass
+        else:
+            self.logger.error(f"no file in {element}")
 
     @staticmethod
     def reboot():

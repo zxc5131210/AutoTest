@@ -1,0 +1,47 @@
+{
+  "steps": [
+    {
+      "sequence": 1,
+      "element": "com.viewsonic.sidetoolbar:id/arrow",
+      "gesture": "tap_byID",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 2,
+      "element": "com.viewsonic.sidetoolbar:id/btnAllTools",
+      "gesture": "tap_byID",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 3,
+      "element": "//*[@text='Screenshot']",
+      "gesture": "tap_byXpath",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 4,
+      "element": "com.viewsonic.sidetoolbar:id/rlExit",
+      "gesture": "tap_byID",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 5,
+      "element": [
+          "com.viewsonic.vlauncher",
+          "com.viewsonic.vLauncher.uioverrides.QuickstepLauncher"
+      ],
+      "gesture": "STB_current_app_compare",
+      "args": "",
+      "x": "",
+      "y": ""
+    }
+  ]
+}

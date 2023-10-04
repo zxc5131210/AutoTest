@@ -4,6 +4,7 @@ from STBToolsFreezer import Freezer
 from STBToolsSpotlight import Spotlight
 from STBToolsStopwatch import Stopwatch
 from STBToolsTimer import Timer
+from STBToolsMarker import Marker
 
 
 class STB:
@@ -33,10 +34,10 @@ class STB:
                   driver=self.driver).STB_stopwatch_all()
         Timer(event_gen=self.event_gen, logger=self.logger,
               driver=self.driver).STB_timer_all()
-        # self._STB_marker_all()
+        Marker(event_gen=self.event_gen, logger=self.logger,
+               driver=self.driver).STB_marker_all()
 
-    # STB_first class
-
+    # STB first class
     def _STB_back_btn(self):
         self.logger.Test('STB-back button')
         self.event_gen.generate_event(

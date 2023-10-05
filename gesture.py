@@ -1,5 +1,7 @@
 """Gesture Class."""
 import subprocess
+import time
+
 import cv2
 import numpy as np
 from logger import Logger
@@ -9,12 +11,13 @@ class Gesture:
     """
     define gesture needed
     """
+
     location_storage = []
 
     def __init__(self, driver) -> None:
         self.logger = Logger()
         if not driver:
-            raise ValueError('driver can not be null.')
+            raise ValueError("driver can not be null.")
         self.driver = driver
 
     def open_activity(self, element) -> None:
@@ -77,14 +80,14 @@ class Gesture:
         # quit driver
         self.driver.quit()
 
-    def current_app(self) -> None:
+    def current_app(self):
         """
         get current app
         @rtype: dict
         """
         return self.driver.app_current()
 
-    def get_device_info(self) -> None:
+    def get_device_info(self):
         """
         get device info
         @rtype: dict
@@ -116,9 +119,9 @@ class Gesture:
         element.swipe("down")
 
     def get_element_location(self, element) -> None:
-        element_bounds = element.info['bounds']
-        center_x = (element_bounds['left'] + element_bounds['right']) // 2
-        center_y = (element_bounds['top'] + element_bounds['bottom']) // 2
+        element_bounds = element.info["bounds"]
+        center_x = (element_bounds["left"] + element_bounds["right"]) // 2
+        center_y = (element_bounds["top"] + element_bounds["bottom"]) // 2
         self.location_storage.append(center_x)
         self.location_storage.append(center_y)
 
@@ -130,7 +133,7 @@ class Gesture:
         if x_before != x_after or y_before != y_after:
             pass
         else:
-            self.logger.error('the element does not move')
+            self.logger.error("the element does not move")
         self.location_storage.clear()
 
     def drag_element_to_screen_edge(self, element, direction) -> None:
@@ -139,26 +142,26 @@ class Gesture:
             element (str): the drag element
             direction (str): one of ("left", "right", "up", "down")
         """
-        element_bounds = element.info['bounds']
+        element_bounds = element.info["bounds"]
         # center x,y is element center , edge x , y is screen edge , height
-        center_x = (element_bounds['left'] + element_bounds['right']) // 2
-        center_y = (element_bounds['top'] + element_bounds['bottom']) // 2
-        edge_x = self.driver.info['displayWidth'] - 1
-        edge_y = self.driver.info['displayHeight'] - 1
+        center_x = (element_bounds["left"] + element_bounds["right"]) // 2
+        center_y = (element_bounds["top"] + element_bounds["bottom"]) // 2
+        edge_x = self.driver.info["displayWidth"] - 1
+        edge_y = self.driver.info["displayHeight"] - 1
 
         assert direction in ("left", "right", "up", "down")
-        if direction == 'up':
+        if direction == "up":
             self.driver.drag(center_x, center_y, center_x, 0)
-        elif direction == 'down':
+        elif direction == "down":
             self.driver.drag(center_x, center_y, center_x, edge_y)
-        elif direction == 'left':
+        elif direction == "left":
             self.driver.drag(center_x, center_y, 0, center_y)
-        elif direction == 'right':
+        elif direction == "right":
             self.driver.drag(center_x, center_y, edge_x, center_y)
 
     @staticmethod
     def install_app(element) -> None:
-        command = ['adb', 'install', "-r", element]
+        command = ["adb", "install", "-r", element]
         subprocess.run(command, check=False)
 
     @staticmethod
@@ -168,7 +171,7 @@ class Gesture:
         args:
             element= package name
         """
-        command = ['adb', 'uninstall', element]
+        command = ["adb", "uninstall", element]
         subprocess.run(command, check=False)
 
     def file_is_exists(self, filepath) -> None:
@@ -176,31 +179,41 @@ class Gesture:
         verify the file is existing
         args: filepath
         """
-        command = f'adb shell ls {filepath}'
+        command = f"adb shell ls {filepath}"
         try:
-            result = subprocess.run(command, check=False, stdout=subprocess.PIPE,
-                                    stderr=subprocess.PIPE, shell=True, text=True)
+            result = subprocess.run(
+                command,
+                check=False,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                shell=True,
+                text=True,
+            )
             # check the command success or not
             if result.returncode == 0:
                 pass
             else:
-                self.logger.error('file is not exist')
+                self.logger.error("file is not exist")
         except subprocess.CalledProcessError:
-            self.logger.error('file is not exist')
+            self.logger.error("file is not exist")
 
     @staticmethod
     def get_overview_activities() -> list[str]:
         result = subprocess.check_output(
-            ["adb", "shell", "dumpsys", "activity", "recents"], universal_newlines=True)
+            ["adb", "shell", "dumpsys", "activity", "recents"], universal_newlines=True
+        )
         lines = result.split("\n")
         activities = []
-        activities = [line.split(
-        )[2] for line in lines if "ActivityRecord" in line and len(line.split()) >= 4]
+        activities = [
+            line.split()[2]
+            for line in lines
+            if "ActivityRecord" in line and len(line.split()) >= 4
+        ]
         return activities
 
     def check_background_activities(self, element) -> None:
         """
-         check background activities match the app or not
+        check background activities match the app or not
         """
         overview_activities = self.get_overview_activities()
         activity_list = []
@@ -230,7 +243,7 @@ class Gesture:
             pass
 
         else:
-            self.logger.error('compare different fail')
+            self.logger.error("compare different fail")
 
     @staticmethod
     def clean_activity(element):
@@ -238,23 +251,22 @@ class Gesture:
         clean activity user data
         arg: element= package name
         """
-        command = ['adb', 'shell', 'pm', 'clear', element]
-        subprocess.run(
-            command, capture_output=True, text=True, check=True)
+        command = ["adb", "shell", "pm", "clear", element]
+        subprocess.run(command, capture_output=True, text=True, check=True)
+        time.sleep(5)
 
     @staticmethod
     def update_file(element):
-        command = ['adb', 'push', element, '/sdcard/']
+        command = ["adb", "push", element, "/sdcard/"]
         subprocess.run(command, check=False)
 
     @staticmethod
     def delete_file(element):
-        command = f'adb shell rm /sdcard/{element}'
-        subprocess.run(command, shell=True, capture_output=True,
-                       text=True, check=False)
+        command = f"adb shell rm /sdcard/{element}"
+        subprocess.run(command, shell=True, capture_output=True, text=True, check=False)
 
     def get_file_count(self, element):
-        command = f'adb shell ls -1 /sdcard/{element} | wc -l'
+        command = f"adb shell ls -1 /sdcard/{element} | wc -l"
         result = subprocess.run(command, shell=True, capture_output=True, text=True)
         file_count = int(result.stdout.strip())
         if file_count >= 1:
@@ -264,12 +276,12 @@ class Gesture:
 
     @staticmethod
     def reboot():
-        command = ['adb', 'reboot']
+        command = ["adb", "reboot"]
         subprocess.run(command, check=True)
 
     @staticmethod
     def wait_for_device():
-        command = ['adb', 'wait-for-device']
+        command = ["adb", "wait-for-device"]
         subprocess.run(command, check=True)
 
     def close_app(self, element):

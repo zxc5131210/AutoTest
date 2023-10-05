@@ -1,71 +1,81 @@
 """Freezer test case"""
+import ItemStrategy
 
 
-class Freezer:
-
+class Freezer(ItemStrategy.Strategy):
     def __init__(self, event_gen, logger, driver):
-        self.event_gen = event_gen
-        self.logger = logger
-        self.driver = driver
+        super().__init__(event_gen, logger, driver)
 
-    def STB_freezer_all(self):
+    def _STB_freezer_zoom_in_out_button(self):
+        self.logger.Test("STB Freezer-zoom in & out by button")
+        self.event_gen.generate_event(
+            json_path="./Test_Jason/STB/Tools/Freezer/STB_freezer_zoom_in_out_button.json",
+            driver=self.driver,
+        )
+
+    def _STB_freezer_zoom_in_out_fingers(self):
+        self.logger.Test("STB Freezer-zoom in & out by fingers")
+        self.event_gen.generate_event(
+            json_path="./Test_Jason/STB/Tools/Freezer/STB_freezer_zoom_in_out_fingers.json",
+            driver=self.driver,
+        )
+
+    def _STB_freezer_zoom_mix(self):
+        self.logger.Test("STB Freezer-zoom in button first than fingers")
+        self.event_gen.generate_event(
+            json_path="./Test_Jason/STB/Tools/Freezer/STB_freezer_zoom_mix.json",
+            driver=self.driver,
+        )
+
+    def _STB_freezer_default_button(self):
+        self.logger.Test("STB Freezer-default screen button")
+        self.event_gen.generate_event(
+            json_path="./Test_Jason/STB/Tools/Freezer/STB_freezer_default_button.json",
+            driver=self.driver,
+        )
+
+    def _STB_freezer_reboot_to_use(self):
+        self.logger.Test("STB Freezer-reboot to use")
+        self.event_gen.generate_event(
+            json_path="./Test_Jason/STB/Tools/Freezer/STB_freezer_reboot_to_use.json",
+            driver=self.driver,
+        )
+
+    def run_all(self):
         self._STB_freezer_reboot_to_use()
         self._STB_freezer_zoom_in_out_button()
         self._STB_freezer_zoom_in_out_fingers()
         self._STB_freezer_zoom_mix()
         self._STB_freezer_default_button()
 
-    def _STB_freezer_zoom_in_out_button(self):
-        self.logger.Test('STB Freezer-zoom in & out by button')
-        self.event_gen.generate_event(
-            json_path='./Test_Jason/STB/Tools/Freezer/STB_freezer_zoom_in_out_button.json', driver=self.driver)
-
-    def _STB_freezer_zoom_in_out_fingers(self):
-        self.logger.Test('STB Freezer-zoom in & out by fingers')
-        self.event_gen.generate_event(
-            json_path='./Test_Jason/STB/Tools/Freezer/STB_freezer_zoom_in_out_fingers.json', driver=self.driver)
-
-    def _STB_freezer_zoom_mix(self):
-        self.logger.Test('STB Freezer-zoom in button first than fingers')
-        self.event_gen.generate_event(
-            json_path='./Test_Jason/STB/Tools/Freezer/STB_freezer_zoom_mix.json', driver=self.driver)
-
-    def _STB_freezer_default_button(self):
-        self.logger.Test('STB Freezer-default screen button')
-        self.event_gen.generate_event(
-            json_path='./Test_Jason/STB/Tools/Freezer/STB_freezer_default_button.json', driver=self.driver)
-
-    def _STB_freezer_reboot_to_use(self):
-        self.logger.Test('STB Freezer-reboot to use')
-        self.event_gen.generate_event(
-            json_path='./Test_Jason/STB/Tools/Freezer/STB_freezer_reboot_to_use.json', driver=self.driver)
-
     def run(self):
         while True:
-            print("Freezer Options:")
-            print("0: Back to main menu")
-            print("1: Zoom in & out, by button")
-            print("2: Zoom in & out, by fingers")
-            print("3: Zoom in, button first than fingers")
-            print("4: default screen button")
-            print("5: reboot to freezer")
-            print("ALL")
-
-            choice = input("Enter your choice: ")
-
-            if choice == '0':
-                return
-            elif choice == '1':
-                self._STB_freezer_zoom_in_out_button()
-            elif choice == '2':
-                self._STB_freezer_zoom_in_out_fingers()
-            elif choice == '3':
-                self._STB_freezer_zoom_mix()
-            elif choice == '4':
-                self._STB_freezer_default_button()
-            elif choice == '5':
-                self._STB_freezer_reboot_to_use()
-            elif choice.lower() == 'all':
-                self.STB_freezer_all()
-            else:
-                print("Invalid option")
+            menu_dict = {
+                "0": "Back to main menu",
+                "1": "Zoom in & out, by button",
+                "2": "Zoom in & out, by fingers",
+                "3": "Zoom in, button first than fingers",
+                "4": "default screen button",
+                "5": "reboot to freezer",
+                "all": "all Test",
+            }
+            for option, test in menu_dict.items():
+                print(f"{option}: {test}")
+            choice = input("Enter your choice: ").lower()
+            match choice:
+                case "0":
+                    return
+                case "1":
+                    self._STB_freezer_zoom_in_out_button()
+                case "2":
+                    self._STB_freezer_zoom_in_out_fingers()
+                case "3":
+                    self._STB_freezer_zoom_mix()
+                case "4":
+                    self._STB_freezer_default_button()
+                case "5":
+                    self._STB_freezer_reboot_to_use()
+                case "all":
+                    self.run_all()
+                case _:
+                    print("Invalid option")

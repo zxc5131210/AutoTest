@@ -1,4 +1,5 @@
 """STB tools test case"""
+import ItemStrategy
 from STBToolsFreezer import Freezer
 from STBToolsSpotlight import Spotlight
 from STBToolsStopwatch import Stopwatch
@@ -7,49 +8,47 @@ from STBToolsMarker import Marker
 from STBToolsScreenshot import Screenshot
 
 
-class STBTools:
-    def __init__(self, event_gen, logger, driver):
-        self.event_gen = event_gen
-        self.logger = logger
-        self.driver = driver
+class STBTools(ItemStrategy.Strategy):
+    menu_dict = {
+        "0": "Back to main menu",
+        "1": "Freezer",
+        "2": "Spotlight",
+        "3": "Stopwatch",
+        "4": "Timer",
+        "5": "Marker",
+        "6": "Screenshot",
+        "all": "all test",
+    }
 
-    def STB_tools_all(self):
-        Freezer(self.event_gen, self.logger, self.driver).STB_freezer_all()
-        Spotlight(self.event_gen, self.logger, self.driver).STB_spotlight_all()
-        Stopwatch(self.event_gen, self.logger, self.driver).STB_stopwatch_all()
-        Timer(self.event_gen, self.logger, self.driver).STB_timer_all()
-        Marker(self.event_gen, self.logger, self.driver).STB_marker_all()
-        Screenshot(self.event_gen, self.logger, self.driver).STB_screenshot_all()
+    def __init__(self, event_gen, logger, driver):
+        super().__init__(event_gen, logger, driver)
+
+    def run_all(self):
+        items = [Freezer, Spotlight, Stopwatch, Timer, Marker, Screenshot]
+        for item in items:
+            item(self.event_gen, self.logger, self.driver).run_all()
 
     def run(self):
         while True:
-            print("STB tools Options:")
-            print("0: Back to main menu")
-            print("1: Freezer")
-            print("2: Spotlight")
-            print("3: Stopwatch")
-            print("4: Timer")
-            print("5: Marker")
-            print("6: Screenshot")
-            print("ALL")
-
-            choice = input("Enter your choice: ")
-
-            if choice == "0":
-                return
-            elif choice == "1":
-                Freezer(self.event_gen, self.logger, self.driver).run()
-            elif choice == "2":
-                Spotlight(self.event_gen, self.logger, self.driver).run()
-            elif choice == "3":
-                Stopwatch(self.event_gen, self.logger, self.driver).run()
-            elif choice == "4":
-                Timer(self.event_gen, self.logger, self.driver).run()
-            elif choice == "5":
-                Marker(self.event_gen, self.logger, self.driver).run()
-            elif choice == "6":
-                Screenshot(self.event_gen, self.logger, self.driver).run()
-            elif choice.lower() == "all":
-                self.STB_tools_all()
-            else:
-                print("Invalid option")
+            for option, test in self.menu_dict.items():
+                print(f"{option}: {test}")
+            choice = input("Enter your choice: ").lower()
+            match choice:
+                case "0":
+                    return
+                case "1":
+                    Freezer(self.event_gen, self.logger, self.driver).run()
+                case "2":
+                    Spotlight(self.event_gen, self.logger, self.driver).run()
+                case "3":
+                    Stopwatch(self.event_gen, self.logger, self.driver).run()
+                case "4":
+                    Timer(self.event_gen, self.logger, self.driver).run()
+                case "5":
+                    Marker(self.event_gen, self.logger, self.driver).run()
+                case "6":
+                    Screenshot(self.event_gen, self.logger, self.driver).run()
+                case "all":
+                    self.run_all()
+                case _:
+                    print("Invalid option")

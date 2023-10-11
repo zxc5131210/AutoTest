@@ -10,7 +10,7 @@
         },
         {
             "sequence": 2,
-            "element": "com.viewsonic.sidetoolbar:id/btnAllTools",
+            "element": "com.viewsonic.sidetoolbar:id/btnMenu",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -18,56 +18,63 @@
         },
         {
             "sequence": 3,
-            "element": "//*[@text='Screenshot']",
-            "gesture": "tap_byXpath",
+            "element": "com.viewsonic.quicksettings:id/sb_backlight",
+            "gesture": "swipe_left_element",
             "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 4,
-            "element": "Pictures/*",
-            "gesture": "delete_file",
+            "element": "",
+            "gesture": "screenshot",
+            "args": [
+                "compareshot_1"
+            ],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "element": "com.viewsonic.quicksettings:id/sb_backlight",
+            "gesture": "swipe_right_element",
             "args": "",
             "x": "",
             "y": ""
         },
         {
-            "sequence":5,
-            "element": "com.viewsonic.sidetoolbar:id/ivBtnSave",
-            "gesture": "tap_byID",
-            "args":"",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence":6,
+            "sequence": 5,
             "element": "",
             "gesture": "time_wait",
-            "args":"3",
+            "args": "3",
             "x": "",
             "y": ""
         },
         {
-            "sequence":7,
-            "element": "Pictures",
-            "gesture": "STB_screenshot_verify_saving",
-            "args":"",
+            "sequence": 6,
+            "element": "",
+            "gesture": "screenshot",
+            "args": [
+                "compareshot_2"
+            ],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 7,
+            "element": [
+                "compareshot_1.png",
+                "compareshot_2.png"
+            ],
+            "gesture": "compare_images_pixel",
+            "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 8,
-            "element": "com.viewsonic.sidetoolbar:id/btn_secondary",
+            "element": "com.viewsonic.sidetoolbar:id/btnHome",
             "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 9,
-            "element": "",
-            "gesture": "homepage",
             "args": "",
             "x": "",
             "y": ""

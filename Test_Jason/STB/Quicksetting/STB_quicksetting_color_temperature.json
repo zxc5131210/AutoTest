@@ -10,7 +10,7 @@
         },
         {
             "sequence": 2,
-            "element": "com.viewsonic.sidetoolbar:id/btnAllTools",
+            "element": "com.viewsonic.sidetoolbar:id/btnMenu",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -18,56 +18,56 @@
         },
         {
             "sequence": 3,
-            "element": "//*[@text='Screenshot']",
-            "gesture": "tap_byXpath",
+            "element": "com.viewsonic.quicksettings:id/tabBtnDisplay",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "element": "",
+            "gesture": "swipe_up",
             "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 4,
-            "element": "Pictures/*",
-            "gesture": "delete_file",
+            "element": "com.viewsonic.quicksettings:id/rb_color_temperature_default",
+            "gesture": "tap_byID",
             "args": "",
             "x": "",
             "y": ""
         },
         {
-            "sequence":5,
-            "element": "com.viewsonic.sidetoolbar:id/ivBtnSave",
+            "sequence": 5,
+            "element": "com.viewsonic.quicksettings:id/rb_color_temperature_warm_tone",
             "gesture": "tap_byID",
-            "args":"",
+            "args": "",
             "x": "",
             "y": ""
         },
         {
-            "sequence":6,
-            "element": "",
-            "gesture": "time_wait",
-            "args":"3",
+            "sequence": 6,
+            "element": "com.viewsonic.quicksettings:id/rb_color_temperature_cool_tone",
+            "gesture": "tap_byID",
+            "args": "",
             "x": "",
             "y": ""
         },
         {
-            "sequence":7,
-            "element": "Pictures",
-            "gesture": "STB_screenshot_verify_saving",
-            "args":"",
+            "sequence": 7,
+            "element": "com.viewsonic.quicksettings:id/rb_color_temperature_default",
+            "gesture": "tap_byID",
+            "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 8,
-            "element": "com.viewsonic.sidetoolbar:id/btn_secondary",
+            "element": "com.viewsonic.sidetoolbar:id/btnHome",
             "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 9,
-            "element": "",
-            "gesture": "homepage",
             "args": "",
             "x": "",
             "y": ""

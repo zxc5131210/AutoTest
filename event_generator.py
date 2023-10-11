@@ -186,6 +186,7 @@ class EventGen:
             case "reboot_to_homepage":
                 gesture.reboot()
                 gesture.wait_for_device()
+                time.sleep(5)
                 driver.service("uiautomator").start()
                 time.sleep(5)
                 gesture.tap(driver(resourceId="com.viewsonic.vlauncher:id/btn_guest"))
@@ -198,11 +199,17 @@ class EventGen:
                     self.logger.error(f"Find {element} FAIL")
 
             case "findelement_ByXpath":
+                """
+                if verify not find the element = True, args ==False
+                """
                 element = driver.xpath(json_element)
                 if element.exists:
                     pass
                 else:
-                    self.logger.error(f"Find {element} FAIL")
+                    if event["args"] == "False":
+                        pass
+                    else:
+                        self.logger.error(f"Find {element} FAIL")
 
             case "findelement_ByText":
                 element = driver(text=json_element)
@@ -441,6 +448,20 @@ class EventGen:
 
             case "STB_screenshot_verify_saving":
                 gesture.get_file_count(json_element)
+
+            case "get_volume":
+                gesture.compare_different_list.append(gesture.get_volume())
+
+            case "compare_different":
+                if (
+                    gesture.compare_different_list[0]
+                    != gesture.compare_different_list[1]
+                ):
+                    pass
+                else:
+                    self.logger.error("The data is the same , not changed")
+
+                gesture.compare_different_list.clear()
 
             case "tap_by_device_model":
                 device = gesture.get_device_info()

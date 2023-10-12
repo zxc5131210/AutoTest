@@ -49,6 +49,7 @@ class EventGen:
         flow = event_flow["steps"]
         for event in flow:
             json_sequence = event["sequence"]
+            json_describe = event["describe"]
             json_element = event["element"]
             json_gesture = event["gesture"]
             location_x = event["x"]
@@ -64,14 +65,14 @@ class EventGen:
                     location_x,
                     location_y,
                 )
-                self.logger.info(f"Sequence {json_sequence} {json_gesture}")
+                self.logger.info(json_sequence, json_describe)
                 time.sleep(0.5)
 
             except Exception:
-                self.logger.error(f"Sequence {json_sequence} {json_gesture}")
+                self.logger.error(f"{json_sequence} {json_describe}")
                 time.sleep(0.5)
 
-        self.logger.info("Flow finished")
+        self.logger.info("Test End", "Flow finished")
         delete_temporarily_screenshots()
 
     def gesture_cases(

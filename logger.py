@@ -20,29 +20,50 @@ class Logger:
     def debug(self, msg: str) -> None:
         self.logger.debug(msg)
 
-    def info(self, msg: str) -> None:
+    def info(self, steps, msg: str) -> None:
+        """
+
+        @param steps:
+        @param msg:
+        @return status:
+        """
         self.logger.info(msg)
-        self._write_to_csv("INFO", msg, "Complete")
+        self._describe_to_csv(f"steps:{steps}", msg, "Success")
 
     def warning(self, msg: str) -> None:
         self.logger.warning(msg)
-        self._write_to_csv("WARNING", msg, "Warning")
+        self._describe_to_csv("WARNING", msg, "Warning")
 
-    def error(self, msg: str) -> None:
+    def error(self, steps, msg: str) -> None:
+        """
+
+        @param steps:
+        @param msg:
+        @return status:
+        """
         self.logger.error(msg)
-        self._write_to_csv("ERROR", msg, "Fail")
+        self._describe_to_csv(f"steps:{steps}", msg, "Fail")
 
     def critical(self, msg: str) -> None:
         self.logger.critical(msg)
         self._write_to_csv("CRITICAL", msg, "Critical")
 
-    def Test(self, msg: str) -> None:
-        self._write_to_csv("Test describe", msg, "")
-
+    # log to csv file
     def _write_to_csv(self, level: str, msg: str, status: str) -> None:
         with open(self.log_file, "a", encoding="utf-8", newline="") as csvfile:
             csv_writer = csv.writer(csvfile)
             csv_writer.writerow([level, msg, status])
+
+    def _describe_to_csv(self, level: str, msg: str, status: str) -> None:
+        with open(self.log_file, "a", encoding="utf-8", newline="") as csvfile:
+            csv_writer = csv.writer(csvfile)
+            csv_writer.writerow(["", "", level, msg, status])
+
+    def Test(self, msg: str) -> None:
+        self._write_to_csv("", msg, "")
+
+    def test_title(self, msg: str) -> None:
+        self._write_to_csv(msg, "", "")
 
 
 if __name__ == "__main__":

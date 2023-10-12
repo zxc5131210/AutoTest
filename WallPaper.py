@@ -16,14 +16,14 @@ class WallPaper(ItemStrategy.Strategy):
     def _wallpaper_by_default(self):
         self.logger.Test("Change wallpaper to default style")
         self.event_gen.generate_event(
-            json_path="./Test_Jason/vLauncher/Wallpaper/wallpaper_By_default.json",
+            json_path="Test_Jason/vLauncher/Wallpaper/wallpaper_by_default.json",
             driver=self.driver,
         )
 
     def _wallpaper_by_update(self):
         self.logger.Test("Change wallpaper to update image")
         self.event_gen.generate_event(
-            json_path="./Test_Jason/vLauncher/Wallpaper/wallpaper_By_update.json",
+            json_path="Test_Jason/vLauncher/Wallpaper/wallpaper_by_update.json",
             driver=self.driver,
         )
 

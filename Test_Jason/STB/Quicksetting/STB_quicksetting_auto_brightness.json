@@ -18,6 +18,14 @@
         },
         {
             "sequence": 3,
+            "element": "",
+            "gesture": "tap_byLocation",
+            "args": "",
+            "x": 0.5,
+            "y": 0.1
+        },
+        {
+            "sequence": 4,
             "element": "com.viewsonic.sidetoolbar:id/arrow",
             "gesture": "tap_byID",
             "args": "",
@@ -26,7 +34,7 @@
         },
 
         {
-            "sequence": 4,
+            "sequence": 5,
             "element": "com.viewsonic.sidetoolbar:id/btnMenu",
             "gesture": "tap_byID",
             "args": "",
@@ -34,7 +42,7 @@
             "y": ""
         },
         {
-            "sequence": 5,
+            "sequence": 6,
             "element": "com.viewsonic.quicksettings:id/sb_backlight",
             "gesture": "swipe_left_element",
             "args": "",
@@ -42,7 +50,7 @@
             "y": ""
         },
         {
-            "sequence": 6,
+            "sequence": 7,
             "element": "",
             "gesture": "screenshot",
             "args": [
@@ -52,7 +60,7 @@
             "y": ""
         },
         {
-            "sequence": 7,
+            "sequence": 8,
             "element": "com.viewsonic.quicksettings:id/tabBtnDisplay",
             "gesture": "tap_byID",
             "args": "",
@@ -60,7 +68,7 @@
             "y": ""
         },
         {
-            "sequence": 8,
+            "sequence": 9,
             "element": "com.viewsonic.quicksettings:id/sw_auto_brightness",
             "gesture": "tap_byID",
             "args": "",
@@ -68,7 +76,7 @@
             "y": ""
         },
         {
-            "sequence": 9,
+            "sequence": 10,
             "element": "com.viewsonic.quicksettings:id/tabBtnInput",
             "gesture": "tap_byID",
             "args": "",
@@ -76,7 +84,7 @@
             "y": ""
         },
         {
-            "sequence": 10,
+            "sequence": 11,
             "element": "",
             "gesture": "time_wait",
             "args": "5",
@@ -84,7 +92,7 @@
             "y": ""
         },
         {
-            "sequence": 11,
+            "sequence": 12,
             "element": "",
             "gesture": "screenshot",
             "args": [
@@ -94,7 +102,7 @@
             "y": ""
         },
         {
-            "sequence": 12,
+            "sequence": 13,
             "element": [
                 "compareshot_1.png",
                 "compareshot_2.png"
@@ -105,7 +113,7 @@
             "y": ""
         },
         {
-            "sequence": 13,
+            "sequence": 14,
             "element": "com.viewsonic.sidetoolbar:id/btnHome",
             "gesture": "tap_byID",
             "args": "",

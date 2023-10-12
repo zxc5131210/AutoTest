@@ -101,6 +101,9 @@ class EventGen:
                 element = driver(resourceId=json_element)
                 gesture.tap(element)
 
+            case "tap_byLocation":
+                driver.click(location_x, location_y)
+
             case "tap_byImage":
                 gesture.tap_image(json_element)
 

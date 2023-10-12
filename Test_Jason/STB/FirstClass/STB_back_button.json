@@ -2,6 +2,7 @@
     "steps": [
         {
             "sequence": 1,
+            "describe": "install TestApp",
             "element": "./Test_File/test.apk",
             "gesture": "install_app",
             "args": "",
@@ -10,6 +11,7 @@
         },
         {
             "sequence": 2,
+            "describe": "open TestApp",
             "element": [
                 "com.viewsonic.myapplication",
                 ".MainActivity"
@@ -21,6 +23,7 @@
         },
         {
             "sequence": 3,
+            "describe": "expand STB",
             "element": "com.viewsonic.sidetoolbar:id/arrow",
             "gesture": "tap_byID",
             "args": "",
@@ -29,6 +32,7 @@
         },
         {
             "sequence": 4,
+            "describe": "tap back button on STB",
             "element": "com.viewsonic.sidetoolbar:id/btnBack",
             "gesture": "tap_byID",
             "args": "",
@@ -37,6 +41,7 @@
         },
         {
             "sequence": 5,
+            "describe": "find the text='This is a text view' to verify the back button is success",
             "element": "//*[@text='This is a text view']",
             "gesture": "findelement_ByXpath",
             "args": "False",
@@ -45,6 +50,7 @@
         },
         {
             "sequence": 6,
+            "describe": "uninstall the TestApp",
             "element": "com.viewsonic.myapplication",
             "gesture": "uninstall_app",
             "args": "",

@@ -1,0 +1,44 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "element": "com.viewsonic.sidetoolbar:id/arrow",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "element": "com.viewsonic.sidetoolbar:id/btnMenu",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "element": "com.viewsonic.quicksettings:id/tabBtnDisplay",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "element": "com.viewsonic.quicksettings:id/sw_eye_care",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "element": "com.viewsonic.sidetoolbar:id/btnHome",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

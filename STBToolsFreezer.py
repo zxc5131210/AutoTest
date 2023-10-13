@@ -3,6 +3,16 @@ import ItemStrategy
 
 
 class Freezer(ItemStrategy.Strategy):
+    menu_dict = {
+        "0": "Back to main menu",
+        "1": "Zoom in & out, by button",
+        "2": "Zoom in & out, by fingers",
+        "3": "Zoom in, button first than fingers",
+        "4": "default screen button",
+        "5": "reboot to freezer",
+        "all": "all Test",
+    }
+
     def __init__(self, event_gen, logger, driver):
         super().__init__(event_gen, logger, driver)
 
@@ -50,16 +60,7 @@ class Freezer(ItemStrategy.Strategy):
 
     def run(self):
         while True:
-            menu_dict = {
-                "0": "Back to main menu",
-                "1": "Zoom in & out, by button",
-                "2": "Zoom in & out, by fingers",
-                "3": "Zoom in, button first than fingers",
-                "4": "default screen button",
-                "5": "reboot to freezer",
-                "all": "all Test",
-            }
-            for option, test in menu_dict.items():
+            for option, test in self.menu_dict.items():
                 print(f"{option}: {test}")
             choice = input("Enter your choice: ").lower()
             match choice:

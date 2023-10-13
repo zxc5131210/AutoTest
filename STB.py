@@ -1,5 +1,6 @@
 """STB test case"""
 from RecentApp import RecentApp
+from STBQuicksetting import Quicksetting
 from STBTools import STBTools
 import ItemStrategy
 
@@ -16,6 +17,7 @@ class STB(ItemStrategy.Strategy):
         "7": "add & delete tools in shortcut",
         "8": "tools order in shortcut",
         "9": "STB tools",
+        "10": "QuickSetting",
         "all": "all test",
     }
 
@@ -119,6 +121,10 @@ class STB(ItemStrategy.Strategy):
                     self._STB_tools_order_in_shortcut()
                 case "9":
                     STBTools(
+                        event_gen=self.event_gen, logger=self.logger, driver=self.driver
+                    ).run()
+                case "10":
+                    Quicksetting(
                         event_gen=self.event_gen, logger=self.logger, driver=self.driver
                     ).run()
                 case "all":

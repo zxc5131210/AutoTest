@@ -215,11 +215,17 @@ class EventGen:
                 time.sleep(5)
 
             case "findelements_ByID":
+                """
+                if verify not find the element = True, args ==False
+                """
                 element = driver(resourceId=json_element)
                 if element.exists:
                     pass
                 else:
-                    self.logger.error(msg=f"Find {element} FAIL")
+                    if event["args"] == "False":
+                        pass
+                    else:
+                        self.logger.error(msg=f"Find {element} FAIL")
 
             case "findelement_ByXpath":
                 """
@@ -482,8 +488,10 @@ class EventGen:
                 ):
                     pass
                 else:
-                    self.logger.error(msg="The data is the same , not changed")
-
+                    if event["args"] == "False":
+                        pass
+                    else:
+                        self.logger.error(msg="The data is the same , not changed")
                 gesture.compare_different_list.clear()
 
             case "tap_by_device_model":

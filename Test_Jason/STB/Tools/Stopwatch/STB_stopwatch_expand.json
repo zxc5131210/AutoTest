@@ -2,6 +2,7 @@
     "steps": [
         {
             "sequence": 1,
+            "describe": "expand STB",
             "element": "com.viewsonic.sidetoolbar:id/arrow",
             "gesture": "tap_byID",
             "args": "",
@@ -10,6 +11,7 @@
         },
         {
             "sequence": 2,
+            "describe": "expand all tools",
             "element": "com.viewsonic.sidetoolbar:id/btnAllTools",
             "gesture": "tap_byID",
             "args": "",
@@ -18,6 +20,7 @@
         },
         {
             "sequence": 3,
+            "describe": "select Stopwatch",
             "element": "//*[@text='Stopwatch']",
             "gesture": "tap_byXpath",
             "args": "",
@@ -26,6 +29,7 @@
         },
         {
             "sequence": 4,
+            "describe": "screenshot screen to compare",
             "element": "",
             "gesture": "screenshot",
             "args": [
@@ -36,6 +40,7 @@
         },
         {
             "sequence": 5,
+            "describe": "tap expand button to expand the window",
             "element": "com.viewsonic.sidetoolbar:id/expand",
             "gesture": "tap_byID",
             "args": "",
@@ -44,6 +49,7 @@
         },
         {
             "sequence": 6,
+            "describe": "screenshot screen to compare",
             "element": "",
             "gesture": "screenshot",
             "args": [
@@ -54,6 +60,7 @@
         },
         {
             "sequence": 7,
+            "describe": "compare two screenshots different",
             "element": [
                 "compareshot_1.png",
                 "compareshot_2.png"
@@ -65,6 +72,7 @@
         },
         {
             "sequence": 8,
+            "describe": "tap close button to narrow the window",
             "element": "com.viewsonic.sidetoolbar:id/close",
             "gesture": "tap_byID",
             "args": "",
@@ -73,6 +81,7 @@
         },
         {
             "sequence": 9,
+            "describe": "tap close button to close stopwatch",
             "element": "com.viewsonic.sidetoolbar:id/close",
             "gesture": "tap_byID",
             "args": "",

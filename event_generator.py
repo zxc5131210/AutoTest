@@ -119,6 +119,11 @@ class EventGen:
                 element = driver(text=json_element)
                 gesture.tap(element)
 
+            case "get_element_text":
+                element = driver(resourceId=json_element)
+                text = gesture.get_element_text(element)
+                gesture.compare_different_list.append(text)
+
             case "sendKey_byID":
                 element = driver(resourceId=json_element)
                 keyword = event["args"][-1]

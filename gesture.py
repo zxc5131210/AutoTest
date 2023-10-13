@@ -55,6 +55,10 @@ class Gesture:
     def clear_keys(element) -> None:
         element.clear_text()
 
+    @staticmethod
+    def get_element_text(element):
+        return element.get_text()
+
     def back(self) -> None:
         """
         back by physical button

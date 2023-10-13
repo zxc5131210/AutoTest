@@ -180,7 +180,7 @@ class EventGen:
                     pass
                 else:
                     self.logger.error("the element does not move")
-                gesture.compare_different_lists.clear()
+                gesture.compare_different_list.clear()
 
             case "screen_zoom_in":
                 element = driver()

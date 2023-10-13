@@ -208,7 +208,6 @@ class EventGen:
                 time.sleep(5)
                 driver.service("uiautomator").start()
                 time.sleep(5)
-                gesture.tap(driver(resourceId="com.viewsonic.vlauncher:id/btn_guest"))
 
             case "findelements_ByID":
                 element = driver(resourceId=json_element)

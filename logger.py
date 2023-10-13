@@ -23,9 +23,9 @@ class Logger:
     def info(self, steps, msg: str) -> None:
         """
 
-        @param steps:
-        @param msg:
-        @return status:
+        @param steps: sequence
+        @param msg: operate
+        @return status: success
         """
         self.logger.info(msg)
         self._describe_to_csv(f"steps:{steps}", msg, "Success")
@@ -37,9 +37,9 @@ class Logger:
     def error(self, steps, msg: str) -> None:
         """
 
-        @param steps:
-        @param msg:
-        @return status:
+        @param steps: sequence
+        @param msg: error msg
+        @return status: fail
         """
         self.logger.error(msg)
         self._describe_to_csv(f"steps:{steps}", msg, "Fail")
@@ -57,7 +57,7 @@ class Logger:
     def _describe_to_csv(self, level: str, msg: str, status: str) -> None:
         with open(self.log_file, "a", encoding="utf-8", newline="") as csvfile:
             csv_writer = csv.writer(csvfile)
-            csv_writer.writerow(["", "", level, msg, status])
+            csv_writer.writerow([""] * 2 + [level, msg, status])
 
     def Test(self, msg: str) -> None:
         self._write_to_csv("", msg, "")

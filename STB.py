@@ -87,13 +87,16 @@ class STB(ItemStrategy.Strategy):
             event_gen=self.event_gen, logger=self.logger, driver=self.driver
         ).run_all()
         self.logger.test_title("---STB root view---")
-        self._STB_element_in_all_apps()
         self._STB_apps_add_delete_app_in_shortcut()
         self._STB_apps_order_in_shortcut()
+        self._STB_element_in_all_apps()
         self._STB_tools_add_delete_app_in_shortcut()
         self._STB_tools_order_in_shortcut()
         # STB Tools
         STBTools(
+            event_gen=self.event_gen, logger=self.logger, driver=self.driver
+        ).run_all()
+        Quicksetting(
             event_gen=self.event_gen, logger=self.logger, driver=self.driver
         ).run_all()
 

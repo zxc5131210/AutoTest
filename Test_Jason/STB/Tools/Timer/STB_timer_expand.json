@@ -90,6 +90,15 @@
         },
         {
             "sequence": 10,
+            "describe": "wait 3 seconds to wait expand action",
+            "element": "",
+            "gesture": "time_wait",
+            "args": "3",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 11,
             "describe": "tap close button to close timer",
             "element": "com.viewsonic.sidetoolbar:id/close",
             "gesture": "tap_byID",

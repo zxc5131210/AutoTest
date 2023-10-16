@@ -2,6 +2,7 @@
     "steps": [
         {
             "sequence": 1,
+            "describe": "expand STB",
             "element": "com.viewsonic.sidetoolbar:id/arrow",
             "gesture": "tap_byID",
             "args": "",
@@ -10,6 +11,7 @@
         },
         {
             "sequence": 2,
+            "describe": "expand all tools",
             "element": "com.viewsonic.sidetoolbar:id/btnAllTools",
             "gesture": "tap_byID",
             "args": "",
@@ -18,6 +20,7 @@
         },
         {
             "sequence": 3,
+            "describe": "select Screenshot",
             "element": "//*[@text='Screenshot']",
             "gesture": "tap_byXpath",
             "args": "",
@@ -26,6 +29,7 @@
         },
         {
             "sequence": 4,
+            "describe": "delete the files in Pictures folder",
             "element": "Pictures/*",
             "gesture": "delete_file",
             "args": "",
@@ -34,6 +38,7 @@
         },
         {
             "sequence":5,
+            "describe": "tap save button to save the screenshot",
             "element": "com.viewsonic.sidetoolbar:id/ivBtnSave",
             "gesture": "tap_byID",
             "args":"",
@@ -42,6 +47,7 @@
         },
         {
             "sequence":6,
+            "describe": "wait 5 seconds to finish saving",
             "element": "",
             "gesture": "time_wait",
             "args":"3",
@@ -50,6 +56,7 @@
         },
         {
             "sequence":7,
+            "describe": "find files in Pictures folder to verify saving function",
             "element": "Pictures",
             "gesture": "STB_screenshot_verify_saving",
             "args":"",
@@ -58,6 +65,7 @@
         },
         {
             "sequence": 8,
+            "describe": "skip the popup massage",
             "element": "com.viewsonic.sidetoolbar:id/btn_secondary",
             "gesture": "tap_byID",
             "args": "",
@@ -66,6 +74,7 @@
         },
         {
             "sequence": 9,
+            "describe": "return to homepage",
             "element": "",
             "gesture": "homepage",
             "args": "",

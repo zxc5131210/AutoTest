@@ -11,6 +11,7 @@ class Screenshot(ItemStrategy.Strategy):
         "4": "close",
         "all": "all Test",
     }
+    folder_path = "Test_Jason/STB/Tools/Screenshot"
 
     def __init__(self, event_gen, logger, driver):
         super().__init__(event_gen, logger, driver)
@@ -18,32 +19,33 @@ class Screenshot(ItemStrategy.Strategy):
     def _STB_screenshot_crop(self):
         self.logger.Test("STB Screenshot-crop")
         self.event_gen.generate_event(
-            json_path="./Test_Jason/STB/Tools/Screenshot/STB_screenshot_crop.json",
+            json_path=f"{self.folder_path}/STB_screenshot_crop.json",
             driver=self.driver,
         )
 
     def _STB_screenshot_full_screen(self):
         self.logger.Test("STB Screenshot-full screen")
         self.event_gen.generate_event(
-            json_path="./Test_Jason/STB/Tools/Screenshot/STB_screenshot_full_screen.json",
+            json_path=f"{self.folder_path}/STB_screenshot_full_screen.json",
             driver=self.driver,
         )
 
     def _STB_screenshot_save(self):
         self.logger.Test("STB Screenshot-save")
         self.event_gen.generate_event(
-            json_path="./Test_Jason/STB/Tools/Screenshot/STB_screenshot_save.json",
+            json_path=f"{self.folder_path}/STB_screenshot_save.json",
             driver=self.driver,
         )
 
     def _STB_screenshot_close(self):
         self.logger.Test("STB Screenshot-close")
         self.event_gen.generate_event(
-            json_path="./Test_Jason/STB/Tools/Screenshot/STB_screenshot_close.json",
+            json_path=f"{self.folder_path}/STB_screenshot_close.json",
             driver=self.driver,
         )
 
     def run_all(self):
+        self.logger.test_title("---STB Tool - Screenshot---")
         self._STB_screenshot_crop()
         self._STB_screenshot_full_screen()
         self._STB_screenshot_save()

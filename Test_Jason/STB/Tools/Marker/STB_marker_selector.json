@@ -2,6 +2,7 @@
     "steps": [
         {
             "sequence": 1,
+            "describe": "expand STB",
             "element": "com.viewsonic.sidetoolbar:id/arrow",
             "gesture": "tap_byID",
             "args": "",
@@ -10,6 +11,7 @@
         },
         {
             "sequence": 2,
+            "describe": "expand all tools",
             "element": "com.viewsonic.sidetoolbar:id/btnAllTools",
             "gesture": "tap_byID",
             "args": "",
@@ -18,6 +20,7 @@
         },
         {
             "sequence": 3,
+            "describe": "select Marker",
             "element": "//*[@text='Marker']",
             "gesture": "tap_byXpath",
             "args": "",
@@ -26,30 +29,7 @@
         },
         {
             "sequence": 4,
-            "element": "com.viewsonic.sidetoolbar:id/iv_annotation_bar_right",
-            "gesture": "drag_element_to_screen_edge",
-            "args": "right",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 5,
-            "element": "com.viewsonic.sidetoolbar:id/iv_annotation_bar_right",
-            "gesture": "drag_element_to_screen_edge",
-            "args": "up",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": "initial",
-            "element": "com.viewsonic.sidetoolbar:id/pen",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 6,
+            "describe": "tap selector mode",
             "element": "com.viewsonic.sidetoolbar:id/select",
             "gesture": "tap_byID",
             "args": "",
@@ -57,7 +37,8 @@
             "y": ""
         },
         {
-            "sequence": 7,
+            "sequence": 5,
+            "describe": "tap myViewBoard on hot seat",
             "element": "//*[@text='myViewBoard Display']",
             "gesture": "tap_byXpath",
             "args": "",
@@ -65,7 +46,8 @@
             "y": ""
         },
         {
-            "sequence": 8,
+            "sequence": 6,
+            "describe": "compare current app is myViewBoard to verify selector can select",
             "element": [
                 "com.mvbcast.crosswalk",
                 ".EulaActivity"
@@ -76,7 +58,8 @@
             "y": ""
         },
         {
-            "sequence": 9,
+            "sequence": 7,
+            "describe": "tap close button to close the marker",
             "element": "com.viewsonic.sidetoolbar:id/close",
             "gesture": "tap_byID",
             "args": "",
@@ -84,7 +67,8 @@
             "y": ""
         },
         {
-            "sequence": 10,
+            "sequence": 8,
+            "describe": "return to homepage",
             "element": "",
             "gesture": "homepage",
             "args": "",

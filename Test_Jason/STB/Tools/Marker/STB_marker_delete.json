@@ -29,24 +29,6 @@
         },
         {
             "sequence": 4,
-            "describe": "drag the marker bar right",
-            "element": "com.viewsonic.sidetoolbar:id/iv_annotation_bar_right",
-            "gesture": "drag_element_to_screen_edge",
-            "args": "right",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 5,
-            "describe": "drag the marker bar up",
-            "element": "com.viewsonic.sidetoolbar:id/iv_annotation_bar_right",
-            "gesture": "drag_element_to_screen_edge",
-            "args": "up",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 6,
             "describe": "select highlighter to draw",
             "element": "com.viewsonic.sidetoolbar:id/highlighter",
             "gesture": "tap_byID",
@@ -55,7 +37,7 @@
             "y": ""
         },
         {
-            "sequence": 7,
+            "sequence": 5,
             "describe": "draw the line",
             "element": "",
             "gesture": "swipe_right",
@@ -64,7 +46,7 @@
             "y": ""
         },
         {
-            "sequence": 8,
+            "sequence": 6,
             "describe": "screenshot the screen to compare",
             "element": "",
             "gesture": "screenshot",
@@ -75,7 +57,7 @@
             "y": ""
         },
         {
-            "sequence": 9,
+            "sequence": 7,
             "describe": "tap the delete button to delete",
             "element": "com.viewsonic.sidetoolbar:id/delete",
             "gesture": "tap_byID",
@@ -84,7 +66,7 @@
             "y": ""
         },
         {
-            "sequence": 10,
+            "sequence": 8,
             "describe": "screenshot the screen to compare",
             "element": "",
             "gesture": "screenshot",
@@ -95,7 +77,7 @@
             "y": ""
         },
         {
-            "sequence": 11,
+            "sequence": 9,
             "describe": "compare two screenshots different",
             "element": [
                 "compareshot_1.png",
@@ -107,7 +89,7 @@
             "y": ""
         },
         {
-            "sequence": 12,
+            "sequence": 10,
             "describe": "tap close button to close the markers",
             "element": "com.viewsonic.sidetoolbar:id/close",
             "gesture": "tap_byID",

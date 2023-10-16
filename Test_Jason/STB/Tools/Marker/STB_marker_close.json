@@ -29,24 +29,6 @@
         },
         {
             "sequence": 4,
-            "describe": "drag the marker bar right",
-            "element": "com.viewsonic.sidetoolbar:id/iv_annotation_bar_right",
-            "gesture": "drag_element_to_screen_edge",
-            "args": "right",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 5,
-            "describe": "drag the marker bar up",
-            "element": "com.viewsonic.sidetoolbar:id/iv_annotation_bar_right",
-            "gesture": "drag_element_to_screen_edge",
-            "args": "up",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 6,
             "describe": "tap close button to close marker",
             "element": "com.viewsonic.sidetoolbar:id/close",
             "gesture": "tap_byID",
@@ -55,7 +37,7 @@
             "y": ""
         },
         {
-            "sequence": 7,
+            "sequence": 5,
             "describe": "compare the current activity to verify close function",
             "element": [
                 "com.viewsonic.vlauncher",

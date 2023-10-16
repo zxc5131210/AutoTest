@@ -59,7 +59,7 @@ class Marker(ItemStrategy.Strategy):
     def _STB_marker_delete(self):
         self.logger.Test("STB marker-delete")
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}r/STB_marker_delete.json",
+            json_path=f"{self.folder_path}/STB_marker_delete.json",
             driver=self.driver,
         )
 

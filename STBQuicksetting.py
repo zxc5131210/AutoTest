@@ -12,6 +12,7 @@ class Quicksetting(ItemStrategy.Strategy):
         "5": "color temperature",
         "all": "all Test",
     }
+    folder_path = "Test_Jason/STB/Quicksetting"
 
     def __init__(self, event_gen, logger, driver):
         super().__init__(event_gen, logger, driver)
@@ -19,39 +20,40 @@ class Quicksetting(ItemStrategy.Strategy):
     def _STB_quicksetting_backlight(self):
         self.logger.Test("STB quicksetting - backlight")
         self.event_gen.generate_event(
-            json_path="./Test_Jason/STB/Quicksetting/STB_quicksetting_backlight.json",
+            json_path=f"{self.folder_path}/STB_quicksetting_backlight.json",
             driver=self.driver,
         )
 
     def _STB_quicksetting_volume(self):
         self.logger.Test("STB quicksetting - volume")
         self.event_gen.generate_event(
-            json_path="./Test_Jason/STB/Quicksetting/STB_quicksetting_volume.json",
+            json_path=f"{self.folder_path}/STB_quicksetting_volume.json",
             driver=self.driver,
         )
 
     def _STB_quicksetting_auto_brightness(self):
         self.logger.Test("STB quicksetting - autobrightness")
         self.event_gen.generate_event(
-            json_path="Test_Jason/STB/Quicksetting/STB_quicksetting_auto_brightness.json",
+            json_path=f"{self.folder_path}/STB_quicksetting_auto_brightness.json",
             driver=self.driver,
         )
 
     def _STB_quicksetting_eye_care(self):
         self.logger.Test("STB quicksetting - eye care")
         self.event_gen.generate_event(
-            json_path="./Test_Jason/STB/Quicksetting/STB_quicksetting_eye_care.json",
+            json_path=f"{self.folder_path}/STB_quicksetting_eye_care.json",
             driver=self.driver,
         )
 
     def _STB_quicksetting_color_temperature(self):
         self.logger.Test("STB quicksetting - color temperature")
         self.event_gen.generate_event(
-            json_path="./Test_Jason/STB/Quicksetting/STB_quicksetting_color_temperature.json",
+            json_path=f"{self.folder_path}/STB_quicksetting_color_temperature.json",
             driver=self.driver,
         )
 
     def run_all(self):
+        self.logger.test_title("---STB - QuickSetting---")
         self._STB_quicksetting_backlight()
         self._STB_quicksetting_volume()
         self._STB_quicksetting_auto_brightness()

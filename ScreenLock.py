@@ -11,39 +11,41 @@ class ScreenLock(ItemStrategy.Strategy):
         "4": "Reveal Password",
         "all": "all Test",
     }
+    folder_path = "Test_Jason/ScreenLock"
 
     def __init__(self, event_gen, logger, driver):
         super().__init__(event_gen, logger, driver)
 
     def _screen_lock_set_password(self):
-        self.logger.Test("Set Password")
+        self.logger.Test("Set screenLock Password")
         self.event_gen.generate_event(
-            json_path="Test_Jason/ScreenLock/screenLock_set_password.json",
+            json_path=f"{self.folder_path}/screenLock_set_password.json",
             driver=self.driver,
         )
 
     def _screen_lock_change_password(self):
-        self.logger.Test("Change Password")
+        self.logger.Test("Change screenLock Password")
         self.event_gen.generate_event(
-            json_path="Test_Jason/ScreenLock/screenLock_change_password.json",
+            json_path=f"{self.folder_path}/screenLock_change_password.json",
             driver=self.driver,
         )
 
     def _screen_lock_remove_password(self):
-        self.logger.Test("Remove Password")
+        self.logger.Test("Remove screenLock Password")
         self.event_gen.generate_event(
-            json_path="Test_Jason/ScreenLock/screenLock_remove_password.json",
+            json_path=f"{self.folder_path}/screenLock_remove_password.json",
             driver=self.driver,
         )
 
     def _screen_lock_reveal_password(self):
-        self.logger.Test("Reveal Password")
+        self.logger.Test("Reveal Password in screenLock")
         self.event_gen.generate_event(
             json_path="./Test_Jason/ScreenLock/screenLock_reveal_password.json",
             driver=self.driver,
         )
 
     def run_all(self):
+        self.logger.test_title("---ScreenLock---")
         self._screen_lock_set_password()
         self._screen_lock_change_password()
         self._screen_lock_remove_password()

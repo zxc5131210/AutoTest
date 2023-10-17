@@ -9,25 +9,27 @@ class RecentApp(ItemStrategy.Strategy):
         "2": "clear all button",
         "all": "all Test",
     }
+    folder_path = "Test_Jason/vLauncher/recentApp"
 
     def __init__(self, event_gen, logger, driver):
         super().__init__(event_gen, logger, driver)
 
     def _recent_app_clear_app(self):
-        self.logger.Test("recent-clear app")
+        self.logger.Test("clear the last App in recent app")
         self.event_gen.generate_event(
-            json_path="./Test_Jason/vLauncher/recentApp/recentApp_clear_app.json",
+            json_path=f"{self.folder_path}/recentApp_clear_app.json",
             driver=self.driver,
         )
 
     def _recent_app_clear_all_btn(self):
-        self.logger.Test("recent-clear all button")
+        self.logger.Test("'clear all' button in recent app")
         self.event_gen.generate_event(
-            json_path="./Test_Jason/vLauncher/recentApp/recentApp_clear_all.json",
+            json_path=f"{self.folder_path}/recentApp_clear_all.json",
             driver=self.driver,
         )
 
     def run_all(self):
+        self.logger.test_title("---Recent App---")
         self._recent_app_clear_app()
         self._recent_app_clear_all_btn()
 

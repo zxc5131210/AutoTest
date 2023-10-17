@@ -24,6 +24,7 @@ class STBTools(ItemStrategy.Strategy):
         super().__init__(event_gen, logger, driver)
 
     def run_all(self):
+        self.logger.test_title("---STB Tools---")
         items = [Freezer, Spotlight, Stopwatch, Timer, Marker, Screenshot]
         for item in items:
             item(self.event_gen, self.logger, self.driver).run_all()

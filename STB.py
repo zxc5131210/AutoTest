@@ -20,6 +20,7 @@ class STB(ItemStrategy.Strategy):
         "10": "QuickSetting",
         "all": "all test",
     }
+    folder_path = "Test_Jason/STB"
 
     def __init__(self, event_gen, logger, driver):
         super().__init__(event_gen, logger, driver)
@@ -28,14 +29,14 @@ class STB(ItemStrategy.Strategy):
     def _STB_back_btn(self):
         self.logger.Test("STB-back button")
         self.event_gen.generate_event(
-            json_path="./Test_Jason/STB/FirstClass/STB_back_button.json",
+            json_path=f"{self.folder_path}/FirstClass/STB_back_button.json",
             driver=self.driver,
         )
 
     def _STB_homepage_btn(self):
         self.logger.Test("STB-homepage button")
         self.event_gen.generate_event(
-            json_path="./Test_Jason/STB/FirstClass/STB_homepage_button.json",
+            json_path=f"{self.folder_path}/FirstClass/STB_homepage_button.json",
             driver=self.driver,
         )
 
@@ -44,21 +45,21 @@ class STB(ItemStrategy.Strategy):
     def _STB_element_in_all_apps(self):
         self.logger.Test("STB_apps-element in all apps")
         self.event_gen.generate_event(
-            json_path="./Test_Jason/STB/SecondClass/STB_app_show_in_all_apps.json",
+            json_path=f"{self.folder_path}/SecondClass/STB_app_show_in_all_apps.json",
             driver=self.driver,
         )
 
     def _STB_apps_add_delete_app_in_shortcut(self):
         self.logger.Test("STB_apps-add & delete apps in shortcut")
         self.event_gen.generate_event(
-            json_path="./Test_Jason/STB/SecondClass/STB_add_delete_app_shortcut.json",
+            json_path=f"{self.folder_path}/SecondClass/STB_add_delete_app_shortcut.json",
             driver=self.driver,
         )
 
     def _STB_apps_order_in_shortcut(self):
         self.logger.Test("STB_apps-app order in shortcut")
         self.event_gen.generate_event(
-            json_path="./Test_Jason/STB/SecondClass/STB_app_order_in_shortcut.json",
+            json_path=f"{self.folder_path}/SecondClass/STB_app_order_in_shortcut.json",
             driver=self.driver,
         )
 
@@ -67,14 +68,14 @@ class STB(ItemStrategy.Strategy):
     def _STB_tools_add_delete_app_in_shortcut(self):
         self.logger.Test("STB_tools-add & delete apps in shortcut")
         self.event_gen.generate_event(
-            json_path="./Test_Jason/STB/ThirdClass/STB_add_delete_app_shortcut.json",
+            json_path=f"{self.folder_path}/ThirdClass/STB_add_delete_app_shortcut.json",
             driver=self.driver,
         )
 
     def _STB_tools_order_in_shortcut(self):
         self.logger.Test("STB_tools-app order in shortcut")
         self.event_gen.generate_event(
-            json_path="./Test_Jason/STB/ThirdClass/STB_app_order_in_shortcut.json",
+            json_path=f"{self.folder_path}/ThirdClass/STB_app_order_in_shortcut.json",
             driver=self.driver,
         )
 
@@ -85,13 +86,17 @@ class STB(ItemStrategy.Strategy):
         RecentApp(
             event_gen=self.event_gen, logger=self.logger, driver=self.driver
         ).run_all()
-        self._STB_element_in_all_apps()
+        self.logger.test_title("---STB root view---")
         self._STB_apps_add_delete_app_in_shortcut()
         self._STB_apps_order_in_shortcut()
+        self._STB_element_in_all_apps()
         self._STB_tools_add_delete_app_in_shortcut()
         self._STB_tools_order_in_shortcut()
         # STB Tools
         STBTools(
+            event_gen=self.event_gen, logger=self.logger, driver=self.driver
+        ).run_all()
+        Quicksetting(
             event_gen=self.event_gen, logger=self.logger, driver=self.driver
         ).run_all()
 

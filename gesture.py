@@ -55,6 +55,10 @@ class Gesture:
     def clear_keys(element) -> None:
         element.clear_text()
 
+    @staticmethod
+    def get_element_text(element):
+        return element.get_text()
+
     def back(self) -> None:
         """
         back by physical button
@@ -123,18 +127,7 @@ class Gesture:
         center_x = (element_bounds["left"] + element_bounds["right"]) // 2
         center_y = (element_bounds["top"] + element_bounds["bottom"]) // 2
         self.compare_different_list.append(center_x)
-        self.compare_different_list.append(centers_y)
-
-    def compare_location_different(self) -> None:
-        x_before = self.compare_different_list[0]
-        y_before = self.compare_different_list[1]
-        x_after = self.compare_different_list[2]
-        y_after = self.compare_different_list[3]
-        if x_before != x_after or y_before != y_after:
-            pass
-        else:
-            self.logger.error("the element does not move")
-        self.compare_different_lists.clear()
+        self.compare_different_list.append(center_y)
 
     def drag_element_to_screen_edge(self, element, direction) -> None:
         """
@@ -193,9 +186,9 @@ class Gesture:
             if result.returncode == 0:
                 pass
             else:
-                self.logger.error("file is not exist")
+                self.logger.error(msg="file is not exist")
         except subprocess.CalledProcessError:
-            self.logger.error("file is not exist")
+            self.logger.error(msg="file is not exist")
 
     @staticmethod
     def get_overview_activities() -> list[str]:
@@ -220,11 +213,11 @@ class Gesture:
         if overview_activities:
             activity_list.extend(overview_activities)
             if any(element in background for background in activity_list):
-                self.logger.info(f"{element} is in the background")
+                self.logger.info(msg=f"{element} is in the background")
             else:
-                self.logger.error(f"{element} is not in the background")
+                self.logger.error(msg=f"{element} is not in the background")
         else:
-            self.logger.error("No overview activities found.")
+            self.logger.error(msg="No overview activities found.")
 
     def compare_images_pixel(self, compare_1, compare_2) -> None:
         """
@@ -243,7 +236,7 @@ class Gesture:
             pass
 
         else:
-            self.logger.error("compare different fail")
+            self.logger.error(msg="compare different fail")
 
     @staticmethod
     def clean_activity(element):
@@ -280,7 +273,7 @@ class Gesture:
         if file_count >= 1:
             pass
         else:
-            self.logger.error(f"no file in {element}")
+            self.logger.error(msg=f"no file in {element}")
 
     @staticmethod
     def reboot():

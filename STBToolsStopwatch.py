@@ -12,46 +12,50 @@ class Stopwatch(ItemStrategy.Strategy):
         "5": "moving",
         "all": "all Test",
     }
+    folder_path = "Test_Jason/STB/Tools/Stopwatch"
 
     def __init__(self, event_gen, logger, driver):
         super().__init__(event_gen, logger, driver)
 
     def _STB_stopwatch_start_pause(self):
-        self.logger.Test("STB stopwatch-start and pause")
+        self.logger.Test("STB stopwatch-start the stopwatch and pause it")
         self.event_gen.generate_event(
-            json_path="./Test_Jason/STB/Tools/Stopwatch/STB_stopwatch_start_pause.json",
+            json_path=f"{self.folder_path}/STB_stopwatch_start_pause.json",
             driver=self.driver,
         )
 
     def _STB_stopwatch_lap(self):
-        self.logger.Test("STB stopwatch-lap")
+        self.logger.Test("STB stopwatch-lap the stopwatch to record the seconds")
         self.event_gen.generate_event(
-            json_path="./Test_Jason/STB/Tools/Stopwatch/STB_stopwatch_lap.json",
+            json_path=f"{self.folder_path}/STB_stopwatch_lap.json",
             driver=self.driver,
         )
 
     def _STB_stopwatch_expand(self):
-        self.logger.Test("STB stopwatch-expand")
+        self.logger.Test("STB stopwatch-expand the stopwatch window")
         self.event_gen.generate_event(
-            json_path="./Test_Jason/STB/Tools/Stopwatch/STB_stopwatch_expand.json",
+            json_path=f"{self.folder_path}/STB_stopwatch_expand.json",
             driver=self.driver,
         )
 
     def _STB_stopwatch_resume_reset(self):
-        self.logger.Test("STB stopwatch-resume & reset")
+        self.logger.Test(
+            "STB stopwatch-resume the stopwatch and reset the stopwatch to '00:00:00' "
+        )
         self.event_gen.generate_event(
-            json_path="./Test_Jason/STB/Tools/Stopwatch/STB_stopwatch_resume_reset.json",
+            json_path=f"{self.folder_path}/STB_stopwatch_resume_reset.json",
             driver=self.driver,
         )
 
     def _STB_stopwatch_move(self):
         self.logger.Test("STB stopwatch-move")
         self.event_gen.generate_event(
-            json_path="./Test_Jason/STB/Tools/Stopwatch/STB_stopwatch_move.json",
+            json_path=f"{self.folder_path}/STB_stopwatch_move.json",
             driver=self.driver,
         )
 
     def run_all(self):
+        self.logger.test_title("---STB Tool - Stopwatch---")
         self._STB_stopwatch_start_pause()
         self._STB_stopwatch_lap()
         self._STB_stopwatch_expand()

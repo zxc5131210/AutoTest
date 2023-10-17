@@ -1,7 +1,8 @@
 {
     "steps": [
         {
-            "sequence": "initialization",
+           "sequence": 1,
+            "describe": "initialization to setup third class on STB",
             "element": "",
             "gesture": "STB_ThirdClass_initialization",
             "args": "",
@@ -9,16 +10,9 @@
             "y": ""
         },
         {
-            "sequence": 1,
-            "element": "com.viewsonic.sidetoolbar:id/arrow",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
             "sequence": 2,
-            "element": "com.viewsonic.sidetoolbar:id/btnAllTools",
+            "describe": "expand STB",
+            "element": "",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -26,7 +20,8 @@
         },
         {
             "sequence": 3,
-            "element": "com.viewsonic.sidetoolbar:id/iv_all_tools_edit_status",
+            "describe": "expand all tools on STB",
+            "element": "com.viewsonic.sidetoolbar:id/btnAllTools",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -34,7 +29,8 @@
         },
         {
             "sequence": 4,
-            "element": "com.viewsonic.sidetoolbar:id/RlAllToolsTagOne",
+            "describe": "edit tools button in all tools",
+            "element": "com.viewsonic.sidetoolbar:id/iv_all_tools_edit_status",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -42,86 +38,7 @@
         },
         {
             "sequence": 5,
-            "element": "com.viewsonic.sidetoolbar:id/RlAllToolsTagTwo",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 6,
-            "element": "com.viewsonic.sidetoolbar:id/btnHome",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 7,
-            "element": "com.viewsonic.sidetoolbar:id/arrow",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 8,
-            "element": "com.viewsonic.sidetoolbar:id/btnAllTools",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 9,
-            "element": "com.viewsonic.sidetoolbar:id/iv_all_tools_edit_status",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 10,
-            "element": "com.viewsonic.sidetoolbar:id/RlAllToolsTagFirst",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 11,
-            "element": "com.viewsonic.sidetoolbar:id/btnHome",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 12,
-            "element": "com.viewsonic.sidetoolbar:id/arrow",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 13,
-            "element": "com.viewsonic.sidetoolbar:id/btnAllTools",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 14,
-            "element": "com.viewsonic.sidetoolbar:id/iv_all_tools_edit_status",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 15,
+            "describe": "add the first tools on third class",
             "element": "com.viewsonic.sidetoolbar:id/RlAllToolsTagOne",
             "gesture": "tap_byID",
             "args": "",
@@ -129,7 +46,17 @@
             "y": ""
         },
         {
-            "sequence": 16,
+            "sequence": 6,
+            "describe": "add the second tool on third class",
+            "element": "com.viewsonic.sidetoolbar:id/RlAllToolsTagTwo",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 7,
+            "describe": "tap homepage button to return homepage",
             "element": "com.viewsonic.sidetoolbar:id/btnHome",
             "gesture": "tap_byID",
             "args": "",
@@ -137,7 +64,8 @@
             "y": ""
         },
         {
-            "sequence": 17,
+            "sequence": 8,
+            "describe": "expand STB",
             "element": "com.viewsonic.sidetoolbar:id/arrow",
             "gesture": "tap_byID",
             "args": "",
@@ -145,7 +73,26 @@
             "y": ""
         },
         {
-            "sequence": 18,
+            "sequence":9,
+            "describe": "expand all tools on STB",
+            "element": "com.viewsonic.sidetoolbar:id/btnAllTools",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 10,
+            "describe": "edit tools button in all tools",
+            "element": "com.viewsonic.sidetoolbar:id/iv_all_tools_edit_status",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 11,
+            "describe": "remove the first tools on third class",
             "element": "com.viewsonic.sidetoolbar:id/RlAllToolsTagFirst",
             "gesture": "tap_byID",
             "args": "",
@@ -153,7 +100,80 @@
             "y": ""
         },
         {
+            "sequence": 12,
+            "describe": "tap homepage button to return homepage",
+            "element": "com.viewsonic.sidetoolbar:id/btnHome",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 13,
+            "describe": "expand STB",
+            "element": "com.viewsonic.sidetoolbar:id/arrow",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 14,
+            "describe": "expand all tools on STB",
+            "element": "com.viewsonic.sidetoolbar:id/btnAllTools",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 15,
+            "describe": "edit tools button in all tools",
+            "element": "com.viewsonic.sidetoolbar:id/iv_all_tools_edit_status",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 16,
+            "describe": "add the first tools on third class",
+            "element": "com.viewsonic.sidetoolbar:id/RlAllToolsTagOne",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 17,
+            "describe": "tap homepage button to return homepage",
+            "element": "com.viewsonic.sidetoolbar:id/btnHome",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 18,
+            "describe": "expand STB",
+            "element": "com.viewsonic.sidetoolbar:id/arrow",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
             "sequence": 19,
+            "describe": "tap the first app on third class",
+            "element": "com.viewsonic.sidetoolbar:id/RlAllToolsTagFirst",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 20,
+            "describe": "verify the current App is expected",
             "element": [
                 "com.viewsonic.sidetoolbar",
                 ".zoom.ZoomActivity"
@@ -164,7 +184,8 @@
             "y": ""
         },
         {
-            "sequence": 20,
+            "sequence": 21,
+            "describe": "return homepage",
             "element": "",
             "gesture": "homepage",
             "args": "",

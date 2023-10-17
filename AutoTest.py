@@ -40,7 +40,7 @@ def TestJson(driver):
 
 
 def run_all(event_gen, logger, driver):
-    items = [ScreenLock, WallPaper, EditLauncher, RecentApp, STB]
+    items = [ScreenLock, WallPaper, EditLauncher, STB]
     for item in items:
         item(event_gen, logger, driver).run_all()
 

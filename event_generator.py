@@ -49,6 +49,7 @@ class EventGen:
         flow = event_flow["steps"]
         for event in flow:
             json_sequence = event["sequence"]
+            json_describe = event["describe"]
             json_element = event["element"]
             json_gesture = event["gesture"]
             location_x = event["x"]
@@ -64,18 +65,25 @@ class EventGen:
                     location_x,
                     location_y,
                 )
-                self.logger.info(f"Sequence {json_sequence} {json_gesture}")
+                self.logger.info(json_sequence, json_describe)
                 time.sleep(0.5)
 
             except Exception:
-                self.logger.error(f"Sequence {json_sequence} {json_gesture}")
+                self.logger.error(json_sequence, json_describe)
                 time.sleep(0.5)
 
-        self.logger.info("Flow finished")
+        self.logger.info("Test End", "Flow finished")
         delete_temporarily_screenshots()
 
     def gesture_cases(
-        self, event, gesture, driver, json_element, json_gesture, location_x, location_y
+        self,
+        event,
+        gesture,
+        driver,
+        json_element,
+        json_gesture,
+        location_x,
+        location_y,
     ):
         gesture = Gesture(driver)
         match json_gesture:
@@ -110,6 +118,11 @@ class EventGen:
             case "tap_byText":
                 element = driver(text=json_element)
                 gesture.tap(element)
+
+            case "get_element_text":
+                element = driver(resourceId=json_element)
+                text = gesture.get_element_text(element)
+                gesture.compare_different_list.append(text)
 
             case "sendKey_byID":
                 element = driver(resourceId=json_element)
@@ -164,7 +177,15 @@ class EventGen:
                 gesture.get_element_location(element)
 
             case "compare_location_different":
-                gesture.compare_location_different()
+                x_before = gesture.compare_different_list[0]
+                y_before = gesture.compare_different_list[1]
+                x_after = gesture.compare_different_list[2]
+                y_after = gesture.compare_different_list[3]
+                if x_before != x_after or y_before != y_after:
+                    pass
+                else:
+                    self.logger.error("the element does not move")
+                gesture.compare_different_list.clear()
 
             case "screen_zoom_in":
                 element = driver()
@@ -192,14 +213,19 @@ class EventGen:
                 time.sleep(5)
                 driver.service("uiautomator").start()
                 time.sleep(5)
-                gesture.tap(driver(resourceId="com.viewsonic.vlauncher:id/btn_guest"))
 
             case "findelements_ByID":
+                """
+                if verify not find the element = True, args ==False
+                """
                 element = driver(resourceId=json_element)
                 if element.exists:
                     pass
                 else:
-                    self.logger.error(f"Find {element} FAIL")
+                    if event["args"] == "False":
+                        pass
+                    else:
+                        self.logger.error(msg=f"Find {element} FAIL")
 
             case "findelement_ByXpath":
                 """
@@ -212,14 +238,14 @@ class EventGen:
                     if event["args"] == "False":
                         pass
                     else:
-                        self.logger.error(f"Find {element} FAIL")
+                        self.logger.error(msg=f"Find {element} FAIL")
 
             case "findelement_ByText":
                 element = driver(text=json_element)
                 if element.exists:
                     pass
                 else:
-                    self.logger.error(f"Find {element} FAIL")
+                    self.logger.error(msg=f"Find {element} FAIL")
 
             case "change_wallpaper_first":
                 element = driver(resourceId=json_element)
@@ -243,7 +269,7 @@ class EventGen:
                     if event["args"][-1] in filename:
                         pass
                     else:
-                        self.logger.error("ScreenShot Fail")
+                        self.logger.error(msg="ScreenShot Fail")
 
             case "install_app":
                 gesture.install_app(json_element)
@@ -260,7 +286,7 @@ class EventGen:
                 if element.exists:
                     element.click()
                 else:
-                    self.logger.error("app not found in recent app")
+                    self.logger.error(msg="app not found in recent app")
 
             case "marker_fill_up":
                 element_bounds = driver.info
@@ -295,7 +321,7 @@ class EventGen:
                     elif determine_swipe.exists:
                         driver.swipe(x_a, y_a, x_b, y_b)
                     else:
-                        self.logger.error("Not Found App")
+                        self.logger.error(msg="Not Found App")
 
             case "STB_scroll_horiz_to_element":
                 x_a, y_a = driver(
@@ -314,7 +340,7 @@ class EventGen:
                     elif determine_swipe.exists:
                         driver.swipe(x_a, y_a, x_b, y_b)
                     else:
-                        self.logger.error("Not Found App")
+                        self.logger.error(msg="Not Found App")
                         break
 
             case "STB_secondClass_initialization":
@@ -414,7 +440,7 @@ class EventGen:
                 ):
                     pass
                 else:
-                    self.logger.error(f"{json_element} is not current")
+                    self.logger.error(msg=f"{json_element} is not current")
 
             case "Timer_scroll_to_findText":
                 target_text = event["args"]
@@ -440,7 +466,7 @@ class EventGen:
                 else:
                     element = json_element
                     target_scrollbar = None
-                    self.logger.error(f"{element} is not found")
+                    self.logger.error(msg=f"{element} is not found")
 
                 # scroll to find
                 for _ in range(60):
@@ -462,8 +488,10 @@ class EventGen:
                 ):
                     pass
                 else:
-                    self.logger.error("The data is the same , not changed")
-
+                    if event["args"] == "False":
+                        pass
+                    else:
+                        self.logger.error(msg="The data is the same , not changed")
                 gesture.compare_different_list.clear()
 
             case "tap_by_device_model":
@@ -496,7 +524,7 @@ class EventGen:
                 gesture.clean_activity(json_element)
 
             case _:
-                self.logger.warning(f"gesture type: {json_gesture} not defined.")
+                self.logger.warning(msg=f"gesture type: {json_gesture} not defined.")
 
     def __init__(self) -> None:
         self.logger = Logger()

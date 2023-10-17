@@ -2,6 +2,7 @@
     "steps": [
         {
             "sequence": 1,
+            "describe": "install TestApp",
             "element": "./Test_File/test.apk",
             "gesture": "install_app",
             "args": "",
@@ -10,6 +11,7 @@
         },
         {
             "sequence": 2,
+            "describe": "long press to open menu",
             "element": "",
             "gesture": "long_press_location",
             "args": "",
@@ -18,6 +20,7 @@
         },
         {
             "sequence": 3,
+            "describe": "choose 'edit launcher' option",
             "element": "//*[@text='Edit Launcher']",
             "gesture": "tap_byXpath",
             "args": "",
@@ -26,6 +29,7 @@
         },
         {
             "sequence": 4,
+            "describe": "swipe in all apps to find TestApp",
             "element": "My Application",
             "gesture": "swipe_to_find_in_all_apps",
             "args": "",
@@ -34,6 +38,7 @@
         },
         {
             "sequence": 5,
+            "describe": "select TestApp to set on the hot seat",
             "element": "My Application",
             "gesture": "tap_byText",
             "args": "",
@@ -42,6 +47,7 @@
         },
         {
             "sequence": 6,
+            "describe": "back to re-range the hot seat",
             "element": "",
             "gesture": "back_btn",
             "args": "",
@@ -50,6 +56,7 @@
         },
         {
             "sequence": 7,
+            "describe": "uninstall TeatApp",
             "element": "com.viewsonic.myapplication",
             "gesture": "uninstall_app",
             "args": "",

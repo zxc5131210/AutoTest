@@ -1,7 +1,8 @@
 {
     "steps": [
         {
-            "sequence": "initialization",
+            "sequence": 1,
+            "describe": "initialization to setup second class on STB",
             "element": "",
             "gesture": "STB_secondClass_initialization",
             "args": "",
@@ -9,7 +10,8 @@
             "y": ""
         },
         {
-            "sequence": 1,
+            "sequence": 2,
+            "describe": "expand STB",
             "element": "com.viewsonic.sidetoolbar:id/arrow",
             "gesture": "tap_byID",
             "args": "",
@@ -17,7 +19,8 @@
             "y": ""
         },
         {
-            "sequence": 2,
+            "sequence": 3,
+            "describe": "expand all apps on STB",
             "element": "com.viewsonic.sidetoolbar:id/btnAllApp",
             "gesture": "tap_byID",
             "args": "",
@@ -25,7 +28,8 @@
             "y": ""
         },
         {
-            "sequence": 3,
+            "sequence": 4,
+            "describe": "edit apps button in all apps",
             "element": "com.viewsonic.sidetoolbar:id/iv_all_app_edit_status",
             "gesture": "tap_byID",
             "args": "",
@@ -33,7 +37,8 @@
             "y": ""
         },
         {
-            "sequence": 4,
+            "sequence": 5,
+            "describe": "add the first app on second class",
             "element": "com.viewsonic.sidetoolbar:id/RlAllAppsTagOne",
             "gesture": "tap_byID",
             "args": "",
@@ -41,7 +46,8 @@
             "y": ""
         },
         {
-            "sequence": 5,
+            "sequence": 6,
+            "describe": "add the second app on second class",
             "element": "com.viewsonic.sidetoolbar:id/RlAllAppsTagTwo",
             "gesture": "tap_byID",
             "args": "",
@@ -49,7 +55,8 @@
             "y": ""
         },
         {
-            "sequence": 6,
+            "sequence": 7,
+            "describe": "add the third app on second class",
             "element": "com.viewsonic.sidetoolbar:id/RlAllAppsTagThree",
             "gesture": "tap_byID",
             "args": "",
@@ -57,7 +64,8 @@
             "y": ""
         },
         {
-            "sequence": 7,
+            "sequence": 8,
+            "describe": "tap homepage button to return homepage",
             "element": "com.viewsonic.sidetoolbar:id/btnHome",
             "gesture": "tap_byID",
             "args": "",

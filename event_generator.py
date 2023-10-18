@@ -73,6 +73,7 @@ class EventGen:
                 time.sleep(0.5)
 
         self.logger.info("Test End", "Flow finished")
+        self.logger.pass_log.clear()
         delete_temporarily_screenshots()
 
     def gesture_cases(

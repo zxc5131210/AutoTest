@@ -27,57 +27,57 @@ class STB(ItemStrategy.Strategy):
 
     # STB first class
     def _STB_back_btn(self):
-        self.logger.Test("STB-back button")
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/FirstClass/STB_back_button.json",
             driver=self.driver,
         )
+        self.logger.Test("STB-back button")
 
     def _STB_homepage_btn(self):
-        self.logger.Test("STB-homepage button")
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/FirstClass/STB_homepage_button.json",
             driver=self.driver,
         )
+        self.logger.Test("STB-homepage button")
 
     # STB_Second class
 
     def _STB_element_in_all_apps(self):
-        self.logger.Test("STB_apps-element in all apps")
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/SecondClass/STB_app_show_in_all_apps.json",
             driver=self.driver,
         )
+        self.logger.Test("STB_apps-element in all apps")
 
     def _STB_apps_add_delete_app_in_shortcut(self):
-        self.logger.Test("STB_apps-add & delete apps in shortcut")
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/SecondClass/STB_add_delete_app_shortcut.json",
             driver=self.driver,
         )
+        self.logger.Test("STB_apps-add & delete apps in shortcut")
 
     def _STB_apps_order_in_shortcut(self):
-        self.logger.Test("STB_apps-app order in shortcut")
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/SecondClass/STB_app_order_in_shortcut.json",
             driver=self.driver,
         )
+        self.logger.Test("STB_apps-app order in shortcut")
 
     # STB_Third class
 
     def _STB_tools_add_delete_app_in_shortcut(self):
-        self.logger.Test("STB_tools-add & delete apps in shortcut")
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/ThirdClass/STB_add_delete_app_shortcut.json",
             driver=self.driver,
         )
+        self.logger.Test("STB_tools-add & delete apps in shortcut")
 
     def _STB_tools_order_in_shortcut(self):
-        self.logger.Test("STB_tools-app order in shortcut")
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/ThirdClass/STB_app_order_in_shortcut.json",
             driver=self.driver,
         )
+        self.logger.Test("STB_tools-app order in shortcut")
 
     def run_all(self):
         # STB root_view

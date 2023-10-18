@@ -15,18 +15,18 @@ class EditLauncher(ItemStrategy.Strategy):
         super().__init__(event_gen, logger, driver)
 
     def _edit_launcher_add_app(self):
-        self.logger.Test("Test App re-range on hot seat")
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/editLauncher_add_delete_re-rangeApps.json",
             driver=self.driver,
         )
+        self.logger.Test("Test App re-range on hot seat")
 
     def _edit_launcher_find_all(self):
-        self.logger.Test("install TestApp and find TestApp in Edit Launcher - all apps")
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/editLauncher_find_apps_in_All.json",
             driver=self.driver,
         )
+        self.logger.Test("install TestApp and find TestApp in Edit Launcher - all apps")
 
     def run_all(self):
         self.logger.test_title("---Edit Launcher---")

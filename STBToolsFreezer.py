@@ -18,41 +18,41 @@ class Freezer(ItemStrategy.Strategy):
         super().__init__(event_gen, logger, driver)
 
     def _STB_freezer_zoom_in_out_button(self):
-        self.logger.Test("STB Freezer-tap button to zoom in & zoom out")
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_freezer_zoom_in_out_button.json",
             driver=self.driver,
         )
+        self.logger.Test("STB Freezer-tap button to zoom in & zoom out")
 
     def _STB_freezer_zoom_in_out_fingers(self):
-        self.logger.Test("STB Freezer-use fingers to zoom in & zoom out")
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_freezer_zoom_in_out_fingers.json",
             driver=self.driver,
         )
+        self.logger.Test("STB Freezer-use fingers to zoom in & zoom out")
 
     def _STB_freezer_zoom_mix(self):
-        self.logger.Test(
-            "STB Freezer-use fingers to zoom in first than use button to zoom in"
-        )
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_freezer_zoom_mix.json",
             driver=self.driver,
         )
+        self.logger.Test(
+            "STB Freezer-use fingers to zoom in first than use button to zoom in"
+        )
 
     def _STB_freezer_default_button(self):
-        self.logger.Test("STB Freezer-default screen button")
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_freezer_default_button.json",
             driver=self.driver,
         )
+        self.logger.Test("STB Freezer-default screen button")
 
     def _STB_freezer_reboot_to_use(self):
-        self.logger.Test("STB Freezer-reboot the device and use freezer zoom in & out")
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_freezer_reboot_to_use.json",
             driver=self.driver,
         )
+        self.logger.Test("STB Freezer-reboot the device and use freezer zoom in & out")
 
     def run_all(self):
         self.logger.test_title("---STB Tool - Freezer---")

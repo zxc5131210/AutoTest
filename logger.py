@@ -1,6 +1,8 @@
 """
 log and csv output setting
 """
+import unittest
+from XTestRunner import HTMLTestRunner
 import logging
 import csv
 from datetime import datetime
@@ -9,6 +11,7 @@ from datetime import datetime
 LOGGING_LEVEL = logging.DEBUG
 DATE_FORMAT = "%Y%m%d %H:%M:%S"
 FORMAT = "%(asctime)s %(levelname)-2s %(message)s"
+pass_log = []
 
 
 class Logger:
@@ -16,6 +19,7 @@ class Logger:
         self.logger = logging
         self.logger.basicConfig(level=LOGGING_LEVEL, format=FORMAT, datefmt=DATE_FORMAT)
         self.log_file = log_file
+        self.pass_log = pass_log
 
     def debug(self, msg: str) -> None:
         self.logger.debug(msg)
@@ -29,6 +33,7 @@ class Logger:
         """
         self.logger.info(msg)
         self._describe_to_csv(f"steps:{steps}", msg, "Success")
+        pass_log.append("success")
 
     def warning(self, msg: str) -> None:
         self.logger.warning(msg)
@@ -43,6 +48,7 @@ class Logger:
         """
         self.logger.error(msg)
         self._describe_to_csv(f"steps:{steps}", msg, "Fail")
+        pass_log.append("fail")
 
     def critical(self, msg: str) -> None:
         self.logger.critical(msg)
@@ -60,7 +66,10 @@ class Logger:
             csv_writer.writerow([""] * 2 + [level, msg, status])
 
     def Test(self, msg: str) -> None:
-        self._write_to_csv("", msg, "")
+        if "fail" in pass_log:
+            self._write_to_csv("", msg, "Fail")
+        else:
+            self._write_to_csv("", msg, "Success")
 
     def test_title(self, msg: str) -> None:
         self._write_to_csv(msg, "", "")

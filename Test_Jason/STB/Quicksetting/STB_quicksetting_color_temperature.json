@@ -3,7 +3,7 @@
         {
             "sequence": 1,
             "describe": "expand STB",
-            "element": "com.viewsonic.sidetoolbar:id/arrow",
+            "element": "com.viewsonic.sidetoolbar:id/flOpenBar",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -12,7 +12,7 @@
         {
             "sequence": 2,
             "describe": "expand quicksetting",
-            "element": "com.viewsonic.sidetoolbar:id/btnMenu",
+            "element": "com.viewsonic.sidetoolbar:id/imgBtnQuickSettings",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -40,7 +40,7 @@
         {
             "sequence": 4,
             "describe": "tap default button to change temperature",
-            "element": "com.viewsonic.quicksettings:id/rb_color_temperature_default",
+            "element": "com.viewsonic.quicksettings:id/rbColorTemperatureDefault",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -49,7 +49,7 @@
         {
             "sequence": 5,
             "describe": "tap warm button to change temperature",
-            "element": "com.viewsonic.quicksettings:id/rb_color_temperature_warm_tone",
+            "element": "com.viewsonic.quicksettings:id/rbColorTemperatureWarmTone",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -58,7 +58,7 @@
         {
             "sequence": 6,
             "describe": "tap cool button to change temperature",
-            "element": "com.viewsonic.quicksettings:id/rb_color_temperature_cool_tone",
+            "element": "com.viewsonic.quicksettings:id/rbColorTemperatureCoolTone",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

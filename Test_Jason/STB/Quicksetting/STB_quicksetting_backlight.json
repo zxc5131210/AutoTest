@@ -30,7 +30,7 @@
         {
             "sequence": 4,
             "describe": "expand STB",
-            "element": "com.viewsonic.sidetoolbar:id/arrow",
+            "element": "com.viewsonic.sidetoolbar:id/flOpenBar",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -40,7 +40,7 @@
         {
             "sequence": 5,
             "describe": "expand quicksetting",
-            "element": "com.viewsonic.sidetoolbar:id/btnMenu",
+            "element": "com.viewsonic.sidetoolbar:id/imgBtnQuickSettings",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -49,7 +49,7 @@
         {
             "sequence": 6,
             "describe": "turn the brightness to the minimum",
-            "element": "com.viewsonic.quicksettings:id/sb_backlight",
+            "element": "com.viewsonic.quicksettings:id/sbBacklight",
             "gesture": "swipe_left_element",
             "args": "",
             "x": "",
@@ -69,7 +69,7 @@
         {
             "sequence": 8,
             "describe": "turn the brightness to the maximum",
-            "element": "com.viewsonic.quicksettings:id/sb_backlight",
+            "element": "com.viewsonic.quicksettings:id/sbBacklight",
             "gesture": "swipe_right_element",
             "args": "",
             "x": "",

@@ -344,20 +344,20 @@ class EventGen:
                         break
 
             case "STB_secondClass_initialization":
-                gesture.tap(driver(resourceId="com.viewsonic.sidetoolbar:id/arrow"))
+                gesture.tap(driver(resourceId="com.viewsonic.sidetoolbar:id/flOpenBar"))
                 if (
                     driver(
-                        resourceId="com.viewsonic.sidetoolbar:id/RlAllAppTagFirst"
+                        resourceId="com.viewsonic.sidetoolbar:id/imgViewAddApp1"
                     ).exists
                     or driver(
-                        resourceId="com.viewsonic.sidetoolbar:id/RlAllAppTagSecond"
+                        resourceId="com.viewsonic.sidetoolbar:id/imgViewAddApp2"
                     ).exists
                     or driver(
-                        resourceId="com.viewsonic.sidetoolbar:id/RlAllAppTagThird"
+                        resourceId="com.viewsonic.sidetoolbar:id/imgViewAddApp3"
                     ).exists
                 ):
                     gesture.tap(
-                        driver(resourceId="com.viewsonic.sidetoolbar:id/btnAllApp")
+                        driver(resourceId="com.viewsonic.sidetoolbar:id/imgBtnAllApps")
                     )
                     gesture.tap(
                         driver(
@@ -365,40 +365,34 @@ class EventGen:
                         )
                     )
                     gesture.tap(
-                        driver(
-                            resourceId="com.viewsonic.sidetoolbar:id/RlAllAppTagFirst"
-                        )
+                        driver(resourceId="com.viewsonic.sidetoolbar:id/imgViewAddApp1")
                     )
                     gesture.tap(
-                        driver(
-                            resourceId="com.viewsonic.sidetoolbar:id/RlAllAppTagSecond"
-                        )
+                        driver(resourceId="com.viewsonic.sidetoolbar:id/imgViewAddApp2")
                     )
                     gesture.tap(
-                        driver(
-                            resourceId="com.viewsonic.sidetoolbar:id/RlAllAppTagThird"
-                        )
+                        driver(resourceId="com.viewsonic.sidetoolbar:id/imgViewAddApp3")
                     )
                     gesture.tap(
-                        driver(resourceId="com.viewsonic.sidetoolbar:id/btnHome")
+                        driver(resourceId="com.viewsonic.sidetoolbar:id/imgBtnHome")
                     )
                 else:
                     gesture.tap(
-                        driver(resourceId="com.viewsonic.sidetoolbar:id/btnHome")
+                        driver(resourceId="com.viewsonic.sidetoolbar:id/imgBtnHome")
                     )
 
             case "STB_ThirdClass_initialization":
-                gesture.tap(driver(resourceId="com.viewsonic.sidetoolbar:id/arrow"))
+                gesture.tap(driver(resourceId="com.viewsonic.sidetoolbar:id/flOpenBar"))
                 if (
                     driver(
-                        resourceId="com.viewsonic.sidetoolbar:id/RlAllToolsTagFirst"
+                        resourceId="com.viewsonic.sidetoolbar:id/imgViewAddTool1"
                     ).exists
                     or driver(
-                        resourceId="com.viewsonic.sidetoolbar:id/RlAllToolsTagSecond"
+                        resourceId="com.viewsonic.sidetoolbar:id/imgViewAddTool2"
                     ).exists
                 ):
                     gesture.tap(
-                        driver(resourceId="com.viewsonic.sidetoolbar:id/btnAllTools")
+                        driver(resourceId="com.viewsonic.sidetoolbar:id/imgBtnAllTools")
                     )
                     gesture.tap(
                         driver(
@@ -407,20 +401,20 @@ class EventGen:
                     )
                     gesture.tap(
                         driver(
-                            resourceId="com.viewsonic.sidetoolbar:id/RlAllToolsTagFirst"
+                            resourceId="com.viewsonic.sidetoolbar:id/imgViewAddTool1"
                         )
                     )
                     gesture.tap(
                         driver(
-                            resourceId="com.viewsonic.sidetoolbar:id/RlAllToolsTagSecond"
+                            resourceId="com.viewsonic.sidetoolbar:id/imgViewAddTool2"
                         )
                     )
                     gesture.tap(
-                        driver(resourceId="com.viewsonic.sidetoolbar:id/btnHome")
+                        driver(resourceId="com.viewsonic.sidetoolbar:id/imgBtnHome")
                     )
                 else:
                     gesture.tap(
-                        driver(resourceId="com.viewsonic.sidetoolbar:id/btnHome")
+                        driver(resourceId="com.viewsonic.sidetoolbar:id/imgBtnHome")
                     )
 
             case "STB_spotlight_initialization":

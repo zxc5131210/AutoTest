@@ -12,7 +12,7 @@
         {
             "sequence": 2,
             "describe": "expand STB",
-            "element": "com.viewsonic.sidetoolbar:id/arrow",
+            "element": "com.viewsonic.sidetoolbar:id/flOpenBar",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -21,7 +21,7 @@
         {
             "sequence": 3,
             "describe": "expand all apps on STB",
-            "element": "com.viewsonic.sidetoolbar:id/btnAllApp",
+            "element": "com.viewsonic.sidetoolbar:id/imgBtnAllApps",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -66,7 +66,7 @@
         {
             "sequence": 8,
             "describe": "tap homepage button to return homepage",
-            "element": "com.viewsonic.sidetoolbar:id/btnHome",
+            "element": "com.viewsonic.sidetoolbar:id/imgBtnHome",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -75,7 +75,7 @@
         {
             "sequence": 9,
             "describe": "expand STB",
-            "element": "com.viewsonic.sidetoolbar:id/arrow",
+            "element": "com.viewsonic.sidetoolbar:id/flOpenBar",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -84,7 +84,7 @@
         {
             "sequence": 10,
             "describe": "expand all apps on STB",
-            "element": "com.viewsonic.sidetoolbar:id/btnAllApp",
+            "element": "com.viewsonic.sidetoolbar:id/imgBtnAllApps",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -102,7 +102,7 @@
         {
             "sequence": 12,
             "describe": "remove the second App on shortcut",
-            "element": "com.viewsonic.sidetoolbar:id/RlAllAppTagSecond",
+            "element": "com.viewsonic.sidetoolbar:id/imgViewAddApp2",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -111,7 +111,7 @@
         {
             "sequence": 13,
             "describe": "tap homepage button to return homepage",
-            "element": "com.viewsonic.sidetoolbar:id/btnHome",
+            "element": "com.viewsonic.sidetoolbar:id/imgBtnHome",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -120,7 +120,7 @@
         {
             "sequence": 14,
             "describe": "expand STB",
-            "element": "com.viewsonic.sidetoolbar:id/arrow",
+            "element": "com.viewsonic.sidetoolbar:id/flOpenBar",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -129,7 +129,7 @@
         {
             "sequence": 15,
             "describe": "expand all apps on STB",
-            "element": "com.viewsonic.sidetoolbar:id/btnAllApp",
+            "element": "com.viewsonic.sidetoolbar:id/imgBtnAllApps",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -156,7 +156,7 @@
         {
             "sequence": 18,
             "describe": "tap homepage button to return homepage",
-            "element": "com.viewsonic.sidetoolbar:id/btnHome",
+            "element": "com.viewsonic.sidetoolbar:id/imgBtnHome",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -165,7 +165,7 @@
         {
             "sequence": 19,
             "describe": "expand STB",
-            "element": "com.viewsonic.sidetoolbar:id/arrow",
+            "element": "com.viewsonic.sidetoolbar:id/flOpenBar",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -174,7 +174,7 @@
         {
             "sequence": 20,
             "describe": "tap the second App on second class",
-            "element": "com.viewsonic.sidetoolbar:id/RlAllAppTagSecond",
+            "element": "com.viewsonic.sidetoolbar:id/imgViewAddApp2",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

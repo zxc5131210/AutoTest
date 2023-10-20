@@ -24,7 +24,7 @@
         {
             "sequence": 3,
             "describe": "expand STB",
-            "element": "com.viewsonic.sidetoolbar:id/arrow",
+            "element": "com.viewsonic.sidetoolbar:id/flOpenBar",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -33,7 +33,7 @@
         {
             "sequence": 4,
             "describe": "tap back button on STB",
-            "element": "com.viewsonic.sidetoolbar:id/btnBack",
+            "element": "com.viewsonic.sidetoolbar:id/imgBtnBack",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

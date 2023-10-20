@@ -3,7 +3,7 @@
         {
             "sequence": 1,
             "describe": "expand STB",
-            "element": "com.viewsonic.sidetoolbar:id/arrow",
+            "element": "com.viewsonic.sidetoolbar:id/flOpenBar",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -12,7 +12,7 @@
         {
             "sequence": 2,
             "describe": "open recent App",
-            "element": "com.viewsonic.sidetoolbar:id/btnRecent",
+            "element": "com.viewsonic.sidetoolbar:id/imgBtnRecent",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -39,7 +39,7 @@
         {
             "sequence": 5,
             "describe": "expand STB",
-            "element": "com.viewsonic.sidetoolbar:id/arrow",
+            "element": "com.viewsonic.sidetoolbar:id/flOpenBar",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -48,7 +48,7 @@
         {
             "sequence": 6,
             "describe": "open recent App",
-            "element": "com.viewsonic.sidetoolbar:id/btnRecent",
+            "element": "com.viewsonic.sidetoolbar:id/imgBtnRecent",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

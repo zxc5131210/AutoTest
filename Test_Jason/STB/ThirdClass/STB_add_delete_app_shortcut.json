@@ -12,7 +12,7 @@
         {
             "sequence": 2,
             "describe": "expand STB",
-            "element": "com.viewsonic.sidetoolbar:id/arrow",
+            "element": "com.viewsonic.sidetoolbar:id/flOpenBar",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -21,7 +21,7 @@
         {
             "sequence": 3,
             "describe": "expand all tools on STB",
-            "element": "com.viewsonic.sidetoolbar:id/btnAllTools",
+            "element": "com.viewsonic.sidetoolbar:id/imgBtnAllToolss",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -57,7 +57,7 @@
         {
             "sequence": 7,
             "describe": "tap homepage button to return homepage",
-            "element": "com.viewsonic.sidetoolbar:id/btnHome",
+            "element": "com.viewsonic.sidetoolbar:id/imgBtnHome",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

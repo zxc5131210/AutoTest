@@ -3,7 +3,7 @@
         {
             "sequence": 1,
             "describe": "expand STB",
-            "element": "com.viewsonic.sidetoolbar:id/arrow",
+            "element": "com.viewsonic.sidetoolbar:id/flOpenBar",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -12,7 +12,7 @@
         {
             "sequence": 2,
             "describe": "expand quicksetting",
-            "element": "com.viewsonic.sidetoolbar:id/btnMenu",
+            "element": "com.viewsonic.sidetoolbar:id/imgBtnQuickSettings",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -30,7 +30,7 @@
         {
             "sequence": 4,
             "describe": "switch on/off the eye care mode",
-            "element": "com.viewsonic.quicksettings:id/sw_eye_care",
+            "element": "com.viewsonic.quicksettings:id/swEyeCare",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

@@ -76,7 +76,6 @@ class EventGen:
         self.logger.info("Test End", "Flow finished")
         self.logger.pass_log.clear()
         delete_temporarily_screenshots()
-        TestReport.save_to_file("test_report.html")
 
     def gesture_cases(
         self,

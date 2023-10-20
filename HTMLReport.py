@@ -12,19 +12,15 @@ class TestReport:
         <html>
         <head>
             <title>Test Report</title>
-            <link href="./html_css/bootstrap.min.css" rel="stylesheet">
-            <script src="./html_css/jquery.min.js"></script>
-            <script src="./html_css/bootstrap.min.js"></script>
+            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
             <script>
             function filterTestCases(filterType) {
-                // Show all categories, subcategories and test cases
                 $(".category-panel, .subcategory-panel").show();
                 $(".test-case").show();
-
-                // Collapse all test cases by default
                 $(".test-case .panel-collapse").collapse('hide');
 
-                // Depending on filterType, show/hide or expand/collapse cases
                 if (filterType === "pass") {
                     $(".test-case.fail").hide();
                 } else if (filterType === "fail") {
@@ -32,14 +28,12 @@ class TestReport:
                     $(".test-case.fail .panel-collapse").collapse('show');
                 }
 
-                // Hide subcategories with no visible test cases
                 $(".subcategory-panel").each(function() {
                     if ($(this).find(".test-case:visible").length == 0) {
                         $(this).hide();
                     }
                 });
 
-                // Hide categories with no visible subcategories
                 $(".category-panel").each(function() {
                     if ($(this).find(".subcategory-panel:visible").length == 0) {
                         $(this).hide();

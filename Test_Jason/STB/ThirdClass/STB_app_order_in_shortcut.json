@@ -93,7 +93,7 @@
         {
             "sequence": 11,
             "describe": "remove the first tools on third class",
-            "element": "com.viewsonic.sidetoolbar:id/RlAllToolsTagFirst",
+            "element": "com.viewsonic.sidetoolbar:id/imgViewAddTool1",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -165,7 +165,7 @@
         {
             "sequence": 19,
             "describe": "tap the first app on third class",
-            "element": "com.viewsonic.sidetoolbar:id/RlAllToolsTagFirst",
+            "element": "com.viewsonic.sidetoolbar:id/imgViewAddTool1",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

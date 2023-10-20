@@ -3,7 +3,7 @@
     {
       "sequence": 1,
       "describe": "expand STB",
-      "element": "com.viewsonic.sidetoolbar:id/arrow",
+      "element": "com.viewsonic.sidetoolbar:id/flOpenBar",
       "gesture": "tap_byID",
       "args": "",
       "x": "",
@@ -12,7 +12,7 @@
     {
       "sequence": 2,
       "describe": "expand all tools",
-      "element": "com.viewsonic.sidetoolbar:id/btnAllTools",
+      "element": "com.viewsonic.sidetoolbar:id/imgBtnAllTools",
       "gesture": "tap_byID",
       "args": "",
       "x": "",

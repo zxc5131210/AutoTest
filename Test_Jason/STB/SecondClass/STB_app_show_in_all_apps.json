@@ -12,7 +12,7 @@
         {
             "sequence": 2,
             "describe": "expand STB",
-            "element": "com.viewsonic.sidetoolbar:id/arrow",
+            "element": "com.viewsonic.sidetoolbar:id/flOpenBar",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -21,7 +21,7 @@
         {
             "sequence": 3,
             "describe": "expand all apps on STB",
-            "element": "com.viewsonic.sidetoolbar:id/btnAllApp",
+            "element": "com.viewsonic.sidetoolbar:id/imgBtnAllApps",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -48,7 +48,7 @@
         {
             "sequence": 6,
             "describe": "tap homepage button to return homepage",
-            "element": "com.viewsonic.sidetoolbar:id/btnHome",
+            "element": "com.viewsonic.sidetoolbar:id/imgBtnHome",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

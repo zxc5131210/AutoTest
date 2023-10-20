@@ -24,7 +24,7 @@
         {
             "sequence": 3,
             "describe": "expand STB",
-            "element": "com.viewsonic.sidetoolbar:id/arrow",
+            "element": "com.viewsonic.sidetoolbar:id/flOpenBar",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -33,7 +33,7 @@
         {
             "sequence": 4,
             "describe": "tap homepage button on STB",
-            "element": "com.viewsonic.sidetoolbar:id/btnHome",
+            "element": "com.viewsonic.sidetoolbar:id/imgBtnHome",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

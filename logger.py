@@ -1,12 +1,10 @@
 """
 log and csv output setting
 """
-import unittest
-from XTestRunner import HTMLTestRunner
 import logging
 import csv
 from datetime import datetime
-
+from HTMLReport import TestReport
 
 LOGGING_LEVEL = logging.DEBUG
 DATE_FORMAT = "%Y%m%d %H:%M:%S"
@@ -74,6 +72,22 @@ class Logger:
     def test_title(self, msg: str) -> None:
         self._write_to_csv(msg, "", "")
 
+    def format_to_html(self):
+
+    def html_report(
+        self,
+    ):
+
+        report.add_entry(
+            "vlauncher",
+            "UI",
+            "Test_Login",
+            "Login screen should appear correctly",
+            {"Step 1": "Open App", "Step 2": "Check login screen"},
+            "Pass",
+        )
+
 
 if __name__ == "__main__":
     logger = Logger()
+    report = TestReport()

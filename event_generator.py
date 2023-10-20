@@ -8,6 +8,7 @@ import json
 from selenium.common.exceptions import NoSuchElementException
 from logger import Logger
 from gesture import Gesture
+from HTMLReport import TestReport
 
 # entity log
 logger = Logger()
@@ -75,6 +76,7 @@ class EventGen:
         self.logger.info("Test End", "Flow finished")
         self.logger.pass_log.clear()
         delete_temporarily_screenshots()
+        TestReport.save_to_file("test_report.html")
 
     def gesture_cases(
         self,

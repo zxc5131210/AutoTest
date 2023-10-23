@@ -7,7 +7,7 @@ class Freezer(ItemStrategy.Strategy):
         "0": "Back to main menu",
         "1": "Zoom in & out, by button",
         "2": "Zoom in & out, by fingers",
-        "3": "Zoom in, button first than fingers",
+        "3": "Zoom in, fingers first than button",
         "4": "default screen button",
         "5": "reboot to freezer",
         "all": "all Test",

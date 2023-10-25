@@ -7,14 +7,6 @@ LOGGING_LEVEL = logging.DEBUG
 DATE_FORMAT = "%Y%m%d %H:%M:%S"
 FORMAT = "%(asctime)s %(levelname)-2s %(message)s"
 pass_log = []
-report_data = {
-    "category": "STB",
-    "subcategory": "None",
-    "testcase": None,
-    "detail": None,
-    "steps": {},
-    "status": None,
-}
 
 
 class CSVLogger:
@@ -40,6 +32,15 @@ class CSVLogger:
 
 
 class Logger:
+    report_data = {
+        "category": "STB",
+        "subcategory": "None",
+        "testcase": None,
+        "detail": None,
+        "steps": {},
+        "status": None,
+    }
+
     def __init__(self, log_file=f"./Log/log-{datetime.today()}") -> None:
         self.logger = logging
         self.logger.basicConfig(level=LOGGING_LEVEL, format=FORMAT, datefmt=DATE_FORMAT)
@@ -53,7 +54,7 @@ class Logger:
         self.logger.info(msg)
         self.csv_logger.describe(f"steps:{steps}", msg, "Success")
         pass_log.append("success")
-        report_data["steps"][f"steps{steps}: {msg}"] = "Pass"
+        Logger.report_data["steps"][f"steps{steps}: {msg}"] = "Pass"
 
     def warning(self, msg: str) -> None:
         self.logger.warning(msg)
@@ -63,7 +64,7 @@ class Logger:
         self.logger.error(msg)
         self.csv_logger.describe(f"steps:{steps}", msg, "Fail")
         pass_log.append("fail")
-        report_data["steps"][f"steps:{steps} {msg}"] = "Fail"
+        self.report_data["steps"][f"steps:{steps} {msg}"] = "Fail"
 
     def critical(self, msg: str) -> None:
         self.logger.critical(msg)
@@ -80,7 +81,7 @@ class Logger:
     def test_title(self, msg: str) -> None:
         self.csv_logger.write(msg, "", "")
         self.csv_logger.write_overview(msg, "", "")
-        report_data["subcategory"] = msg
+        self.report_data["subcategory"] = msg
 
 
 class HTMLReporter:
@@ -89,29 +90,29 @@ class HTMLReporter:
 
     def add_entry(self, msg: str) -> None:
         status = "Fail" if "fail" in pass_log else "Pass"
-        report_data.update(
+        Logger.report_data.update(
             {
                 "testcase": msg,
                 "detail": msg,
                 "status": status,
-                "steps": report_data.get("steps", {}),
+                "steps": Logger.report_data.get("steps", {}),
             }
         )
 
         self.report.add_entry(
-            category=report_data["category"],
-            subcategory=report_data["subcategory"],
-            testcase=report_data["testcase"],
-            detail=report_data["detail"],
-            steps=report_data["steps"],
-            status=report_data["status"],
+            category=Logger.report_data["category"],
+            subcategory=Logger.report_data["subcategory"],
+            testcase=Logger.report_data["testcase"],
+            detail=Logger.report_data["detail"],
+            steps=Logger.report_data["steps"],
+            status=Logger.report_data["status"],
         )
 
     def save_report(self) -> None:
         self.report.save_to_file("test_report.html")
-        report_data["testcase"] = None
-        report_data["steps"] = {}
-        report_data["status"] = None
+        Logger.report_data["testcase"] = None
+        Logger.report_data["steps"] = {}
+        Logger.report_data["status"] = None
 
 
 if __name__ == "__main__":

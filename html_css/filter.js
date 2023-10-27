@@ -1,83 +1,57 @@
-// js of report to html
-function updateSummary() {
-    const totalTestCases = $(".test-case").length;
-    const passedTestCases = $(".test-case.pass").length;
-    const failedTestCases = $(".test-case.fail").length;
+// -----------------
+// Helper Functions
+// -----------------
+function update_summary() {
+    const total_test_case = $(".test-case").length;
+    const passed_test_cases = $(".test-case.pass").length;
+    const failed_test_case = $(".test-case.fail").length;
+    const pass_rate = (passed_test_cases / total_test_case) * 100;
+    const fail_rate = (failed_test_case / total_test_case) * 100;
 
-    const passPercentage = (passedTestCases / totalTestCases) * 100;
-    const failPercentage = (failedTestCases / totalTestCases) * 100;
-
-    // update summary
     $("#summary").html(`
-        <p>Summary: ${passedTestCases}/${totalTestCases}</p>
-        <p>Passed: ${passedTestCases} (${passPercentage.toFixed(2)}%)</p>
-        <p>Failed: ${failedTestCases} (${failPercentage.toFixed(2)}%)</p>
+        <p>Summary: ${passed_test_cases}/${total_test_case}</p>
+        <p>Passed: ${passed_test_cases} (${pass_rate.toFixed(2)}%)</p>
+        <p>Failed: ${failed_test_case} (${fail_rate.toFixed(2)}%)</p>
     `);
 }
+function update_element(panelId, comment) {
+    const statusElement = $(`div[data-panel-id="${panelId}"]`).find('.label');
+    const existingLink = statusElement.siblings('.comment-link');
 
-function openPopup(status, panelId) {
-    $('#statusModal').modal('show');
-    $('#statusModal').data('panelId', panelId);
-
-    // Retrieve and display saved comment for this panelId
-    var savedComment = localStorage.getItem(panelId);
-    $('#inputText').val(savedComment);
-}
-
-function saveLink() {
-    var panelId = $('#statusModal').data('panelId');
-    var inputText = $('#inputText').val();
-
-    // Save the comment to local storage
-    localStorage.setItem(panelId, inputText);
-
-    // Update the link in real-time
-    updateLink(panelId, inputText);
-
-    $('#statusModal').modal('hide');
-}
-
-function updateLink(panelId, comment) {
-    var statusElement = $('#' + panelId).find('.panel-heading .label');
-    var link = $('<a>').attr('href', 'javascript:void(0)').text(' ' + comment).addClass('label label-info');
-
-    // Remove any previous links
-    statusElement.next('a').remove();
-
-    if (comment) {
-        statusElement.after(link);
+    if (existingLink.length) {
+        existingLink.attr('href', comment).text(' ' + comment);
+    } else {
+        const commentLink = $('<a>')
+            .attr('href', comment)
+            .attr('target', '_blank')
+            .text(' ' + comment)
+            .addClass('comment-link');
+        statusElement.after(commentLink);
     }
-}
 
-// Restore saved information on page load
-$(document).ready(function () {
-    loadComments();
-});
+    // Re-bind the click event for comment-link
+    $('.comment-link').off('click').on('click', function(event) {
+        event.preventDefault();  // 阻止連結的默認行為
+        event.stopPropagation();  // 阻止事件冒泡
+        window.open($(this).attr('href'), '_blank');
+    });
 
-// Clear all saved information (for testing purposes)
-function clearSavedInfo() {
-    localStorage.clear();
-    loadComments();
-}
-
-// Update the link in real-time as the user types
-$('#inputText').on('input', function () {
-    const panelId = $('#statusModal').data('panelId');
-    const inputText = $(this).val();
-    updateLink(panelId, inputText);
-});
-
-function loadComments() {
-    $(".test-case").each(function () {
-        var panelId = $(this).find('.panel-heading').attr('id');
-        var savedComment = localStorage.getItem(panelId);
-        if (savedComment) {
-            updateLink(panelId, savedComment);
+    // Re-bind the click event for panel-heading
+    $(".panel-heading").off("click").on("click", function(event) {
+        if (!$(event.target).hasClass("comment-link") && !$(event.target).closest(".comment-link").length) {
+            const collapseElement = $(this).next();
+            collapseElement.collapse('toggle');
         }
     });
 }
 
-function filterTestCases(filterType) {
+function open_popup(status, panelId) {
+    $('#statusModal').modal('show');
+    $('#statusModal').data('panelId', panelId);
+    const saved_comment = localStorage.getItem(panelId);
+    $('#inputText').val(saved_comment);
+}
+function filter_test_cases(filterType) {
     switch (filterType) {
         case "all":
             // Display all categories and subcategories
@@ -130,19 +104,84 @@ function filterTestCases(filterType) {
             break;
     }
 
-    updateSummary();
+    update_summary();
 }
 
-
-// Ensure filterTestCases is called on document ready and button click
-$(document).ready(function () {
-    // Bind the filterTestCases function to the filter buttons
-    $(".filter-button").click(function () {
-        filterTestCases($(this).data("filter-type"));
+function bind_events() {
+    // Re-bind the click event for comment-link
+    $('.comment-link').off('click').on('click', function(event) {
+        event.preventDefault();  // 阻止連結的默認行為
+        event.stopPropagation();  // 阻止事件冒泡
+        window.open($(this).attr('href'), '_blank');
     });
+
+    // Re-bind the click event for panel-heading
+    $(".panel-heading").off("click").on("click", function(event) {
+        if ($(event.target).hasClass("label")) {
+            console.log("Label was clicked!");  // 調試日誌
+            const panelId = $(this).attr("data-panel-id");
+            const status = $(event.target).text();
+            open_popup(status, panelId);
+        } else if (!$(event.target).hasClass("comment-link") && !$(event.target).closest(".comment-link").length) {
+            console.log("Panel heading was clicked!");  // 調試日誌
+            const collapseElement = $(this).next();
+            collapseElement.collapse('toggle');
+        }
+    });
+}
+function toggleCollapse(elementId) {
+    const x = document.getElementById(elementId);
+    if (x.className.indexOf("in") == -1) {
+        x.className += " in";
+    } else {
+        x.className = x.className.replace(" in", "");
+    }
+}
+
+// -----------------
+// Download HTML Functions
+// -----------------
+function download_html() {
+    const updatedHTML = document.documentElement.outerHTML;
+    const blob = new Blob([updatedHTML], {type: 'text/html'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'updated_report.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    bind_events();  // 在download_html結束時重新綁定事件
+}
+
+function saveLink() {
+    const panelId = $('#statusModal').data('panelId');
+    const inputText = $('#inputText').val();
+    update_element(panelId, inputText);
+    $('#statusModal').modal('hide');
+    setTimeout(download_html, 500);
+}
+
+// -----------------
+// Event Handlers and Initializers
+// -----------------
+$(document).ready(function() {
+    // Initial display on page load
+    filter_test_cases("all");
+    update_summary();
+
+    // Event bindings
+    $(".filter-button").click(function() {
+        filter_test_cases($(this).data("filter-type"));
+    });
+
     $('#id_of_save_button').click(saveLink);
 
-    // Default display
-    filterTestCases("all");
-    updateSummary();
+    $("body").on("click", ".status-link", function(event) {
+        console.log("Status link clicked!");  // 調試日誌
+        event.stopPropagation();
+        const panelId = $(this).closest(".panel-heading").attr("data-panel-id");
+        const status = $(this).find(".label").text();
+        open_popup(status, panelId);
+    });
+    bind_events();  // 確保在文檔加載時綁定事件
 });

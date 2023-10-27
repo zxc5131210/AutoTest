@@ -1,97 +1,40 @@
-import uiautomator2 as u2
-import subprocess
+from HTMLReport import TestReport
 
-# 连接到设备
-d = u2.connect()
+# 創建一個 TestReport 實例
+test_report = TestReport()
 
-d.screenshot("qqq")
-# element_bounds = d.info
-# center_x = (element_bounds["displayWidth"]) // 2
-# x_bounds = element_bounds["displayWidth"]
-# bottom = element_bounds["displayHeight"]
-# width = element_bounds["displayWidth"]
-#
-# d(resourceId="com.viewsonic.sidetoolbar:id/flOpenBar").click()
-# d(resourceId="com.viewsonic.sidetoolbar:id/vPenColor").click()
-# count = 0
-# while True:
-#     for i in range(1, 9):
-#         d.xpath(
-#             f"//*[@resource-id='com.viewsonic.sidetoolbar:id/colorPickerRadioGroup']/android.widget.RadioButton[{i}]"
-#         ).click()
-#         line = 0
-#         line2 = 0
-#         linex = 0
-#         linex2 = center_x
-#         offset = 10
-#         if d(resourceId="com.viewsonic.sidetoolbar:id/vPenColor").exists:
-#             for _ in range(200):
-#                 y_start = line
-#                 line += offset
-#                 d.drag(center_x, y_start, 0, y_start, duration=0.05)
-#                 y_start += offset
-#                 d.drag(center_x, y_start, 0, y_start, duration=0.05)
-#                 y_start += offset
-#                 d.drag(center_x, y_start, 0, y_start, duration=0.05)
-#                 count += 1
-#                 d(resourceId="com.viewsonic.sidetoolbar:id/undo").click()
-#                 d(resourceId="com.viewsonic.sidetoolbar:id/undo").click()
-#                 d(resourceId="com.viewsonic.sidetoolbar:id/redo").click()
-#                 d(resourceId="com.viewsonic.sidetoolbar:id/redo").click()
-#                 d(resourceId="com.viewsonic.sidetoolbar:id/undo").click()
-#                 d(resourceId="com.viewsonic.sidetoolbar:id/undo").click()
-#                 print(count)
-#             for _ in range(200):
-#                 y_start = line2
-#                 line2 += 10
-#                 d.drag(center_x, y_start, width, y_start, duration=0.05)
-#                 y_start = offset
-#                 d.drag(center_x, y_start, width, y_start, duration=0.05)
-#                 y_start = offset
-#                 d.drag(center_x, y_start, width, y_start, duration=0.05)
-#                 count += 1
-#                 d(resourceId="com.viewsonic.sidetoolbar:id/undo").click()
-#                 d(resourceId="com.viewsonic.sidetoolbar:id/undo").click()
-#                 d(resourceId="com.viewsonic.sidetoolbar:id/redo").click()
-#                 d(resourceId="com.viewsonic.sidetoolbar:id/redo").click()
-#                 d(resourceId="com.viewsonic.sidetoolbar:id/undo").click()
-#                 d(resourceId="com.viewsonic.sidetoolbar:id/undo").click()
-#                 print(count)
-#
-#             for _ in range(400):
-#                 x_start = linex
-#                 linex += offset
-#                 d.drag(x_start, 0, x_start, bottom, duration=0.05)
-#                 x_start += offset
-#                 d.drag(x_start, 0, x_start, bottom, duration=0.05)
-#                 x_start += offset
-#                 d.drag(x_start, 0, x_start, bottom, duration=0.05)
-#                 count += 1
-#                 d(resourceId="com.viewsonic.sidetoolbar:id/undo").click()
-#                 d(resourceId="com.viewsonic.sidetoolbar:id/undo").click()
-#                 d(resourceId="com.viewsonic.sidetoolbar:id/redo").click()
-#                 d(resourceId="com.viewsonic.sidetoolbar:id/redo").click()
-#                 d(resourceId="com.viewsonic.sidetoolbar:id/undo").click()
-#                 d(resourceId="com.viewsonic.sidetoolbar:id/undo").click()
-#                 print(count)
-#         else:
-#             print("final:", count)
+# 添加一個測試項目到 "vlauncher" 類別下的 "功能測試" 子類別
+test_report.add_entry(
+    category="vlauncher",
+    subcategory="功能測試",
+    testcase="測試案例1",
+    detail="這是測試案例1的詳細描述。",
+    steps={"步驟1": "Pass", "步驟2": "Pass"},
+    status="Pass",
+    comment="這是測試案例1的備註。",
+)
 
+# 添加一個測試項目到 "STB" 類別下的 "連接測試" 子類別
+test_report.add_entry(
+    category="STB",
+    subcategory="連接測試",
+    testcase="測試案例2",
+    detail="這是測試案例2的詳細描述。",
+    steps={"步驟1": "Pass", "步驟2": "Fail"},
+    status="Fail",
+    comment="這是測試案例2的備註。",
+)
 
-# line = 0
-# for i in range(100):
-#     y_start = line
-#     line += 20
-#     d.drag(center_x, y_start, 0, y_start, duration=0.05)
-#     y_start += 20
-#     d.drag(center_x, y_start, 0, y_start, duration=0.05)
-#     y_start += 20
-#     d.drag(center_x, y_start, 0, y_start, duration=0.05)
-#     d(resourceId="com.viewsonic.sidetoolbar:id/undo").click()
-#     d(resourceId="com.viewsonic.sidetoolbar:id/undo").click()
-#     d(resourceId="com.viewsonic.sidetoolbar:id/redo").click()
-#     d(resourceId="com.viewsonic.sidetoolbar:id/redo").click()
-#     d(resourceId="com.viewsonic.sidetoolbar:id/undo").click()
-#     d(resourceId="com.viewsonic.sidetoolbar:id/undo").click()
-#     count += 1
-#     print(count)
+# 添加一個測試項目到 "vlauncher" 類別下的 "性能測試" 子類別
+test_report.add_entry(
+    category="vlauncher",
+    subcategory="性能測試",
+    testcase="測試案例3",
+    detail="這是測試案例3的詳細描述。",
+    steps={"步驟1": "Pass", "步驟2": "Pass"},
+    status="Pass",
+    comment="這是測試案例3的備註。",
+)
+
+# 生成 HTML 報告並保存到文件
+test_report.save_to_file("test_report.html")

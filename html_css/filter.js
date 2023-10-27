@@ -123,7 +123,6 @@ function bind_events() {
             const status = $(event.target).text();
             open_popup(status, panelId);
         } else if (!$(event.target).hasClass("comment-link") && !$(event.target).closest(".comment-link").length) {
-            console.log("Panel heading was clicked!");  // 調試日誌
             const collapseElement = $(this).next();
             collapseElement.collapse('toggle');
         }
@@ -170,8 +169,16 @@ $(document).ready(function() {
     update_summary();
 
     // Event bindings
-    $(".filter-button").click(function() {
-        filter_test_cases($(this).data("filter-type"));
+    $("#allButton").click(function() {
+        filter_test_cases("all");
+    });
+
+    $("#passButton").click(function() {
+        filter_test_cases("pass");
+    });
+
+    $("#failButton").click(function() {
+        filter_test_cases("fail");
     });
 
     $('#id_of_save_button').click(save_link);

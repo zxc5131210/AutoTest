@@ -22,11 +22,10 @@ class TestReport:
         rel="stylesheet"> <script src="./html_css/jquery.min.js"></script><script 
         src="./html_css/bootstrap.min.js"></script><script src="./html_css/filter.js"></script> <style> #summary { 
         font-size: 20px; } </style> </head> <body> <div class="container"> <h1 class='text-center'>Automation Test 
-        Report</h1> <div class="text-center"> <button onclick="filterTestCases('all')" class="btn 
-        btn-default">All</button> <button onclick="filterTestCases('pass')" class="btn btn-success">Pass</button> 
-        <button onclick="filterTestCases('fail')" class="btn btn-danger">Fail</button> <div id="summary-card" 
-        class="card"> <div class="card-body"> <div id="summary" class="text-center alert summary-alert"></div> </div> 
-        </div> </div> <br>"""
+        Report</h1> <div class="text-center"> <button id="allButton" class="btn btn-default">All</button> <button 
+        id="passButton" class="btn btn-success">Pass</button> <button id="failButton" class="btn 
+        btn-danger">Fail</button> <div id="summary-card" class="card"> <div class="card-body"> <div id="summary" 
+        class="text-center alert summary-alert"></div> </div> </div> </div> <br>"""
 
         html_report = self.generate_report_html()
 

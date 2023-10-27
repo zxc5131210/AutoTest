@@ -153,7 +153,7 @@ function download_html() {
     bind_events();  // 在download_html結束時重新綁定事件
 }
 
-function saveLink() {
+function save_link() {
     const panelId = $('#statusModal').data('panelId');
     const inputText = $('#inputText').val();
     update_element(panelId, inputText);
@@ -174,7 +174,7 @@ $(document).ready(function() {
         filter_test_cases($(this).data("filter-type"));
     });
 
-    $('#id_of_save_button').click(saveLink);
+    $('#id_of_save_button').click(save_link);
 
     $("body").on("click", ".status-link", function(event) {
         console.log("Status link clicked!");  // 調試日誌

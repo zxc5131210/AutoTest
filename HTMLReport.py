@@ -33,7 +33,7 @@ class TestReport:
         html_end = """<div id="statusModal" class="modal fade" role="dialog"> 
         <div class="modal-dialog"> <div class="modal-content"> <div class="modal-body"> 
         <input type="text" id="inputText" class="form-control" placeholder="Enter your text here..."> </div> 
-        <div class="modal-footer"> <button type="button" class="btn btn-primary" onclick="saveLink()">Save</button> 
+        <div class="modal-footer"> <button type="button" class="btn btn-primary" onclick="save_link()">Save</button> 
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> </div> 
         </div> </div> </div> <style> .modal-content { background-color: #fefefe; margin: 15% auto; padding: 20px; 
         border: 1px solid #888; width: 80%; } </style> </div> </body> </html>"""

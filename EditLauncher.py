@@ -19,6 +19,7 @@ class EditLauncher(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/editLauncher_add_delete_re-rangeApps.json",
             driver=self.driver,
         )
+        self.report["category"] = "vlauncher"
         self.logger.Test("Test App re-range on hot seat")
 
     def _edit_launcher_find_all(self):
@@ -26,6 +27,7 @@ class EditLauncher(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/editLauncher_find_apps_in_All.json",
             driver=self.driver,
         )
+        self.report["category"] = "vlauncher"
         self.logger.Test("install TestApp and find TestApp in Edit Launcher - all apps")
 
     def run_all(self):

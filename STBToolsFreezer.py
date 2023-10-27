@@ -22,6 +22,7 @@ class Freezer(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_freezer_zoom_in_out_button.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB Freezer-tap button to zoom in & zoom out")
 
     def _STB_freezer_zoom_in_out_fingers(self):
@@ -29,6 +30,7 @@ class Freezer(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_freezer_zoom_in_out_fingers.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB Freezer-use fingers to zoom in & zoom out")
 
     def _STB_freezer_zoom_mix(self):
@@ -36,6 +38,7 @@ class Freezer(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_freezer_zoom_mix.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test(
             "STB Freezer-use fingers to zoom in first than use button to zoom in"
         )
@@ -45,6 +48,7 @@ class Freezer(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_freezer_default_button.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB Freezer-default screen button")
 
     def _STB_freezer_reboot_to_use(self):
@@ -52,6 +56,7 @@ class Freezer(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_freezer_reboot_to_use.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB Freezer-reboot the device and use freezer zoom in & out")
 
     def run_all(self):

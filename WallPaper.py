@@ -19,6 +19,7 @@ class WallPaper(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/wallpaper_by_default.json",
             driver=self.driver,
         )
+        self.report["category"] = "wallpaper"
         self.logger.Test("Change wallpaper to default style")
 
     def _wallpaper_by_update(self):
@@ -26,6 +27,7 @@ class WallPaper(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/wallpaper_by_update.json",
             driver=self.driver,
         )
+        self.report["category"] = "wallpaper"
         self.logger.Test("Change wallpaper to update image")
 
     def run_all(self):

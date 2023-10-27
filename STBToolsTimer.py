@@ -20,6 +20,7 @@ class Timer(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_timer_start_ring.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB timer-start to wait the bell ring")
 
     def _STB_timer_pause_resume_reset(self):
@@ -27,6 +28,7 @@ class Timer(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_timer_pause_resume_reset.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB timer-pause & resume & reset button")
 
     def _STB_timer_expand(self):
@@ -34,6 +36,7 @@ class Timer(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_timer_expand.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB timer-expand the timer window")
 
     def run_all(self):

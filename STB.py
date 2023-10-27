@@ -31,6 +31,7 @@ class STB(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/FirstClass/STB_back_button.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB-back button")
 
     def _STB_homepage_btn(self):
@@ -38,6 +39,7 @@ class STB(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/FirstClass/STB_homepage_button.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB-homepage button")
 
     # STB_Second class
@@ -47,6 +49,7 @@ class STB(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/SecondClass/STB_app_show_in_all_apps.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB_apps-element in all apps")
 
     def _STB_apps_add_delete_app_in_shortcut(self):
@@ -54,6 +57,7 @@ class STB(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/SecondClass/STB_add_delete_app_shortcut.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB_apps-add & delete apps in shortcut")
 
     def _STB_apps_order_in_shortcut(self):
@@ -61,6 +65,7 @@ class STB(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/SecondClass/STB_app_order_in_shortcut.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB_apps-app order in shortcut")
 
     # STB_Third class
@@ -70,6 +75,7 @@ class STB(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/ThirdClass/STB_add_delete_app_shortcut.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB_tools-add & delete apps in shortcut")
 
     def _STB_tools_order_in_shortcut(self):
@@ -77,6 +83,7 @@ class STB(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/ThirdClass/STB_app_order_in_shortcut.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB_tools-app order in shortcut")
 
     def run_all(self):

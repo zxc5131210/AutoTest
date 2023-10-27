@@ -21,6 +21,7 @@ class Spotlight(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_spotlight_zoom_in_out_button.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB Spotlight-use button to zoom in & zoom out")
 
     def _STB_spotlight_zoom_in_out_fingers(self):
@@ -28,6 +29,7 @@ class Spotlight(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_spotlight_zoom_in_out_fingers.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB Spotlight-use fingers to zoom in & zoom out")
 
     def _STB_spotlight_transparency(self):
@@ -35,6 +37,7 @@ class Spotlight(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_spotlight_transparency.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB Spotlight-Transparency dark and light")
 
     def _STB_spotlight_move(self):
@@ -42,6 +45,7 @@ class Spotlight(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_spotlight_move.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB Spotlight-drag to move the spotlight")
 
     def run_all(self):

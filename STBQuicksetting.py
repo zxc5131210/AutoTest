@@ -22,6 +22,7 @@ class Quicksetting(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_quicksetting_backlight.json",
             driver=self.driver,
         )
+        self.report["category"] = "quicksettings"
         self.logger.Test("STB quicksetting - backlight")
 
     def _STB_quicksetting_volume(self):
@@ -29,6 +30,7 @@ class Quicksetting(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_quicksetting_volume.json",
             driver=self.driver,
         )
+        self.report["category"] = "quicksettings"
         self.logger.Test("STB quicksetting - volume")
 
     def _STB_quicksetting_auto_brightness(self):
@@ -36,6 +38,7 @@ class Quicksetting(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_quicksetting_auto_brightness.json",
             driver=self.driver,
         )
+        self.report["category"] = "quicksettings"
         self.logger.Test("STB quicksetting - autobrightness")
 
     def _STB_quicksetting_eye_care(self):
@@ -43,6 +46,7 @@ class Quicksetting(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_quicksetting_eye_care.json",
             driver=self.driver,
         )
+        self.report["category"] = "quicksettings"
         self.logger.Test("STB quicksetting - eye care")
 
     def _STB_quicksetting_color_temperature(self):
@@ -50,6 +54,7 @@ class Quicksetting(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_quicksetting_color_temperature.json",
             driver=self.driver,
         )
+        self.report["category"] = "quicksettings"
         self.logger.Test("STB quicksetting - color temperature")
 
     def run_all(self):

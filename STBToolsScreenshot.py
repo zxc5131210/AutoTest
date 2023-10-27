@@ -21,6 +21,7 @@ class Screenshot(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_screenshot_crop.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB Screenshot-crop")
 
     def _STB_screenshot_full_screen(self):
@@ -28,6 +29,7 @@ class Screenshot(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_screenshot_full_screen.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB Screenshot-full screen")
 
     def _STB_screenshot_save(self):
@@ -35,6 +37,7 @@ class Screenshot(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_screenshot_save.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB Screenshot-save")
 
     def _STB_screenshot_close(self):
@@ -42,6 +45,7 @@ class Screenshot(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_screenshot_close.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB Screenshot-close")
 
     def run_all(self):

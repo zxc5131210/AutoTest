@@ -19,6 +19,7 @@ class RecentApp(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/recentApp_clear_app.json",
             driver=self.driver,
         )
+        self.report["category"] = "vlauncher"
         self.logger.Test("clear the last App in recent app")
 
     def _recent_app_clear_all_btn(self):
@@ -26,6 +27,7 @@ class RecentApp(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/recentApp_clear_all.json",
             driver=self.driver,
         )
+        self.report["category"] = "vlauncher"
         self.logger.Test("'clear all' button in recent app")
 
     def run_all(self):

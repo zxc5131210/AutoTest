@@ -5,7 +5,14 @@ python report to html
 
 class TestReport:
     def __init__(self):
-        self.categories = {"vlauncher": {}, "STB": {}}
+        self.categories = {
+            "vlauncher": {},
+            "STB": {},
+            "wallpaper": {},
+            "authenticator": {},
+            "quicksettings": {},
+            "screenlock": {},
+        }
 
     def add_entry(
         self, category, subcategory, testcase, detail, steps, status, comment=None

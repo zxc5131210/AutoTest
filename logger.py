@@ -109,7 +109,7 @@ class HTMLReporter:
         )
 
     def save_report(self) -> None:
-        self.report.save_to_file(f"Automation{datetime.now().today()}.html")
+        self.report.save_to_file(f"Automation{datetime.now().date()}.html")
         Logger.report_data["testcase"] = None
         Logger.report_data["steps"] = {}
         Logger.report_data["status"] = None

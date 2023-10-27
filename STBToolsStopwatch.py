@@ -22,6 +22,7 @@ class Stopwatch(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_stopwatch_start_pause.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB stopwatch-start the stopwatch and pause it")
 
     def _STB_stopwatch_lap(self):
@@ -29,6 +30,7 @@ class Stopwatch(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_stopwatch_lap.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB stopwatch-lap the stopwatch to record the seconds")
 
     def _STB_stopwatch_expand(self):
@@ -36,6 +38,7 @@ class Stopwatch(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_stopwatch_expand.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB stopwatch-expand the stopwatch window")
 
     def _STB_stopwatch_resume_reset(self):
@@ -43,6 +46,7 @@ class Stopwatch(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_stopwatch_resume_reset.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test(
             "STB stopwatch-resume the stopwatch and reset the stopwatch to '00:00:00' "
         )
@@ -52,6 +56,7 @@ class Stopwatch(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_stopwatch_move.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB stopwatch-move")
 
     def run_all(self):

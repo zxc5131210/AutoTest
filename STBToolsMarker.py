@@ -26,6 +26,7 @@ class Marker(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_marker_selector.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB marker-selector")
 
     def _STB_marker_pen(self):
@@ -33,6 +34,7 @@ class Marker(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_marker_pen.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB marker-pen")
 
     def _STB_marker_highlighter(self):
@@ -40,6 +42,7 @@ class Marker(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_marker_highlighter.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB marker-highlighter")
 
     def _STB_marker_eraser(self):
@@ -47,6 +50,7 @@ class Marker(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_marker_eraser.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB marker-eraser")
 
     def _STB_marker_undo_redo(self):
@@ -54,6 +58,7 @@ class Marker(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_marker_undo_redo.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB marker-undo & redo")
 
     def _STB_marker_delete(self):
@@ -61,6 +66,7 @@ class Marker(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_marker_delete.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB marker-delete")
 
     def _STB_marker_save(self):
@@ -68,6 +74,7 @@ class Marker(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_marker_save.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB marker-save")
 
     def _STB_marker_close(self):
@@ -75,6 +82,7 @@ class Marker(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_marker_close.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB marker-close")
 
     def _STB_marker_moving(self):
@@ -82,6 +90,7 @@ class Marker(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/STB_marker_moving.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
         self.logger.Test("STB marker-moving")
 
     def run_all(self):

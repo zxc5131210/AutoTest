@@ -21,6 +21,7 @@ class ScreenLock(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/screenLock_set_password.json",
             driver=self.driver,
         )
+        self.report["category"] = "screenlock"
         self.logger.Test("Set screenLock Password")
 
     def _screen_lock_change_password(self):
@@ -28,6 +29,7 @@ class ScreenLock(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/screenLock_change_password.json",
             driver=self.driver,
         )
+        self.report["category"] = "screenlock"
         self.logger.Test("Change screenLock Password")
 
     def _screen_lock_remove_password(self):
@@ -35,6 +37,7 @@ class ScreenLock(ItemStrategy.Strategy):
             json_path=f"{self.folder_path}/screenLock_remove_password.json",
             driver=self.driver,
         )
+        self.report["category"] = "screenlock"
         self.logger.Test("Change screenLock Password")
 
     def _screen_lock_reveal_password(self):
@@ -42,6 +45,7 @@ class ScreenLock(ItemStrategy.Strategy):
             json_path="./Test_Jason/ScreenLock/screenLock_reveal_password.json",
             driver=self.driver,
         )
+        self.report["category"] = "screenlock"
         self.logger.Test("Reveal Password in screenLock")
 
     def run_all(self):

@@ -5,6 +5,8 @@ python report to html
 
 class TestReport:
     def __init__(self):
+        self.app_version = ""
+        self.device_version = ""
         self.categories = {
             "vlauncher": {},
             "STB": {},
@@ -23,16 +25,53 @@ class TestReport:
             (testcase, detail, steps, status, comment)
         )
 
+    def add_version_info(self, model, fw_version, app_version):
+        self.device_version = [
+            f"Model: {model}",
+            f"FW version: {fw_version}",
+        ]
+        self.app_version = app_version
+        return self.device_version, self.app_version
+
     def generate_html(self):
         # html temp
-        html_head = """<html> <head> <title>Automation Test Report</title> <link href="./html_css/bootstrap.min.css" 
+        html_head = f"""<html> <head> <title>Automation Test Report</title> <link href="./html_css/bootstrap.min.css" 
         rel="stylesheet"> <script src="./html_css/jquery.min.js"></script><script 
-        src="./html_css/bootstrap.min.js"></script><script src="./html_css/filter.js"></script> <style> #summary { 
-        font-size: 20px; } </style> </head> <body> <div class="container"> <h1 class='text-center'>Automation Test 
-        Report</h1> <div class="text-center"> <button id="allButton" class="btn btn-default">All</button> <button 
+        src="./html_css/bootstrap.min.js"></script><script src="./html_css/filter.js"></script> <style> #summary {{ 
+        font-size: 20px; }} #summary-card .card-body {{ margin-bottom: 0; }} #device-version .list-group-item {{ 
+        border: none; }} #device-version table {{ width: 100%; }} #device-version table th, #device-version table td 
+        {{ padding: 12px; text-align: left; border: 1px solid #ddd; }} #device-version table th {{ background-color: 
+        #f2f2f2; }} </style> </head> <body> <div class="container"> <h1 class='text-center'>Automation Test 
+        Report</h1>  <div id="summary-card" class="card"> <div class="card-body"> <div id="device-version" 
+        class="text-center alert summary-alert"> <table class="table"> <thead> <tr> <th>Device Information</th> </tr> 
+        </thead> <tbody>"""
+
+        # 逐行将 device_version 中的每个信息添加到 HTML 表格中
+        for _ in self.device_version:
+            html_head += f"<tr><td>{_}</td></tr>"
+        html_head += """</tbody>
+                </table>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="2">App Information</th>
+                        </tr>
+                    </thead>
+                    <tbody>"""
+
+        # 逐行将 device_version 中的每个信息添加到 HTML 表格中
+        for i, _ in enumerate(self.app_version):
+            # 使用 i 来确定是第一列还是第二列
+            column_index = i % 2
+            if column_index == 0:
+                html_head += "<tr>"
+            html_head += f"<td>{_}</td>"
+            if column_index == 1:
+                html_head += "</tr>"
+        html_head += """</tbody> </table> </div> <div id="summary" class="text-center alert summary-alert"></div> 
+        </div> </div> <div class="text-center"> <button id="allButton" class="btn btn-default">All</button> <button 
         id="passButton" class="btn btn-success">Pass</button> <button id="failButton" class="btn 
-        btn-danger">Fail</button> <div id="summary-card" class="card"> <div class="card-body"> <div id="summary" 
-        class="text-center alert summary-alert"></div> </div> </div> </div> <br>"""
+        btn-danger">Fail</button></div> <br>"""
 
         html_report = self.generate_report_html()
 

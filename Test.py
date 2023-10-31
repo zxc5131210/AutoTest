@@ -1,8 +1,26 @@
 from HTMLReport import TestReport
+import uiautomator2 as u2
 
+d = u2.connect()
 # 創建一個 TestReport 實例
 test_report = TestReport()
+app_version = []
+app_list = {
+    "vlauncher": "com.viewsonic.vlauncher",
+    "STB": "com.viewsonic.sidetoolbar",
+    "screenlock": "com.viewsonic.screenlock",
+    "quicksettings": "com.viewsonic.quicksettings",
+    "wallpaper": "com.viewsonic.wallpaperpicker",
+    "authenticator": "com.viewsonic.authenticator",
+}
 
+for app_name, package_name in app_list.items():
+    version_info = d.app_info(package_name)
+    version_name = version_info["versionName"]
+    app_version.append(app_name)
+    app_version.append(version_name)
+
+test_report.add_version_info("model", "fw version", app_version=app_version)
 # 添加一個測試項目到 "vlauncher" 類別下的 "功能測試" 子類別
 test_report.add_entry(
     category="vlauncher",

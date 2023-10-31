@@ -66,15 +66,6 @@
         },
         {
             "sequence": 7,
-            "describe": "tap default button to change back to default temperature",
-            "element": "com.viewsonic.quicksettings:id/rb_color_temperature_default",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 8,
             "describe": "tap any location to close the quicksetting",
             "element": "",
             "gesture": "tap_byLocation",

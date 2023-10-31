@@ -40,6 +40,9 @@ class Logger:
         "steps": {},
         "status": None,
     }
+    model = None
+    fw_version = None
+    app_version = []
 
     def __init__(self, log_file=f"./Log/log-{datetime.today()}") -> None:
         self.logger = logging
@@ -74,6 +77,7 @@ class Logger:
         status = "Fail" if "fail" in pass_log else "Pass"
         self.csv_logger.write("", msg, status)
         self.csv_logger.write_overview("", msg, status)
+        self.reporter.add_device_info(self.model, self.fw_version, self.app_version)
         self.reporter.add_entry(msg)
         self.reporter.save_report()
         pass_log.clear()
@@ -98,7 +102,6 @@ class HTMLReporter:
                 "steps": Logger.report_data.get("steps", {}),
             }
         )
-
         self.report.add_entry(
             category=Logger.report_data["category"],
             subcategory=Logger.report_data["subcategory"],
@@ -107,6 +110,9 @@ class HTMLReporter:
             steps=Logger.report_data["steps"],
             status=Logger.report_data["status"],
         )
+
+    def add_device_info(self, model, fw_version, app_version):
+        self.report.add_version_info(model, fw_version, app_version)
 
     def save_report(self) -> None:
         self.report.save_to_file(f"Automation{datetime.now().date()}.html")

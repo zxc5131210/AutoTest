@@ -2,7 +2,7 @@
 Start activity , to choose option u want to test for
 """
 import sys
-
+import subprocess
 import uiautomator2 as u2
 from logger import Logger
 from ScreenLock import ScreenLock
@@ -20,6 +20,25 @@ driver.service("uiautomator").start()
 # Step 3 : Create gesture automation flow
 event_gen = EventGen()
 logger = Logger()
+# Step 4 : Get  device model and version
+logger.model = driver.device_info["model"]
+logger.fw_version = subprocess.run(
+    "adb shell getprop ro.build.fingerprint", shell=True, capture_output=True, text=True
+).stdout
+# Step 5 : Get every app version
+app_list = {
+    "vlauncher": "com.viewsonic.vlauncher",
+    "STB": "com.viewsonic.sidetoolbar",
+    "screenlock": "com.viewsonic.screenlock",
+    "quicksettings": "com.viewsonic.quicksettings",
+    "wallpaper": "com.viewsonic.wallpaperpicker",
+    "authenticator": "com.viewsonic.authenticator",
+}
+for app_name, package_name in app_list.items():
+    version_info = driver.app_info(package_name)
+    version_name = version_info["versionName"]
+    logger.app_version.append(app_name)
+    logger.app_version.append(version_name)
 
 
 menu_dict = {

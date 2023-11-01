@@ -1,11 +1,11 @@
 """STB test case"""
-from RecentApp import RecentApp
-from STBQuicksetting import Quicksetting
-from STBTools import STBTools
-import ItemStrategy
+from ..vlauncher.recent_app import RecentApp
+from .quicksettings import Quicksettings
+from .stb_tools import STBTools
+import item_strategy
 
 
-class STB(ItemStrategy.Strategy):
+class STB(item_strategy.Strategy):
     menu_dict = {
         "0": "Back to main menu",
         "1": "back button",
@@ -103,7 +103,7 @@ class STB(ItemStrategy.Strategy):
         STBTools(
             event_gen=self.event_gen, logger=self.logger, driver=self.driver
         ).run_all()
-        Quicksetting(
+        Quicksettings(
             event_gen=self.event_gen, logger=self.logger, driver=self.driver
         ).run_all()
 
@@ -136,7 +136,7 @@ class STB(ItemStrategy.Strategy):
                         event_gen=self.event_gen, logger=self.logger, driver=self.driver
                     ).run()
                 case "10":
-                    Quicksetting(
+                    Quicksettings(
                         event_gen=self.event_gen, logger=self.logger, driver=self.driver
                     ).run()
                 case "all":

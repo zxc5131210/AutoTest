@@ -141,11 +141,17 @@ function toggleCollapse(elementId) {
 // Download HTML Functions
 // -----------------
 function download_html() {
+    let currentDate = new Date();
+    let year = currentDate.getFullYear();
+    let month = currentDate.getMonth() + 1; // 月份是从 0 开始的，所以要加 1
+    let day = currentDate.getDate();
+    let formattedDate = `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
+
     const updatedHTML = document.documentElement.outerHTML;
     const blob = new Blob([updatedHTML], {type: 'text/html'});
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = 'updated_report.html';
+    a.download = `Automation report ${formattedDate}.html`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);

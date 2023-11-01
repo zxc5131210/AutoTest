@@ -5,12 +5,12 @@ import sys
 import subprocess
 import uiautomator2 as u2
 from logger import Logger
-from ScreenLock import ScreenLock
-from WallPaper import WallPaper
-from EditLauncher import EditLauncher
-from RecentApp import RecentApp
-from STB import STB
-from STBTools import STBTools
+from option.screenlock.screen_lock import ScreenLock
+from option.wallpaper.wallpaper import WallPaper
+from option.vlauncher.edit_launcher import EditLauncher
+from option.vlauncher.recent_app import RecentApp
+from option.stb.stb import STB
+from option.stb.stb_tools import STBTools
 from event_generator import EventGen
 
 # step 1 : connect driver

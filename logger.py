@@ -1,7 +1,7 @@
 import logging
 import csv
 from datetime import datetime
-from HTMLReport import TestReport
+from generate_html_report import TestReport
 
 LOGGING_LEVEL = logging.DEBUG
 DATE_FORMAT = "%Y%m%d %H:%M:%S"
@@ -115,7 +115,9 @@ class HTMLReporter:
         self.report.add_version_info(model, fw_version, app_version)
 
     def save_report(self) -> None:
-        self.report.save_to_file(f"Automation{datetime.now().date()}.html")
+        self.report.save_to_file(
+            f"./html_report/Automation{datetime.now().date()}.html"
+        )
         Logger.report_data["testcase"] = None
         Logger.report_data["steps"] = {}
         Logger.report_data["status"] = None

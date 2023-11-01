@@ -1,8 +1,8 @@
 """edit launcher test case"""
-import ItemStrategy
+import item_strategy
 
 
-class EditLauncher(ItemStrategy.Strategy):
+class EditLauncher(item_strategy.Strategy):
     menu_dict = {
         "0": "Back to main menu",
         "1": "Add_delete_re-range app on hot seat",

@@ -1,4 +1,4 @@
-from HTMLReport import TestReport
+from html_report import TestReport
 import uiautomator2 as u2
 
 d = u2.connect()

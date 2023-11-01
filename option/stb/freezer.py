@@ -1,8 +1,8 @@
 """Freezer test case"""
-import ItemStrategy
+import item_strategy
 
 
-class Freezer(ItemStrategy.Strategy):
+class Freezer(item_strategy.Strategy):
     menu_dict = {
         "0": "Back to main menu",
         "1": "Zoom in & out, by button",

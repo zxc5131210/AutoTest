@@ -1,8 +1,8 @@
 """Screenshot test case"""
-import ItemStrategy
+import item_strategy
 
 
-class Screenshot(ItemStrategy.Strategy):
+class Screenshot(item_strategy.Strategy):
     menu_dict = {
         "0": "Back to main menu",
         "1": "crop",

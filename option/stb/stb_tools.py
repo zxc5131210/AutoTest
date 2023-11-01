@@ -1,14 +1,14 @@
 """STB tools test case"""
-import ItemStrategy
-from STBToolsFreezer import Freezer
-from STBToolsSpotlight import Spotlight
-from STBToolsStopwatch import Stopwatch
-from STBToolsTimer import Timer
-from STBToolsMarker import Marker
-from STBToolsScreenshot import Screenshot
+import item_strategy
+from .freezer import Freezer
+from .spotlight import Spotlight
+from .stopwatch import Stopwatch
+from .timer import Timer
+from .marker import Marker
+from .screenshot import Screenshot
 
 
-class STBTools(ItemStrategy.Strategy):
+class STBTools(item_strategy.Strategy):
     menu_dict = {
         "0": "Back to main menu",
         "1": "Freezer",

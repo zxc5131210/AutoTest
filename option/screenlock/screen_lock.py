@@ -1,8 +1,8 @@
 """screen lock test case"""
-import ItemStrategy
+import item_strategy
 
 
-class ScreenLock(ItemStrategy.Strategy):
+class ScreenLock(item_strategy.Strategy):
     menu_dict = {
         "0": "Back to main menu",
         "1": "Set Password",

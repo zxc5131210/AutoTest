@@ -8,7 +8,6 @@ import json
 from selenium.common.exceptions import NoSuchElementException
 from logger import Logger
 from gesture import Gesture
-from HTMLReport import TestReport
 
 # entity log
 logger = Logger()

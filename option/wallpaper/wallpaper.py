@@ -1,8 +1,8 @@
 """wall paper test case"""
-import ItemStrategy
+import item_strategy
 
 
-class WallPaper(ItemStrategy.Strategy):
+class WallPaper(item_strategy.Strategy):
     menu_dict = {
         "0": "Back to main menu",
         "1": "Change By_default",

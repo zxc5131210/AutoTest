@@ -1,8 +1,8 @@
 """Quicksetting test case"""
-import ItemStrategy
+import item_strategy
 
 
-class Quicksetting(ItemStrategy.Strategy):
+class Quicksettings(item_strategy.Strategy):
     menu_dict = {
         "0": "Back to main menu",
         "1": "backlight",

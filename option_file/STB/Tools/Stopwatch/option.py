@@ -14,40 +14,42 @@ class Stopwatch(item_strategy.Strategy):
     }
     folder_path = "option_file/STB/Tools/Stopwatch"
 
-    def __init__(self, event_gen, logger, driver):
-        super().__init__(event_gen, logger, driver)
+    def __init__(self, event_gen, driver, html_report):
+        super().__init__(event_gen, driver, html_report)
 
     def _STB_stopwatch_start_pause(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_stopwatch_start_pause.json",
             driver=self.driver,
         )
-        self.report["category"] = "STB"
-        self.logger.Test("STB stopwatch-start the stopwatch and pause it")
+        self.html_report.report_data["category"] = "STB"
+        self.html_report.test_case("STB stopwatch-start the stopwatch and pause it")
 
     def _STB_stopwatch_lap(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_stopwatch_lap.json",
             driver=self.driver,
         )
-        self.report["category"] = "STB"
-        self.logger.Test("STB stopwatch-lap the stopwatch to record the seconds")
+        self.html_report.report_data["category"] = "STB"
+        self.html_report.test_case(
+            "STB stopwatch-lap the stopwatch to record the seconds"
+        )
 
     def _STB_stopwatch_expand(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_stopwatch_expand.json",
             driver=self.driver,
         )
-        self.report["category"] = "STB"
-        self.logger.Test("STB stopwatch-expand the stopwatch window")
+        self.html_report.report_data["category"] = "STB"
+        self.html_report.test_case("STB stopwatch-expand the stopwatch window")
 
     def _STB_stopwatch_resume_reset(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_stopwatch_resume_reset.json",
             driver=self.driver,
         )
-        self.report["category"] = "STB"
-        self.logger.Test(
+        self.html_report.report_data["category"] = "STB"
+        self.html_report.test_case(
             "STB stopwatch-resume the stopwatch and reset the stopwatch to '00:00:00' "
         )
 
@@ -56,11 +58,11 @@ class Stopwatch(item_strategy.Strategy):
             json_path=f"{self.folder_path}/STB_stopwatch_move.json",
             driver=self.driver,
         )
-        self.report["category"] = "STB"
-        self.logger.Test("STB stopwatch-move")
+        self.html_report.report_data["category"] = "STB"
+        self.html_report.test_case("STB stopwatch-move")
 
     def run_all(self):
-        self.logger.test_title("---STB Tool - Stopwatch---")
+        self.html_report.test_title("---STB Tool - Stopwatch---")
         self._STB_stopwatch_start_pause()
         self._STB_stopwatch_lap()
         self._STB_stopwatch_expand()

@@ -1,10 +1,10 @@
 """Gesture Class."""
+import logging
 import subprocess
 import time
 
 import cv2
 import numpy as np
-from logger import Logger
 
 
 class Gesture:
@@ -15,7 +15,6 @@ class Gesture:
     compare_different_list = []
 
     def __init__(self, driver) -> None:
-        self.logger = Logger()
         if not driver:
             raise ValueError("driver can not be null.")
         self.driver = driver
@@ -186,9 +185,9 @@ class Gesture:
             if result.returncode == 0:
                 pass
             else:
-                self.logger.error(msg="file is not exist")
+                logging.error(msg="file is not exist")
         except subprocess.CalledProcessError:
-            self.logger.error(msg="file is not exist")
+            logging.error(msg="file is not exist")
 
     @staticmethod
     def get_overview_activities() -> list[str]:
@@ -213,11 +212,11 @@ class Gesture:
         if overview_activities:
             activity_list.extend(overview_activities)
             if any(element in background for background in activity_list):
-                self.logger.info(msg=f"{element} is in the background")
+                logging.info(msg=f"{element} is in the background")
             else:
-                self.logger.error(msg=f"{element} is not in the background")
+                logging.error(msg=f"{element} is not in the background")
         else:
-            self.logger.error(msg="No overview activities found.")
+            logging.error(msg="No overview activities found.")
 
     def compare_images_pixel(self, compare_1, compare_2) -> None:
         """
@@ -235,7 +234,7 @@ class Gesture:
         if different_pixel_count > 5000:
             pass
         else:
-            self.logger.error(msg="compare different fail")
+            logging.error(msg="compare different fail")
 
     @staticmethod
     def clean_activity(element):
@@ -272,7 +271,7 @@ class Gesture:
         if file_count >= 1:
             pass
         else:
-            self.logger.error(msg=f"no file in {element}")
+            logging.error(msg=f"no file in {element}")
 
     @staticmethod
     def reboot():

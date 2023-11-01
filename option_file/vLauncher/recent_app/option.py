@@ -11,27 +11,27 @@ class RecentApp(item_strategy.Strategy):
     }
     folder_path = "option_file/vLauncher/recent_app"
 
-    def __init__(self, event_gen, logger, driver):
-        super().__init__(event_gen, logger, driver)
+    def __init__(self, event_gen, driver, html_report):
+        super().__init__(event_gen, driver, html_report)
 
     def _recent_app_clear_app(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/recentApp_clear_app.json",
             driver=self.driver,
         )
-        self.report["category"] = "vlauncher"
-        self.logger.Test("clear the last App in recent app")
+        self.html_report.report_data["category"] = "vlauncher"
+        self.html_report.test_case("clear the last App in recent app")
 
     def _recent_app_clear_all_btn(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/recentApp_clear_all.json",
             driver=self.driver,
         )
-        self.report["category"] = "vlauncher"
-        self.logger.Test("'clear all' button in recent app")
+        self.html_report.report_data["category"] = "vlauncher"
+        self.html_report.test_case("'clear all' button in recent app")
 
     def run_all(self):
-        self.logger.test_title("---Recent App---")
+        self.html_report.test_title("---Recent App---")
         self._recent_app_clear_app()
         self._recent_app_clear_all_btn()
 

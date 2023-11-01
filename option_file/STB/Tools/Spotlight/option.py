@@ -13,43 +13,43 @@ class Spotlight(item_strategy.Strategy):
     }
     folder_path = "option_file/STB/Tools/Spotlight"
 
-    def __init__(self, event_gen, logger, driver):
-        super().__init__(event_gen, logger, driver)
+    def __init__(self, event_gen, driver, html_report):
+        super().__init__(event_gen, driver, html_report)
 
     def _STB_spotlight_zoom_in_out_button(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_spotlight_zoom_in_out_button.json",
             driver=self.driver,
         )
-        self.report["category"] = "STB"
-        self.logger.Test("STB Spotlight-use button to zoom in & zoom out")
+        self.html_report.report_data["category"] = "STB"
+        self.html_report.test_case("STB Spotlight-use button to zoom in & zoom out")
 
     def _STB_spotlight_zoom_in_out_fingers(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_spotlight_zoom_in_out_fingers.json",
             driver=self.driver,
         )
-        self.report["category"] = "STB"
-        self.logger.Test("STB Spotlight-use fingers to zoom in & zoom out")
+        self.html_report.report_data["category"] = "STB"
+        self.html_report.test_case("STB Spotlight-use fingers to zoom in & zoom out")
 
     def _STB_spotlight_transparency(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_spotlight_transparency.json",
             driver=self.driver,
         )
-        self.report["category"] = "STB"
-        self.logger.Test("STB Spotlight-Transparency dark and light")
+        self.html_report.report_data["category"] = "STB"
+        self.html_report.test_case("STB Spotlight-Transparency dark and light")
 
     def _STB_spotlight_move(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_spotlight_move.json",
             driver=self.driver,
         )
-        self.report["category"] = "STB"
-        self.logger.Test("STB Spotlight-drag to move the spotlight")
+        self.html_report.report_data["category"] = "STB"
+        self.html_report.test_case("STB Spotlight-drag to move the spotlight")
 
     def run_all(self):
-        self.logger.test_title("---STB Tool - Spotlight---")
+        self.html_report.test_title("---STB Tool - Spotlight---")
         self._STB_spotlight_zoom_in_out_button()
         self._STB_spotlight_zoom_in_out_fingers()
         self._STB_spotlight_transparency()

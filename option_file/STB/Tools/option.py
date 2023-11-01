@@ -20,14 +20,14 @@ class STBTools(item_strategy.Strategy):
         "all": "all test",
     }
 
-    def __init__(self, event_gen, logger, driver):
-        super().__init__(event_gen, logger, driver)
+    def __init__(self, event_gen, driver, html_report):
+        super().__init__(event_gen, driver, html_report)
 
     def run_all(self):
-        self.logger.test_title("---STB Tools---")
+        self.html_report.test_title("---STB Tools---")
         items = [Freezer, Spotlight, Stopwatch, Timer, Marker, Screenshot]
         for item in items:
-            item(self.event_gen, self.logger, self.driver).run_all()
+            item(self.event_gen, self.driver, self.html_report).run_all()
 
     def run(self):
         while True:
@@ -38,17 +38,17 @@ class STBTools(item_strategy.Strategy):
                 case "0":
                     return
                 case "1":
-                    Freezer(self.event_gen, self.logger, self.driver).run()
+                    Freezer(self.event_gen, self.driver, self.html_report).run()
                 case "2":
-                    Spotlight(self.event_gen, self.logger, self.driver).run()
+                    Spotlight(self.event_gen, self.driver, self.html_report).run()
                 case "3":
-                    Stopwatch(self.event_gen, self.logger, self.driver).run()
+                    Stopwatch(self.event_gen, self.driver, self.html_report).run()
                 case "4":
-                    Timer(self.event_gen, self.logger, self.driver).run()
+                    Timer(self.event_gen, self.driver, self.html_report).run()
                 case "5":
-                    Marker(self.event_gen, self.logger, self.driver).run()
+                    Marker(self.event_gen, self.driver, self.html_report).run()
                 case "6":
-                    Screenshot(self.event_gen, self.logger, self.driver).run()
+                    Screenshot(self.event_gen, self.driver, self.html_report).run()
                 case "all":
                     self.run_all()
                 case _:

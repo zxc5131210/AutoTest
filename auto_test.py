@@ -1,10 +1,11 @@
 """
 Start activity , to choose option u want to test for
 """
+import logging
 import sys
 import subprocess
 import uiautomator2 as u2
-from logger import Logger
+from html_runner import HTMLReporter
 from option_file.ScreenLock.option import ScreenLock
 from option_file.vLauncher.Wallpaper.option import WallPaper
 from option_file.vLauncher.Edit_Launcher.option import EditLauncher
@@ -17,12 +18,16 @@ from event_generator import EventGen
 # driver = u2.connect(config.host)
 driver = u2.connect()
 driver.service("uiautomator").start()
-# Step 3 : Create gesture automation flow
+# Step 3 : Create gesture automation flow and log
 event_gen = EventGen()
-logger = Logger()
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s %(levelname)-2s %(message)s",
+    datefmt="%Y%m%d %H:%M:%S",
+)
 # Step 4 : Get  device model and version
-logger.model = driver.device_info["model"]
-logger.fw_version = subprocess.run(
+HTMLReporter().model = driver.device_info["model"]
+HTMLReporter().fw_version = subprocess.run(
     "adb shell getprop ro.build.fingerprint", shell=True, capture_output=True, text=True
 ).stdout
 # Step 5 : Get every app version
@@ -37,8 +42,8 @@ app_list = {
 for app_name, package_name in app_list.items():
     version_info = driver.app_info(package_name)
     version_name = version_info["versionName"]
-    logger.app_version.append(app_name)
-    logger.app_version.append(version_name)
+    HTMLReporter().app_version.append(app_name)
+    HTMLReporter().app_version.append(version_name)
 
 
 menu_dict = {
@@ -64,7 +69,7 @@ def run_all(event_gen, logger, driver):
         item(event_gen, logger, driver).run_all()
 
 
-# Step 4 : choose test option
+# Step 6 : choose test option
 while True:
     for option, test in menu_dict.items():
         print(f"{option}: {test}")
@@ -73,19 +78,19 @@ while True:
         case "0":
             sys.exit()
         case "1":
-            ScreenLock(event_gen, logger, driver).run()
+            ScreenLock(event_gen, driver, HTMLReporter()).run()
         case "2":
-            WallPaper(event_gen, logger, driver).run()
+            WallPaper(event_gen, driver, HTMLReporter()).run()
         case "3":
-            EditLauncher(event_gen, logger, driver).run()
+            EditLauncher(event_gen, driver, HTMLReporter()).run()
         case "4":
-            RecentApp(event_gen, logger, driver).run()
+            RecentApp(event_gen, driver, HTMLReporter()).run()
         case "5":
-            STB(event_gen, logger, driver).run()
+            STB(event_gen, driver, HTMLReporter()).run()
         case "6":
-            STBTools(event_gen, logger, driver).run()
+            STBTools(event_gen, driver, HTMLReporter()).run()
         case "all":
-            run_all(event_gen, logger, driver)
+            run_all(event_gen, driver, HTMLReporter())
         case "test":
             TestJson(driver)
         case _:

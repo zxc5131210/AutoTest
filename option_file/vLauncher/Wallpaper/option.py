@@ -11,27 +11,27 @@ class WallPaper(item_strategy.Strategy):
     }
     folder_path = "option_file/vLauncher/Wallpaper"
 
-    def __init__(self, event_gen, logger, driver):
-        super().__init__(event_gen, logger, driver)
+    def __init__(self, event_gen, driver, html_report):
+        super().__init__(event_gen, driver, html_report)
 
     def _wallpaper_by_default(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/wallpaper_by_default.json",
             driver=self.driver,
         )
-        self.report["category"] = "wallpaper"
-        self.logger.Test("Change wallpaper to default style")
+        self.html_report.report_data["category"] = "wallpaper"
+        self.html_report.test_case("Change wallpaper to default style")
 
     def _wallpaper_by_update(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/wallpaper_by_update.json",
             driver=self.driver,
         )
-        self.report["category"] = "wallpaper"
-        self.logger.Test("Change wallpaper to update image")
+        self.html_report.report_data["category"] = "wallpaper"
+        self.html_report.test_case("Change wallpaper to update image")
 
     def run_all(self):
-        self.logger.test_title("---Wallpaper Test---")
+        self.html_report.test_title("---Wallpaper Test---")
         self._wallpaper_by_default()
         self._wallpaper_by_update()
 

@@ -5,12 +5,12 @@ import sys
 import subprocess
 import uiautomator2 as u2
 from logger import Logger
-from option.screenlock.screen_lock import ScreenLock
-from option.wallpaper.wallpaper import WallPaper
-from option.vlauncher.edit_launcher import EditLauncher
-from option.vlauncher.recent_app import RecentApp
-from option.stb.stb import STB
-from option.stb.stb_tools import STBTools
+from option_file.ScreenLock.option import ScreenLock
+from option_file.vLauncher.Wallpaper.option import WallPaper
+from option_file.vLauncher.Edit_Launcher.option import EditLauncher
+from option_file.vLauncher.recent_app.option import RecentApp
+from option_file.STB.option import STB
+from option_file.STB.Tools.option import STBTools
 from event_generator import EventGen
 
 # step 1 : connect driver
@@ -55,7 +55,7 @@ menu_dict = {
 
 # Test
 def TestJson(driver):
-    event_gen.generate_event(json_path="./Test_Jason/Test/Test.json", driver=driver)
+    event_gen.generate_event(json_path="option_file/Test/Test.json", driver=driver)
 
 
 def run_all(event_gen, logger, driver):

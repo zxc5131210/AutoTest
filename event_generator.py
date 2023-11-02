@@ -2,15 +2,18 @@
 Event generator will read a .json file and generate event.
 
 """
+import logging
 import os
 import time
 import json
+import subprocess
 from selenium.common.exceptions import NoSuchElementException
-from logger import Logger
+import html_runner
+from html_runner import HTMLReporter
 from gesture import Gesture
 
 # entity log
-logger = Logger()
+html_report = HTMLReporter()
 
 
 def read_json(json_path: str) -> dict:
@@ -40,6 +43,30 @@ def crash_exclusion(driver):
 
 
 class EventGen:
+    @staticmethod
+    def get_device_info(driver):
+        html_runner.MODEL = driver.device_info["model"]
+        html_runner.FW_VERSION = subprocess.run(
+            "adb shell getprop ro.build.fingerprint",
+            shell=True,
+            capture_output=True,
+            text=True,
+        ).stdout
+        # Step 5 : Get every app version
+        app_list = {
+            "vlauncher": "com.viewsonic.vlauncher",
+            "STB": "com.viewsonic.sidetoolbar",
+            "screenlock": "com.viewsonic.screenlock",
+            "quicksettings": "com.viewsonic.quicksettings",
+            "wallpaper": "com.viewsonic.wallpaperpicker",
+            "authenticator": "com.viewsonic.authenticator",
+        }
+        for app_name, package_name in app_list.items():
+            version_info = driver.app_info(package_name)
+            version_name = version_info["versionName"]
+            html_runner.APPVERSION.append(app_name)
+            html_runner.APPVERSION.append(version_name)
+
     # Gen Event for use
     def generate_event(self, json_path: str, driver):
         gesture = Gesture(driver)
@@ -65,14 +92,16 @@ class EventGen:
                     location_x,
                     location_y,
                 )
-                self.logger.info(json_sequence, json_describe)
+                logging.info(json_describe)
+                html_report.succeed_step(json_sequence, json_describe)
                 time.sleep(0.5)
 
             except Exception:
-                self.logger.error(json_sequence, json_describe)
+                logging.error(json_describe)
+                html_report.fail_step(json_sequence, json_describe)
                 time.sleep(0.5)
 
-        self.logger.info("Test End", "Flow finished")
+        html_report.succeed_step("Test End", "Flow finished")
         delete_temporarily_screenshots()
 
     def gesture_cases(
@@ -184,7 +213,8 @@ class EventGen:
                 if x_before != x_after or y_before != y_after:
                     pass
                 else:
-                    self.logger.error("the element does not move")
+                    logging.error("the element does not move")
+                    html_report.fail_step(msg="the element does not move")
                 gesture.compare_different_list.clear()
 
             case "screen_zoom_in":
@@ -225,7 +255,8 @@ class EventGen:
                     if event["args"] == "False":
                         pass
                     else:
-                        self.logger.error(msg=f"Find {element} FAIL")
+                        logging.error(msg=f"Find {element} FAIL")
+                        html_report.fail_step(msg=f"Find {element} FAIL")
 
             case "findelement_ByXpath":
                 """
@@ -238,14 +269,16 @@ class EventGen:
                     if event["args"] == "False":
                         pass
                     else:
-                        self.logger.error(msg=f"Find {element} FAIL")
+                        logging.error(msg=f"Find {element} FAIL")
+                        html_report.fail_step(msg=f"Find {element} FAIL")
 
             case "findelement_ByText":
                 element = driver(text=json_element)
                 if element.exists:
                     pass
                 else:
-                    self.logger.error(msg=f"Find {element} FAIL")
+                    logging.error(msg=f"Find {element} FAIL")
+                    html_report.fail_step(msg=f"Find {element} FAIL")
 
             case "change_wallpaper_first":
                 element = driver(resourceId=json_element)
@@ -269,7 +302,8 @@ class EventGen:
                     if event["args"][-1] in filename:
                         pass
                     else:
-                        self.logger.error(msg="ScreenShot Fail")
+                        logging.error(msg="ScreenShot Fail")
+                        html_report.fail_step(msg="ScreenShot Fail")
 
             case "install_app":
                 gesture.install_app(json_element)
@@ -286,7 +320,8 @@ class EventGen:
                 if element.exists:
                     element.click()
                 else:
-                    self.logger.error(msg="app not found in recent app")
+                    logging.error(msg="app not found in recent app")
+                    html_report.fail_step(msg="app not found in recent app")
 
             case "marker_fill_up":
                 element_bounds = driver.info
@@ -321,7 +356,8 @@ class EventGen:
                     elif determine_swipe.exists:
                         driver.swipe(x_a, y_a, x_b, y_b)
                     else:
-                        self.logger.error(msg="Not Found App")
+                        logging.error(msg="Not Found App")
+                        html_report.fail_step(msg="Not Found App")
 
             case "STB_scroll_horiz_to_element":
                 x_a, y_a = driver(
@@ -340,7 +376,8 @@ class EventGen:
                     elif determine_swipe.exists:
                         driver.swipe(x_a, y_a, x_b, y_b)
                     else:
-                        self.logger.error(msg="Not Found App")
+                        logging.error(msg="Not Found App")
+                        html_report.fail_step(msg="Not Found App")
                         break
 
             case "STB_secondClass_initialization":
@@ -440,7 +477,8 @@ class EventGen:
                 ):
                     pass
                 else:
-                    self.logger.error(msg=f"{json_element} is not current")
+                    logging.error(msg=f"{json_element} is not current")
+                    html_report.fail_step(msg=f"{json_element} is not current")
 
             case "Timer_scroll_to_findText":
                 target_text = event["args"]
@@ -466,7 +504,8 @@ class EventGen:
                 else:
                     element = json_element
                     target_scrollbar = None
-                    self.logger.error(msg=f"{element} is not found")
+                    logging.error(msg=f"{element} is not found")
+                    html_report.fail_step(msg=f"{element} is not found")
 
                 # scroll to find
                 for _ in range(60):
@@ -491,7 +530,8 @@ class EventGen:
                     if event["args"] == "False":
                         pass
                     else:
-                        self.logger.error(msg="The data is the same , not changed")
+                        logging.error(msg="The data is the same , not changed")
+                        html_report.fail_step(msg="The data is the same , not changed")
                 gesture.compare_different_list.clear()
 
             case "tap_by_device_model":
@@ -524,11 +564,13 @@ class EventGen:
                 gesture.clean_activity(json_element)
 
             case _:
-                self.logger.warning(msg=f"gesture type: {json_gesture} not defined.")
-
-    def __init__(self) -> None:
-        self.logger = Logger()
+                logging.warning(msg=f"gesture type: {json_gesture} not defined.")
 
 
 if __name__ == "__main__":
     eventgen = EventGen()
+    logging.basicConfig(
+        level=logging.DEBUG,
+        format="%(asctime)s %(levelname)-2s %(message)s",
+        datefmt="%Y%m%d %H:%M:%S",
+    )

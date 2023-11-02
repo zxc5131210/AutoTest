@@ -25,25 +25,6 @@ logging.basicConfig(
     format="%(asctime)s %(levelname)-2s %(message)s",
     datefmt="%Y%m%d %H:%M:%S",
 )
-# Step 4 : Get  device model and version
-HTMLReporter().model = driver.device_info["model"]
-HTMLReporter().fw_version = subprocess.run(
-    "adb shell getprop ro.build.fingerprint", shell=True, capture_output=True, text=True
-).stdout
-# Step 5 : Get every app version
-app_list = {
-    "vlauncher": "com.viewsonic.vlauncher",
-    "STB": "com.viewsonic.sidetoolbar",
-    "screenlock": "com.viewsonic.screenlock",
-    "quicksettings": "com.viewsonic.quicksettings",
-    "wallpaper": "com.viewsonic.wallpaperpicker",
-    "authenticator": "com.viewsonic.authenticator",
-}
-for app_name, package_name in app_list.items():
-    version_info = driver.app_info(package_name)
-    version_name = version_info["versionName"]
-    HTMLReporter().app_version.append(app_name)
-    HTMLReporter().app_version.append(version_name)
 
 
 menu_dict = {

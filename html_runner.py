@@ -1,12 +1,13 @@
 from datetime import datetime
 from generate_html_report import TestReport
-from abstract_reporter import AbstractReporter
+from abstract_reporter import AbstractReporter, DeviceInfo
+
+MODEL = None
+FW_VERSION = None
+APPVERSION = []
 
 
 class HTMLReporter(AbstractReporter):
-    model = None
-    fw_version = None
-    app_version = []
     pass_log = []
 
     report_data = {
@@ -30,7 +31,9 @@ class HTMLReporter(AbstractReporter):
         self.report_data["steps"][f"steps:{steps} {msg}"] = "Fail"
 
     def test_case(self, msg: str):
-        self.add_device_info(self.model, self.fw_version, self.app_version)
+        self.add_device_info(
+            DeviceInfo.model, DeviceInfo.fw_version, DeviceInfo.app_version
+        )
         self.add_entry(msg)
         self.save_report()
         self.pass_log.clear()
@@ -67,7 +70,3 @@ class HTMLReporter(AbstractReporter):
         self.report_data["testcase"] = None
         self.report_data["steps"] = {}
         self.report_data["status"] = None
-
-
-if __name__ == "__main__":
-    html_report = HTMLReporter()

@@ -67,11 +67,11 @@ class EventGen:
                     location_y,
                 )
                 self.logger.info(json_sequence, json_describe)
-                time.sleep(0.5)
+                time.sleep(1)
 
             except Exception:
                 self.logger.error(json_sequence, json_describe)
-                time.sleep(0.5)
+                time.sleep(1)
 
         self.logger.info("Test End", "Flow finished")
         delete_temporarily_screenshots()

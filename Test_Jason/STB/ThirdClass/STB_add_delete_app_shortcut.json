@@ -21,7 +21,7 @@
         {
             "sequence": 3,
             "describe": "expand all tools on STB",
-            "element": "com.viewsonic.sidetoolbar:id/imgBtnAllToolss",
+            "element": "com.viewsonic.sidetoolbar:id/imgBtnAllTools",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

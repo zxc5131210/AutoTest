@@ -102,7 +102,7 @@
         {
             "sequence": 12,
             "describe": "remove the second App on shortcut",
-            "element": "com.viewsonic.sidetoolbar:id/imgViewAddApp2",
+            "element": "com.viewsonic.sidetoolbar:id/clApp2Container",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -174,7 +174,7 @@
         {
             "sequence": 20,
             "describe": "tap the second App on second class",
-            "element": "com.viewsonic.sidetoolbar:id/imgViewAddApp2",
+            "element": "com.viewsonic.sidetoolbar:id/clApp2Container",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

@@ -8,6 +8,7 @@ import json
 from selenium.common.exceptions import NoSuchElementException
 from logger import Logger
 from gesture import Gesture
+from HTMLReport import TestReport
 
 # entity log
 logger = Logger()
@@ -347,10 +348,10 @@ class EventGen:
                 gesture.tap(driver(resourceId="com.viewsonic.sidetoolbar:id/flOpenBar"))
                 if (
                     driver(
-                        resourceId="com.viewsonic.sidetoolbar:id/imgViewAddApp1"
+                        resourceId="com.viewsonic.sidetoolbar:id/RlThirdPartyApp1"
                     ).exists
                     or driver(
-                        resourceId="com.viewsonic.sidetoolbar:id/imgViewAddApp2"
+                        resourceId="com.viewsonic.sidetoolbar:id/RlThirdPartyApp2"
                     ).exists
                     or driver(
                         resourceId="com.viewsonic.sidetoolbar:id/imgViewAddApp3"
@@ -365,13 +366,19 @@ class EventGen:
                         )
                     )
                     gesture.tap(
-                        driver(resourceId="com.viewsonic.sidetoolbar:id/imgViewAddApp1")
+                        driver(
+                            resourceId="com.viewsonic.sidetoolbar:id/clApp1Container"
+                        )
                     )
                     gesture.tap(
-                        driver(resourceId="com.viewsonic.sidetoolbar:id/imgViewAddApp2")
+                        driver(
+                            resourceId="com.viewsonic.sidetoolbar:id/clApp2Container"
+                        )
                     )
                     gesture.tap(
-                        driver(resourceId="com.viewsonic.sidetoolbar:id/imgViewAddApp3")
+                        driver(
+                            resourceId="com.viewsonic.sidetoolbar:id/clApp3Container"
+                        )
                     )
                     gesture.tap(
                         driver(resourceId="com.viewsonic.sidetoolbar:id/imgBtnHome")

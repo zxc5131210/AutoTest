@@ -18,41 +18,46 @@ class Stopwatch(ItemStrategy.Strategy):
         super().__init__(event_gen, logger, driver)
 
     def _STB_stopwatch_start_pause(self):
-        self.logger.Test("STB stopwatch-start the stopwatch and pause it")
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_stopwatch_start_pause.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
+        self.logger.Test("STB stopwatch-start the stopwatch and pause it")
 
     def _STB_stopwatch_lap(self):
-        self.logger.Test("STB stopwatch-lap the stopwatch to record the seconds")
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_stopwatch_lap.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
+        self.logger.Test("STB stopwatch-lap the stopwatch to record the seconds")
 
     def _STB_stopwatch_expand(self):
-        self.logger.Test("STB stopwatch-expand the stopwatch window")
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_stopwatch_expand.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
+        self.logger.Test("STB stopwatch-expand the stopwatch window")
 
     def _STB_stopwatch_resume_reset(self):
-        self.logger.Test(
-            "STB stopwatch-resume the stopwatch and reset the stopwatch to '00:00:00' "
-        )
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_stopwatch_resume_reset.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
+        self.logger.Test(
+            "STB stopwatch-resume the stopwatch and reset the stopwatch to '00:00:00' "
+        )
 
     def _STB_stopwatch_move(self):
-        self.logger.Test("STB stopwatch-move")
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_stopwatch_move.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
+        self.logger.Test("STB stopwatch-move")
 
     def run_all(self):
         self.logger.test_title("---STB Tool - Stopwatch---")

@@ -15,18 +15,20 @@ class RecentApp(ItemStrategy.Strategy):
         super().__init__(event_gen, logger, driver)
 
     def _recent_app_clear_app(self):
-        self.logger.Test("clear the last App in recent app")
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/recentApp_clear_app.json",
             driver=self.driver,
         )
+        self.report["category"] = "vlauncher"
+        self.logger.Test("clear the last App in recent app")
 
     def _recent_app_clear_all_btn(self):
-        self.logger.Test("'clear all' button in recent app")
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/recentApp_clear_all.json",
             driver=self.driver,
         )
+        self.report["category"] = "vlauncher"
+        self.logger.Test("'clear all' button in recent app")
 
     def run_all(self):
         self.logger.test_title("---Recent App---")

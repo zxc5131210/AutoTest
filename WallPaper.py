@@ -15,18 +15,20 @@ class WallPaper(ItemStrategy.Strategy):
         super().__init__(event_gen, logger, driver)
 
     def _wallpaper_by_default(self):
-        self.logger.Test("Change wallpaper to default style")
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/wallpaper_by_default.json",
             driver=self.driver,
         )
+        self.report["category"] = "wallpaper"
+        self.logger.Test("Change wallpaper to default style")
 
     def _wallpaper_by_update(self):
-        self.logger.Test("Change wallpaper to update image")
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/wallpaper_by_update.json",
             driver=self.driver,
         )
+        self.report["category"] = "wallpaper"
+        self.logger.Test("Change wallpaper to update image")
 
     def run_all(self):
         self.logger.test_title("---Wallpaper Test---")

@@ -17,32 +17,36 @@ class Spotlight(ItemStrategy.Strategy):
         super().__init__(event_gen, logger, driver)
 
     def _STB_spotlight_zoom_in_out_button(self):
-        self.logger.Test("STB Spotlight-use button to zoom in & zoom out")
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_spotlight_zoom_in_out_button.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
+        self.logger.Test("STB Spotlight-use button to zoom in & zoom out")
 
     def _STB_spotlight_zoom_in_out_fingers(self):
-        self.logger.Test("STB Spotlight-use fingers to zoom in & zoom out")
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_spotlight_zoom_in_out_fingers.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
+        self.logger.Test("STB Spotlight-use fingers to zoom in & zoom out")
 
     def _STB_spotlight_transparency(self):
-        self.logger.Test("STB Spotlight-Transparency dark and light")
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_spotlight_transparency.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
+        self.logger.Test("STB Spotlight-Transparency dark and light")
 
     def _STB_spotlight_move(self):
-        self.logger.Test("STB Spotlight-drag to move the spotlight")
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_spotlight_move.json",
             driver=self.driver,
         )
+        self.report["category"] = "STB"
+        self.logger.Test("STB Spotlight-drag to move the spotlight")
 
     def run_all(self):
         self.logger.test_title("---STB Tool - Spotlight---")

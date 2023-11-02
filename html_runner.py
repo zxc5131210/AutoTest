@@ -1,8 +1,9 @@
 from datetime import datetime
 from generate_html_report import TestReport
+from abstract_reporter import AbstractReporter
 
 
-class HTMLReporter:
+class HTMLReporter(AbstractReporter):
     model = None
     fw_version = None
     app_version = []

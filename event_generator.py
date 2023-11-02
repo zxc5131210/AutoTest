@@ -6,7 +6,9 @@ import logging
 import os
 import time
 import json
-import subprocess
+from abc import ABC
+
+from abstract_reporter import AbstractReporter
 from selenium.common.exceptions import NoSuchElementException
 import html_runner
 from html_runner import HTMLReporter
@@ -42,7 +44,7 @@ def crash_exclusion(driver):
         pass
 
 
-class EventGen:
+class EventGen(AbstractReporter, ABC):
     # Gen Event for use
     def generate_event(self, json_path: str, driver):
         gesture = Gesture(driver)
@@ -69,12 +71,12 @@ class EventGen:
                     location_y,
                 )
                 logging.info(json_describe)
-                html_report.succeed_step(json_sequence, json_describe)
+                AbstractReporter.succeed_step(json_sequence, json_describe)
                 time.sleep(0.5)
 
             except Exception:
                 logging.error(json_describe)
-                html_report.fail_step(json_sequence, json_describe)
+                AbstractReporter.fail_step(json_sequence, json_describe)
                 time.sleep(0.5)
 
         html_report.succeed_step("Test End", "Flow finished")

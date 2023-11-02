@@ -1,9 +1,9 @@
 from abc import ABC, abstractmethod
 
 
-model = None
-fw_version = None
-app_version = []
+MODEL = None
+FW_VERSION = None
+APP_VERSION = []
 
 
 class AbstractReporter(ABC):

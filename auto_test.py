@@ -27,8 +27,8 @@ logging.basicConfig(
     datefmt="%Y%m%d %H:%M:%S",
 )
 
-abstract_reporter.model = driver.device_info["model"]
-abstract_reporter.fw_version = subprocess.run(
+abstract_reporter.MODEL = driver.device_info["model"]
+abstract_reporter.FW_VERSION = subprocess.run(
     "adb shell getprop ro.build.fingerprint",
     shell=True,
     capture_output=True,
@@ -46,8 +46,8 @@ app_list = {
 for app_name, package_name in app_list.items():
     version_info = driver.app_info(package_name)
     version_name = version_info["versionName"]
-    abstract_reporter.app_version.append(app_name)
-    abstract_reporter.app_version.append(version_name)
+    abstract_reporter.APP_VERSION.append(app_name)
+    abstract_reporter.APP_VERSION.append(version_name)
 
 
 menu_dict = {

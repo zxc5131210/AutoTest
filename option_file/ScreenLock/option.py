@@ -1,5 +1,5 @@
 """screen lock test case"""
-import item_strategy
+from option_file import item_strategy
 
 
 class ScreenLock(item_strategy.Strategy):

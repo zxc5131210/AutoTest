@@ -1,5 +1,5 @@
 """wall paper test case"""
-import item_strategy
+from option_file import item_strategy
 
 
 class WallPaper(item_strategy.Strategy):

@@ -1,5 +1,5 @@
 """edit launcher test case"""
-import item_strategy
+from option_file import item_strategy
 
 
 class EditLauncher(item_strategy.Strategy):

@@ -1,5 +1,5 @@
 """STB tools test case"""
-import item_strategy
+from option_file import item_strategy
 from option_file.STB.Tools.Freezer.option import Freezer
 from option_file.STB.Tools.Spotlight.option import Spotlight
 from option_file.STB.Tools.Stopwatch.option import Stopwatch

@@ -1,5 +1,5 @@
 """Marker test case"""
-import item_strategy
+from option_file import item_strategy
 
 
 class Marker(item_strategy.Strategy):

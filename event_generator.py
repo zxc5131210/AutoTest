@@ -43,30 +43,6 @@ def crash_exclusion(driver):
 
 
 class EventGen:
-    @staticmethod
-    def get_device_info(driver):
-        html_runner.MODEL = driver.device_info["model"]
-        html_runner.FW_VERSION = subprocess.run(
-            "adb shell getprop ro.build.fingerprint",
-            shell=True,
-            capture_output=True,
-            text=True,
-        ).stdout
-        # Step 5 : Get every app version
-        app_list = {
-            "vlauncher": "com.viewsonic.vlauncher",
-            "STB": "com.viewsonic.sidetoolbar",
-            "screenlock": "com.viewsonic.screenlock",
-            "quicksettings": "com.viewsonic.quicksettings",
-            "wallpaper": "com.viewsonic.wallpaperpicker",
-            "authenticator": "com.viewsonic.authenticator",
-        }
-        for app_name, package_name in app_list.items():
-            version_info = driver.app_info(package_name)
-            version_name = version_info["versionName"]
-            html_runner.APPVERSION.append(app_name)
-            html_runner.APPVERSION.append(version_name)
-
     # Gen Event for use
     def generate_event(self, json_path: str, driver):
         gesture = Gesture(driver)

@@ -2,7 +2,7 @@
 from option_file.vLauncher.recent_app.option import RecentApp
 from option_file.STB.Quicksetting.option import Quicksettings
 from option_file.STB.Tools.option import STBTools
-import item_strategy
+from option_file import item_strategy
 
 
 class STB(item_strategy.Strategy):

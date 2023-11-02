@@ -1,5 +1,5 @@
 """Screenshot test case"""
-import item_strategy
+from option_file import item_strategy
 
 
 class Screenshot(item_strategy.Strategy):

@@ -1,6 +1,7 @@
 from datetime import datetime
 from generate_html_report import TestReport
-from abstract_reporter import AbstractReporter, DeviceInfo
+import abstract_reporter
+from abstract_reporter import AbstractReporter
 
 MODEL = None
 FW_VERSION = None
@@ -32,7 +33,9 @@ class HTMLReporter(AbstractReporter):
 
     def test_case(self, msg: str):
         self.add_device_info(
-            DeviceInfo.model, DeviceInfo.fw_version, DeviceInfo.app_version
+            abstract_reporter.model,
+            abstract_reporter.fw_version,
+            abstract_reporter.app_version,
         )
         self.add_entry(msg)
         self.save_report()

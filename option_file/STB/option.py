@@ -88,12 +88,12 @@ class STB(item_strategy.Strategy):
 
     def run_all(self):
         # STB root_view
+        self.html_report.test_title("---STB root view---")
         self._STB_back_btn()
         self._STB_homepage_btn()
         RecentApp(
             event_gen=self.event_gen, driver=self.driver, html_report=self.html_report
         ).run_all()
-        self.html_report.test_title("---STB root view---")
         self._STB_apps_add_delete_app_in_shortcut()
         self._STB_apps_order_in_shortcut()
         self._STB_element_in_all_apps()

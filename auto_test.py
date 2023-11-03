@@ -20,7 +20,8 @@ from event_generator import EventGen
 driver = u2.connect()
 driver.service("uiautomator").start()
 # Step 3 : Create gesture automation flow and log
-event_gen = EventGen()
+reporter = HTMLReporter()
+event_gen = EventGen(reporter)
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s %(levelname)-2s %(message)s",

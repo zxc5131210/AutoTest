@@ -33,9 +33,9 @@ class HTMLReporter(AbstractReporter):
 
     def test_case(self, msg: str):
         self.add_device_info(
-            abstract_reporter.model,
-            abstract_reporter.fw_version,
-            abstract_reporter.app_version,
+            abstract_reporter.MODEL,
+            abstract_reporter.FW_VERSION,
+            abstract_reporter.APP_VERSION,
         )
         self.add_entry(msg)
         self.save_report()

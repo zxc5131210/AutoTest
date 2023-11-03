@@ -6,16 +6,11 @@ import logging
 import os
 import time
 import json
-from abc import ABC
-
-from abstract_reporter import AbstractReporter
 from selenium.common.exceptions import NoSuchElementException
-import html_runner
 from html_runner import HTMLReporter
 from gesture import Gesture
 
 # entity log
-html_report = HTMLReporter()
 
 
 def read_json(json_path: str) -> dict:
@@ -44,7 +39,10 @@ def crash_exclusion(driver):
         pass
 
 
-class EventGen(AbstractReporter, ABC):
+class EventGen:
+    def __init__(self, reporter):
+        self.reporter = reporter
+
     # Gen Event for use
     def generate_event(self, json_path: str, driver):
         gesture = Gesture(driver)
@@ -71,15 +69,15 @@ class EventGen(AbstractReporter, ABC):
                     location_y,
                 )
                 logging.info(json_describe)
-                AbstractReporter.succeed_step(json_sequence, json_describe)
+                self.reporter.succeed_step(json_sequence, json_describe)
                 time.sleep(0.5)
 
             except Exception:
                 logging.error(json_describe)
-                AbstractReporter.fail_step(json_sequence, json_describe)
+                self.reporter.fail_step(json_sequence, json_describe)
                 time.sleep(0.5)
 
-        html_report.succeed_step("Test End", "Flow finished")
+        self.reporter.succeed_step("Test End", "Flow finished")
         delete_temporarily_screenshots()
 
     def gesture_cases(
@@ -192,7 +190,7 @@ class EventGen(AbstractReporter, ABC):
                     pass
                 else:
                     logging.error("the element does not move")
-                    html_report.fail_step(msg="the element does not move")
+                    # html_report.fail_step(msg="the element does not move")
                 gesture.compare_different_list.clear()
 
             case "screen_zoom_in":
@@ -234,7 +232,7 @@ class EventGen(AbstractReporter, ABC):
                         pass
                     else:
                         logging.error(msg=f"Find {element} FAIL")
-                        html_report.fail_step(msg=f"Find {element} FAIL")
+                        # html_report.fail_step(msg=f"Find {element} FAIL")
 
             case "findelement_ByXpath":
                 """
@@ -248,7 +246,7 @@ class EventGen(AbstractReporter, ABC):
                         pass
                     else:
                         logging.error(msg=f"Find {element} FAIL")
-                        html_report.fail_step(msg=f"Find {element} FAIL")
+                        # html_report.fail_step(msg=f"Find {element} FAIL")
 
             case "findelement_ByText":
                 element = driver(text=json_element)
@@ -256,7 +254,7 @@ class EventGen(AbstractReporter, ABC):
                     pass
                 else:
                     logging.error(msg=f"Find {element} FAIL")
-                    html_report.fail_step(msg=f"Find {element} FAIL")
+                    # html_report.fail_step(msg=f"Find {element} FAIL")
 
             case "change_wallpaper_first":
                 element = driver(resourceId=json_element)
@@ -281,7 +279,7 @@ class EventGen(AbstractReporter, ABC):
                         pass
                     else:
                         logging.error(msg="ScreenShot Fail")
-                        html_report.fail_step(msg="ScreenShot Fail")
+                        # html_report.fail_step(msg="ScreenShot Fail")
 
             case "install_app":
                 gesture.install_app(json_element)
@@ -299,7 +297,7 @@ class EventGen(AbstractReporter, ABC):
                     element.click()
                 else:
                     logging.error(msg="app not found in recent app")
-                    html_report.fail_step(msg="app not found in recent app")
+                    # html_report.fail_step(msg="app not found in recent app")
 
             case "marker_fill_up":
                 element_bounds = driver.info
@@ -335,7 +333,7 @@ class EventGen(AbstractReporter, ABC):
                         driver.swipe(x_a, y_a, x_b, y_b)
                     else:
                         logging.error(msg="Not Found App")
-                        html_report.fail_step(msg="Not Found App")
+                        # html_report.fail_step(msg="Not Found App")
 
             case "STB_scroll_horiz_to_element":
                 x_a, y_a = driver(
@@ -355,7 +353,7 @@ class EventGen(AbstractReporter, ABC):
                         driver.swipe(x_a, y_a, x_b, y_b)
                     else:
                         logging.error(msg="Not Found App")
-                        html_report.fail_step(msg="Not Found App")
+                        # html_report.fail_step(msg="Not Found App")
                         break
 
             case "STB_secondClass_initialization":
@@ -456,7 +454,7 @@ class EventGen(AbstractReporter, ABC):
                     pass
                 else:
                     logging.error(msg=f"{json_element} is not current")
-                    html_report.fail_step(msg=f"{json_element} is not current")
+                    # html_report.fail_step(msg=f"{json_element} is not current")
 
             case "Timer_scroll_to_findText":
                 target_text = event["args"]
@@ -483,7 +481,7 @@ class EventGen(AbstractReporter, ABC):
                     element = json_element
                     target_scrollbar = None
                     logging.error(msg=f"{element} is not found")
-                    html_report.fail_step(msg=f"{element} is not found")
+                    # html_report.fail_step(msg=f"{element} is not found")
 
                 # scroll to find
                 for _ in range(60):
@@ -509,7 +507,7 @@ class EventGen(AbstractReporter, ABC):
                         pass
                     else:
                         logging.error(msg="The data is the same , not changed")
-                        html_report.fail_step(msg="The data is the same , not changed")
+                        # html_report.fail_step(msg="The data is the same , not changed")
                 gesture.compare_different_list.clear()
 
             case "tap_by_device_model":
@@ -546,7 +544,8 @@ class EventGen(AbstractReporter, ABC):
 
 
 if __name__ == "__main__":
-    eventgen = EventGen()
+    report_builder = HTMLReporter()
+    event_generator = EventGen(report_builder)
     logging.basicConfig(
         level=logging.DEBUG,
         format="%(asctime)s %(levelname)-2s %(message)s",

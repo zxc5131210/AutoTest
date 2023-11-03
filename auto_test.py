@@ -19,15 +19,16 @@ from event_generator import EventGen
 # driver = u2.connect(config.host)
 driver = u2.connect()
 driver.service("uiautomator").start()
-# Step 3 : Create gesture automation flow and log
+# Step 2 : choose report type
 reporter = HTMLReporter()
 event_gen = EventGen(reporter)
+# Step 3 : log config
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s %(levelname)-2s %(message)s",
     datefmt="%Y%m%d %H:%M:%S",
 )
-
+# Step 4 : Get model name & fw version
 abstract_reporter.MODEL = driver.device_info["model"]
 abstract_reporter.FW_VERSION = subprocess.run(
     "adb shell getprop ro.build.fingerprint",

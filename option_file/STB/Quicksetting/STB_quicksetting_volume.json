@@ -47,6 +47,15 @@
         },
         {
             "sequence": 6,
+            "describe": "wait for volume changes",
+            "element": "",
+            "gesture": "time_wait",
+            "args": "3",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 7,
             "describe": "get device volume",
             "element": "",
             "gesture": "get_volume",
@@ -55,7 +64,7 @@
             "y": ""
         },
         {
-            "sequence": 7,
+            "sequence": 8,
             "describe": "compare volume different to verify volume function",
             "element": "",
             "gesture": "compare_different",
@@ -64,7 +73,7 @@
             "y": ""
         },
         {
-            "sequence": 8,
+            "sequence": 9,
             "describe": "tap any location to close the quicksetting",
             "element": "",
             "gesture": "tap_byLocation",

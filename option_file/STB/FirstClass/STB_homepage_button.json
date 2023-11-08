@@ -1,0 +1,61 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "describe": "install TestApp",
+            "element": "./file/test.apk",
+            "gesture": "install_app",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "open TestApp",
+            "element": [
+                "com.viewsonic.myapplication",
+                ".MainActivity"
+            ],
+            "gesture": "open_activity",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "expand STB",
+            "element": "com.viewsonic.sidetoolbar:id/flOpenBar",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "describe": "tap homepage button on STB",
+            "element": "com.viewsonic.sidetoolbar:id/imgBtnHome",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "describe": "find the text='This is a text view' to verify the homepage button is success",
+            "element": "//*[@text='This is a text view']",
+            "gesture": "findelement_ByXpath",
+            "args": "False",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 6,
+            "describe": "uninstall the TestApp",
+            "element": "com.viewsonic.myapplication",
+            "gesture": "uninstall_app",
+            "args": "",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

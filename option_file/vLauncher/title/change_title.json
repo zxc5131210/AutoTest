@@ -1,0 +1,121 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "describe": "tap title to open 'edit vlauncher title' ",
+            "element": "com.viewsonic.vlauncher:id/title",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "clear default title text",
+            "element": "com.viewsonic.vlauncher:id/imageClear",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "tap 'confirm' button to set the title",
+            "element": "com.viewsonic.vlauncher:id/btn_confirm",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "describe": "tap title to open 'edit vlauncher title' ",
+            "element": "com.viewsonic.vlauncher:id/title",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "describe": "clear default title text",
+            "element": "com.viewsonic.vlauncher:id/imageClear",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 6,
+            "describe": "click title to input",
+            "element": "com.viewsonic.vlauncher:id/inputTitle",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 7,
+            "describe": "input 't'",
+            "element": "t",
+            "gesture": "tap_byDescription",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 8,
+            "describe": "input 'e'",
+            "element": "e",
+            "gesture": "tap_byDescription",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 9,
+            "describe": "input 's'",
+            "element": "s",
+            "gesture": "tap_byDescription",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 10,
+            "describe": "input 't'",
+            "element": "t",
+            "gesture": "tap_byDescription",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 11,
+            "describe": "hide onscreen keyboard",
+            "element": "Done",
+            "gesture": "tap_byDescription",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 12,
+            "describe": "tap 'confirm' button to set the title",
+            "element": "com.viewsonic.vlauncher:id/btn_confirm",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 13,
+            "describe": "verify title text is expect",
+            "element": "com.viewsonic.vlauncher:id/title",
+            "gesture": "verify_title",
+            "args": "test",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

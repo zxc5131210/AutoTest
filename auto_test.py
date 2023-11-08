@@ -12,6 +12,7 @@ from option_file.vLauncher.Wallpaper.option import WallPaper
 from option_file.vLauncher.Edit_Launcher.option import EditLauncher
 from option_file.vLauncher.recent_app.option import RecentApp
 from option_file.STB.option import STB
+from option_file.vLauncher.option import vLauncher
 from option_file.STB.Tools.option import STBTools
 from event_generator import EventGen
 
@@ -95,6 +96,8 @@ while True:
             STB(event_gen, driver, reporter).run()
         case "6":
             STBTools(event_gen, driver, reporter).run()
+        case "7":
+            vLauncher(event_gen, driver, reporter).run()
         case "all":
             run_all(event_gen, driver, reporter)
         case "test":

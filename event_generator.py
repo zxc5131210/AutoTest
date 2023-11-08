@@ -116,6 +116,10 @@ class EventGen:
             case "tap_byLocation":
                 driver.click(location_x, location_y)
 
+            case "tap_byDescription":
+                element = driver(description=json_element)
+                gesture.tap(element)
+
             case "tap_byImage":
                 gesture.tap_image(json_element)
 
@@ -529,6 +533,14 @@ class EventGen:
                 compare_1 = event["element"][0]
                 compare_2 = event["element"][1]
                 gesture.compare_images_pixel(compare_1, compare_2)
+
+            case "verify_title":
+                title_name = driver(resourceId=json_element).info["text"]
+                if title_name == event["args"]:
+                    pass
+                else:
+                    logging.error(msg="title changes fail")
+                    self.reporter.fail_step(msg="title changes fail")
 
             case "close_app":
                 gesture.close_app(json_element)

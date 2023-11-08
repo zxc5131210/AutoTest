@@ -14,51 +14,51 @@ class Quicksettings(item_strategy.Strategy):
     }
     folder_path = "option_file/STB/Quicksetting"
 
-    def __init__(self, event_gen, driver, html_report):
-        super().__init__(event_gen, driver, html_report)
+    def __init__(self, event_gen, driver, reporter):
+        super().__init__(event_gen, driver, reporter)
 
     def _STB_quicksetting_backlight(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_quicksetting_backlight.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "quicksettings"
-        self.html_report.test_case("STB quicksetting - backlight")
+        self.reporter.add_category("quicksettings")
+        self.reporter.test_case("STB quicksetting - backlight")
 
     def _STB_quicksetting_volume(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_quicksetting_volume.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "quicksettings"
-        self.html_report.test_case("STB quicksetting - volume")
+        self.reporter.add_category("quicksettings")
+        self.reporter.test_case("STB quicksetting - volume")
 
     def _STB_quicksetting_auto_brightness(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_quicksetting_auto_brightness.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "quicksettings"
-        self.html_report.test_case("STB quicksetting - autobrightness")
+        self.reporter.add_category("quicksettings")
+        self.reporter.test_case("STB quicksetting - autobrightness")
 
     def _STB_quicksetting_eye_care(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_quicksetting_eye_care.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "quicksettings"
-        self.html_report.test_case("STB quicksetting - eye care")
+        self.reporter.add_category("quicksettings")
+        self.reporter.test_case("STB quicksetting - eye care")
 
     def _STB_quicksetting_color_temperature(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_quicksetting_color_temperature.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "quicksettings"
-        self.html_report.test_case("STB quicksetting - color temperature")
+        self.reporter.add_category("quicksettings")
+        self.reporter.test_case("STB quicksetting - color temperature")
 
     def run_all(self):
-        self.html_report.test_title("---STB - QuickSetting---")
+        self.reporter.test_title("---STB - QuickSetting---")
         self._STB_quicksetting_backlight()
         self._STB_quicksetting_volume()
         self._STB_quicksetting_auto_brightness()

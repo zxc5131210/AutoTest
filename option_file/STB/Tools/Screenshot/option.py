@@ -13,43 +13,43 @@ class Screenshot(item_strategy.Strategy):
     }
     folder_path = "option_file/STB/Tools/Screenshot"
 
-    def __init__(self, event_gen, driver, html_report):
-        super().__init__(event_gen, driver, html_report)
+    def __init__(self, event_gen, driver, reporter):
+        super().__init__(event_gen, driver, reporter)
 
     def _STB_screenshot_crop(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_screenshot_crop.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "STB"
-        self.html_report.test_case("STB Screenshot-crop")
+        self.reporter.add_category("STB")
+        self.reporter.test_case("STB Screenshot-crop")
 
     def _STB_screenshot_full_screen(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_screenshot_full_screen.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "STB"
-        self.html_report.test_case("STB Screenshot-full screen")
+        self.reporter.add_category("STB")
+        self.reporter.test_case("STB Screenshot-full screen")
 
     def _STB_screenshot_save(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_screenshot_save.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "STB"
-        self.html_report.test_case("STB Screenshot-save")
+        self.reporter.add_category("STB")
+        self.reporter.test_case("STB Screenshot-save")
 
     def _STB_screenshot_close(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_screenshot_close.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "STB"
-        self.html_report.test_case("STB Screenshot-close")
+        self.reporter.add_category("STB")
+        self.reporter.test_case("STB Screenshot-close")
 
     def run_all(self):
-        self.html_report.test_title("---STB Tool - Screenshot---")
+        self.reporter.test_title("---STB Tool - Screenshot---")
         self._STB_screenshot_crop()
         self._STB_screenshot_full_screen()
         self._STB_screenshot_save()

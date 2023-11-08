@@ -18,83 +18,83 @@ class Marker(item_strategy.Strategy):
     }
     folder_path = "option_file/STB/Tools/Marker"
 
-    def __init__(self, event_gen, driver, html_report):
-        super().__init__(event_gen, driver, html_report)
+    def __init__(self, event_gen, driver, reporter):
+        super().__init__(event_gen, driver, reporter)
 
     def _STB_marker_selector(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_marker_selector.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "STB"
-        self.html_report.test_case("STB marker-selector")
+        self.reporter.add_category("STB")
+        self.reporter.test_case("STB marker-selector")
 
     def _STB_marker_pen(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_marker_pen.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "STB"
-        self.html_report.test_case("STB marker-pen")
+        self.reporter.add_category("STB")
+        self.reporter.test_case("STB marker-pen")
 
     def _STB_marker_highlighter(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_marker_highlighter.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "STB"
-        self.html_report.test_case("STB marker-highlighter")
+        self.reporter.add_category("STB")
+        self.reporter.test_case("STB marker-highlighter")
 
     def _STB_marker_eraser(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_marker_eraser.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "STB"
-        self.html_report.test_case("STB marker-eraser")
+        self.reporter.add_category("STB")
+        self.reporter.test_case("STB marker-eraser")
 
     def _STB_marker_undo_redo(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_marker_undo_redo.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "STB"
-        self.html_report.test_case("STB marker-undo & redo")
+        self.reporter.add_category("STB")
+        self.reporter.test_case("STB marker-undo & redo")
 
     def _STB_marker_delete(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_marker_delete.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "STB"
-        self.html_report.test_case("STB marker-delete")
+        self.reporter.add_category("STB")
+        self.reporter.test_case("STB marker-delete")
 
     def _STB_marker_save(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_marker_save.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "STB"
-        self.html_report.test_case("STB marker-save")
+        self.reporter.add_category("STB")
+        self.reporter.test_case("STB marker-save")
 
     def _STB_marker_close(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_marker_close.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "STB"
-        self.html_report.test_case("STB marker-close")
+        self.reporter.add_category("STB")
+        self.reporter.test_case("STB marker-close")
 
     def _STB_marker_moving(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_marker_moving.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "STB"
-        self.html_report.test_case("STB marker-moving")
+        self.reporter.add_category("STB")
+        self.reporter.test_case("STB marker-moving")
 
     def run_all(self):
-        self.html_report.test_title("---STB Tool - Marker---")
+        self.reporter.test_title("---STB Tool - Marker---")
         self._STB_marker_selector()
         self._STB_marker_pen()
         self._STB_marker_highlighter()

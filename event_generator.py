@@ -189,6 +189,7 @@ class EventGen:
                     pass
                 else:
                     logging.error("the element does not move")
+                    self.reporter.fail_step(msg="the element does not move")
                 gesture.compare_different_list.clear()
 
             case "screen_zoom_in":
@@ -230,6 +231,7 @@ class EventGen:
                         pass
                     else:
                         logging.error(msg=f"Find {element} FAIL")
+                        self.reporter.fail_step(msg=f"Find {element} FAIL")
 
             case "findelement_ByXpath":
                 """
@@ -243,6 +245,7 @@ class EventGen:
                         pass
                     else:
                         logging.error(msg=f"Find {element} FAIL")
+                        self.reporter.fail_step(msg=f"Find {element} FAIL")
 
             case "findelement_ByText":
                 element = driver(text=json_element)
@@ -250,8 +253,14 @@ class EventGen:
                     pass
                 else:
                     logging.error(msg=f"Find {element} FAIL")
+                    self.reporter.fail_step(msg=f"Find {element} FAIL")
 
             case "change_wallpaper_first":
+                if driver(text="com.viewsonic.wallpaperpicker").exists:
+                    print("123")
+                    gesture.tap(driver(text="com.viewsonic.wallpaperpicker"))
+                    gesture.tap(driver(resourceId="android:id/button_always"))
+
                 element = driver(resourceId=json_element)
                 first_element = element[1]
                 gesture.tap(first_element)
@@ -274,6 +283,7 @@ class EventGen:
                         pass
                     else:
                         logging.error(msg="ScreenShot Fail")
+                        self.reporter.fail_step(msg="ScreenShot Fail")
 
             case "install_app":
                 gesture.install_app(json_element)
@@ -291,6 +301,7 @@ class EventGen:
                     element.click()
                 else:
                     logging.error(msg="app not found in recent app")
+                    self.reporter.fail_step(msg="app not found in recent app")
 
             case "marker_fill_up":
                 element_bounds = driver.info
@@ -326,6 +337,7 @@ class EventGen:
                         driver.swipe(x_a, y_a, x_b, y_b)
                     else:
                         logging.error(msg="Not Found App")
+                        self.reporter.fail_step(msg="Not Found App")
 
             case "STB_scroll_horiz_to_element":
                 x_a, y_a = driver(
@@ -345,7 +357,7 @@ class EventGen:
                         driver.swipe(x_a, y_a, x_b, y_b)
                     else:
                         logging.error(msg="Not Found App")
-                        break
+                        self.reporter.fail_step(msg="Not Found App")
 
             case "STB_secondClass_initialization":
                 gesture.tap(driver(resourceId="com.viewsonic.sidetoolbar:id/flOpenBar"))
@@ -445,6 +457,7 @@ class EventGen:
                     pass
                 else:
                     logging.error(msg=f"{json_element} is not current")
+                    self.reporter.fail_step(msg=f"{json_element} is not current")
 
             case "Timer_scroll_to_findText":
                 target_text = event["args"]
@@ -471,6 +484,7 @@ class EventGen:
                     element = json_element
                     target_scrollbar = None
                     logging.error(msg=f"{element} is not found")
+                    self.reporter.fail_step(msg=f"{element} is not found")
 
                 # scroll to find
                 for _ in range(60):
@@ -496,6 +510,9 @@ class EventGen:
                         pass
                     else:
                         logging.error(msg="The data is the same , not changed")
+                        self.reporter.fail_step(
+                            msg="The data is the same , not changed"
+                        )
                 gesture.compare_different_list.clear()
 
             case "tap_by_device_model":

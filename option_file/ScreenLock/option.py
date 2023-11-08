@@ -13,43 +13,43 @@ class ScreenLock(item_strategy.Strategy):
     }
     folder_path = "option_file/ScreenLock"
 
-    def __init__(self, event_gen, driver, html_report):
-        super().__init__(event_gen, driver, html_report)
+    def __init__(self, event_gen, driver, reporter):
+        super().__init__(event_gen, driver, reporter)
 
     def _screen_lock_set_password(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/screenLock_set_password.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "screenlock"
-        self.html_report.test_case("Set screenLock Password")
+        self.reporter.add_category("screenlock")
+        self.reporter.test_case("Set screenLock Password")
 
     def _screen_lock_change_password(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/screenLock_change_password.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "screenlock"
-        self.html_report.test_case("Change screenLock Password")
+        self.reporter.add_category("screenlock")
+        self.reporter.test_case("Change screenLock Password")
 
     def _screen_lock_remove_password(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/screenLock_remove_password.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "screenlock"
-        self.html_report.test_case("Change screenLock Password")
+        self.reporter.add_category("screenlock")
+        self.reporter.test_case("Change screenLock Password")
 
     def _screen_lock_reveal_password(self):
         self.event_gen.generate_event(
             json_path="./option_file/ScreenLock/screenLock_reveal_password.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "screenlock"
-        self.html_report.test_case("Reveal Password in screenLock")
+        self.reporter.add_category("screenlock")
+        self.reporter.test_case("Reveal Password in screenLock")
 
     def run_all(self):
-        self.html_report.test_title("---ScreenLock---")
+        self.reporter.test_title("---ScreenLock---")
         self._screen_lock_set_password()
         self._screen_lock_change_password()
         self._screen_lock_remove_password()

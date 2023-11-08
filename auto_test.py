@@ -84,19 +84,19 @@ while True:
         case "0":
             sys.exit()
         case "1":
-            ScreenLock(event_gen, driver, HTMLReporter()).run()
+            ScreenLock(event_gen, driver, reporter).run()
         case "2":
-            WallPaper(event_gen, driver, HTMLReporter()).run()
+            WallPaper(event_gen, driver, reporter).run()
         case "3":
-            EditLauncher(event_gen, driver, HTMLReporter()).run()
+            EditLauncher(event_gen, driver, reporter).run()
         case "4":
-            RecentApp(event_gen, driver, HTMLReporter()).run()
+            RecentApp(event_gen, driver, reporter).run()
         case "5":
-            STB(event_gen, driver, HTMLReporter()).run()
+            STB(event_gen, driver, reporter).run()
         case "6":
-            STBTools(event_gen, driver, HTMLReporter()).run()
+            STBTools(event_gen, driver, reporter).run()
         case "all":
-            run_all(event_gen, driver, HTMLReporter())
+            run_all(event_gen, driver, reporter)
         case "test":
             TestJson(driver)
         case _:

@@ -20,14 +20,14 @@ class STBTools(item_strategy.Strategy):
         "all": "all test",
     }
 
-    def __init__(self, event_gen, driver, html_report):
-        super().__init__(event_gen, driver, html_report)
+    def __init__(self, event_gen, driver, reporter):
+        super().__init__(event_gen, driver, reporter)
 
     def run_all(self):
-        self.html_report.test_title("---STB Tools---")
+        self.reporter.test_title("---STB Tools---")
         items = [Freezer, Spotlight, Stopwatch, Timer, Marker, Screenshot]
         for item in items:
-            item(self.event_gen, self.driver, self.html_report).run_all()
+            item(self.event_gen, self.driver, self.reporter).run_all()
 
     def run(self):
         while True:
@@ -38,17 +38,17 @@ class STBTools(item_strategy.Strategy):
                 case "0":
                     return
                 case "1":
-                    Freezer(self.event_gen, self.driver, self.html_report).run()
+                    Freezer(self.event_gen, self.driver, self.reporter).run()
                 case "2":
-                    Spotlight(self.event_gen, self.driver, self.html_report).run()
+                    Spotlight(self.event_gen, self.driver, self.reporter).run()
                 case "3":
-                    Stopwatch(self.event_gen, self.driver, self.html_report).run()
+                    Stopwatch(self.event_gen, self.driver, self.reporter).run()
                 case "4":
-                    Timer(self.event_gen, self.driver, self.html_report).run()
+                    Timer(self.event_gen, self.driver, self.reporter).run()
                 case "5":
-                    Marker(self.event_gen, self.driver, self.html_report).run()
+                    Marker(self.event_gen, self.driver, self.reporter).run()
                 case "6":
-                    Screenshot(self.event_gen, self.driver, self.html_report).run()
+                    Screenshot(self.event_gen, self.driver, self.reporter).run()
                 case "all":
                     self.run_all()
                 case _:

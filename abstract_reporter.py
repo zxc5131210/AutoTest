@@ -16,6 +16,10 @@ class AbstractReporter(ABC):
         pass
 
     @abstractmethod
+    def add_category(self, msg: str):
+        pass
+
+    @abstractmethod
     def test_case(self, msg: str) -> None:
         pass
 
@@ -25,4 +29,8 @@ class AbstractReporter(ABC):
 
     @abstractmethod
     def add_device_info(self, model, fw_version, app_version):
+        pass
+
+    @abstractmethod
+    def save_report(self):
         pass

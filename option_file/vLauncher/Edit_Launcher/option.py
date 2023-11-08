@@ -11,29 +11,29 @@ class EditLauncher(item_strategy.Strategy):
     }
     folder_path = "option_file/vLauncher/Edit_Launcher"
 
-    def __init__(self, event_gen, driver, html_report):
-        super().__init__(event_gen, driver, html_report)
+    def __init__(self, event_gen, driver, reporter):
+        super().__init__(event_gen, driver, reporter)
 
     def _edit_launcher_add_app(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/editLauncher_add_delete_re-rangeApps.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "vlauncher"
-        self.html_report.test_case("Test App re-range on hot seat")
+        self.reporter.add_category("vlauncher")
+        self.reporter.test_case("Test App re-range on hot seat")
 
     def _edit_launcher_find_all(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/editLauncher_find_apps_in_All.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "vlauncher"
-        self.html_report.test_case(
+        self.reporter.add_category("vlauncher")
+        self.reporter.test_case(
             "install TestApp and find TestApp in Edit Launcher - all apps"
         )
 
     def run_all(self):
-        self.html_report.test_title("---Edit Launcher---")
+        self.reporter.test_title("---Edit Launcher---")
         self._edit_launcher_add_app()
         self._edit_launcher_find_all()
 

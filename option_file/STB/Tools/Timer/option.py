@@ -12,35 +12,35 @@ class Timer(item_strategy.Strategy):
     }
     folder_path = "option_file/STB/Tools/Timer"
 
-    def __init__(self, event_gen, driver, html_report):
-        super().__init__(event_gen, driver, html_report)
+    def __init__(self, event_gen, driver, reporter):
+        super().__init__(event_gen, driver, reporter)
 
     def _STB_timer_start_ring(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_timer_start_ring.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "STB"
-        self.html_report.test_case("STB timer-start to wait the bell ring")
+        self.reporter.add_category("STB")
+        self.reporter.test_case("STB timer-start to wait the bell ring")
 
     def _STB_timer_pause_resume_reset(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_timer_pause_resume_reset.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "STB"
-        self.html_report.test_case("STB timer-pause & resume & reset button")
+        self.reporter.add_category("STB")
+        self.reporter.test_case("STB timer-pause & resume & reset button")
 
     def _STB_timer_expand(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/STB_timer_expand.json",
             driver=self.driver,
         )
-        self.html_report.report_data["category"] = "STB"
-        self.html_report.test_case("STB timer-expand the timer window")
+        self.reporter.add_category("STB")
+        self.reporter.test_case("STB timer-expand the timer window")
 
     def run_all(self):
-        self.html_report.test_title("---STB Tool - Stopwatch---")
+        self.reporter.test_title("---STB Tool - Stopwatch---")
         self._STB_timer_start_ring()
         self._STB_timer_pause_resume_reset()
         self._STB_timer_expand()

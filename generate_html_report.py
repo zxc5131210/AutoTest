@@ -16,13 +16,16 @@ class TestReport:
             "screenlock": {},
         }
 
-    def add_entry(
-        self, category, subcategory, testcase, detail, steps, status, comment=None
-    ):
-        if subcategory not in self.categories[category]:
-            self.categories[category][subcategory] = []
-        self.categories[category][subcategory].append(
-            (testcase, detail, steps, status, comment)
+    def add_entry(self, report_data):
+        if report_data.subcategory not in self.categories[report_data.category]:
+            self.categories[report_data.category][report_data.subcategory] = []
+        self.categories[report_data.category][report_data.subcategory].append(
+            (
+                report_data.testcase,
+                report_data.detail,
+                report_data.steps,
+                report_data.status,
+            )
         )
 
     def add_version_info(self, model, fw_version, app_version):
@@ -145,17 +148,17 @@ class TestReport:
             f"in'>"
         )
 
-        for idx, (testcase, detail, steps, status, comment) in enumerate(testcases):
+        for idx, (testcase, detail, steps, status) in enumerate(testcases):
             panel_id = f"{safe_category_id}_{safe_subcategories_id}_{idx}"
             subcategory_html += self.generate_testcase_html(
-                panel_id, testcase, detail, steps, status, comment
+                panel_id, testcase, detail, steps, status
             )
 
         subcategory_html += "</div></div>"
         return subcategory_html
 
     @staticmethod
-    def generate_testcase_html(panel_id, testcase, detail, steps, status, comment):
+    def generate_testcase_html(panel_id, testcase, detail, steps, status):
         testcase_html = f"<div class='panel panel-default test-case {status.lower()}'>"
         testcase_html += (
             f"<div class='panel-heading' data-panel-id='{panel_id}' data-toggle='collapse' "
@@ -179,15 +182,13 @@ class TestReport:
                     f"></li>"
                 )
             testcase_html += "</ul>"
-        if comment:
-            testcase_html += f"<div class='comment'>{comment}</div>"
         testcase_html += "</div></div>"
 
         return testcase_html
 
     @staticmethod
     def get_pass_and_total_count(testcases):
-        pass_count = sum(1 for _, _, _, status, _ in testcases if status == "Pass")
+        pass_count = sum(1 for _, _, _, status, in testcases if status == "Pass")
         total_count = len(testcases)
         return pass_count, total_count
 

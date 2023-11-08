@@ -1,9 +1,7 @@
 class Strategy:
-    def __init__(
-        self, event_gen: object, driver: object, html_report: object
-    ) -> object:
+    def __init__(self, event_gen: object, driver: object, reporter: object) -> object:
         self.event_gen = event_gen
-        self.html_report = html_report
+        self.reporter = reporter
         self.driver = driver
 
     def run(self):

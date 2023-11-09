@@ -57,11 +57,9 @@ menu_dict = {
     "0": "Quit",
     "1": "ScreenLock",
     "2": "Wallpaper",
-    "3": "Edit Launcher",
-    "4": "Recent App",
-    "5": "STB",
-    "6": "STB Tools",
-    "7": "vLauncher",
+    "3": "vLauncher",
+    "4": "STB",
+    "5": "STB Tools",
     "all": "all test",
 }
 
@@ -72,7 +70,7 @@ def TestJson(driver):
 
 
 def run_all(event_gen, driver, reporter):
-    items = [ScreenLock, WallPaper, EditLauncher, STB]
+    items = [ScreenLock, WallPaper, vLauncher, STB]
     for item in items:
         item(event_gen, driver, reporter).run_all()
 
@@ -90,15 +88,15 @@ while True:
         case "2":
             WallPaper(event_gen, driver, reporter).run()
         case "3":
-            EditLauncher(event_gen, driver, reporter).run()
-        case "4":
-            RecentApp(event_gen, driver, reporter).run()
-        case "5":
-            STB(event_gen, driver, reporter).run()
-        case "6":
-            STBTools(event_gen, driver, reporter).run()
-        case "7":
             vLauncher(event_gen, driver, reporter).run()
+        case "4":
+            STB(event_gen, driver, reporter).run()
+        case "5":
+            STBTools(event_gen, driver, reporter).run()
+        case "6":
+            pass
+        case "7":
+            pass
         case "all":
             run_all(event_gen, driver, reporter)
         case "test":

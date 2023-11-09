@@ -8,7 +8,7 @@ class vLauncherTitle(item_strategy.Strategy):
         "1": "change title",
         "2": "Set Password",
         "3": "reset Password",
-        "4": "Remove Password",
+        "4": "clear Password",
         "5": "Reveal Password",
         "all": "all Test",
     }
@@ -41,11 +41,20 @@ class vLauncherTitle(item_strategy.Strategy):
         self.reporter.add_category("vlauncher")
         self.reporter.test_case("reset title password")
 
+    def _clear_password(self):
+        self.event_gen.generate_event(
+            json_path=f"{self.folder_path}/clear_password.json",
+            driver=self.driver,
+        )
+        self.reporter.add_category("vlauncher")
+        self.reporter.test_case("clear title password")
+
     def run_all(self):
-        self.reporter.test_title("---vLauncher title---")
+        self.reporter.test_title("---Title---")
         self._change_title()
         self._set_password()
         self._reset_password()
+        self._clear_password()
 
     def run(self):
         while True:
@@ -62,7 +71,7 @@ class vLauncherTitle(item_strategy.Strategy):
                 case "3":
                     self._reset_password()
                 case "4":
-                    pass
+                    self._clear_password()
                 case "all":
                     self.run_all()
                 case _:

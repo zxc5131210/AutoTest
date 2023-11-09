@@ -10,14 +10,13 @@ class STB(item_strategy.Strategy):
         "0": "Back to main menu",
         "1": "back button",
         "2": "homepage button",
-        "3": "recent app",
-        "4": "element in all apps",
-        "5": "add & delete apps in shortcut",
-        "6": "app order in shortcut",
-        "7": "add & delete tools in shortcut",
-        "8": "tools order in shortcut",
-        "9": "STB tools",
-        "10": "QuickSetting",
+        "3": "element in all apps",
+        "4": "add & delete apps in shortcut",
+        "5": "app order in shortcut",
+        "6": "add & delete tools in shortcut",
+        "7": "tools order in shortcut",
+        "8": "STB tools",
+        "9": "QuickSettings",
         "all": "all test",
     }
     folder_path = "option_file/STB"
@@ -96,9 +95,6 @@ class STB(item_strategy.Strategy):
         self._STB_element_in_all_apps()
         self._STB_tools_add_delete_app_in_shortcut()
         self._STB_tools_order_in_shortcut()
-        RecentApp(
-            event_gen=self.event_gen, driver=self.driver, reporter=self.reporter
-        ).run_all()
         # STB Tools
         STBTools(
             event_gen=self.event_gen, driver=self.driver, reporter=self.reporter
@@ -120,24 +116,22 @@ class STB(item_strategy.Strategy):
                 case "2":
                     self._STB_homepage_btn()
                 case "3":
-                    RecentApp(self.event_gen, self.driver, self.reporter).run()
-                case "4":
                     self._STB_element_in_all_apps()
-                case "5":
+                case "4":
                     self._STB_apps_add_delete_app_in_shortcut()
-                case "6":
+                case "5":
                     self._STB_apps_order_in_shortcut()
-                case "7":
+                case "6":
                     self._STB_tools_add_delete_app_in_shortcut()
-                case "8":
+                case "7":
                     self._STB_tools_order_in_shortcut()
-                case "9":
+                case "8":
                     STBTools(
                         event_gen=self.event_gen,
                         driver=self.driver,
                         reporter=self.reporter,
                     ).run()
-                case "10":
+                case "9":
                     Quicksettings(
                         event_gen=self.event_gen,
                         driver=self.driver,

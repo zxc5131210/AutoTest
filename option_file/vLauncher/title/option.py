@@ -7,7 +7,7 @@ class vLauncherTitle(item_strategy.Strategy):
         "0": "Back to main menu",
         "1": "change title",
         "2": "Set Password",
-        "3": "Change Password",
+        "3": "reset Password",
         "4": "Remove Password",
         "5": "Reveal Password",
         "all": "all Test",
@@ -17,7 +17,7 @@ class vLauncherTitle(item_strategy.Strategy):
     def __init__(self, event_gen, driver, reporter):
         super().__init__(event_gen, driver, reporter)
 
-    def _vlauncher_title(self):
+    def _change_title(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/change_title.json",
             driver=self.driver,
@@ -25,7 +25,7 @@ class vLauncherTitle(item_strategy.Strategy):
         self.reporter.add_category("vlauncher")
         self.reporter.test_case("change title")
 
-    def _vlauncher_set_password(self):
+    def _set_password(self):
         self.event_gen.generate_event(
             json_path=f"{self.folder_path}/set_password.json",
             driver=self.driver,
@@ -33,10 +33,19 @@ class vLauncherTitle(item_strategy.Strategy):
         self.reporter.add_category("vlauncher")
         self.reporter.test_case("set title password")
 
+    def _reset_password(self):
+        self.event_gen.generate_event(
+            json_path=f"{self.folder_path}/reset_password.json",
+            driver=self.driver,
+        )
+        self.reporter.add_category("vlauncher")
+        self.reporter.test_case("reset title password")
+
     def run_all(self):
         self.reporter.test_title("---vLauncher title---")
-        self._vlauncher_title()
-        self._vlauncher_set_password()
+        self._change_title()
+        self._set_password()
+        self._reset_password()
 
     def run(self):
         while True:
@@ -47,11 +56,11 @@ class vLauncherTitle(item_strategy.Strategy):
                 case "0":
                     return
                 case "1":
-                    self._vlauncher_title()
+                    self._change_title()
                 case "2":
-                    self._vlauncher_set_password()
+                    self._set_password()
                 case "3":
-                    pass
+                    self._reset_password()
                 case "4":
                     pass
                 case "all":

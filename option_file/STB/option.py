@@ -91,14 +91,14 @@ class STB(item_strategy.Strategy):
         self.reporter.test_title("---STB root view---")
         self._STB_back_btn()
         self._STB_homepage_btn()
-        RecentApp(
-            event_gen=self.event_gen, driver=self.driver, reporter=self.reporter
-        ).run_all()
         self._STB_apps_add_delete_app_in_shortcut()
         self._STB_apps_order_in_shortcut()
         self._STB_element_in_all_apps()
         self._STB_tools_add_delete_app_in_shortcut()
         self._STB_tools_order_in_shortcut()
+        RecentApp(
+            event_gen=self.event_gen, driver=self.driver, reporter=self.reporter
+        ).run_all()
         # STB Tools
         STBTools(
             event_gen=self.event_gen, driver=self.driver, reporter=self.reporter

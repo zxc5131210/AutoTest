@@ -61,6 +61,7 @@ menu_dict = {
     "4": "Recent App",
     "5": "STB",
     "6": "STB Tools",
+    "7": "vLauncher",
     "all": "all test",
 }
 
@@ -70,10 +71,10 @@ def TestJson(driver):
     event_gen.generate_event(json_path="option_file/Test/Test.json", driver=driver)
 
 
-def run_all(event_gen, logger, driver):
+def run_all(event_gen, driver, reporter):
     items = [ScreenLock, WallPaper, EditLauncher, STB]
     for item in items:
-        item(event_gen, logger, driver).run_all()
+        item(event_gen, driver, reporter).run_all()
 
 
 # Step 6 : choose test option

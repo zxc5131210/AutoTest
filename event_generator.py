@@ -133,7 +133,16 @@ class EventGen:
                 gesture.compare_different_list.append(text)
 
             case "sendKey_byID":
-                element = driver(resourceId=json_element)
+                """
+                if there are multiple numbers with the same ID.
+                args=[count(int), message(str)]
+                if ID is unique can only send message
+                args[message(str)]
+                """
+                if isinstance(event["args"][0], int):
+                    element = driver(resourceId=json_element, instance=event["args"][0])
+                else:
+                    element = driver(resourceId=json_element)
                 keyword = event["args"][-1]
                 gesture.send_keys(element, keyword)
 
@@ -534,7 +543,7 @@ class EventGen:
                 compare_2 = event["element"][1]
                 gesture.compare_images_pixel(compare_1, compare_2)
 
-            case "verify_title":
+            case "verify_text":
                 title_name = driver(resourceId=json_element).info["text"]
                 if title_name == event["args"]:
                     pass

@@ -2,7 +2,7 @@
     "steps": [
         {
             "sequence": 1,
-            "describe": "tap title to open 'edit vlauncher title' ",
+            "describe": "tap title to open 'vlauncher title' ",
             "element": "com.viewsonic.vlauncher:id/title",
             "gesture": "tap_byID",
             "args": "",
@@ -29,7 +29,7 @@
         },
         {
             "sequence": 4,
-            "describe": "tap title to open 'edit vlauncher title' ",
+            "describe": "tap title to open 'vlauncher title' ",
             "element": "com.viewsonic.vlauncher:id/title",
             "gesture": "tap_byID",
             "args": "",
@@ -47,60 +47,15 @@
         },
         {
             "sequence": 6,
-            "describe": "click title to input",
-            "element": "com.viewsonic.vlauncher:id/inputTitle",
-            "gesture": "tap_byID",
-            "args": "",
+            "describe": "input 'test' to change title",
+            "element": "com.viewsonic.vlauncher:id/edittextPassword",
+            "gesture": "sendKey_byID",
+            "args": [0,"test ฅ^•ﻌ•^ฅ \uD83D\uDE01\uD83D\uDE01"],
             "x": "",
             "y": ""
         },
         {
             "sequence": 7,
-            "describe": "input 't'",
-            "element": "t",
-            "gesture": "tap_byDescription",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 8,
-            "describe": "input 'e'",
-            "element": "e",
-            "gesture": "tap_byDescription",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 9,
-            "describe": "input 's'",
-            "element": "s",
-            "gesture": "tap_byDescription",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 10,
-            "describe": "input 't'",
-            "element": "t",
-            "gesture": "tap_byDescription",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 11,
-            "describe": "hide onscreen keyboard",
-            "element": "Done",
-            "gesture": "tap_byDescription",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 12,
             "describe": "tap 'confirm' button to set the title",
             "element": "com.viewsonic.vlauncher:id/btn_confirm",
             "gesture": "tap_byID",
@@ -109,11 +64,11 @@
             "y": ""
         },
         {
-            "sequence": 13,
+            "sequence": 8,
             "describe": "verify title text is expect",
             "element": "com.viewsonic.vlauncher:id/title",
-            "gesture": "verify_title",
-            "args": "test",
+            "gesture": "verify_text",
+            "args": "test ฅ^•ﻌ•^ฅ \uD83D\uDE01\uD83D\uDE01",
             "x": "",
             "y": ""
         }

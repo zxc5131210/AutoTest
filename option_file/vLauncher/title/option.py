@@ -10,6 +10,7 @@ class vLauncherTitle(item_strategy.Strategy):
         "3": "reset Password",
         "4": "clear Password",
         "5": "Reveal Password",
+        "6": "reset title to default",
         "all": "all Test",
     }
     folder_path = "option_file/vLauncher/title"
@@ -57,6 +58,14 @@ class vLauncherTitle(item_strategy.Strategy):
         self.reporter.add_category("vlauncher")
         self.reporter.test_case("reveal password")
 
+    def _reset_title_to_default(self):
+        self.event_gen.generate_event(
+            json_path=f"{self.folder_path}/reset_title_to_default.json",
+            driver=self.driver,
+        )
+        self.reporter.add_category("vlauncher")
+        self.reporter.test_case("reset title to default")
+
     def run_all(self):
         self.reporter.test_title("---Title---")
         self._change_title()
@@ -64,6 +73,7 @@ class vLauncherTitle(item_strategy.Strategy):
         self._reset_password()
         self._clear_password()
         self._reveal_password()
+        self._reset_title_to_default()
 
     def run(self):
         while True:
@@ -83,6 +93,8 @@ class vLauncherTitle(item_strategy.Strategy):
                     self._clear_password()
                 case "5":
                     self._reveal_password()
+                case "6":
+                    self._reset_title_to_default()
                 case "all":
                     self.run_all()
                 case _:

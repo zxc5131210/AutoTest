@@ -1,0 +1,103 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "describe": "tap title to open 'vlauncher title' ",
+            "element": "com.viewsonic.vlauncher:id/title",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "clear default title text",
+            "element": "com.viewsonic.vlauncher:id/imageClear",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "tap 'confirm' button to set the title",
+            "element": "com.viewsonic.vlauncher:id/btn_confirm",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "describe": "tap title to open 'vlauncher title' ",
+            "element": "com.viewsonic.vlauncher:id/title",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "describe": "clear default title text",
+            "element": "com.viewsonic.vlauncher:id/imageClear",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 6,
+            "describe": "input 'test' to change title",
+            "element": "com.viewsonic.vlauncher:id/edittextPassword",
+            "gesture": "sendKey_byID",
+            "args": [0,"test ฅ^•ﻌ•^ฅ \uD83D\uDE01\uD83D\uDE01"],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 7,
+            "describe": "tap 'confirm' button to set the title",
+            "element": "com.viewsonic.vlauncher:id/btn_confirm",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 8,
+            "describe": "tap title to open 'vlauncher title' ",
+            "element": "com.viewsonic.vlauncher:id/title",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 9,
+            "describe": "clear default title text",
+            "element": "com.viewsonic.vlauncher:id/imageClear",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 10,
+            "describe": "tap 'confirm' button to set the title",
+            "element": "com.viewsonic.vlauncher:id/btn_confirm",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 11,
+            "describe": "verify title text is expect",
+            "element": "com.viewsonic.vlauncher:id/title",
+            "gesture": "verify_text",
+            "args": "ViewSonic",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

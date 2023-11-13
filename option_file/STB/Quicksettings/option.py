@@ -1,4 +1,4 @@
-"""Quicksetting test case"""
+"""Quicksettings test case"""
 from option_file import item_strategy
 
 
@@ -12,7 +12,7 @@ class Quicksettings(item_strategy.Strategy):
         "5": "color temperature",
         "all": "all Test",
     }
-    folder_path = "option_file/STB/Quicksetting"
+    folder_path = "option_file/STB/Quicksettings"
 
     def __init__(self, event_gen, driver, reporter):
         super().__init__(event_gen, driver, reporter)

@@ -1,6 +1,6 @@
 """STB test case"""
 from option_file.vLauncher.recent_app.option import RecentApp
-from option_file.STB.Quicksetting.option import Quicksettings
+from option_file.STB.Quicksettings.option import Quicksettings
 from option_file.STB.Tools.option import STBTools
 from option_file import item_strategy
 

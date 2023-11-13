@@ -7,7 +7,7 @@ test.py/
 /Log/
 .DS_Store
 html_report/.DS_Store
-option_file/STB/Quicksetting/__pycache__/
+option_file/STB/Quicksettings/__pycache__/
 option_file/STB/Tools/Freezer/__pycache__/
 option_file/STB/Tools/Marker/__pycache__/
 option_file/STB/Tools/Screenshot/__pycache__/

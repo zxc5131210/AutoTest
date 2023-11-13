@@ -1,6 +1,4 @@
 """STB test case"""
-from option_file.vLauncher.recent_app.option import RecentApp
-from option_file.STB.Quicksettings.option import Quicksettings
 from option_file.STB.Tools.option import STBTools
 from option_file import item_strategy
 
@@ -16,7 +14,6 @@ class STB(item_strategy.Strategy):
         "6": "add & delete tools in shortcut",
         "7": "tools order in shortcut",
         "8": "STB tools",
-        "9": "QuickSettings",
         "all": "all test",
     }
     folder_path = "option_file/STB"
@@ -99,9 +96,6 @@ class STB(item_strategy.Strategy):
         STBTools(
             event_gen=self.event_gen, driver=self.driver, reporter=self.reporter
         ).run_all()
-        Quicksettings(
-            event_gen=self.event_gen, driver=self.driver, reporter=self.reporter
-        ).run_all()
 
     def run(self):
         while True:
@@ -127,12 +121,6 @@ class STB(item_strategy.Strategy):
                     self._STB_tools_order_in_shortcut()
                 case "8":
                     STBTools(
-                        event_gen=self.event_gen,
-                        driver=self.driver,
-                        reporter=self.reporter,
-                    ).run()
-                case "9":
-                    Quicksettings(
                         event_gen=self.event_gen,
                         driver=self.driver,
                         reporter=self.reporter,

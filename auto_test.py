@@ -8,12 +8,10 @@ import uiautomator2 as u2
 import abstract_reporter
 from html_runner import HTMLReporter
 from option_file.ScreenLock.option import ScreenLock
-from option_file.vLauncher.Wallpaper.option import WallPaper
-from option_file.vLauncher.Edit_Launcher.option import EditLauncher
-from option_file.vLauncher.recent_app.option import RecentApp
+from option_file.Wallpaper.option import WallPaper
 from option_file.STB.option import STB
 from option_file.vLauncher.option import vLauncher
-from option_file.STB.Tools.option import STBTools
+from option_file.Quicksettings.option import Quicksettings
 from event_generator import EventGen
 
 # step 1 : connect driver
@@ -59,7 +57,7 @@ menu_dict = {
     "2": "Wallpaper",
     "3": "vLauncher",
     "4": "STB",
-    "5": "STB Tools",
+    "5": "QuickSettings",
     "all": "all test",
 }
 
@@ -70,7 +68,7 @@ def TestJson(driver):
 
 
 def run_all(event_gen, driver, reporter):
-    items = [ScreenLock, WallPaper, vLauncher, STB]
+    items = [ScreenLock, WallPaper, vLauncher, STB, Quicksettings]
     for item in items:
         item(event_gen, driver, reporter).run_all()
 
@@ -92,7 +90,7 @@ while True:
         case "4":
             STB(event_gen, driver, reporter).run()
         case "5":
-            STBTools(event_gen, driver, reporter).run()
+            Quicksettings(event_gen, driver, reporter).run()
         case "6":
             pass
         case "7":

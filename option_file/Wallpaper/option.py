@@ -9,7 +9,7 @@ class WallPaper(item_strategy.Strategy):
         "2": "Change By_update",
         "all": "all Test",
     }
-    folder_path = "option_file/vLauncher/Wallpaper"
+    folder_path = "option_file/Wallpaper"
 
     def __init__(self, event_gen, driver, reporter):
         super().__init__(event_gen, driver, reporter)

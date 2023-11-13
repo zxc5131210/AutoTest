@@ -68,7 +68,7 @@ class STB(item_strategy.Strategy):
 
     def _STB_tools_add_delete_app_in_shortcut(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/ThirdClass/STB_add_delete_app_shortcut.json",
+            json_path=f"{self.folder_path}/ThirdClass/add_delete_app_shortcut.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
@@ -76,7 +76,7 @@ class STB(item_strategy.Strategy):
 
     def _STB_tools_order_in_shortcut(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/ThirdClass/STB_app_order_in_shortcut.json",
+            json_path=f"{self.folder_path}/ThirdClass/app_order_in_shortcut.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")

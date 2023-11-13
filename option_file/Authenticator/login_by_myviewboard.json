@@ -1,0 +1,67 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "describe": "tap avatar to logout",
+            "element": "com.viewsonic.vlauncher:id/avatar",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "tap 'sign out' button",
+            "element": "com.viewsonic.vlauncher:id/sign",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "tap 'sign out' button on the popup",
+            "element": "com.viewsonic.vlauncher:id/logout_button",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "describe": "tap 'sign in' button to the login page",
+            "element": "com.viewsonic.vlauncher:id/btn_signin",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "describe": "input user name",
+            "element": "com.viewsonic.authenticator:id/username",
+            "gesture": "sendKey_byID",
+            "args": [0,"vsmvbtest@gmail.com"],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 6,
+            "describe": "input user password",
+            "element": "com.viewsonic.authenticator:id/password",
+            "gesture": "sendKey_byID",
+            "args": [0,"vsMVBtest!1"],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 7,
+            "describe": "tap 'sign in' button to login",
+            "element": "com.viewsonic.authenticator:id/login",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

@@ -95,7 +95,7 @@
             "describe": "verify title text is expect",
             "element": "com.viewsonic.vlauncher:id/title",
             "gesture": "verify_text",
-            "args": "ViewSonic",
+            "args": "ViewBoard",
             "x": "",
             "y": ""
         }

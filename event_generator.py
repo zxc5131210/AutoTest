@@ -46,6 +46,7 @@ class EventGen:
     def generate_event(self, json_path: str, driver):
         gesture = Gesture(driver)
         # initial setting
+        crash_exclusion(driver)
         gesture.home_page()
         event_flow = read_json(json_path)
         flow = event_flow["steps"]
@@ -57,10 +58,8 @@ class EventGen:
             location_x = event["x"]
             location_y = event["y"]
             try:
-                crash_exclusion(driver)
                 self.gesture_cases(
                     event,
-                    json_gesture,
                     driver,
                     json_element,
                     json_gesture,
@@ -82,7 +81,6 @@ class EventGen:
     def gesture_cases(
         self,
         event,
-        gesture,
         driver,
         json_element,
         json_gesture,

@@ -48,12 +48,21 @@ class vLauncherTools(item_strategy.Strategy):
         self.reporter.add_category("vlauncher")
         self.reporter.test_case("backlight by autobrightness")
 
+    def _volume(self):
+        self.event_gen.generate_event(
+            json_path=f"{self.folder_path}/volume.json",
+            driver=self.driver,
+        )
+        self.reporter.add_category("vlauncher")
+        self.reporter.test_case("set volume")
+
     def run_all(self):
         self.reporter.test_title("---desktop tools---")
         self._date_and_time()
         self._device_tip()
         self._backlight_seekbar()
         self._backlight_auto()
+        self._volume()
 
     def run(self):
         while True:
@@ -71,6 +80,8 @@ class vLauncherTools(item_strategy.Strategy):
                     self._backlight_seekbar()
                 case "4":
                     self._backlight_auto()
+                case "5":
+                    self._volume()
                 case "all":
                     self.run_all()
                 case _:

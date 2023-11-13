@@ -1,0 +1,76 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "describe": "tap desktop volume",
+            "element": "com.viewsonic.vlauncher:id/volume",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "turn volume to the minimum",
+            "element": "com.viewsonic.vlauncher:id/volume_seekbar",
+            "gesture": "swipe_left_element",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "get device volume",
+            "element": "",
+            "gesture": "get_volume",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "describe": "turn volume to the maximum",
+            "element": "com.viewsonic.vlauncher:id/volume_seekbar",
+            "gesture": "swipe_right_element",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "describe": "wait for volume changes",
+            "element": "",
+            "gesture": "time_wait",
+            "args": "3",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 6,
+            "describe": "get device volume",
+            "element": "",
+            "gesture": "get_volume",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 7,
+            "describe": "compare volume different to verify volume function",
+            "element": "",
+            "gesture": "compare_different",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 8,
+            "describe": "tap any location to close the seekbar",
+            "element": "",
+            "gesture": "tap_byLocation",
+            "args": "",
+            "x": 0.5,
+            "y": 0.1
+        }
+    ]
+}

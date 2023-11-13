@@ -11,4 +11,4 @@ d = u2.connect()
 #         y_start = i
 #         d.swipe(fx=0, fy=y_start, tx=center_x, ty=y_start, duration=0.05)
 #     d(resourceId="com.viewsonic.sidetoolbar:id/close").click()
-d(resourceId="com.viewsonic.vlauncher:id/inputNewPassword").send_keys("123123")
+print(d.current_app())

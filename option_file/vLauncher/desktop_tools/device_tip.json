@@ -18,7 +18,7 @@
             "x": "",
             "y": ""
         },
-      {
+        {
             "sequence": 3,
             "describe": "tap close button to close the popup",
             "element": "com.viewsonic.vlauncher:id/close",

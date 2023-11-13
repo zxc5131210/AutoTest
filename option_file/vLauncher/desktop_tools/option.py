@@ -9,6 +9,10 @@ class vLauncherTools(item_strategy.Strategy):
         "2": "Device tip",
         "3": "Drag seekbar to set the backlight",
         "4": "set auto backlight",
+        "5": "set volume",
+        "6": "ethernet settings",
+        "7": "wifi settings",
+        "8": "input source",
         "all": "all Test",
     }
     folder_path = "option_file/vLauncher/desktop_tools"
@@ -56,6 +60,30 @@ class vLauncherTools(item_strategy.Strategy):
         self.reporter.add_category("vlauncher")
         self.reporter.test_case("set volume")
 
+    def _ethernet(self):
+        self.event_gen.generate_event(
+            json_path=f"{self.folder_path}/ethernet.json",
+            driver=self.driver,
+        )
+        self.reporter.add_category("vlauncher")
+        self.reporter.test_case("ethernet settings")
+
+    def _wifi(self):
+        self.event_gen.generate_event(
+            json_path=f"{self.folder_path}/wifi.json",
+            driver=self.driver,
+        )
+        self.reporter.add_category("vlauncher")
+        self.reporter.test_case("wifi settings")
+
+    def _input_source(self):
+        self.event_gen.generate_event(
+            json_path=f"{self.folder_path}/input_source.json",
+            driver=self.driver,
+        )
+        self.reporter.add_category("vlauncher")
+        self.reporter.test_case("input source")
+
     def run_all(self):
         self.reporter.test_title("---desktop tools---")
         self._date_and_time()
@@ -63,6 +91,9 @@ class vLauncherTools(item_strategy.Strategy):
         self._backlight_seekbar()
         self._backlight_auto()
         self._volume()
+        self._ethernet()
+        self._wifi()
+        self._input_source()
 
     def run(self):
         while True:
@@ -82,6 +113,12 @@ class vLauncherTools(item_strategy.Strategy):
                     self._backlight_auto()
                 case "5":
                     self._volume()
+                case "6":
+                    self._ethernet()
+                case "7":
+                    self._wifi()
+                case "8":
+                    self._input_source()
                 case "all":
                     self.run_all()
                 case _:

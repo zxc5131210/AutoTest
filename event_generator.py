@@ -137,7 +137,7 @@ class EventGen:
                 if there are multiple numbers with the same ID.
                 args=[count(int), message(str)]
                 if ID is unique can only send message
-                args[message(str)]
+                args=[message(str)]
                 """
                 if isinstance(event["args"][0], int):
                     element = driver(resourceId=json_element, instance=event["args"][0])
@@ -270,7 +270,6 @@ class EventGen:
 
             case "change_wallpaper_first":
                 if driver(text="com.viewsonic.wallpaperpicker").exists:
-                    print("123")
                     gesture.tap(driver(text="com.viewsonic.wallpaperpicker"))
                     gesture.tap(driver(resourceId="android:id/button_always"))
 

@@ -1,7 +1,7 @@
 """vLauncher test case"""
 from option_file.vLauncher.title.option import vLauncherTitle
 from option_file.vLauncher.Edit_Launcher.option import EditLauncher
-from option_file.vLauncher.Wallpaper.option import WallPaper
+from option_file.vLauncher.desktop_tools.option import vLauncherTools
 from option_file.vLauncher.recent_app.option import RecentApp
 from option_file import item_strategy
 
@@ -12,6 +12,7 @@ class vLauncher(item_strategy.Strategy):
         "1": "vLauncher title",
         "2": "Edit Launcher",
         "3": "Recent App",
+        "4": "Desktop tools",
     }
 
     def __init__(self, event_gen, driver, reporter):
@@ -37,7 +38,7 @@ class vLauncher(item_strategy.Strategy):
                 case "3":
                     RecentApp(self.event_gen, self.driver, self.reporter).run()
                 case "4":
-                    pass
+                    vLauncherTools(self.event_gen, self.driver, self.reporter).run()
                 case "5":
                     pass
                 case "6":

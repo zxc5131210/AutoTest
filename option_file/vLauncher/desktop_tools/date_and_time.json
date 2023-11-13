@@ -1,0 +1,22 @@
+{
+    "steps": [
+         {
+            "sequence": 1,
+            "describe": "tap time to open settings date & time",
+            "element": "com.viewsonic.vlauncher:id/time",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "find Date& Time element to verify function success",
+            "element": "com.ifpdos.vsettings:id/time_tv_time",
+            "gesture": "findelements_ByID",
+            "args": "",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

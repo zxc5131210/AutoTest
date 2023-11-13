@@ -62,11 +62,6 @@ menu_dict = {
 }
 
 
-# Test
-def TestJson(driver):
-    event_gen.generate_event(json_path="option_file/Test/Test.json", driver=driver)
-
-
 def run_all(event_gen, driver, reporter):
     items = [ScreenLock, WallPaper, vLauncher, STB, Quicksettings]
     for item in items:
@@ -97,7 +92,5 @@ while True:
             pass
         case "all":
             run_all(event_gen, driver, reporter)
-        case "test":
-            TestJson(driver)
         case _:
             print("Invalid option")

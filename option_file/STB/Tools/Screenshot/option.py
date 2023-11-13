@@ -18,35 +18,35 @@ class Screenshot(item_strategy.Strategy):
 
     def _STB_screenshot_crop(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_screenshot_crop.json",
+            json_path=f"{self.folder_path}/crop.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB Screenshot-crop")
+        self.reporter.test_case("Screenshot-crop")
 
     def _STB_screenshot_full_screen(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_screenshot_full_screen.json",
+            json_path=f"{self.folder_path}/full_screen.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB Screenshot-full screen")
+        self.reporter.test_case("Screenshot-full screen")
 
     def _STB_screenshot_save(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_screenshot_save.json",
+            json_path=f"{self.folder_path}/save.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB Screenshot-save")
+        self.reporter.test_case("Screenshot-save")
 
     def _STB_screenshot_close(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_screenshot_close.json",
+            json_path=f"{self.folder_path}/close.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB Screenshot-close")
+        self.reporter.test_case("Screenshot-close")
 
     def run_all(self):
         self.reporter.test_title("---STB Tool - Screenshot---")

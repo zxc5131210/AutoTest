@@ -19,46 +19,46 @@ class Freezer(item_strategy.Strategy):
 
     def _STB_freezer_zoom_in_out_button(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_freezer_zoom_in_out_button.json",
+            json_path=f"{self.folder_path}/zoom_in_out_button.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB Freezer-tap button to zoom in & zoom out")
+        self.reporter.test_case("Freezer-tap button to zoom in & zoom out")
 
     def _STB_freezer_zoom_in_out_fingers(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_freezer_zoom_in_out_fingers.json",
+            json_path=f"{self.folder_path}/zoom_in_out_fingers.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB Freezer-use fingers to zoom in & zoom out")
+        self.reporter.test_case("Freezer-use fingers to zoom in & zoom out")
 
     def _STB_freezer_zoom_mix(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_freezer_zoom_mix.json",
+            json_path=f"{self.folder_path}/zoom_mix.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
         self.reporter.test_case(
-            "STB Freezer-use fingers to zoom in first than use button to zoom in"
+            "Freezer-use fingers to zoom in first than use button to zoom in"
         )
 
     def _STB_freezer_default_button(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_freezer_default_button.json",
+            json_path=f"{self.folder_path}/default_button.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB Freezer-default screen button")
+        self.reporter.test_case("Freezer-default screen button")
 
     def _STB_freezer_reboot_to_use(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_freezer_reboot_to_use.json",
+            json_path=f"{self.folder_path}/reboot_to_use.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
         self.reporter.test_case(
-            "STB Freezer-reboot the device and use freezer zoom in & out"
+            "Freezer-reboot the device and use freezer zoom in & out"
         )
 
     def run_all(self):

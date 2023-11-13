@@ -18,35 +18,35 @@ class Spotlight(item_strategy.Strategy):
 
     def _STB_spotlight_zoom_in_out_button(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_spotlight_zoom_in_out_button.json",
+            json_path=f"{self.folder_path}/zoom_in_out_button.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB Spotlight-use button to zoom in & zoom out")
+        self.reporter.test_case("Spotlight-use button to zoom in & zoom out")
 
     def _STB_spotlight_zoom_in_out_fingers(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_spotlight_zoom_in_out_fingers.json",
+            json_path=f"{self.folder_path}/zoom_in_out_fingers.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB Spotlight-use fingers to zoom in & zoom out")
+        self.reporter.test_case("Spotlight-use fingers to zoom in & zoom out")
 
     def _STB_spotlight_transparency(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_spotlight_transparency.json",
+            json_path=f"{self.folder_path}/transparency.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB Spotlight-Transparency dark and light")
+        self.reporter.test_case("Spotlight-Transparency dark and light")
 
     def _STB_spotlight_move(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_spotlight_move.json",
+            json_path=f"{self.folder_path}/move.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB Spotlight-drag to move the spotlight")
+        self.reporter.test_case("Spotlight-drag to move the spotlight")
 
     def run_all(self):
         self.reporter.test_title("---STB Tool - Spotlight---")

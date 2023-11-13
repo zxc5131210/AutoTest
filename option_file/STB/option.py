@@ -27,7 +27,7 @@ class STB(item_strategy.Strategy):
     # STB first class
     def _STB_back_btn(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/FirstClass/STB_back_button.json",
+            json_path=f"{self.folder_path}/FirstClass/back_button.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
@@ -35,7 +35,7 @@ class STB(item_strategy.Strategy):
 
     def _STB_homepage_btn(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/FirstClass/STB_homepage_button.json",
+            json_path=f"{self.folder_path}/FirstClass/homepage_button.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
@@ -45,7 +45,7 @@ class STB(item_strategy.Strategy):
 
     def _STB_element_in_all_apps(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/SecondClass/STB_app_show_in_all_apps.json",
+            json_path=f"{self.folder_path}/SecondClass/app_show_in_all_apps.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
@@ -53,7 +53,7 @@ class STB(item_strategy.Strategy):
 
     def _STB_apps_add_delete_app_in_shortcut(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/SecondClass/STB_add_delete_app_shortcut.json",
+            json_path=f"{self.folder_path}/SecondClass/add_delete_app_shortcut.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
@@ -61,7 +61,7 @@ class STB(item_strategy.Strategy):
 
     def _STB_apps_order_in_shortcut(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/SecondClass/STB_app_order_in_shortcut.json",
+            json_path=f"{self.folder_path}/SecondClass/app_order_in_shortcut.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")

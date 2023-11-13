@@ -18,7 +18,7 @@ class ScreenLock(item_strategy.Strategy):
 
     def _screen_lock_set_password(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/screenLock_set_password.json",
+            json_path=f"{self.folder_path}/set_password.json",
             driver=self.driver,
         )
         self.reporter.add_category("screenlock")
@@ -26,7 +26,7 @@ class ScreenLock(item_strategy.Strategy):
 
     def _screen_lock_change_password(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/screenLock_change_password.json",
+            json_path=f"{self.folder_path}/change_password.json",
             driver=self.driver,
         )
         self.reporter.add_category("screenlock")
@@ -34,7 +34,7 @@ class ScreenLock(item_strategy.Strategy):
 
     def _screen_lock_remove_password(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/screenLock_remove_password.json",
+            json_path=f"{self.folder_path}/remove_password.json",
             driver=self.driver,
         )
         self.reporter.add_category("screenlock")
@@ -42,7 +42,7 @@ class ScreenLock(item_strategy.Strategy):
 
     def _screen_lock_reveal_password(self):
         self.event_gen.generate_event(
-            json_path="./option_file/ScreenLock/screenLock_reveal_password.json",
+            json_path=f"{self.folder_path}/reveal_password.json",
             driver=self.driver,
         )
         self.reporter.add_category("screenlock")

@@ -17,27 +17,27 @@ class Timer(item_strategy.Strategy):
 
     def _STB_timer_start_ring(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_timer_start_ring.json",
+            json_path=f"{self.folder_path}/start_ring.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB timer-start to wait the bell ring")
+        self.reporter.test_case("timer-start to wait the bell ring")
 
     def _STB_timer_pause_resume_reset(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_timer_pause_resume_reset.json",
+            json_path=f"{self.folder_path}/pause_resume_reset.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB timer-pause & resume & reset button")
+        self.reporter.test_case("timer-pause & resume & reset button")
 
     def _STB_timer_expand(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_timer_expand.json",
+            json_path=f"{self.folder_path}/expand.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB timer-expand the timer window")
+        self.reporter.test_case("timer-expand the timer window")
 
     def run_all(self):
         self.reporter.test_title("---STB Tool - Stopwatch---")

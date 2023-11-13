@@ -23,75 +23,75 @@ class Marker(item_strategy.Strategy):
 
     def _STB_marker_selector(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_marker_selector.json",
+            json_path=f"{self.folder_path}/selector.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB marker-selector")
+        self.reporter.test_case("marker-selector")
 
     def _STB_marker_pen(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_marker_pen.json",
+            json_path=f"{self.folder_path}/pen.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB marker-pen")
+        self.reporter.test_case("marker-pen")
 
     def _STB_marker_highlighter(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_marker_highlighter.json",
+            json_path=f"{self.folder_path}/highlighter.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB marker-highlighter")
+        self.reporter.test_case("marker-highlighter")
 
     def _STB_marker_eraser(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_marker_eraser.json",
+            json_path=f"{self.folder_path}/eraser.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB marker-eraser")
+        self.reporter.test_case("marker-eraser")
 
     def _STB_marker_undo_redo(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_marker_undo_redo.json",
+            json_path=f"{self.folder_path}/undo_redo.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB marker-undo & redo")
+        self.reporter.test_case("marker-undo & redo")
 
     def _STB_marker_delete(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_marker_delete.json",
+            json_path=f"{self.folder_path}/delete.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB marker-delete")
+        self.reporter.test_case("marker-delete")
 
     def _STB_marker_save(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_marker_save.json",
+            json_path=f"{self.folder_path}/save.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB marker-save")
+        self.reporter.test_case("marker-save")
 
     def _STB_marker_close(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_marker_close.json",
+            json_path=f"{self.folder_path}/close.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB marker-close")
+        self.reporter.test_case("marker-close")
 
     def _STB_marker_moving(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_marker_moving.json",
+            json_path=f"{self.folder_path}/moving.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB marker-moving")
+        self.reporter.test_case("marker-moving")
 
     def run_all(self):
         self.reporter.test_title("---STB Tool - Marker---")

@@ -16,7 +16,7 @@ class WallPaper(item_strategy.Strategy):
 
     def _wallpaper_by_default(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/wallpaper_by_default.json",
+            json_path=f"{self.folder_path}/change_by_default.json",
             driver=self.driver,
         )
         self.reporter.add_category("wallpaper")
@@ -24,7 +24,7 @@ class WallPaper(item_strategy.Strategy):
 
     def _wallpaper_by_update(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/wallpaper_by_update.json",
+            json_path=f"{self.folder_path}/change_by_update.json",
             driver=self.driver,
         )
         self.reporter.add_category("wallpaper")

@@ -19,43 +19,43 @@ class Quicksettings(item_strategy.Strategy):
 
     def _STB_quicksetting_backlight(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_quicksetting_backlight.json",
+            json_path=f"{self.folder_path}/backlight.json",
             driver=self.driver,
         )
         self.reporter.add_category("quicksettings")
-        self.reporter.test_case("STB quicksetting - backlight")
+        self.reporter.test_case("backlight")
 
     def _STB_quicksetting_volume(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_quicksetting_volume.json",
+            json_path=f"{self.folder_path}/volume.json",
             driver=self.driver,
         )
         self.reporter.add_category("quicksettings")
-        self.reporter.test_case("STB quicksetting - volume")
+        self.reporter.test_case("volume")
 
     def _STB_quicksetting_auto_brightness(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_quicksetting_auto_brightness.json",
+            json_path=f"{self.folder_path}/auto_brightness.json",
             driver=self.driver,
         )
         self.reporter.add_category("quicksettings")
-        self.reporter.test_case("STB quicksetting - autobrightness")
+        self.reporter.test_case("autobrightness")
 
     def _STB_quicksetting_eye_care(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_quicksetting_eye_care.json",
+            json_path=f"{self.folder_path}/eye_care.json",
             driver=self.driver,
         )
         self.reporter.add_category("quicksettings")
-        self.reporter.test_case("STB quicksetting - eye care")
+        self.reporter.test_case("eye care")
 
     def _STB_quicksetting_color_temperature(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_quicksetting_color_temperature.json",
+            json_path=f"{self.folder_path}/color_temperature.json",
             driver=self.driver,
         )
         self.reporter.add_category("quicksettings")
-        self.reporter.test_case("STB quicksetting - color temperature")
+        self.reporter.test_case("color temperature")
 
     def run_all(self):
         self.reporter.test_title("---STB - QuickSetting---")

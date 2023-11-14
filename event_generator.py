@@ -9,8 +9,6 @@ import json
 from selenium.common.exceptions import NoSuchElementException
 from gesture import Gesture
 
-# entity log
-
 
 def read_json(json_path: str) -> dict:
     with open(json_path, encoding="utf-8") as flow:
@@ -170,10 +168,17 @@ class EventGen:
                     bottom = bounds["bottom"]
                     element_image = screenshot.crop((left, top, right, bottom))
                     filename = event["args"][-1]
-                    element_image.show()
                     element_image.save(f"{filename}.png")
                 else:
                     logging.error(f"{element} is not found")
+
+            case "stay_sign_in_microsoft":
+                time.sleep(3)
+                if driver(resourceId="KmsiCheckboxField").exists:
+                    gesture.tap(driver(resourceId="KmsiCheckboxField"))
+                    gesture.tap(driver(resourceId="idSIButton9"))
+                else:
+                    pass
 
             case "swipe_up":
                 gesture.swipe_up()
@@ -586,11 +591,3 @@ class EventGen:
 
             case _:
                 logging.warning(msg=f"gesture type: {json_gesture} not defined.")
-
-
-if __name__ == "__main__":
-    logging.basicConfig(
-        level=logging.DEBUG,
-        format="%(asctime)s %(levelname)-2s %(message)s",
-        datefmt="%Y%m%d %H:%M:%S",
-    )

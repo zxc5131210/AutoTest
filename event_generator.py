@@ -144,6 +144,11 @@ class EventGen:
                 keyword = event["args"][-1]
                 gesture.send_keys(element, keyword)
 
+            case "sendKey_byClassName":
+                element = driver(className=json_element)
+                keyword = event["args"][-1]
+                gesture.send_keys(element, keyword)
+
             case "clearKey_byID":
                 element = driver(resourceId=json_element)
                 gesture.clear_keys(element)
@@ -152,6 +157,23 @@ class EventGen:
                 time.sleep(3)
                 filename = event["args"][-1]
                 gesture.screenshot(f"./{filename}.png")
+
+            case "crop_byID":
+                element = driver(resourceId=json_element)
+                if element.wait(timeout=10.0):
+                    time.sleep(3)
+                    screenshot = driver.screenshot(format="pillow")
+                    bounds = element.info["bounds"]
+                    left = bounds["left"]
+                    top = bounds["top"]
+                    right = bounds["right"]
+                    bottom = bounds["bottom"]
+                    element_image = screenshot.crop((left, top, right, bottom))
+                    filename = event["args"][-1]
+                    element_image.show()
+                    element_image.save(f"{filename}.png")
+                else:
+                    logging.error(f"{element} is not found")
 
             case "swipe_up":
                 gesture.swipe_up()

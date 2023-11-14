@@ -85,26 +85,26 @@
         },
         {
             "sequence": 10,
+            "describe": "tap 'google SSO' button to the login page",
+            "element": "com.viewsonic.authenticator:id/google",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 11,
             "describe": "input user name",
-            "element": "com.viewsonic.authenticator:id/username",
+            "element": "identifierId",
             "gesture": "sendKey_byID",
             "args": [0,"vsmvbtest@gmail.com"],
             "x": "",
             "y": ""
         },
         {
-            "sequence": 11,
-            "describe": "input user password",
-            "element": "com.viewsonic.authenticator:id/password",
-            "gesture": "sendKey_byID",
-            "args": [0,"vsMVBtest!1"],
-            "x": "",
-            "y": ""
-        },
-        {
             "sequence": 12,
-            "describe": "tap 'sign in' button to login",
-            "element": "com.viewsonic.authenticator:id/login",
+            "describe": "tap 'Next' button",
+            "element": "identifierNext",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -112,6 +112,33 @@
         },
         {
             "sequence": 13,
+            "describe": "wait for password text view",
+            "element": "",
+            "gesture": "time_wait",
+            "args": "5",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 14,
+            "describe": "input password",
+            "element": "android.widget.EditText",
+            "gesture": "sendKey_byClassName",
+            "args": ["vsMVBtest"],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 15,
+            "describe": "tap go to login account",
+            "element": "Go",
+            "gesture": "tap_byDescription",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 16,
             "describe": "crop avatar image to compare",
             "element": "com.viewsonic.vlauncher:id/avatar",
             "gesture": "crop_byID",
@@ -122,8 +149,8 @@
             "y": ""
         },
         {
-            "sequence": 14,
-            "describe": "compare two screenshots different to verify login success",
+            "sequence": 17,
+            "describe": "compare two screenshots different to verify auto brightness",
             "element": [
                 "compareshot_1.png",
                 "compareshot_2.png"

@@ -25,6 +25,14 @@ class Authenticator(item_strategy.Strategy):
         self.reporter.add_category("authenticator")
         self.reporter.test_case("login by myviewboard account")
 
+    def _login_by_google(self):
+        self.event_gen.generate_event(
+            json_path=f"{self.folder_path}/login_by_google.json",
+            driver=self.driver,
+        )
+        self.reporter.add_category("authenticator")
+        self.reporter.test_case("login by google account")
+
     def run_all(self):
         self.reporter.test_title("---Authenticator---")
 
@@ -39,7 +47,7 @@ class Authenticator(item_strategy.Strategy):
                 case "1":
                     self._login_by_myviewboard()
                 case "2":
-                    pass
+                    self._login_by_google()
                 case "3":
                     pass
                 case "4":

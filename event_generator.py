@@ -8,6 +8,7 @@ import time
 import json
 from selenium.common.exceptions import NoSuchElementException
 from gesture import Gesture
+from id_locator import locator
 
 
 def read_json(json_path: str) -> dict:
@@ -89,7 +90,8 @@ class EventGen:
         match json_gesture:
             case "open_activity":
                 try:
-                    gesture.open_activity(json_element)
+                    app = [locator[key] for key in json_element]
+                    gesture.open_activity(app)
                     time.sleep(3)
                 except NoSuchElementException:
                     pass
@@ -99,13 +101,14 @@ class EventGen:
                 gesture.tap(element)
 
             case "open_hot_seat_all_app":
-                elements = driver(resourceId=json_element)
+                elements = driver(resourceId=locator[json_element])
                 for element in elements:
                     gesture.tap(element)
                     time.sleep(3)
                     gesture.home_page()
 
             case "tap_byID":
+                json_element = locator[json_element]
                 element = driver(resourceId=json_element)
                 gesture.tap(element)
 
@@ -124,7 +127,7 @@ class EventGen:
                 gesture.tap(element)
 
             case "get_element_text":
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 text = gesture.get_element_text(element)
                 gesture.compare_different_list.append(text)
 
@@ -136,9 +139,11 @@ class EventGen:
                 args=[message(str)]
                 """
                 if isinstance(event["args"][0], int):
-                    element = driver(resourceId=json_element, instance=event["args"][0])
+                    element = driver(
+                        resourceId=locator[json_element], instance=event["args"][0]
+                    )
                 else:
-                    element = driver(resourceId=json_element)
+                    element = driver(resourceId=locator[json_element])
                 keyword = event["args"][-1]
                 gesture.send_keys(element, keyword)
 
@@ -148,7 +153,7 @@ class EventGen:
                 gesture.send_keys(element, keyword)
 
             case "clearKey_byID":
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 gesture.clear_keys(element)
 
             case "screenshot":
@@ -157,7 +162,7 @@ class EventGen:
                 gesture.screenshot(f"./{filename}.png")
 
             case "crop_byID":
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 if element.wait(timeout=10.0):
                     time.sleep(3)
                     screenshot = driver.screenshot(format="pillow")
@@ -193,29 +198,29 @@ class EventGen:
                 gesture.swipe_down()
 
             case "swipe_left_element":
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 gesture.swipe_left(element)
 
             case "swipe_right_element":
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 gesture.swipe_right(element)
 
             case "swipe_up_element":
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 gesture.swipe_up(element)
 
             case "swipe_down_element":
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 gesture.swipe_down(element)
 
             case "drag_element_to_screen_edge":
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 direction = event["args"]
                 gesture.drag_element_to_screen_edge(element, direction=direction)
                 time.sleep(2)
 
             case "get_element_location":
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 gesture.get_element_location(element)
 
             case "compare_location_different":
@@ -261,7 +266,7 @@ class EventGen:
                 """
                 if verify not find the element = True, args ==False
                 """
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 if element.exists:
                     pass
                 else:
@@ -298,17 +303,17 @@ class EventGen:
                     gesture.tap(driver(text="com.viewsonic.wallpaperpicker"))
                     gesture.tap(driver(resourceId="android:id/button_always"))
 
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 first_element = element[1]
                 gesture.tap(first_element)
 
             case "change_wallpaper_second":
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 first_element = element[2]
                 gesture.tap(first_element)
 
             case "stopwatch_lap":
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 for lap in range(10):
                     gesture.tap(element)
 
@@ -333,7 +338,7 @@ class EventGen:
                 gesture.check_background_activities(json_element)
 
             case "recent_app_clear":
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 if element.exists:
                     element.click()
                 else:
@@ -488,8 +493,8 @@ class EventGen:
             case "STB_current_app_compare":
                 dictionary = gesture.current_app()
                 if (
-                    dictionary["package"] == json_element[0]
-                    and dictionary["activity"] == json_element[1]
+                    dictionary["package"] == locator[json_element[0]]
+                    and dictionary["activity"] == locator[json_element[1]]
                 ):
                     pass
                 else:
@@ -555,7 +560,9 @@ class EventGen:
             case "tap_by_device_model":
                 device = gesture.get_device_info()
                 device_model = device["model"]
-                element = driver(resourceId=json_element).child(text=device_model)
+                element = driver(resourceId=locator[json_element]).child(
+                    text=device_model
+                )
                 gesture.tap(element)
 
             case "time_wait":
@@ -568,7 +575,7 @@ class EventGen:
                 gesture.compare_images_pixel(compare_1, compare_2)
 
             case "verify_text":
-                title_name = driver(resourceId=json_element).info["text"]
+                title_name = driver(resourceId=locator[json_element]).info["text"]
                 if title_name == event["args"]:
                     pass
                 else:
@@ -585,9 +592,9 @@ class EventGen:
                 gesture.delete_file(json_element)
 
             case "end_activity":
-                gesture.close_app(json_element)
+                gesture.close_app(locator[json_element])
                 gesture.home_page()
-                gesture.clean_activity(json_element)
+                gesture.clean_activity(locator[json_element])
 
             case _:
                 logging.warning(msg=f"gesture type: {json_gesture} not defined.")

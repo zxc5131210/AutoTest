@@ -6,6 +6,7 @@ import sys
 import subprocess
 import uiautomator2 as u2
 import abstract_reporter
+from id_locator import locator
 from html_runner import HTMLReporter
 from option_file.ScreenLock.option import ScreenLock
 from option_file.Wallpaper.option import WallPaper
@@ -40,7 +41,7 @@ abstract_reporter.FW_VERSION = subprocess.run(
 app_list = {
     "vlauncher": "com.viewsonic.vlauncher",
     "STB": "com.viewsonic.sidetoolbar",
-    "screenlock": "com.viewsonic.screenlock",
+    "screenlock": locator["screen_lock_package"],
     "quicksettings": "com.viewsonic.quicksettings",
     "wallpaper": "com.viewsonic.wallpaperpicker",
     "authenticator": "com.viewsonic.authenticator",

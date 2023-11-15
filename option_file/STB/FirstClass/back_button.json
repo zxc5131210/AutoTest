@@ -13,8 +13,8 @@
             "sequence": 2,
             "describe": "open TestApp",
             "element": [
-                "com.viewsonic.myapplication",
-                ".MainActivity"
+                "test_package",
+                "test_activity"
             ],
             "gesture": "open_activity",
             "args": "",
@@ -24,7 +24,7 @@
         {
             "sequence": 3,
             "describe": "expand STB",
-            "element": "com.viewsonic.sidetoolbar:id/flOpenBar",
+            "element": "STB",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -33,7 +33,7 @@
         {
             "sequence": 4,
             "describe": "tap back button on STB",
-            "element": "com.viewsonic.sidetoolbar:id/imgBtnBack",
+            "element": "STB_btn_back",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -51,7 +51,7 @@
         {
             "sequence": 6,
             "describe": "uninstall the TestApp",
-            "element": "com.viewsonic.myapplication",
+            "element": "test_package",
             "gesture": "uninstall_app",
             "args": "",
             "x": "",

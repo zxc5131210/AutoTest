@@ -12,7 +12,7 @@
         {
             "sequence": 2,
             "describe": "expand STB",
-            "element": "com.viewsonic.sidetoolbar:id/flOpenBar",
+            "element": "STB",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -21,7 +21,7 @@
         {
             "sequence": 3,
             "describe": "expand all apps on STB",
-            "element": "com.viewsonic.sidetoolbar:id/imgBtnAllApps",
+            "element": "STB_btn_all_apps",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -30,7 +30,7 @@
         {
             "sequence": 4,
             "describe": "edit apps button in all apps",
-            "element": "com.viewsonic.sidetoolbar:id/iv_all_app_edit_status",
+            "element": "STB_btn_edit_apps",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -39,7 +39,7 @@
         {
             "sequence": 5,
             "describe": "add the first app on second class",
-            "element": "com.viewsonic.sidetoolbar:id/RlAllAppsTagOne",
+            "element": "STB_btn_apps_tag_one",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -48,7 +48,7 @@
         {
             "sequence": 6,
             "describe": "add the second app on second class",
-            "element": "com.viewsonic.sidetoolbar:id/RlAllAppsTagTwo",
+            "element": "STB_btn_apps_tag_two",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -57,7 +57,7 @@
         {
             "sequence": 7,
             "describe": "add the third app on second class",
-            "element": "com.viewsonic.sidetoolbar:id/RlAllAppsTagThree",
+            "element": "STB_btn_apps_tag_three",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -66,7 +66,7 @@
         {
             "sequence": 8,
             "describe": "tap homepage button to return homepage",
-            "element": "com.viewsonic.sidetoolbar:id/imgBtnHome",
+            "element": "STB_btn_home",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

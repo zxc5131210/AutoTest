@@ -3,7 +3,7 @@
         {
             "sequence": 1,
             "describe": "expand STB",
-            "element": "com.viewsonic.sidetoolbar:id/flOpenBar",
+            "element": "STB",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -12,7 +12,7 @@
         {
             "sequence": 2,
             "describe": "expand quicksetting",
-            "element": "com.viewsonic.sidetoolbar:id/imgBtnQuickSettings",
+            "element": "STB_btn_quicksettings",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -21,7 +21,7 @@
         {
             "sequence": 3,
             "describe": "turn volume to the minimum",
-            "element": "com.viewsonic.quicksettings:id/sbVolume",
+            "element": "quicksettings_volume",
             "gesture": "swipe_left_element",
             "args": "",
             "x": "",
@@ -39,7 +39,7 @@
         {
             "sequence": 5,
             "describe": "turn volume to the maximum",
-            "element": "com.viewsonic.quicksettings:id/sbVolume",
+            "element": "quicksettings_volume",
             "gesture": "swipe_right_element",
             "args": "",
             "x": "",

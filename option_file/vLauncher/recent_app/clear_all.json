@@ -3,7 +3,7 @@
         {
             "sequence": 1,
             "describe": "expand STB",
-            "element": "com.viewsonic.sidetoolbar:id/flOpenBar",
+            "element": "STB",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

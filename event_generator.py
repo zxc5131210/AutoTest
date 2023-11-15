@@ -341,7 +341,7 @@ class EventGen:
                 gesture.install_app(json_element)
 
             case "uninstall_app":
-                gesture.uninstall_app(json_element)
+                gesture.uninstall_app(locator[json_element])
 
             case "is_activity_background":
                 gesture.get_overview_activities()
@@ -412,7 +412,7 @@ class EventGen:
                         self.reporter.fail_step(msg="Not Found App")
 
             case "STB_secondClass_initialization":
-                gesture.tap(driver(resourceId="com.viewsonic.sidetoolbar:id/flOpenBar"))
+                gesture.tap(driver(resourceId=locator["STB"]))
                 if (
                     driver(
                         resourceId="com.viewsonic.sidetoolbar:id/RlThirdPartyApp1"
@@ -424,72 +424,46 @@ class EventGen:
                         resourceId="com.viewsonic.sidetoolbar:id/imgViewAddApp3"
                     ).exists
                 ):
-                    gesture.tap(
-                        driver(resourceId="com.viewsonic.sidetoolbar:id/imgBtnAllApps")
-                    )
-                    gesture.tap(
-                        driver(
-                            resourceId="com.viewsonic.sidetoolbar:id/iv_all_app_edit_status"
-                        )
-                    )
+                    gesture.tap(driver(resourceId=locator["STB_btn_all_apps"]))
+                    gesture.tap(driver(resourceId=locator["STB_btn_edit_apps"]))
                     gesture.tap(
                         driver(
                             resourceId="com.viewsonic.sidetoolbar:id/clApp1Container"
                         )
                     )
                     gesture.tap(
-                        driver(
-                            resourceId="com.viewsonic.sidetoolbar:id/clApp2Container"
-                        )
+                        driver(resourceId=locator["STB_btn_apps_container_two"])
                     )
                     gesture.tap(
                         driver(
                             resourceId="com.viewsonic.sidetoolbar:id/clApp3Container"
                         )
                     )
-                    gesture.tap(
-                        driver(resourceId="com.viewsonic.sidetoolbar:id/imgBtnHome")
-                    )
+                    gesture.tap(driver(resourceId=locator["STB_btn_home"]))
                 else:
-                    gesture.tap(
-                        driver(resourceId="com.viewsonic.sidetoolbar:id/imgBtnHome")
-                    )
+                    gesture.tap(driver(resourceId=locator["STB_btn_home"]))
 
             case "STB_ThirdClass_initialization":
-                gesture.tap(driver(resourceId="com.viewsonic.sidetoolbar:id/flOpenBar"))
+                gesture.tap(driver(resourceId=locator["STB"]))
                 if (
-                    driver(
-                        resourceId="com.viewsonic.sidetoolbar:id/imgViewAddTool1"
-                    ).exists
+                    driver(resourceId=locator["STB_btn_tools_shortcut_one"]).exists
                     or driver(
                         resourceId="com.viewsonic.sidetoolbar:id/imgViewAddTool2"
                     ).exists
                 ):
+                    gesture.tap(driver(resourceId=locator["STB_btn_all_tools"]))
+                    gesture.tap(driver(resourceId=locator["STB_btn_edit_tools"]))
                     gesture.tap(
-                        driver(resourceId="com.viewsonic.sidetoolbar:id/imgBtnAllTools")
-                    )
-                    gesture.tap(
-                        driver(
-                            resourceId="com.viewsonic.sidetoolbar:id/iv_all_tools_edit_status"
-                        )
-                    )
-                    gesture.tap(
-                        driver(
-                            resourceId="com.viewsonic.sidetoolbar:id/imgViewAddTool1"
-                        )
+                        driver(resourceId=locator["STB_btn_tools_shortcut_one"])
                     )
                     gesture.tap(
                         driver(
                             resourceId="com.viewsonic.sidetoolbar:id/imgViewAddTool2"
                         )
                     )
-                    gesture.tap(
-                        driver(resourceId="com.viewsonic.sidetoolbar:id/imgBtnHome")
-                    )
+                    gesture.tap(driver(resourceId=locator["STB_btn_home"]))
                 else:
-                    gesture.tap(
-                        driver(resourceId="com.viewsonic.sidetoolbar:id/imgBtnHome")
-                    )
+                    gesture.tap(driver(resourceId=locator["STB_btn_home"]))
 
             case "STB_spotlight_initialization":
                 driver().pinch_in(percent=10, steps=10)

@@ -3,7 +3,7 @@
         {
             "sequence": 1,
             "describe": "tap backlight on desktop",
-            "element": "com.viewsonic.vlauncher:id/backlight",
+            "element": "vlauncher_btn_backlight",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -12,7 +12,7 @@
         {
             "sequence": 2,
             "describe": "setting auto brightness to manual",
-            "element": "com.viewsonic.vlauncher:id/manual",
+            "element": "vlauncher_btn_backlight_manual",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -30,7 +30,7 @@
         {
             "sequence": 4,
             "describe": "expand STB",
-            "element": "com.viewsonic.sidetoolbar:id/flOpenBar",
+            "element": "STB",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -40,7 +40,7 @@
         {
             "sequence": 5,
             "describe": "expand quicksetting",
-            "element": "com.viewsonic.sidetoolbar:id/imgBtnQuickSettings",
+            "element": "STB_btn_quicksettings",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -49,7 +49,7 @@
         {
             "sequence": 6,
             "describe": "turn the brightness to the minimum",
-            "element": "com.viewsonic.quicksettings:id/sbBacklight",
+            "element": "quicksettings_backlight",
             "gesture": "swipe_left_element",
             "args": "",
             "x": "",
@@ -69,7 +69,7 @@
         {
             "sequence": 8,
             "describe": "change to display page",
-            "element": "com.viewsonic.quicksettings:id/tabBtnDisplay",
+            "element": "quicksettings_display_page",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -78,7 +78,7 @@
         {
             "sequence": 9,
             "describe": "switch on the auto brightness",
-            "element": "com.viewsonic.quicksettings:id/swAutoBrightness",
+            "element": "quicksettings_autobrightness",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -87,7 +87,7 @@
         {
             "sequence": 10,
             "describe": "change to input page",
-            "element": "com.viewsonic.quicksettings:id/tabBtnInput",
+            "element": "quicksettings_input_page",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

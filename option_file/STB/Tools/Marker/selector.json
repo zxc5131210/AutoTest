@@ -3,7 +3,7 @@
         {
             "sequence": 1,
             "describe": "expand STB",
-            "element": "com.viewsonic.sidetoolbar:id/flOpenBar",
+            "element": "STB",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -12,7 +12,7 @@
         {
             "sequence": 2,
             "describe": "expand all tools",
-            "element": "com.viewsonic.sidetoolbar:id/imgBtnAllTools",
+            "element": "STB_btn_all_tools",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -49,8 +49,8 @@
             "sequence": 6,
             "describe": "compare current app is myViewBoard to verify selector can select",
             "element": [
-                "com.mvbcast.crosswalk",
-                ".EulaActivity"
+                "display_package",
+                "display_activity"
             ],
             "gesture": "STB_current_app_compare",
             "args": "",

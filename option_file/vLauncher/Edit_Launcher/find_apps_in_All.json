@@ -57,7 +57,7 @@
         {
             "sequence": 7,
             "describe": "uninstall TeatApp",
-            "element": "com.viewsonic.myapplication",
+            "element": "test_package",
             "gesture": "uninstall_app",
             "args": "",
             "x": "",

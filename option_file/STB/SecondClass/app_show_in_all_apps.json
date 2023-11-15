@@ -12,7 +12,7 @@
         {
             "sequence": 2,
             "describe": "expand STB",
-            "element": "com.viewsonic.sidetoolbar:id/flOpenBar",
+            "element": "STB",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -21,7 +21,7 @@
         {
             "sequence": 3,
             "describe": "expand all apps on STB",
-            "element": "com.viewsonic.sidetoolbar:id/imgBtnAllApps",
+            "element": "STB_btn_all_apps",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -48,7 +48,7 @@
         {
             "sequence": 6,
             "describe": "tap homepage button to return homepage",
-            "element": "com.viewsonic.sidetoolbar:id/imgBtnHome",
+            "element": "STB_btn_home",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -57,7 +57,7 @@
         {
             "sequence": 7,
             "describe": "uninstall the TestApp",
-            "element": "com.viewsonic.myapplication",
+            "element": "test_package",
             "gesture": "uninstall_app",
             "args": "",
             "x": "",

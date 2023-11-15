@@ -12,7 +12,7 @@
         {
             "sequence": 2,
             "describe": "expand STB",
-            "element": "com.viewsonic.sidetoolbar:id/flOpenBar",
+            "element": "STB",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -21,7 +21,7 @@
         {
             "sequence": 3,
             "describe": "expand all tools on STB",
-            "element": "com.viewsonic.sidetoolbar:id/imgBtnAllTools",
+            "element": "STB_btn_all_tools",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -30,7 +30,7 @@
         {
             "sequence": 4,
             "describe": "edit tools button in all tools",
-            "element": "com.viewsonic.sidetoolbar:id/iv_all_tools_edit_status",
+            "element": "STB_btn_edit_tools",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -39,7 +39,7 @@
         {
             "sequence": 5,
             "describe": "add the first tools on third class",
-            "element": "com.viewsonic.sidetoolbar:id/RlAllToolsTagOne",
+            "element": "STB_btn_tools_tag_one",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -48,7 +48,7 @@
         {
             "sequence": 6,
             "describe": "add the second tools on third class",
-            "element": "com.viewsonic.sidetoolbar:id/RlAllToolsTagTwo",
+            "element": "STB_btn_tools_tag_two",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -57,7 +57,7 @@
         {
             "sequence": 7,
             "describe": "tap homepage button to return homepage",
-            "element": "com.viewsonic.sidetoolbar:id/imgBtnHome",
+            "element": "STB_btn_home",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

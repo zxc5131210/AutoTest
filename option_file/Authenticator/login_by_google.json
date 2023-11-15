@@ -3,7 +3,7 @@
         {
             "sequence": 1,
             "describe": "tap avatar to logout",
-            "element": "com.viewsonic.vlauncher:id/avatar",
+            "element": "vlauncher_avatar",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -12,7 +12,7 @@
         {
             "sequence": 2,
             "describe": "tap 'sign out' button",
-            "element": "com.viewsonic.vlauncher:id/sign",
+            "element": "vlauncher_avatar_sign",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -21,7 +21,7 @@
         {
             "sequence": 3,
             "describe": "tap 'sign out' button on the popup",
-            "element": "com.viewsonic.vlauncher:id/logout_button",
+            "element": "vlauncher_avatar_btn_logout",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -30,7 +30,7 @@
         {
             "sequence": 4,
             "describe": "tap 'guest' button back to homepage",
-            "element": "com.viewsonic.vlauncher:id/btn_guest",
+            "element": "vlauncher_btn_guest",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -39,7 +39,7 @@
         {
             "sequence": 5,
             "describe": "crop avatar image to compare",
-            "element": "com.viewsonic.vlauncher:id/avatar",
+            "element": "vlauncher_avatar",
             "gesture": "crop_byID",
             "args": [
                 "compareshot_1"
@@ -50,7 +50,7 @@
         {
             "sequence": 6,
             "describe": "tap avatar to logout",
-            "element": "com.viewsonic.vlauncher:id/avatar",
+            "element": "vlauncher_avatar",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -59,7 +59,7 @@
         {
             "sequence": 7,
             "describe": "tap 'sign out' button",
-            "element": "com.viewsonic.vlauncher:id/sign",
+            "element": "vlauncher_avatar_sign",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -68,7 +68,7 @@
         {
             "sequence": 8,
             "describe": "tap 'sign out' button on the popup",
-            "element": "com.viewsonic.vlauncher:id/logout_button",
+            "element": "vlauncher_avatar_btn_logout",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -77,7 +77,7 @@
         {
             "sequence": 9,
             "describe": "tap 'sign in' button to the login page",
-            "element": "com.viewsonic.vlauncher:id/btn_signin",
+            "element": "vlauncher_btn_sign_in",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -86,7 +86,7 @@
         {
             "sequence": 10,
             "describe": "tap 'google SSO' button to the login page",
-            "element": "com.viewsonic.authenticator:id/google",
+            "element": "authenticator_btn_google",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -95,7 +95,7 @@
         {
             "sequence": 11,
             "describe": "input user name",
-            "element": "identifierId",
+            "element": "authenticator_text_google_account",
             "gesture": "sendKey_byID",
             "args": [0,"vsmvbtest@gmail.com"],
             "x": "",
@@ -104,7 +104,7 @@
         {
             "sequence": 12,
             "describe": "tap 'Next' button",
-            "element": "identifierNext",
+            "element": "authenticator_btn_google_next",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -140,7 +140,7 @@
         {
             "sequence": 16,
             "describe": "crop avatar image to compare",
-            "element": "com.viewsonic.vlauncher:id/avatar",
+            "element": "vlauncher_avatar",
             "gesture": "crop_byID",
             "args": [
                 "compareshot_2"

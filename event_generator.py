@@ -30,7 +30,7 @@ def delete_temporarily_screenshots():
 
 def crash_exclusion(driver):
     gesture = Gesture(driver)
-    guest_btn = driver(resourceId="com.viewsonic.vlauncher:id/btn_guest")
+    guest_btn = driver(resourceId=locator["vlauncher_btn_guest"])
     if guest_btn.exists:
         gesture.tap(guest_btn)
     else:
@@ -180,8 +180,18 @@ class EventGen:
             case "stay_sign_in_microsoft":
                 time.sleep(3)
                 if driver(resourceId="KmsiCheckboxField").exists:
-                    gesture.tap(driver(resourceId="KmsiCheckboxField"))
-                    gesture.tap(driver(resourceId="idSIButton9"))
+                    gesture.tap(
+                        driver(
+                            resourceId=locator["authenticator_microsoft_skip_checkbox"]
+                        )
+                    )
+                    gesture.tap(
+                        driver(
+                            resourceId=locator[
+                                "authenticator_btn_microsoft_skip_button"
+                            ]
+                        )
+                    )
                 else:
                     pass
 

@@ -10,6 +10,25 @@ locator = {
     "screen_lock_btn_edit": "com.viewsonic.screenlock:id/btnBottomLeft",
     "screen_lock_btn_remove": "com.viewsonic.screenlock:id/btnBottomRight",
     "screen_lock_btn_exit": "com.viewsonic.screenlock:id/btnBottomLeft",
-    "screen_lock_btn_reveal": "com.viewsonic.screenlock:id/btnRevealPassword"
-    #
+    "screen_lock_btn_reveal": "com.viewsonic.screenlock:id/btnRevealPassword",
+    # authenticator
+    "authenticator_myviewboard_account": "com.viewsonic.authenticator:id/username",
+    "authenticator_myviewboard_password": "com.viewsonic.authenticator:id/password",
+    "authenticator_myviewboard_btn_login": "com.viewsonic.authenticator:id/login",
+    "authenticator_btn_google": "com.viewsonic.authenticator:id/google",
+    "authenticator_btn_microsoft": "com.viewsonic.authenticator:id/microsoft",
+    "authenticator_text_google_account": "identifierId",
+    "authenticator_btn_google_next": "identifierNext",
+    "authenticator_text_microsoft_account": "i0116",
+    "authenticator_btn_microsoft_next": "idSIButton9",
+    "authenticator_text_google_password": "i0118",
+    "authenticator_btn_microsoft_sign_in": "idSIButton9",
+    "authenticator_microsoft_skip_checkbox": "KmsiCheckboxField",
+    "authenticator_btn_microsoft_skip_button": "idSIButton9",
+    # vlauncher
+    "vlauncher_avatar": "com.viewsonic.vlauncher:id/avatar",
+    "vlauncher_avatar_sign": "com.viewsonic.vlauncher:id/sign",
+    "vlauncher_avatar_btn_logout": "com.viewsonic.vlauncher:id/logout_button",
+    "vlauncher_btn_guest": "com.viewsonic.vlauncher:id/btn_guest",
+    "vlauncher_btn_sign_in": "com.viewsonic.vlauncher:id/btn_signin",
 }

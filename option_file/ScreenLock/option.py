@@ -22,7 +22,7 @@ class ScreenLock(item_strategy.Strategy):
             driver=self.driver,
         )
         self.reporter.add_category("screenlock")
-        self.reporter.test_case("Set screenLock Password")
+        self.reporter.test_case("Set ScreenLock Password")
 
     def _screen_lock_change_password(self):
         self.event_gen.generate_event(
@@ -30,7 +30,7 @@ class ScreenLock(item_strategy.Strategy):
             driver=self.driver,
         )
         self.reporter.add_category("screenlock")
-        self.reporter.test_case("Change screenLock Password")
+        self.reporter.test_case("Change ScreenLock Password")
 
     def _screen_lock_remove_password(self):
         self.event_gen.generate_event(
@@ -38,7 +38,7 @@ class ScreenLock(item_strategy.Strategy):
             driver=self.driver,
         )
         self.reporter.add_category("screenlock")
-        self.reporter.test_case("Change screenLock Password")
+        self.reporter.test_case("Change ScreenLock Password")
 
     def _screen_lock_reveal_password(self):
         self.event_gen.generate_event(
@@ -46,7 +46,7 @@ class ScreenLock(item_strategy.Strategy):
             driver=self.driver,
         )
         self.reporter.add_category("screenlock")
-        self.reporter.test_case("Reveal Password in screenLock")
+        self.reporter.test_case("Reveal Password in ScreenLock")
 
     def run_all(self):
         self.reporter.test_title("---ScreenLock---")

@@ -21,7 +21,7 @@
         {
             "sequence": 3,
             "describe": "setting backlight to min",
-            "element": "vlauncher_btn_backlight_seekbar",
+            "element": "vlauncher_backlight_seekbar",
             "gesture": "swipe_left_element",
             "args": "",
             "x": "",
@@ -41,7 +41,7 @@
         {
             "sequence": 5,
             "describe": "setting auto brightness",
-            "element": "com.viewsonic.vlauncher:id/auto",
+            "element": "vlauncher_btn_autobrightness",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

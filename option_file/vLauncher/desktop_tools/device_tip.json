@@ -3,7 +3,7 @@
          {
             "sequence": 1,
             "describe": "tap light icon to open device tip",
-            "element": "com.viewsonic.vlauncher:id/btnTip",
+            "element": "vlauncher_btn_tip",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -12,7 +12,7 @@
         {
             "sequence": 2,
             "describe": "find QR code to verify function success",
-            "element": "com.viewsonic.vlauncher:id/qr",
+            "element": "vlauncher_qr",
             "gesture": "findelements_ByID",
             "args": "",
             "x": "",
@@ -21,7 +21,7 @@
         {
             "sequence": 3,
             "describe": "tap close button to close the popup",
-            "element": "com.viewsonic.vlauncher:id/close",
+            "element": "vlauncher_btn_close",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

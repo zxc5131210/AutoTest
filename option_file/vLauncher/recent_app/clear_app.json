@@ -12,7 +12,7 @@
         {
             "sequence": 2,
             "describe": "open recent App",
-            "element": "com.viewsonic.sidetoolbar:id/imgBtnRecent",
+            "element": "STB_btn_recent",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -21,7 +21,7 @@
         {
             "sequence": 3,
             "describe": "tap 'clear all' button to initialize",
-            "element": "com.viewsonic.vlauncher:id/btn_clear_all",
+            "element": "STB_btn_recent_clear_all",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -30,7 +30,7 @@
         {
             "sequence": 4,
             "describe": "open every Apps on hot seat",
-            "element": "com.viewsonic.vlauncher:id/cell",
+            "element": "vlauncher_hots_eat",
             "gesture": "open_hot_seat_all_app",
             "args": "",
             "x": "",
@@ -48,7 +48,7 @@
         {
             "sequence": 6,
             "describe": "open recent App",
-            "element": "com.viewsonic.sidetoolbar:id/imgBtnRecent",
+            "element": "STB_btn_recent",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -57,7 +57,7 @@
         {
             "sequence": 7,
             "describe": "clear the last open App on recent app",
-            "element": "com.viewsonic.vlauncher:id/remove_task",
+            "element": "vlauncher_remove_task",
             "gesture": "recent_app_clear",
             "args": "",
             "x": "",

@@ -6,7 +6,7 @@ import sys
 import subprocess
 import uiautomator2 as u2
 import abstract_reporter
-from id_locator import locator
+from locator import locator
 from html_runner import HTMLReporter
 from option_file.ScreenLock.option import ScreenLock
 from option_file.Wallpaper.option import WallPaper
@@ -39,12 +39,12 @@ abstract_reporter.FW_VERSION = subprocess.run(
 ).stdout
 # Step 5 : Get every app version
 app_list = {
-    "vlauncher": "com.viewsonic.vlauncher",
-    "STB": "com.viewsonic.sidetoolbar",
+    "vlauncher": locator["vlauncher_package"],
+    "STB": locator["STB_package"],
     "screenlock": locator["screen_lock_package"],
-    "quicksettings": "com.viewsonic.quicksettings",
-    "wallpaper": "com.viewsonic.wallpaperpicker",
-    "authenticator": "com.viewsonic.authenticator",
+    "quicksettings": locator["quicksettings_package"],
+    "wallpaper": locator["wallpaper_package"],
+    "authenticator": locator["authenticator_package"],
 }
 for app_name, package_name in app_list.items():
     version_info = driver.app_info(package_name)

@@ -8,7 +8,7 @@ import time
 import json
 from selenium.common.exceptions import NoSuchElementException
 from gesture import Gesture
-from id_locator import locator
+from locator import locator
 
 
 def read_json(json_path: str) -> dict:
@@ -179,7 +179,9 @@ class EventGen:
 
             case "stay_sign_in_microsoft":
                 time.sleep(3)
-                if driver(resourceId="KmsiCheckboxField").exists:
+                if driver(
+                    resourceId=locator["authenticator_microsoft_skip_checkbox"]
+                ).exists:
                     gesture.tap(
                         driver(
                             resourceId=locator["authenticator_microsoft_skip_checkbox"]

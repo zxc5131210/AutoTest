@@ -21,7 +21,7 @@
         {
             "sequence": 3,
             "describe": "select first wallpaper",
-            "element": "com.viewsonic.wallpaperpicker:id/wallpaper_image",
+            "element": "wallpaper_image",
             "gesture": "change_wallpaper_first",
             "args": "",
             "x": "",
@@ -30,7 +30,7 @@
         {
             "sequence": 4,
             "describe": "set the first wallpaper",
-            "element": "com.viewsonic.wallpaperpicker:id/btn_set_wallpaper",
+            "element": "wallpaper_btn_set",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -68,7 +68,7 @@
         {
             "sequence": 8,
             "describe": "select the second wallpaper",
-            "element": "com.viewsonic.wallpaperpicker:id/wallpaper_image",
+            "element": "wallpaper_image",
             "gesture": "change_wallpaper_second",
             "args": "",
             "x": "",
@@ -77,7 +77,7 @@
         {
             "sequence": 9,
             "describe": "set the second wallpaper",
-            "element": "com.viewsonic.wallpaperpicker:id/btn_set_wallpaper",
+            "element": "wallpaper_btn_set",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -109,7 +109,7 @@
         {
             "sequence": 12,
             "describe": "clear wallpaper picker user data",
-            "element": "com.viewsonic.wallpaperpicker",
+            "element": "wallpaper_package",
             "gesture": "end_activity",
             "args": "",
             "x": "",

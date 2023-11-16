@@ -12,7 +12,7 @@
         {
             "sequence": 2,
             "describe": "open recent App",
-            "element": "com.viewsonic.sidetoolbar:id/imgBtnRecent",
+            "element": "STB_btn_recent",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -21,7 +21,7 @@
         {
             "sequence": 3,
             "describe": "tap clear All button",
-            "element": "com.viewsonic.vlauncher:id/btn_clear_all",
+            "element": "STB_btn_recent_clear_all",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

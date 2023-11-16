@@ -3,7 +3,7 @@
          {
             "sequence": 1,
             "describe": "tap ethernet icon to open settings ethernet",
-            "element": "com.viewsonic.vlauncher:id/btnEthernet",
+            "element": "vlauncher_btn_ethernet",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -13,8 +13,8 @@
             "sequence": 2,
             "describe": "compare activity to verify exit button",
             "element": [
-                "com.ifpdos.vsettings",
-                ".Settings$EthernetSettings"
+                "settings_package",
+                "settings_ethernet_activity"
             ],
             "gesture": "STB_current_app_compare",
             "args": "",

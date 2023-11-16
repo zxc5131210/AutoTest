@@ -3,7 +3,7 @@
          {
             "sequence": 1,
             "describe": "tap input source icon to open quicksettings",
-            "element": "com.viewsonic.vlauncher:id/btnInputSource",
+            "element": "vlauncher_btn_input_source",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

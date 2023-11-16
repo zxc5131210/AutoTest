@@ -75,7 +75,7 @@
         {
             "sequence": "9",
             "describe": "clear vLauncher user data",
-            "element": "com.viewsonic.vlauncher",
+            "element": "vlauncher_package",
             "gesture": "end_activity",
             "args": "",
             "x": "",

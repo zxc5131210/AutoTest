@@ -3,7 +3,7 @@
          {
             "sequence": 1,
             "describe": "tap time to open settings date & time",
-            "element": "com.viewsonic.vlauncher:id/time",
+            "element": "vlauncher_btn_time",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -13,8 +13,8 @@
             "sequence": 2,
             "describe": "compare activity to verify date and time button",
             "element": [
-                "com.ifpdos.vsettings",
-                ".Settings$TimeSettings"
+                "settings_package",
+                "settings_time_activity"
             ],
             "gesture": "STB_current_app_compare",
             "args": "",

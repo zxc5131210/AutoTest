@@ -3,7 +3,7 @@
          {
             "sequence": 1,
             "describe": "tap wifi icon to open settings wifi",
-            "element": "com.viewsonic.vlauncher:id/btnWifi",
+            "element": "vlauncher_btn_wifi",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -13,8 +13,8 @@
             "sequence": 2,
             "describe": "compare activity to verify exit button",
             "element": [
-                "com.ifpdos.vsettings",
-                ".Settings$WifiSettings"
+                "settings_package",
+                "settings_wifi_activity"
             ],
             "gesture": "STB_current_app_compare",
             "args": "",

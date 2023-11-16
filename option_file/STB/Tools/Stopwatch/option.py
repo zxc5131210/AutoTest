@@ -19,45 +19,45 @@ class Stopwatch(item_strategy.Strategy):
 
     def _STB_stopwatch_start_pause(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_stopwatch_start_pause.json",
+            json_path=f"{self.folder_path}/start_pause.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB stopwatch-start the stopwatch and pause it")
+        self.reporter.test_case("stopwatch-start the stopwatch and pause it")
 
     def _STB_stopwatch_lap(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_stopwatch_lap.json",
+            json_path=f"{self.folder_path}/lap.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB stopwatch-lap the stopwatch to record the seconds")
+        self.reporter.test_case("stopwatch-lap the stopwatch to record the seconds")
 
     def _STB_stopwatch_expand(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_stopwatch_expand.json",
+            json_path=f"{self.folder_path}/expand.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB stopwatch-expand the stopwatch window")
+        self.reporter.test_case("stopwatch-expand the stopwatch window")
 
     def _STB_stopwatch_resume_reset(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_stopwatch_resume_reset.json",
+            json_path=f"{self.folder_path}/resume_reset.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
         self.reporter.test_case(
-            "STB stopwatch-resume the stopwatch and reset the stopwatch to '00:00:00' "
+            "stopwatch-resume the stopwatch and reset the stopwatch to '00:00:00' "
         )
 
     def _STB_stopwatch_move(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/STB_stopwatch_move.json",
+            json_path=f"{self.folder_path}/move.json",
             driver=self.driver,
         )
         self.reporter.add_category("STB")
-        self.reporter.test_case("STB stopwatch-move")
+        self.reporter.test_case("stopwatch-move")
 
     def run_all(self):
         self.reporter.test_title("---STB Tool - Stopwatch---")

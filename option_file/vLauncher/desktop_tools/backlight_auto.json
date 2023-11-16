@@ -1,0 +1,92 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "describe": "tap backlight on desktop",
+            "element": "vlauncher_btn_backlight",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "setting auto brightness to manual",
+            "element": "vlauncher_btn_backlight_manual",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "setting backlight to min",
+            "element": "vlauncher_backlight_seekbar",
+            "gesture": "swipe_left_element",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "describe": "screenshot screen to compare",
+            "element": "",
+            "gesture": "screenshot",
+            "args": [
+                "compareshot_1"
+            ],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "describe": "setting auto brightness",
+            "element": "vlauncher_btn_autobrightness",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+                {
+            "sequence": 6,
+            "describe": "wait for 5 seconds let auto brightness action",
+            "element": "",
+            "gesture": "time_wait",
+            "args": "5",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 7,
+            "describe": "screenshot screen to compare",
+            "element": "",
+            "gesture": "screenshot",
+            "args": [
+                "compareshot_2"
+            ],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 8,
+            "describe": "compare two screenshots different to verify auto brightness",
+            "element": [
+                "compareshot_1.png",
+                "compareshot_2.png"
+            ],
+            "gesture": "compare_images_pixel",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 9,
+            "describe": "tap any location to close seekbar",
+            "element": "",
+            "gesture": "tap_byLocation",
+            "args": "",
+            "x": 0.5,
+            "y": 0.1
+        }
+    ]
+}

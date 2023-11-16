@@ -60,7 +60,7 @@ class HTMLReporter(AbstractReporter):
 
     def save_report(self) -> None:
         self.report.save_to_file(
-            f"./html_report/Automation{datetime.now().date()}.html"
+            f"./html_report/Automation_{datetime.now().date()}.html"
         )
         self.report_data.testcase = None
         self.report_data.steps = {}

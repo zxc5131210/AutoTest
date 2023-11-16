@@ -1,0 +1,101 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "describe": "expand STB",
+            "element": "STB",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "expand all tools",
+            "element": "STB_btn_all_tools",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "select Spotlight",
+            "element": "//*[@text='Spotlight']",
+            "gesture": "tap_byXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "describe": "initialize the spotlight status",
+            "element": "",
+            "gesture": "STB_spotlight_initialization",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "describe": "swipe right on seekbar to zoom in the spotlight",
+            "element": "spotlight_seekbar_zoom",
+            "gesture": "swipe_right_element",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 6,
+            "describe": "screenshot screen to compare",
+            "element": "",
+            "gesture": "screenshot",
+            "args": [
+                "compareshot_1"
+            ],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 7,
+            "describe": "swipe left on seekbar to zoom in the spotlight",
+            "element": "spotlight_seekbar_zoom",
+            "gesture": "swipe_left_element",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 8,
+            "describe": "screenshot screen to compare",
+            "element": "",
+            "gesture": "screenshot",
+            "args": [
+                "compareshot_2"
+            ],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 8,
+            "describe": "compare two screenshots different",
+            "element": [
+                "compareshot_1.png",
+                "compareshot_2.png"
+            ],
+            "gesture": "compare_images_pixel",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 9,
+            "describe": "return to homepage",
+            "element": "",
+            "gesture": "homepage",
+            "args": "",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

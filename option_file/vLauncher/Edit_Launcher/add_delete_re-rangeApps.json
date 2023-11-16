@@ -1,0 +1,85 @@
+{
+    "steps": [
+         {
+            "sequence": 1,
+            "describe": "long press to open menu",
+            "element": "",
+            "gesture": "long_press_location",
+            "args": "",
+            "x": 0.5,
+            "y": 0.1
+        },
+        {
+            "sequence": 2,
+            "describe": "choose 'edit launcher' option",
+            "element": "//*[@text='Edit Launcher']",
+            "gesture": "tap_byXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "delete first App on hot seat",
+            "element": "//*[@resource-id='com.viewsonic.vlauncher:id/shortcuts_view']/android.widget.RelativeLayout[1]/android.widget.ImageView[1]",
+            "gesture": "tap_byXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "describe": "back to re-range the hot seat",
+            "element": "",
+            "gesture": "back_btn",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "describe": "long press to open menu",
+            "element": "",
+            "gesture": "long_press_location",
+            "args": "",
+            "x": 0.5,
+            "y": 0.1
+        },
+        {
+            "sequence": 6,
+            "describe": "choose 'edit launcher' option",
+            "element": "//*[@text='Edit Launcher']",
+            "gesture": "tap_byXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 7,
+            "describe": "add 'myviewboard whiteborad' App on hot seat",
+            "element": "//*[@resource-id='com.viewsonic.vlauncher:id/all_app_cell_4']",
+            "gesture": "tap_byXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 8,
+            "describe": "back to re-range the hot seat",
+            "element": "",
+            "gesture": "back_btn",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": "9",
+            "describe": "clear vLauncher user data",
+            "element": "vlauncher_package",
+            "gesture": "end_activity",
+            "args": "",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

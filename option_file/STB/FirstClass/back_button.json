@@ -1,0 +1,61 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "describe": "install TestApp",
+            "element": "./file/test.apk",
+            "gesture": "install_app",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "open TestApp",
+            "element": [
+                "test_package",
+                "test_activity"
+            ],
+            "gesture": "open_activity",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "expand STB",
+            "element": "STB",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "describe": "tap back button on STB",
+            "element": "STB_btn_back",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "describe": "find the text='This is a text view' to verify the back button is success",
+            "element": "//*[@text='This is a text view']",
+            "gesture": "findelement_ByXpath",
+            "args": "False",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 6,
+            "describe": "uninstall the TestApp",
+            "element": "test_package",
+            "gesture": "uninstall_app",
+            "args": "",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

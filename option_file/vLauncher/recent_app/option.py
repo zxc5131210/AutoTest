@@ -16,7 +16,7 @@ class RecentApp(item_strategy.Strategy):
 
     def _recent_app_clear_app(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/recentApp_clear_app.json",
+            json_path=f"{self.folder_path}/clear_app.json",
             driver=self.driver,
         )
         self.reporter.add_category("vlauncher")
@@ -24,7 +24,7 @@ class RecentApp(item_strategy.Strategy):
 
     def _recent_app_clear_all_btn(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/recentApp_clear_all.json",
+            json_path=f"{self.folder_path}/clear_all.json",
             driver=self.driver,
         )
         self.reporter.add_category("vlauncher")

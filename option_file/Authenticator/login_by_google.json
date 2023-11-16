@@ -1,0 +1,164 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "describe": "tap avatar to logout",
+            "element": "vlauncher_avatar",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "tap 'sign out' button",
+            "element": "vlauncher_avatar_sign",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "tap 'sign out' button on the popup",
+            "element": "vlauncher_avatar_btn_logout",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "describe": "tap 'guest' button back to homepage",
+            "element": "vlauncher_btn_guest",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "describe": "crop avatar image to compare",
+            "element": "vlauncher_avatar",
+            "gesture": "crop_byID",
+            "args": [
+                "compareshot_1"
+            ],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 6,
+            "describe": "tap avatar to logout",
+            "element": "vlauncher_avatar",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 7,
+            "describe": "tap 'sign out' button",
+            "element": "vlauncher_avatar_sign",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 8,
+            "describe": "tap 'sign out' button on the popup",
+            "element": "vlauncher_avatar_btn_logout",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 9,
+            "describe": "tap 'sign in' button to the login page",
+            "element": "vlauncher_btn_sign_in",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 10,
+            "describe": "tap 'google SSO' button to the login page",
+            "element": "authenticator_btn_google",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 11,
+            "describe": "input user name",
+            "element": "authenticator_text_google_account",
+            "gesture": "sendKey_byID",
+            "args": [0,"vsmvbtest@gmail.com"],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 12,
+            "describe": "tap 'Next' button",
+            "element": "authenticator_btn_google_next",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 13,
+            "describe": "wait for password text view",
+            "element": "",
+            "gesture": "time_wait",
+            "args": "5",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 14,
+            "describe": "input password",
+            "element": "android.widget.EditText",
+            "gesture": "sendKey_byClassName",
+            "args": ["vsMVBtest"],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 15,
+            "describe": "tap go to login account",
+            "element": "Go",
+            "gesture": "tap_byDescription",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 16,
+            "describe": "crop avatar image to compare",
+            "element": "vlauncher_avatar",
+            "gesture": "crop_byID",
+            "args": [
+                "compareshot_2"
+            ],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 17,
+            "describe": "compare two screenshots different to verify login",
+            "element": [
+                "compareshot_1.png",
+                "compareshot_2.png"
+            ],
+            "gesture": "compare_images_pixel",
+            "args": "",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

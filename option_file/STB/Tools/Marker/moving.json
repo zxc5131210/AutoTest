@@ -1,0 +1,110 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "describe": "expand STB",
+            "element": "STB",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "expand all tools",
+            "element": "STB_btn_all_tools",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "select Marker",
+            "element": "//*[@text='Marker']",
+            "gesture": "tap_byXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "describe": "drag the marker bar up",
+            "element": "marker_bar",
+            "gesture": "drag_element_to_screen_edge",
+            "args": "up",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "describe": "screenshot screen to compare",
+            "element": "",
+            "gesture": "screenshot",
+            "args": [
+                "compareshot_1"
+            ],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 6,
+            "describe": "dump hierarchy elements",
+            "element": "STB",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 7,
+            "describe": "drag the marker bar down",
+            "element": "marker_bar",
+            "gesture": "drag_element_to_screen_edge",
+            "args": "down",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 8,
+            "describe": "screenshot screen to compare",
+            "element": "",
+            "gesture": "screenshot",
+            "args": [
+                "compareshot_2"
+            ],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 9,
+            "describe": "compare two screenshots different",
+            "element": [
+                "compareshot_1.png",
+                "compareshot_2.png"
+            ],
+            "gesture": "compare_images_pixel",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 10,
+            "describe": "dump hierarchy elements",
+            "element": "STB",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 11,
+            "describe": "tap close button to close the markers",
+            "element": "marker_btn_close",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

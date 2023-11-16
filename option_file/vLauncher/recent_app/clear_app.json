@@ -1,0 +1,76 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "describe": "expand STB",
+            "element": "STB",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "open recent App",
+            "element": "STB_btn_recent",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "tap 'clear all' button to initialize",
+            "element": "STB_btn_recent_clear_all",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "describe": "open every Apps on hot seat",
+            "element": "vlauncher_hots_eat",
+            "gesture": "open_hot_seat_all_app",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "describe": "expand STB",
+            "element": "STB",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 6,
+            "describe": "open recent App",
+            "element": "STB_btn_recent",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 7,
+            "describe": "clear the last open App on recent app",
+            "element": "vlauncher_remove_task",
+            "gesture": "recent_app_clear",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 8,
+            "describe": "back to homepage",
+            "element": "",
+            "gesture": "homepage",
+            "args": "",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

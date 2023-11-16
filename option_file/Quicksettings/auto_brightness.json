@@ -1,0 +1,138 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "describe": "tap backlight on desktop",
+            "element": "vlauncher_btn_backlight",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "setting auto brightness to manual",
+            "element": "vlauncher_btn_backlight_manual",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "tap any location to close the backlight",
+            "element": "",
+            "gesture": "tap_byLocation",
+            "args": "",
+            "x": 0.5,
+            "y": 0.1
+        },
+        {
+            "sequence": 4,
+            "describe": "expand STB",
+            "element": "STB",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+
+        {
+            "sequence": 5,
+            "describe": "expand quicksetting",
+            "element": "STB_btn_quicksettings",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 6,
+            "describe": "turn the brightness to the minimum",
+            "element": "quicksettings_backlight",
+            "gesture": "swipe_left_element",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 7,
+            "describe": "screenshot screen to compare",
+            "element": "",
+            "gesture": "screenshot",
+            "args": [
+                "compareshot_1"
+            ],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 8,
+            "describe": "change to display page",
+            "element": "quicksettings_display_page",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 9,
+            "describe": "switch on the auto brightness",
+            "element": "quicksettings_autobrightness",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 10,
+            "describe": "change to input page",
+            "element": "quicksettings_input_page",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 11,
+            "describe": "wait for 5 seconds let auto brightness action",
+            "element": "",
+            "gesture": "time_wait",
+            "args": "5",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 12,
+            "describe": "screenshot screen to compare",
+            "element": "",
+            "gesture": "screenshot",
+            "args": [
+                "compareshot_2"
+            ],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 13,
+            "describe": "compare two screenshots different to verify auto brightness",
+            "element": [
+                "compareshot_1.png",
+                "compareshot_2.png"
+            ],
+            "gesture": "compare_images_pixel",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 14,
+            "describe": "tap any location to close the quicksetting",
+            "element": "",
+            "gesture": "tap_byLocation",
+            "args": "",
+            "x": 0.5,
+            "y": 0.1
+        }
+    ]
+}

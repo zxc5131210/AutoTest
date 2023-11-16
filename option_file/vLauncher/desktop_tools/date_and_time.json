@@ -1,0 +1,34 @@
+{
+    "steps": [
+         {
+            "sequence": 1,
+            "describe": "tap time to open settings date & time",
+            "element": "vlauncher_btn_time",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "compare activity to verify date and time button",
+            "element": [
+                "settings_package",
+                "settings_time_activity"
+            ],
+            "gesture": "STB_current_app_compare",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "back to homepage",
+            "element": "",
+            "gesture": "back_btn",
+            "args": "",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

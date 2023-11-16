@@ -1,0 +1,76 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "describe": "expand STB",
+            "element": "STB",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "expand quicksetting",
+            "element": "STB_btn_quicksettings",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "change to display page",
+            "element": "quicksettings_display_page",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "swipe up the page to find color temperature",
+            "element": "",
+            "gesture": "swipe_up",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "describe": "tap default button to change temperature",
+            "element": "quicksettings_default_temperature",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "describe": "tap warm button to change temperature",
+            "element": "quicksettings_warm_temperature",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 6,
+            "describe": "tap cool button to change temperature",
+            "element": "quicksettings_cool_temperature",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 7,
+            "describe": "tap any location to close the quicksetting",
+            "element": "",
+            "gesture": "tap_byLocation",
+            "args": "",
+            "x": 0.5,
+            "y": 0.1
+        }
+    ]
+}

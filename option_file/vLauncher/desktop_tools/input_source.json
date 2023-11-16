@@ -1,0 +1,34 @@
+{
+    "steps": [
+         {
+            "sequence": 1,
+            "describe": "tap input source icon to open quicksettings",
+            "element": "vlauncher_btn_input_source",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "compare activity to verify input source button",
+            "element": [
+                "vlauncher_package",
+                "vlauncher_activity"
+            ],
+            "gesture": "STB_current_app_compare",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "tap any location to close quicksettings",
+            "element": "",
+            "gesture": "tap_byLocation",
+            "args": "",
+            "x": 0.5,
+            "y": 0.1
+        }
+    ]
+}

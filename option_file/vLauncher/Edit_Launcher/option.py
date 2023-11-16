@@ -16,7 +16,7 @@ class EditLauncher(item_strategy.Strategy):
 
     def _edit_launcher_add_app(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/editLauncher_add_delete_re-rangeApps.json",
+            json_path=f"{self.folder_path}/add_delete_re-rangeApps.json",
             driver=self.driver,
         )
         self.reporter.add_category("vlauncher")
@@ -24,7 +24,7 @@ class EditLauncher(item_strategy.Strategy):
 
     def _edit_launcher_find_all(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/editLauncher_find_apps_in_All.json",
+            json_path=f"{self.folder_path}/find_apps_in_All.json",
             driver=self.driver,
         )
         self.reporter.add_category("vlauncher")

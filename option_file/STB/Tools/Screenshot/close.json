@@ -1,0 +1,52 @@
+{
+  "steps": [
+    {
+      "sequence": 1,
+      "describe": "expand STB",
+      "element": "STB",
+      "gesture": "tap_byID",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 2,
+      "describe": "expand all tools",
+      "element": "STB_btn_all_tools",
+      "gesture": "tap_byID",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 3,
+      "describe": "select Screenshot",
+      "element": "//*[@text='Screenshot']",
+      "gesture": "tap_byXpath",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 4,
+      "describe": "tap 'Exit' button to close the screenshot tool",
+      "element": "screenshot_btn_exit",
+      "gesture": "tap_byID",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 5,
+      "describe": "compare activity to verify exit button",
+      "element": [
+          "vlauncher_package",
+          "vlauncher_activity"
+      ],
+      "gesture": "STB_current_app_compare",
+      "args": "",
+      "x": "",
+      "y": ""
+    }
+  ]
+}

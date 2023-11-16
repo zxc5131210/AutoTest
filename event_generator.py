@@ -8,8 +8,7 @@ import time
 import json
 from selenium.common.exceptions import NoSuchElementException
 from gesture import Gesture
-
-# entity log
+from locator import locator
 
 
 def read_json(json_path: str) -> dict:
@@ -31,7 +30,7 @@ def delete_temporarily_screenshots():
 
 def crash_exclusion(driver):
     gesture = Gesture(driver)
-    guest_btn = driver(resourceId="com.viewsonic.vlauncher:id/btn_guest")
+    guest_btn = driver(resourceId=locator["vlauncher_btn_guest"])
     if guest_btn.exists:
         gesture.tap(guest_btn)
     else:
@@ -46,6 +45,7 @@ class EventGen:
     def generate_event(self, json_path: str, driver):
         gesture = Gesture(driver)
         # initial setting
+        crash_exclusion(driver)
         gesture.home_page()
         event_flow = read_json(json_path)
         flow = event_flow["steps"]
@@ -57,10 +57,8 @@ class EventGen:
             location_x = event["x"]
             location_y = event["y"]
             try:
-                crash_exclusion(driver)
                 self.gesture_cases(
                     event,
-                    json_gesture,
                     driver,
                     json_element,
                     json_gesture,
@@ -82,7 +80,6 @@ class EventGen:
     def gesture_cases(
         self,
         event,
-        gesture,
         driver,
         json_element,
         json_gesture,
@@ -93,7 +90,8 @@ class EventGen:
         match json_gesture:
             case "open_activity":
                 try:
-                    gesture.open_activity(json_element)
+                    app = [locator[key] for key in json_element]
+                    gesture.open_activity(app)
                     time.sleep(3)
                 except NoSuchElementException:
                     pass
@@ -103,18 +101,23 @@ class EventGen:
                 gesture.tap(element)
 
             case "open_hot_seat_all_app":
-                elements = driver(resourceId=json_element)
+                elements = driver(resourceId=locator[json_element])
                 for element in elements:
                     gesture.tap(element)
                     time.sleep(3)
                     gesture.home_page()
 
             case "tap_byID":
+                json_element = locator[json_element]
                 element = driver(resourceId=json_element)
                 gesture.tap(element)
 
             case "tap_byLocation":
                 driver.click(location_x, location_y)
+
+            case "tap_byDescription":
+                element = driver(description=json_element)
+                gesture.tap(element)
 
             case "tap_byImage":
                 gesture.tap_image(json_element)
@@ -124,23 +127,75 @@ class EventGen:
                 gesture.tap(element)
 
             case "get_element_text":
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 text = gesture.get_element_text(element)
                 gesture.compare_different_list.append(text)
 
             case "sendKey_byID":
-                element = driver(resourceId=json_element)
+                """
+                if there are multiple numbers with the same ID.
+                args=[count(int), message(str)]
+                if ID is unique can only send message
+                args=[message(str)]
+                """
+                if isinstance(event["args"][0], int):
+                    element = driver(
+                        resourceId=locator[json_element], instance=event["args"][0]
+                    )
+                else:
+                    element = driver(resourceId=locator[json_element])
+                keyword = event["args"][-1]
+                gesture.send_keys(element, keyword)
+
+            case "sendKey_byClassName":
+                element = driver(className=json_element)
                 keyword = event["args"][-1]
                 gesture.send_keys(element, keyword)
 
             case "clearKey_byID":
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 gesture.clear_keys(element)
 
             case "screenshot":
                 time.sleep(3)
                 filename = event["args"][-1]
                 gesture.screenshot(f"./{filename}.png")
+
+            case "crop_byID":
+                element = driver(resourceId=locator[json_element])
+                if element.wait(timeout=10.0):
+                    time.sleep(3)
+                    screenshot = driver.screenshot(format="pillow")
+                    bounds = element.info["bounds"]
+                    left = bounds["left"]
+                    top = bounds["top"]
+                    right = bounds["right"]
+                    bottom = bounds["bottom"]
+                    element_image = screenshot.crop((left, top, right, bottom))
+                    filename = event["args"][-1]
+                    element_image.save(f"{filename}.png")
+                else:
+                    logging.error(f"{element} is not found")
+
+            case "stay_sign_in_microsoft":
+                time.sleep(3)
+                if driver(
+                    resourceId=locator["authenticator_microsoft_skip_checkbox"]
+                ).exists:
+                    gesture.tap(
+                        driver(
+                            resourceId=locator["authenticator_microsoft_skip_checkbox"]
+                        )
+                    )
+                    gesture.tap(
+                        driver(
+                            resourceId=locator[
+                                "authenticator_btn_microsoft_skip_button"
+                            ]
+                        )
+                    )
+                else:
+                    pass
 
             case "swipe_up":
                 gesture.swipe_up()
@@ -155,29 +210,29 @@ class EventGen:
                 gesture.swipe_down()
 
             case "swipe_left_element":
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 gesture.swipe_left(element)
 
             case "swipe_right_element":
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 gesture.swipe_right(element)
 
             case "swipe_up_element":
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 gesture.swipe_up(element)
 
             case "swipe_down_element":
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 gesture.swipe_down(element)
 
             case "drag_element_to_screen_edge":
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 direction = event["args"]
                 gesture.drag_element_to_screen_edge(element, direction=direction)
                 time.sleep(2)
 
             case "get_element_location":
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 gesture.get_element_location(element)
 
             case "compare_location_different":
@@ -223,7 +278,7 @@ class EventGen:
                 """
                 if verify not find the element = True, args ==False
                 """
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 if element.exists:
                     pass
                 else:
@@ -257,21 +312,20 @@ class EventGen:
 
             case "change_wallpaper_first":
                 if driver(text="com.viewsonic.wallpaperpicker").exists:
-                    print("123")
                     gesture.tap(driver(text="com.viewsonic.wallpaperpicker"))
                     gesture.tap(driver(resourceId="android:id/button_always"))
 
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 first_element = element[1]
                 gesture.tap(first_element)
 
             case "change_wallpaper_second":
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 first_element = element[2]
                 gesture.tap(first_element)
 
             case "stopwatch_lap":
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 for lap in range(10):
                     gesture.tap(element)
 
@@ -289,14 +343,14 @@ class EventGen:
                 gesture.install_app(json_element)
 
             case "uninstall_app":
-                gesture.uninstall_app(json_element)
+                gesture.uninstall_app(locator[json_element])
 
             case "is_activity_background":
                 gesture.get_overview_activities()
                 gesture.check_background_activities(json_element)
 
             case "recent_app_clear":
-                element = driver(resourceId=json_element)
+                element = driver(resourceId=locator[json_element])
                 if element.exists:
                     element.click()
                 else:
@@ -360,7 +414,7 @@ class EventGen:
                         self.reporter.fail_step(msg="Not Found App")
 
             case "STB_secondClass_initialization":
-                gesture.tap(driver(resourceId="com.viewsonic.sidetoolbar:id/flOpenBar"))
+                gesture.tap(driver(resourceId=locator["STB"]))
                 if (
                     driver(
                         resourceId="com.viewsonic.sidetoolbar:id/RlThirdPartyApp1"
@@ -372,87 +426,59 @@ class EventGen:
                         resourceId="com.viewsonic.sidetoolbar:id/imgViewAddApp3"
                     ).exists
                 ):
-                    gesture.tap(
-                        driver(resourceId="com.viewsonic.sidetoolbar:id/imgBtnAllApps")
-                    )
-                    gesture.tap(
-                        driver(
-                            resourceId="com.viewsonic.sidetoolbar:id/iv_all_app_edit_status"
-                        )
-                    )
+                    gesture.tap(driver(resourceId=locator["STB_btn_all_apps"]))
+                    gesture.tap(driver(resourceId=locator["STB_btn_edit_apps"]))
                     gesture.tap(
                         driver(
                             resourceId="com.viewsonic.sidetoolbar:id/clApp1Container"
                         )
                     )
                     gesture.tap(
-                        driver(
-                            resourceId="com.viewsonic.sidetoolbar:id/clApp2Container"
-                        )
+                        driver(resourceId=locator["STB_btn_apps_container_two"])
                     )
                     gesture.tap(
                         driver(
                             resourceId="com.viewsonic.sidetoolbar:id/clApp3Container"
                         )
                     )
-                    gesture.tap(
-                        driver(resourceId="com.viewsonic.sidetoolbar:id/imgBtnHome")
-                    )
+                    gesture.tap(driver(resourceId=locator["STB_btn_home"]))
                 else:
-                    gesture.tap(
-                        driver(resourceId="com.viewsonic.sidetoolbar:id/imgBtnHome")
-                    )
+                    gesture.tap(driver(resourceId=locator["STB_btn_home"]))
 
             case "STB_ThirdClass_initialization":
-                gesture.tap(driver(resourceId="com.viewsonic.sidetoolbar:id/flOpenBar"))
+                gesture.tap(driver(resourceId=locator["STB"]))
                 if (
-                    driver(
-                        resourceId="com.viewsonic.sidetoolbar:id/imgViewAddTool1"
-                    ).exists
+                    driver(resourceId=locator["STB_btn_tools_shortcut_one"]).exists
                     or driver(
                         resourceId="com.viewsonic.sidetoolbar:id/imgViewAddTool2"
                     ).exists
                 ):
+                    gesture.tap(driver(resourceId=locator["STB_btn_all_tools"]))
+                    gesture.tap(driver(resourceId=locator["STB_btn_edit_tools"]))
                     gesture.tap(
-                        driver(resourceId="com.viewsonic.sidetoolbar:id/imgBtnAllTools")
-                    )
-                    gesture.tap(
-                        driver(
-                            resourceId="com.viewsonic.sidetoolbar:id/iv_all_tools_edit_status"
-                        )
-                    )
-                    gesture.tap(
-                        driver(
-                            resourceId="com.viewsonic.sidetoolbar:id/imgViewAddTool1"
-                        )
+                        driver(resourceId=locator["STB_btn_tools_shortcut_one"])
                     )
                     gesture.tap(
                         driver(
                             resourceId="com.viewsonic.sidetoolbar:id/imgViewAddTool2"
                         )
                     )
-                    gesture.tap(
-                        driver(resourceId="com.viewsonic.sidetoolbar:id/imgBtnHome")
-                    )
+                    gesture.tap(driver(resourceId=locator["STB_btn_home"]))
                 else:
-                    gesture.tap(
-                        driver(resourceId="com.viewsonic.sidetoolbar:id/imgBtnHome")
-                    )
+                    gesture.tap(driver(resourceId=locator["STB_btn_home"]))
 
             case "STB_spotlight_initialization":
                 driver().pinch_in(percent=10, steps=10)
-                gesture.tap(
-                    driver(resourceId="com.viewsonic.sidetoolbar:id/settings_btn")
-                )
+                gesture.tap(driver(resourceId=locator["spotlight_btn_settings"]))
                 gesture.swipe_left(
-                    driver(resourceId="com.viewsonic.sidetoolbar:id/seekbar_alpha")
+                    driver(resourceId=locator["spotlight_seekbar_transparency"])
                 )
 
             case "STB_current_app_compare":
                 dictionary = gesture.current_app()
                 if (
-                    dictionary["package"] == json_element[0]
-                    and dictionary["activity"] == json_element[1]
+                    dictionary["package"] == locator[json_element[0]]
+                    and dictionary["activity"] == locator[json_element[1]]
                 ):
                     pass
                 else:
@@ -518,7 +544,9 @@ class EventGen:
             case "tap_by_device_model":
                 device = gesture.get_device_info()
                 device_model = device["model"]
-                element = driver(resourceId=json_element).child(text=device_model)
+                element = driver(resourceId=locator[json_element]).child(
+                    text=device_model
+                )
                 gesture.tap(element)
 
             case "time_wait":
@@ -530,6 +558,14 @@ class EventGen:
                 compare_2 = event["element"][1]
                 gesture.compare_images_pixel(compare_1, compare_2)
 
+            case "verify_text":
+                title_name = driver(resourceId=locator[json_element]).info["text"]
+                if title_name == event["args"]:
+                    pass
+                else:
+                    logging.error(msg="title changes fail")
+                    self.reporter.fail_step(msg="title changes fail")
+
             case "close_app":
                 gesture.close_app(json_element)
 
@@ -540,17 +576,9 @@ class EventGen:
                 gesture.delete_file(json_element)
 
             case "end_activity":
-                gesture.close_app(json_element)
+                gesture.close_app(locator[json_element])
                 gesture.home_page()
-                gesture.clean_activity(json_element)
+                gesture.clean_activity(locator[json_element])
 
             case _:
                 logging.warning(msg=f"gesture type: {json_gesture} not defined.")
-
-
-if __name__ == "__main__":
-    logging.basicConfig(
-        level=logging.DEBUG,
-        format="%(asctime)s %(levelname)-2s %(message)s",
-        datefmt="%Y%m%d %H:%M:%S",
-    )

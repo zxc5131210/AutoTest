@@ -1,0 +1,85 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "describe": "expand STB",
+            "element": "STB",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "expand all tools",
+            "element": "STB_btn_all_tools",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "select Stopwatch",
+            "element": "//*[@text='Stopwatch']",
+            "gesture": "tap_byXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "describe": "get stopwatch current location",
+            "element": "stopwatch_content_view",
+            "gesture": "get_element_location",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "describe": "swipe the stopwatch left",
+            "element": "stopwatch_content_view",
+            "gesture": "swipe_left_element",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 6,
+            "describe": "get stopwatch current location",
+            "element": "stopwatch_content_view",
+            "gesture": "get_element_location",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 7,
+            "describe": "compare the location different",
+            "element": "",
+            "gesture": "compare_location_different",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 8,
+            "describe": "dump hierarchy the element",
+            "element": "stopwatch_btn_start",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 9,
+            "describe": "tap close button to close stopwatch",
+            "element": "marker_btn_close",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

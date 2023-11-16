@@ -1,0 +1,119 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "describe": "long press to open menu",
+            "element": "",
+            "gesture": "long_press_location",
+            "args": "",
+            "x": 0.5,
+            "y": 0.1
+        },
+        {
+            "sequence": 2,
+            "describe": "choose 'change wallpaper' option",
+            "element": "//*[@resource-id='com.viewsonic.vlauncher:id/popup_container']/android.widget.FrameLayout[1]",
+            "gesture": "tap_byXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "select first wallpaper",
+            "element": "wallpaper_image",
+            "gesture": "change_wallpaper_first",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "describe": "set the first wallpaper",
+            "element": "wallpaper_btn_set",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "describe": "screenshot screen to compare",
+            "element": "",
+            "gesture": "screenshot",
+            "args": [
+                "compareshot_1"
+            ],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 6,
+            "describe": "long press to open menu",
+            "element": "",
+            "gesture": "long_press_location",
+            "args": "",
+            "x": 0.5,
+            "y": 0.1
+        },
+        {
+            "sequence": 7,
+            "describe": "choose 'change wallpaper' option",
+            "element": "//*[@resource-id='com.viewsonic.vlauncher:id/popup_container']/android.widget.FrameLayout[1]",
+            "gesture": "tap_byXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 8,
+            "describe": "select the second wallpaper",
+            "element": "wallpaper_image",
+            "gesture": "change_wallpaper_second",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 9,
+            "describe": "set the second wallpaper",
+            "element": "wallpaper_btn_set",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 10,
+            "describe": "screenshot screen to compare",
+            "element": "",
+            "gesture": "screenshot",
+            "args": [
+                "compareshot_2"
+            ],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 11,
+            "describe": "compare two screenshots different",
+            "element": [
+                "compareshot_1.png",
+                "compareshot_2.png"
+            ],
+            "gesture": "compare_images_pixel",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 12,
+            "describe": "clear wallpaper picker user data",
+            "element": "wallpaper_package",
+            "gesture": "end_activity",
+            "args": "",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

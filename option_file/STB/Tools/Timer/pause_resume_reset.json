@@ -57,7 +57,7 @@
         {
             "sequence": 7,
             "describe": "tap start button to start the timer",
-            "element": "com.viewsonic.sidetoolbar:id/start",
+            "element": "timer_btn_start",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -66,7 +66,7 @@
         {
             "sequence": 8,
             "describe": "tap pause button to pause the timer",
-            "element": "com.viewsonic.sidetoolbar:id/btnLeft",
+            "element": "timer_btn_pause",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -75,7 +75,7 @@
         {
             "sequence": 9,
             "describe": "get the current timer time",
-            "element": "com.viewsonic.sidetoolbar:id/timeView",
+            "element": "stopwatch_time_view",
             "gesture": "get_element_text",
             "args": "",
             "x": "",
@@ -93,7 +93,7 @@
         {
             "sequence": 11,
             "describe": "get the current timer time",
-            "element": "com.viewsonic.sidetoolbar:id/timeView",
+            "element": "stopwatch_time_view",
             "gesture": "get_element_text",
             "args": "",
             "x": "",
@@ -111,7 +111,7 @@
         {
             "sequence": 13,
             "describe": "get the current timer time",
-            "element": "com.viewsonic.sidetoolbar:id/timeView",
+            "element": "stopwatch_time_view",
             "gesture": "get_element_text",
             "args": "",
             "x": "",
@@ -120,7 +120,7 @@
         {
             "sequence": 14,
             "describe": "tap resume button to resume the timer",
-            "element": "com.viewsonic.sidetoolbar:id/btnLeft",
+            "element": "timer_btn_pause",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -138,7 +138,7 @@
         {
             "sequence": 16,
             "describe": "get the current timer time",
-            "element": "com.viewsonic.sidetoolbar:id/timeView",
+            "element": "stopwatch_time_view",
             "gesture": "get_element_text",
             "args": "",
             "x": "",
@@ -156,7 +156,7 @@
         {
             "sequence": 18,
             "describe": "tap reset button to reset the timer",
-            "element": "com.viewsonic.sidetoolbar:id/btnReset",
+            "element": "stopwatch_btn_reset",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -165,7 +165,7 @@
         {
             "sequence": 19,
             "describe": "find the timeview to verify the reset function",
-            "element": "com.viewsonic.sidetoolbar:id/timeView",
+            "element": "stopwatch_time_view",
             "gesture": "findelements_ByID",
             "args": "False",
             "x": "",
@@ -174,7 +174,7 @@
         {
             "sequence": 20,
             "describe": "tap close button to close timer",
-            "element": "com.viewsonic.sidetoolbar:id/cancel",
+            "element": "timer_btn_cancel",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

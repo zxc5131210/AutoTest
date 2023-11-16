@@ -39,7 +39,7 @@
         {
             "sequence": 5,
             "describe": "get current spotlight location",
-            "element": "com.viewsonic.sidetoolbar:id/collapse",
+            "element": "spotlight_bar",
             "gesture": "get_element_location",
             "args": "",
             "x": "",
@@ -57,7 +57,7 @@
         {
             "sequence": 6,
             "describe": "get current spotlight location",
-            "element": "com.viewsonic.sidetoolbar:id/collapse",
+            "element": "spotlight_bar",
             "gesture": "get_element_location",
             "args": "",
             "x": "",

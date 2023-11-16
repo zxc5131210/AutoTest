@@ -39,7 +39,7 @@
         {
             "sequence": 5,
             "describe": "swipe right on the seekbar to adjust the brightness",
-            "element": "com.viewsonic.sidetoolbar:id/seekbar_alpha",
+            "element": "spotlight_seekbar_transparency",
             "gesture": "swipe_right_element",
             "args": "",
             "x": "",
@@ -59,7 +59,7 @@
         {
             "sequence": 7,
             "describe": "swipe left on the seekbar to adjust the brightness",
-            "element": "com.viewsonic.sidetoolbar:id/seekbar_alpha",
+            "element": "spotlight_seekbar_transparency",
             "gesture": "swipe_left_element",
             "args": "",
             "x": "",

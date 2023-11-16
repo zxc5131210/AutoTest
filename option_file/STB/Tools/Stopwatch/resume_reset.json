@@ -30,7 +30,7 @@
         {
             "sequence": 4,
             "describe": "tap start button to start the stopwatch",
-            "element": "com.viewsonic.sidetoolbar:id/btnStart",
+            "element": "stopwatch_btn_start",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -39,7 +39,7 @@
         {
             "sequence": 5,
             "describe": "tap pause button to pause the stopwatch",
-            "element": "com.viewsonic.sidetoolbar:id/btnPause",
+            "element": "stopwatch_btn_pause",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -48,7 +48,7 @@
         {
             "sequence": 6,
             "describe": "get the current stopwatch time",
-            "element": "com.viewsonic.sidetoolbar:id/timeView",
+            "element": "stopwatch_time_view",
             "gesture": "get_element_text",
             "args": "",
             "x": "",
@@ -57,7 +57,7 @@
         {
             "sequence": 7,
             "describe": "tap resume button to continue the stopwatch",
-            "element": "com.viewsonic.sidetoolbar:id/btnContinue",
+            "element": "stopwatch_btn_continue",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -66,7 +66,7 @@
         {
             "sequence": 8,
             "describe": "tap pause button to pause the stopwatch",
-            "element": "com.viewsonic.sidetoolbar:id/btnPause",
+            "element": "stopwatch_btn_pause",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -75,7 +75,7 @@
         {
             "sequence": 9,
             "describe": "get the current stopwatch time",
-            "element": "com.viewsonic.sidetoolbar:id/timeView",
+            "element": "stopwatch_time_view",
             "gesture": "get_element_text",
             "args": "",
             "x": "",
@@ -93,7 +93,7 @@
         {
             "sequence": 11,
             "describe": "get the current stopwatch time",
-            "element": "com.viewsonic.sidetoolbar:id/timeView",
+            "element": "stopwatch_time_view",
             "gesture": "get_element_text",
             "args": "",
             "x": "",
@@ -102,7 +102,7 @@
         {
             "sequence": 12,
             "describe": "tap reset button to reset the stopwatch",
-            "element": "com.viewsonic.sidetoolbar:id/btnReset",
+            "element": "stopwatch_btn_reset",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -111,7 +111,7 @@
         {
             "sequence": 13,
             "describe": "get the current stopwatch time",
-            "element": "com.viewsonic.sidetoolbar:id/timeView",
+            "element": "stopwatch_time_view",
             "gesture": "get_element_text",
             "args": "",
             "x": "",
@@ -129,7 +129,7 @@
         {
             "sequence": 15,
             "describe": "close the stopwatch",
-            "element": "com.viewsonic.sidetoolbar:id/close",
+            "element": "stopwatch_btn_close",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

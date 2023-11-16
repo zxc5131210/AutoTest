@@ -30,7 +30,7 @@
         {
             "sequence": 4,
             "describe": "tap pen to change to pen mode",
-            "element": "com.viewsonic.sidetoolbar:id/pen",
+            "element": "marker_btn_pen",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -82,7 +82,7 @@
         {
             "sequence": 9,
             "describe": "tap close button to close the markers",
-            "element": "com.viewsonic.sidetoolbar:id/close",
+            "element": "marker_btn_close",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

@@ -40,7 +40,7 @@ class Timer(item_strategy.Strategy):
         self.reporter.test_case("timer-expand the timer window")
 
     def run_all(self):
-        self.reporter.test_title("---STB Tool - Stopwatch---")
+        self.reporter.test_title("---STB Tool - Timer---")
         self._STB_timer_start_ring()
         self._STB_timer_pause_resume_reset()
         self._STB_timer_expand()

@@ -30,7 +30,7 @@
         {
             "sequence": 4,
             "describe": "drag the marker bar up",
-            "element": "com.viewsonic.sidetoolbar:id/iv_annotation_bar_right",
+            "element": "marker_bar",
             "gesture": "drag_element_to_screen_edge",
             "args": "up",
             "x": "",
@@ -59,7 +59,7 @@
         {
             "sequence": 7,
             "describe": "drag the marker bar down",
-            "element": "com.viewsonic.sidetoolbar:id/iv_annotation_bar_right",
+            "element": "marker_bar",
             "gesture": "drag_element_to_screen_edge",
             "args": "down",
             "x": "",
@@ -100,7 +100,7 @@
         {
             "sequence": 11,
             "describe": "tap close button to close the markers",
-            "element": "com.viewsonic.sidetoolbar:id/close",
+            "element": "marker_btn_close",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

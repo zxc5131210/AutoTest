@@ -467,11 +467,9 @@ class EventGen:
 
             case "STB_spotlight_initialization":
                 driver().pinch_in(percent=10, steps=10)
-                gesture.tap(
-                    driver(resourceId="com.viewsonic.sidetoolbar:id/settings_btn")
-                )
+                gesture.tap(driver(resourceId=locator["spotlight_btn_settings"]))
                 gesture.swipe_left(
-                    driver(resourceId="com.viewsonic.sidetoolbar:id/seekbar_alpha")
+                    driver(resourceId=locator["spotlight_seekbar_transparency"])
                 )
 
             case "STB_current_app_compare":

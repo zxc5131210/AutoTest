@@ -173,6 +173,15 @@
         },
         {
             "sequence": 20,
+            "describe": "wait 5 second to let tools open",
+            "element": "",
+            "gesture": "time_wait",
+            "args": "5",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 21,
             "describe": "verify the current App is expected",
             "element": [
                 "STB_package",
@@ -184,7 +193,7 @@
             "y": ""
         },
         {
-            "sequence": 21,
+            "sequence": 22,
             "describe": "return homepage",
             "element": "",
             "gesture": "homepage",

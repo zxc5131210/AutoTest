@@ -30,7 +30,7 @@
     {
       "sequence": 4,
       "describe": "tap 'Exit' button to close the screenshot tool",
-      "element": "com.viewsonic.sidetoolbar:id/rlExit",
+      "element": "screenshot_btn_exit",
       "gesture": "tap_byID",
       "args": "",
       "x": "",
@@ -40,8 +40,8 @@
       "sequence": 5,
       "describe": "compare activity to verify exit button",
       "element": [
-          "com.viewsonic.vlauncher",
-          "com.viewsonic.vLauncher.uioverrides.QuickstepLauncher"
+          "vlauncher_package",
+          "vlauncher_activity"
       ],
       "gesture": "STB_current_app_compare",
       "args": "",

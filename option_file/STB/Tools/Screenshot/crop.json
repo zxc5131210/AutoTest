@@ -41,7 +41,7 @@
         {
             "sequence": 5,
             "describe": "tap crop button to crop the screen",
-            "element": "com.viewsonic.sidetoolbar:id/rlCrop",
+            "element": "screenshot_btn_crop",
             "gesture": "tap_byID",
             "args":"",
             "x": "",

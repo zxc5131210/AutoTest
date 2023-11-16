@@ -39,7 +39,7 @@
         {
             "sequence": 5,
             "describe": "swipe right on seekbar to zoom in the spotlight",
-            "element": "com.viewsonic.sidetoolbar:id/seekbar_scale",
+            "element": "spotlight_seekbar_zoom",
             "gesture": "swipe_right_element",
             "args": "",
             "x": "",
@@ -59,7 +59,7 @@
         {
             "sequence": 7,
             "describe": "swipe left on seekbar to zoom in the spotlight",
-            "element": "com.viewsonic.sidetoolbar:id/seekbar_scale",
+            "element": "spotlight_seekbar_zoom",
             "gesture": "swipe_left_element",
             "args": "",
             "x": "",

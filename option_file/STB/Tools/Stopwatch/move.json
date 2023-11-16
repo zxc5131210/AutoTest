@@ -30,7 +30,7 @@
         {
             "sequence": 4,
             "describe": "get stopwatch current location",
-            "element": "com.viewsonic.sidetoolbar:id/contentView",
+            "element": "stopwatch_content_view",
             "gesture": "get_element_location",
             "args": "",
             "x": "",
@@ -39,7 +39,7 @@
         {
             "sequence": 5,
             "describe": "swipe the stopwatch left",
-            "element": "com.viewsonic.sidetoolbar:id/contentView",
+            "element": "stopwatch_content_view",
             "gesture": "swipe_left_element",
             "args": "",
             "x": "",
@@ -48,7 +48,7 @@
         {
             "sequence": 6,
             "describe": "get stopwatch current location",
-            "element": "com.viewsonic.sidetoolbar:id/contentView",
+            "element": "stopwatch_content_view",
             "gesture": "get_element_location",
             "args": "",
             "x": "",
@@ -66,7 +66,7 @@
         {
             "sequence": 8,
             "describe": "dump hierarchy the element",
-            "element": "com.viewsonic.sidetoolbar:id/btnStart",
+            "element": "stopwatch_btn_start",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -75,7 +75,7 @@
         {
             "sequence": 9,
             "describe": "tap close button to close stopwatch",
-            "element": "com.viewsonic.sidetoolbar:id/close",
+            "element": "marker_btn_close",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

@@ -30,7 +30,7 @@
         {
             "sequence": 4,
             "describe": "select highlighter to draw",
-            "element": "com.viewsonic.sidetoolbar:id/highlighter",
+            "element": "marker_btn_highlighter",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -59,7 +59,7 @@
         {
             "sequence": 7,
             "describe": "tap the delete button to delete",
-            "element": "com.viewsonic.sidetoolbar:id/delete",
+            "element": "marker_btn_delete",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -91,7 +91,7 @@
         {
             "sequence": 10,
             "describe": "tap close button to close the markers",
-            "element": "com.viewsonic.sidetoolbar:id/close",
+            "element": "marker_btn_close",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

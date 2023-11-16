@@ -151,7 +151,7 @@ function download_html() {
     const blob = new Blob([updatedHTML], {type: 'text/html'});
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = `Automation report ${formattedDate}.html`;
+    a.download = `Automation_report_${formattedDate}.html`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);

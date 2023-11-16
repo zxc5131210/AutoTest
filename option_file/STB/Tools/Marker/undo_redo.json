@@ -30,7 +30,7 @@
         {
             "sequence": 4,
             "describe": "select highlighter to draw",
-            "element": "com.viewsonic.sidetoolbar:id/highlighter",
+            "element": "marker_btn_highlighter",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -59,7 +59,7 @@
         {
             "sequence": 7,
             "describe": "tap undo button to undo the step",
-            "element": "com.viewsonic.sidetoolbar:id/undo",
+            "element": "marker_btn_undo",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -91,7 +91,7 @@
         {
             "sequence": 10,
             "describe": "tap undo button to redo the step",
-            "element": "com.viewsonic.sidetoolbar:id/redo",
+            "element": "marker_btn_redo",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -123,7 +123,7 @@
         {
             "sequence": 13,
             "describe": "tap close button to close the marker",
-            "element": "com.viewsonic.sidetoolbar:id/close",
+            "element": "marker_btn_close",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

@@ -13,8 +13,8 @@
             "sequence": 2,
             "describe": "compare activity to verify input source button",
             "element": [
-                "com.viewsonic.vlauncher",
-                "com.viewsonic.vLauncher.uioverrides.QuickstepLauncher"
+                "vlauncher_package",
+                "vlauncher_activity"
             ],
             "gesture": "STB_current_app_compare",
             "args": "",

@@ -41,7 +41,7 @@
         {
             "sequence": 5,
             "describe": "use button to zoom in",
-            "element": "com.viewsonic.sidetoolbar:id/zoom_in_btn",
+            "element": "freezer_btn_zoom_in",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -73,7 +73,7 @@
         {
             "sequence": 8,
             "describe": "use button to zoom out",
-            "element": "com.viewsonic.sidetoolbar:id/zoom_out_btn",
+            "element": "freezer_btn_zoom_out",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

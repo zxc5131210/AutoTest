@@ -30,7 +30,7 @@
         {
             "sequence":4,
             "describe": "tap crop button to crop the screen",
-            "element": "com.viewsonic.sidetoolbar:id/rlCrop",
+            "element": "screenshot_btn_crop",
             "gesture": "tap_byID",
             "args":"",
             "x": "",
@@ -50,7 +50,7 @@
         {
             "sequence":6,
             "describe": "tap fullscreen button to crop full screen",
-            "element": "com.viewsonic.sidetoolbar:id/ivBtnFullscreen",
+            "element": "screenshot_btn_fullscreen",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

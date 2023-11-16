@@ -50,7 +50,7 @@
         {
             "sequence": 6,
             "describe": "tap default button",
-            "element": "com.viewsonic.sidetoolbar:id/zoom_default_btn",
+            "element": "freezer_btn_default",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

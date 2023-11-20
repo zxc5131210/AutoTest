@@ -130,7 +130,7 @@ locator = {
     "quicksettings_input_page": "com.viewsonic.quicksettings:id/tabBtnInput",
     "quicksettings_default_temperature": "com.viewsonic.quicksettings:id/rbColorTemperatureDefault",
     "quicksettings_warm_temperature": "com.viewsonic.quicksettings:id/rbColorTemperatureWarmTone",
-    "quicksettings_cool_temperature": "com.viewsonic.quicksettings:id/rbColorTemperatureColdTone",
+    "quicksettings_cold_temperature": "com.viewsonic.quicksettings:id/rbColorTemperatureColdTone",
     "quicksettings_eye_care": "com.viewsonic.quicksettings:id/swEyeCare",
     "quicksettings_volume": "com.viewsonic.quicksettings:id/sbVolume",
     # wallpaper

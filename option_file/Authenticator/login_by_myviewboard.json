@@ -88,7 +88,7 @@
             "describe": "input user name",
             "element": "authenticator_myviewboard_account",
             "gesture": "sendKey_byID",
-            "args": [0,"vsmvbtest@gmail.com"],
+            "args": [0,"ian.viewsonic.test@gmail.com"],
             "x": "",
             "y": ""
         },

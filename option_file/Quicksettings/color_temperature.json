@@ -57,7 +57,7 @@
         {
             "sequence": 6,
             "describe": "tap cool button to change temperature",
-            "element": "quicksettings_cool_temperature",
+            "element": "quicksettings_cold_temperature",
             "gesture": "tap_byID",
             "args": "",
             "x": "",

@@ -21,7 +21,7 @@
         {
             "sequence": 3,
             "describe": "choose 'edit launcher' option",
-            "element": "//*[@text='Edit Launcher']",
+            "element": "//*[@resource-id=\"com.viewsonic.vlauncher:id/popup_container\"]/android.widget.FrameLayout[2]",
             "gesture": "tap_byXpath",
             "args": "",
             "x": "",

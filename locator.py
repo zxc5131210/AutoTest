@@ -12,6 +12,7 @@ locator = {
     "screen_lock_btn_remove": "com.viewsonic.screenlock:id/btnBottomRight",
     "screen_lock_btn_exit": "com.viewsonic.screenlock:id/btnBottomLeft",
     "screen_lock_btn_reveal": "com.viewsonic.screenlock:id/btnRevealPassword",
+    "screen_lock_btn_number_1": "com.viewsonic.screenlock:id/number1",
     # authenticator
     "authenticator_package": "com.viewsonic.authenticator",
     "authenticator_myviewboard_account": "com.viewsonic.authenticator:id/username",

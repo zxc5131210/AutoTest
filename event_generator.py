@@ -178,7 +178,7 @@ class EventGen:
                     logging.error(f"{element} is not found")
 
             case "stay_sign_in_microsoft":
-                time.sleep(3)
+                time.sleep(5)
                 if driver(
                     resourceId=locator["authenticator_microsoft_skip_checkbox"]
                 ).exists:

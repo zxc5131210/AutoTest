@@ -9,6 +9,7 @@ class ScreenLock(item_strategy.Strategy):
         "2": "Change Password",
         "3": "Remove Password",
         "4": "Reveal Password",
+        "5": "Key pad",
         "all": "all Test",
     }
     folder_path = "option_file/ScreenLock"
@@ -48,12 +49,21 @@ class ScreenLock(item_strategy.Strategy):
         self.reporter.add_category("screenlock")
         self.reporter.test_case("Reveal Password in ScreenLock")
 
+    def _screen_lock_number_keys(self):
+        self.event_gen.generate_event(
+            json_path=f"{self.folder_path}/keypad.json",
+            driver=self.driver,
+        )
+        self.reporter.add_category("screenlock")
+        self.reporter.test_case("keypad of ScreenLock")
+
     def run_all(self):
         self.reporter.test_title("---ScreenLock---")
         self._screen_lock_set_password()
         self._screen_lock_change_password()
         self._screen_lock_remove_password()
         self._screen_lock_reveal_password()
+        self._screen_lock_number_keys()
 
     def run(self):
         while True:
@@ -71,6 +81,8 @@ class ScreenLock(item_strategy.Strategy):
                     self._screen_lock_remove_password()
                 case "4":
                     self._screen_lock_reveal_password()
+                case "5":
+                    self._screen_lock_number_keys()
                 case "all":
                     self.run_all()
                 case _:

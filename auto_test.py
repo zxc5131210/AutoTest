@@ -42,7 +42,7 @@ app_list = {
     "vLauncher": locator["vlauncher_package"],
     "SideToolBar": locator["STB_package"],
     "ScreenLock": locator["screen_lock_package"],
-    "Quicksettings": locator["quicksettings_package"],
+    "QuickSettings": locator["quicksettings_package"],
     "WallpaperPicker": locator["wallpaper_package"],
     "Authenticator": locator["authenticator_package"],
 }

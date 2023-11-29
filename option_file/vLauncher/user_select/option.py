@@ -1,41 +1,43 @@
-"""edit launcher test case"""
+"""user select test case"""
 from option_file import item_strategy
 
 
-class EditLauncher(item_strategy.Strategy):
+class UserSelect(item_strategy.Strategy):
     menu_dict = {
         "0": "Back to main menu",
-        "1": "Add_delete_re-range app on hot seat",
-        "2": "install Testapp and find in all apps",
+        "1": "guest",
+        "2": "sign in",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": "",
         "all": "all Test",
     }
-    folder_path = "option_file/vLauncher/Edit_Launcher"
+    folder_path = "option_file/vLauncher/user_select"
 
     def __init__(self, event_gen, driver, reporter):
         super().__init__(event_gen, driver, reporter)
 
-    def _edit_launcher_add_app(self):
+    def _guest(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/add_delete_re-rangeApps.json",
+            json_path=f"{self.folder_path}/guest_button.json",
             driver=self.driver,
         )
         self.reporter.add_category("vlauncher")
-        self.reporter.test_case("Test App re-range on hot seat")
+        self.reporter.test_case("guest")
 
-    def _edit_launcher_find_all(self):
+    def _sign_in(self):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/find_apps_in_All.json",
+            json_path=f"{self.folder_path}/sign_in_button.json",
             driver=self.driver,
         )
         self.reporter.add_category("vlauncher")
-        self.reporter.test_case(
-            "install TestApp and find TestApp in Edit Launcher - all apps"
-        )
+        self.reporter.test_case("sign in button")
 
     def run_all(self):
-        self.reporter.test_title("---Edit Launcher---")
-        self._edit_launcher_add_app()
-        self._edit_launcher_find_all()
+        self.reporter.test_title("---User Select---")
+        self._guest()
+        self._sign_in()
 
     def run(self):
         while True:
@@ -46,9 +48,17 @@ class EditLauncher(item_strategy.Strategy):
                 case "0":
                     return
                 case "1":
-                    self._edit_launcher_add_app()
+                    self._guest()
                 case "2":
-                    self._edit_launcher_find_all()
+                    self._sign_in()
+                case "3":
+                    pass
+                case "4":
+                    pass
+                case "5":
+                    pass
+                case "6":
+                    pass
                 case "all":
                     self.run_all()
                 case _:

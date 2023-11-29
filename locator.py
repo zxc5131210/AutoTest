@@ -19,6 +19,8 @@ locator = {
     "screen_lock_btn_number_backspace": "com.viewsonic.screenlock:id/backspace",
     # authenticator
     "authenticator_package": "com.viewsonic.authenticator",
+    "authenticator_activity": "com.viewsonic.loginactivity.ui.login.LoginActivity",
+    "authenticator_btn_back": "com.viewsonic.authenticator:id/btn_back",
     "authenticator_myviewboard_account": "com.viewsonic.authenticator:id/username",
     "authenticator_myviewboard_password": "com.viewsonic.authenticator:id/password",
     "authenticator_myviewboard_btn_login": "com.viewsonic.authenticator:id/login",

@@ -1,0 +1,61 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "describe": "tap avatar to logout",
+            "element": "vlauncher_avatar",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "tap 'sign out' button",
+            "element": "vlauncher_avatar_sign",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "tap 'sign out' button on the popup",
+            "element": "vlauncher_avatar_btn_logout",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "describe": "tap 'sign in' button to the login page",
+            "element": "vlauncher_btn_sign_in",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "describe": "compare activity to verify exit button",
+            "element": [
+                "authenticator_package",
+                "authenticator_activity"
+            ],
+            "gesture": "STB_current_app_compare",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 6,
+            "describe": "back to user select page",
+            "element": "authenticator_btn_back",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

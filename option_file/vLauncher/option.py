@@ -1,8 +1,9 @@
 """vLauncher test case"""
 from option_file.vLauncher.title.option import vLauncherTitle
-from option_file.vLauncher.Edit_Launcher.option import EditLauncher
+from option_file.vLauncher.edit_launcher.option import EditLauncher
 from option_file.vLauncher.desktop_tools.option import vLauncherTools
 from option_file.vLauncher.recent_app.option import RecentApp
+from option_file.vLauncher.user_select.option import UserSelect
 from option_file import item_strategy
 
 
@@ -13,6 +14,7 @@ class vLauncher(item_strategy.Strategy):
         "2": "Edit Launcher",
         "3": "Recent App",
         "4": "Desktop tools",
+        "5": "User Select",
     }
 
     def __init__(self, event_gen, driver, reporter):
@@ -22,6 +24,8 @@ class vLauncher(item_strategy.Strategy):
         vLauncherTitle(self.event_gen, self.driver, self.reporter).run_all()
         EditLauncher(self.event_gen, self.driver, self.reporter).run_all()
         RecentApp(self.event_gen, self.driver, self.reporter).run_all()
+        vLauncherTools(self.event_gen, self.driver, self.reporter).run_all()
+        UserSelect(self.event_gen, self.driver, self.reporter).run_all()
 
     def run(self):
         while True:
@@ -40,7 +44,7 @@ class vLauncher(item_strategy.Strategy):
                 case "4":
                     vLauncherTools(self.event_gen, self.driver, self.reporter).run()
                 case "5":
-                    pass
+                    UserSelect(self.event_gen, self.driver, self.reporter).run()
                 case "6":
                     pass
                 case "7":

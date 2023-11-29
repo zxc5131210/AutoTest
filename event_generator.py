@@ -273,7 +273,7 @@ class EventGen:
                 time.sleep(5)
                 driver.service("uiautomator").start()
                 time.sleep(5)
-                gesture.tap(locator["vlauncher_btn_guest"])
+                gesture.tap(driver(resourceId=locator["vlauncher_btn_guest"]))
 
             case "findelements_ByID":
                 """

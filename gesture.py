@@ -123,6 +123,12 @@ class Gesture:
             element = self.driver()
         element.swipe("down")
 
+    def scroll_down(self, element=None) -> None:
+        # scroll down function
+        if element is None:
+            element = self.driver()
+        element.scroll.toEnd()
+
     def get_element_location(self, element) -> None:
         element_bounds = element.info["bounds"]
         center_x = (element_bounds["left"] + element_bounds["right"]) // 2

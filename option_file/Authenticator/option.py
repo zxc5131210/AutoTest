@@ -8,7 +8,7 @@ class Authenticator(item_strategy.Strategy):
         "1": "myviewboard account",
         "2": "google account",
         "3": "microsoft account",
-        "4": "",
+        "4": "education account",
         "5": "",
         "all": "all Test",
     }
@@ -41,11 +41,20 @@ class Authenticator(item_strategy.Strategy):
         self.reporter.add_category("authenticator")
         self.reporter.test_case("login by microsoft account")
 
+    def _login_by_education(self):
+        self.event_gen.generate_event(
+            json_path=f"{self.folder_path}/login_by_education.json",
+            driver=self.driver,
+        )
+        self.reporter.add_category("authenticator")
+        self.reporter.test_case("login by education account")
+
     def run_all(self):
         self.reporter.test_title("---Authenticator---")
         self._login_by_myviewboard()
         self._login_by_google()
         self._login_by_microsoft()
+        self._login_by_education()
 
     def run(self):
         while True:
@@ -62,7 +71,7 @@ class Authenticator(item_strategy.Strategy):
                 case "3":
                     self._login_by_microsoft()
                 case "4":
-                    pass
+                    self._login_by_education()
                 case "5":
                     pass
                 case "all":

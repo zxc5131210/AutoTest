@@ -64,6 +64,7 @@ locator = {
     "vlauncher_btn_time": "com.viewsonic.vlauncher:id/time",
     "vlauncher_btn_tip": "com.viewsonic.vlauncher:id/btnTip",
     "vlauncher_qr": "com.viewsonic.vlauncher:id/qr",
+    "vlauncher_sign_up_tip": "com.viewsonic.vlauncher:id/how_to_sign_up_container",
     "vlauncher_btn_close": "com.viewsonic.vlauncher:id/close",
     "vlauncher_btn_ethernet": "com.viewsonic.vlauncher:id/btnEthernet",
     "vlauncher_btn_input_source": "com.viewsonic.vlauncher:id/btnInputSource",

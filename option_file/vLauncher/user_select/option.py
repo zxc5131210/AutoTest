@@ -7,7 +7,7 @@ class UserSelect(item_strategy.Strategy):
         "0": "Back to main menu",
         "1": "guest",
         "2": "sign in",
-        "3": "",
+        "3": "sign up tip",
         "4": "",
         "5": "",
         "6": "",
@@ -34,10 +34,19 @@ class UserSelect(item_strategy.Strategy):
         self.reporter.add_category("vlauncher")
         self.reporter.test_case("sign in button")
 
+    def _sign_up_tip(self):
+        self.event_gen.generate_event(
+            json_path=f"{self.folder_path}/sign_up_tip.json",
+            driver=self.driver,
+        )
+        self.reporter.add_category("vlauncher")
+        self.reporter.test_case("sign up tip")
+
     def run_all(self):
         self.reporter.test_title("---User Select---")
         self._guest()
         self._sign_in()
+        self._sign_up_tip()
 
     def run(self):
         while True:
@@ -52,7 +61,7 @@ class UserSelect(item_strategy.Strategy):
                 case "2":
                     self._sign_in()
                 case "3":
-                    pass
+                    self._sign_up_tip()
                 case "4":
                     pass
                 case "5":

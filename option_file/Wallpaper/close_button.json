@@ -1,0 +1,43 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "describe":"long press to open menu",
+            "element": "",
+            "gesture": "long_press_location",
+            "args": "",
+            "x": 0.5,
+            "y": 0.1
+        },
+        {
+            "sequence": 2,
+            "describe": "choose 'change wallpaper' option",
+            "element": "//*[@resource-id='com.viewsonic.vlauncher:id/popup_container']/android.widget.FrameLayout[1]",
+            "gesture": "tap_byXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "tap close button to close wallpaperpicker",
+            "element": "wallpaper_btn_close",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "describe": "compare activity to verify exit button",
+            "element": [
+                "vlauncher_package",
+                "vlauncher_activity"
+            ],
+            "gesture": "STB_current_app_compare",
+            "args": "",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

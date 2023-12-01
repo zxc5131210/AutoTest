@@ -13,6 +13,8 @@ class WallPaper(item_strategy.Strategy):
         "6": "2k wallpaper",
         "7": "4k wallpaper",
         "8": "8k wallpaper",
+        "9": "delete upload wallpaper",
+        "10": "close button",
         "all": "all Test",
     }
     folder_path = "option_file/Wallpaper"
@@ -84,6 +86,22 @@ class WallPaper(item_strategy.Strategy):
         self.reporter.add_category("wallpaper")
         self.reporter.test_case("Change to 8k wallpaper")
 
+    def _delete_wallpaper(self):
+        self.event_gen.generate_event(
+            json_path=f"{self.folder_path}/delete_upload_wallpaper.json",
+            driver=self.driver,
+        )
+        self.reporter.add_category("wallpaper")
+        self.reporter.test_case("delete the upload wallpaper")
+
+    def _close_button(self):
+        self.event_gen.generate_event(
+            json_path=f"{self.folder_path}/close_button.json",
+            driver=self.driver,
+        )
+        self.reporter.add_category("wallpaper")
+        self.reporter.test_case("tap close button to close wallpaperpicker")
+
     def run_all(self):
         self.reporter.test_title("---Wallpaper---")
         self._wallpaper_by_default()
@@ -94,6 +112,8 @@ class WallPaper(item_strategy.Strategy):
         self._wallpaper_2k()
         self._wallpaper_4k()
         self._wallpaper_8k()
+        self._delete_wallpaper()
+        self._close_button()
 
     def run(self):
         while True:
@@ -119,6 +139,10 @@ class WallPaper(item_strategy.Strategy):
                     self._wallpaper_4k()
                 case "8":
                     self._wallpaper_8k()
+                case "9":
+                    self._delete_wallpaper()
+                case "10":
+                    self._close_button()
                 case "all":
                     self.run_all()
                 case _:

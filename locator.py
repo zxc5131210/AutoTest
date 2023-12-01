@@ -149,6 +149,8 @@ locator = {
     "wallpaper_package": "com.viewsonic.wallpaperpicker",
     "wallpaper_image": "com.viewsonic.wallpaperpicker:id/wallpaper_image",
     "wallpaper_btn_set": "com.viewsonic.wallpaperpicker:id/btn_set_wallpaper",
+    "wallpaper_btn_delete": "com.viewsonic.wallpaperpicker:id/wallpaper_remove",
+    "wallpaper_btn_close": "com.viewsonic.wallpaperpicker:id/btn_close",
     # settings
     "settings_package": "com.ifpdos.vsettings",
     "settings_time_activity": ".Settings$TimeSettings",

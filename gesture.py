@@ -232,7 +232,7 @@ class Gesture:
 
     def compare_images_pixel(self, compare_1, compare_2) -> None:
         """
-        compare two pixel different , if different pixel over 3000
+        compare two pixel different , if different pixel over 5000
         determine the difference between two pictures
         """
         # read two pictures

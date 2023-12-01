@@ -6,6 +6,10 @@ import logging
 import os
 import time
 import json
+
+import PIL.Image
+import PIL.ImageEnhance
+import ddddocr
 from selenium.common.exceptions import NoSuchElementException
 from gesture import Gesture
 from locator import locator
@@ -19,7 +23,7 @@ def read_json(json_path: str) -> dict:
 
 def delete_temporarily_screenshots():
     current_directory = os.getcwd()
-    files_to_delete = ["compareshot_1.png", "compareshot_2.png"]
+    files_to_delete = ["compareshot_1.png", "compareshot_2.png", "2fa.png"]
     for filename in files_to_delete:
         filepath = os.path.join(current_directory, filename)
         if os.path.exists(filepath) and os.path.isfile(filepath):
@@ -163,7 +167,7 @@ class EventGen:
 
             case "crop_byID":
                 element = driver(resourceId=locator[json_element])
-                if element.wait(timeout=10.0):
+                if element.wait(timeout=20):
                     time.sleep(3)
                     screenshot = driver.screenshot(format="pillow")
                     bounds = element.info["bounds"]
@@ -177,8 +181,56 @@ class EventGen:
                 else:
                     logging.error(f"{element} is not found")
 
+            case "identify_edu_verification_code":
+                while driver(resourceId="id1").exists:
+                    # 擷取驗證碼的圖片
+                    time.sleep(1)
+                    password = driver(
+                        resourceId=locator["authenticator_edu_password"], instance=0
+                    )
+                    gesture.send_keys(password, "Viewtest123@@")
+                    element = driver.xpath(
+                        "//*[@text='onesteplogin?0--container-passwordcheckform-captchaPanel-container-image"
+                        "&Auth_Request_RedirectUri=https%253A%252F%252Fauth.myviewboard']"
+                    )
+                    screenshot = driver.screenshot(format="pillow")
+                    bounds = element.info["bounds"]
+                    element_image = screenshot.crop(
+                        (
+                            bounds["left"],
+                            bounds["top"],
+                            bounds["right"],
+                            bounds["bottom"],
+                        )
+                    )
+                    element_image.save("2fa.png")
+                    # 調整圖片的明度和亮度使的圖片比較好去做辨識
+                    image = PIL.Image.open("2fa.png")
+                    image = PIL.ImageEnhance.Contrast(image).enhance(1.5)
+                    image = PIL.ImageEnhance.Brightness(image).enhance(2)
+                    image.save("2fa.png")
+                    # 從train data去做比對辨識
+                    ocr = ddddocr.DdddOcr()
+                    with open("2fa.png", "rb") as f:
+                        image = f.read()
+                    verification_code = ocr.classification(image)
+                    # 如果辨識出來的verification code不為三個整數,就換下一張照片進行辨識
+                    if not verification_code.isnumeric() or len(verification_code) != 3:
+                        gesture.tap(driver.xpath("//*[@text='換下一個']"))
+                    else:
+                        ele = (
+                            driver(resourceId="id14")
+                            .child(className="android.view.View", instance=4)
+                            .child(className="android.widget.EditText")
+                        )
+                        gesture.send_keys(ele, verification_code)
+                        gesture.tap(
+                            driver(resourceId=locator["authenticator_edu_login"])
+                        )
+                        time.sleep(5)
+
             case "stay_sign_in_microsoft":
-                time.sleep(3)
+                time.sleep(5)
                 if driver(
                     resourceId=locator["authenticator_microsoft_skip_checkbox"]
                 ).exists:
@@ -224,6 +276,10 @@ class EventGen:
             case "swipe_down_element":
                 element = driver(resourceId=locator[json_element])
                 gesture.swipe_down(element)
+
+            case "scroll_down_element":
+                element = driver(resourceId=locator[json_element])
+                gesture.scroll_down(element)
 
             case "drag_element_to_screen_edge":
                 element = driver(resourceId=locator[json_element])
@@ -273,7 +329,7 @@ class EventGen:
                 time.sleep(5)
                 driver.service("uiautomator").start()
                 time.sleep(5)
-                gesture.tap(locator["vlauncher_btn_guest"])
+                gesture.tap(driver(resourceId=locator["vlauncher_btn_guest"]))
 
             case "findelements_ByID":
                 """

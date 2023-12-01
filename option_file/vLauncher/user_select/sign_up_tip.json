@@ -1,0 +1,58 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "describe": "tap avatar to logout",
+            "element": "vlauncher_avatar",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "tap 'sign out' button",
+            "element": "vlauncher_avatar_sign",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "tap 'sign out' button on the popup",
+            "element": "vlauncher_avatar_btn_logout",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "describe": "tap 'how to sign up' button show sign up popup",
+            "element": "vlauncher_sign_up_tip",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "describe": "find the qrcode to verify the function",
+            "element": "vlauncher_qr",
+            "gesture": "findelements_ByID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 6,
+            "describe": "close the popup",
+            "element": "vlauncher_btn_close",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

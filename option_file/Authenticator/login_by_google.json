@@ -28,6 +28,15 @@
             "y": ""
         },
         {
+            "sequence": "wait for logout finish",
+            "describe": "",
+            "element": "",
+            "gesture": "time_wait",
+            "args": "3",
+            "x": "",
+            "y": ""
+        },
+        {
             "sequence": 4,
             "describe": "tap 'guest' button back to homepage",
             "element": "vlauncher_btn_guest",

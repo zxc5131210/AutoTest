@@ -39,12 +39,12 @@ abstract_reporter.FW_VERSION = subprocess.run(
 ).stdout
 # Step 5 : Get every app version
 app_list = {
-    "vlauncher": locator["vlauncher_package"],
-    "STB": locator["STB_package"],
-    "screenlock": locator["screen_lock_package"],
-    "quicksettings": locator["quicksettings_package"],
-    "wallpaper": locator["wallpaper_package"],
-    "authenticator": locator["authenticator_package"],
+    "vLauncher": locator["vlauncher_package"],
+    "SideToolBar": locator["STB_package"],
+    "ScreenLock": locator["screen_lock_package"],
+    "QuickSettings": locator["quicksettings_package"],
+    "WallpaperPicker": locator["wallpaper_package"],
+    "Authenticator": locator["authenticator_package"],
 }
 for app_name, package_name in app_list.items():
     version_info = driver.app_info(package_name)

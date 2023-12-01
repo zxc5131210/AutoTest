@@ -29,9 +29,9 @@
         },
         {
             "sequence": 4,
-            "describe": "use fingers to zoom in",
-            "element": "",
-            "gesture": "screen_zoom_in",
+            "describe": "use button to zoom in",
+            "element": "freezer_btn_zoom_in",
+            "gesture": "tap_byID",
             "args": "",
             "x": "",
             "y": ""

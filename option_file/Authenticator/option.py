@@ -9,7 +9,10 @@ class Authenticator(item_strategy.Strategy):
         "2": "google account",
         "3": "microsoft account",
         "4": "education account",
-        "5": "",
+        "5": "auto login viewboard by myviewboard account",
+        "6": "auto login viewboard by google account",
+        "7": "auto login viewboard by microsoft account",
+        "8": "auto login viewboard by education account",
         "all": "all Test",
     }
     folder_path = "option_file/Authenticator"
@@ -49,12 +52,48 @@ class Authenticator(item_strategy.Strategy):
         self.reporter.add_category("authenticator")
         self.reporter.test_case("login by education account")
 
+    def _auto_login_myviewboard_by_myviewboard(self):
+        self.event_gen.generate_event(
+            json_path=f"{self.folder_path}/auto_login_myviewboard.json",
+            driver=self.driver,
+        )
+        self.reporter.add_category("authenticator")
+        self.reporter.test_case("auto login viewboard by myviewboard account")
+
+    def _auto_login_myviewboard_by_google(self):
+        self.event_gen.generate_event(
+            json_path=f"{self.folder_path}/auto_login_google.json",
+            driver=self.driver,
+        )
+        self.reporter.add_category("authenticator")
+        self.reporter.test_case("auto login viewboard by google account")
+
+    def _auto_login_myviewboard_by_microsoft(self):
+        self.event_gen.generate_event(
+            json_path=f"{self.folder_path}/auto_login_microsoft.json",
+            driver=self.driver,
+        )
+        self.reporter.add_category("authenticator")
+        self.reporter.test_case("auto login viewboard by microsoft account")
+
+    def _auto_login_myviewboard_by_education(self):
+        self.event_gen.generate_event(
+            json_path=f"{self.folder_path}/auto_login_education.json",
+            driver=self.driver,
+        )
+        self.reporter.add_category("authenticator")
+        self.reporter.test_case("auto login viewboard by education account")
+
     def run_all(self):
         self.reporter.test_title("---Authenticator---")
         self._login_by_myviewboard()
         self._login_by_google()
         self._login_by_microsoft()
         self._login_by_education()
+        self._auto_login_myviewboard_by_myviewboard()
+        self._auto_login_myviewboard_by_google()
+        self._auto_login_myviewboard_by_microsoft()
+        self._auto_login_myviewboard_by_education()
 
     def run(self):
         while True:
@@ -73,7 +112,13 @@ class Authenticator(item_strategy.Strategy):
                 case "4":
                     self._login_by_education()
                 case "5":
-                    pass
+                    self._auto_login_myviewboard_by_myviewboard()
+                case "6":
+                    self._auto_login_myviewboard_by_google()
+                case "7":
+                    self._auto_login_myviewboard_by_microsoft()
+                case "8":
+                    self._auto_login_myviewboard_by_education()
                 case "all":
                     self.run_all()
                 case _:

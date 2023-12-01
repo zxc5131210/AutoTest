@@ -28,8 +28,8 @@
             "y": ""
         },
         {
-            "sequence": "wait for logout finish",
-            "describe": "",
+            "sequence": "wait",
+            "describe": "wait for logout finish",
             "element": "",
             "gesture": "time_wait",
             "args": "3",

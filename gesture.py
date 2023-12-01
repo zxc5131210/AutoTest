@@ -99,6 +99,9 @@ class Gesture:
         """
         return self.driver.device_info
 
+    def get_toast(self):
+        return self.driver.toast.get_message()
+
     def swipe_left(self, element=None) -> None:
         # swipe left function
         if element is None:
@@ -122,6 +125,10 @@ class Gesture:
         if element is None:
             element = self.driver()
         element.swipe("down")
+
+    @staticmethod
+    def wait_element_exist(element):
+        element.wait()
 
     def scroll_down(self, element=None) -> None:
         # scroll down function

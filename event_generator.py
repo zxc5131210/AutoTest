@@ -135,6 +135,11 @@ class EventGen:
                 text = gesture.get_element_text(element)
                 gesture.compare_different_list.append(text)
 
+            case "wait_element_exist":
+                element = driver(resourceId=locator[json_element])
+                gesture.wait_element_exist(element)
+                time.sleep(5)
+
             case "sendKey_byID":
                 """
                 if there are multiple numbers with the same ID.
@@ -230,24 +235,14 @@ class EventGen:
                         time.sleep(5)
 
             case "stay_sign_in_microsoft":
-                time.sleep(5)
-                if driver(
-                    resourceId=locator["authenticator_microsoft_skip_checkbox"]
-                ).exists:
-                    gesture.tap(
-                        driver(
-                            resourceId=locator["authenticator_microsoft_skip_checkbox"]
-                        )
+                gesture.tap(
+                    driver(resourceId=locator["authenticator_microsoft_skip_checkbox"])
+                )
+                gesture.tap(
+                    driver(
+                        resourceId=locator["authenticator_btn_microsoft_skip_button"]
                     )
-                    gesture.tap(
-                        driver(
-                            resourceId=locator[
-                                "authenticator_btn_microsoft_skip_button"
-                            ]
-                        )
-                    )
-                else:
-                    pass
+                )
 
             case "swipe_up":
                 gesture.swipe_up()
@@ -425,7 +420,7 @@ class EventGen:
 
             case "marker_verify_file_is_exists":
                 # get toast msg and verify the file is existing
-                toast = driver.toast.get_message(wait_timeout=5)
+                toast = gesture.get_toast()
                 filename = toast.split("/")[-1]
                 filepath = f"/sdcard/pictures/{filename}"
                 gesture.file_is_exists(filepath)
@@ -581,6 +576,14 @@ class EventGen:
 
             case "get_volume":
                 gesture.compare_different_list.append(gesture.get_volume())
+
+            case "get_toast_expect":
+                msg = gesture.get_toast()
+                if msg == event["args"]:
+                    pass
+                else:
+                    logging.error(msg="toast is not expect")
+                    self.reporter.fail_step(msg="toast is not expect")
 
             case "compare_different":
                 if (

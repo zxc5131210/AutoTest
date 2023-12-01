@@ -28,7 +28,8 @@ locator = {
     "authenticator_btn_microsoft": "com.viewsonic.authenticator:id/microsoft",
     "authenticator_btn_edu": "com.viewsonic.authenticator:id/edu",
     "authenticator_text_google_account": "identifierId",
-    "authenticator_text_google_password": "i0118",
+    "authenticator_text_microsoft_password": "i0118",
+    "authenticator_selection": "selectionc1",
     "authenticator_btn_google_next": "identifierNext",
     "authenticator_text_microsoft_account": "i0116",
     "authenticator_btn_microsoft_next": "idSIButton9",
@@ -164,4 +165,6 @@ locator = {
     "display_package": "com.mvbcast.crosswalk",
     "display_activity": ".EulaActivity",
     "folder_roots_list": "com.android.documentsui:id/roots_list",
+    "whiteboard_package": "com.viewsonic.droid",
+    "whiteboard_activity": ".MainActivity",
 }

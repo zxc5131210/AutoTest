@@ -2,62 +2,6 @@
     "steps": [
         {
             "sequence": 1,
-            "describe": "tap avatar to logout",
-            "element": "vlauncher_avatar",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 2,
-            "describe": "tap 'sign out' button",
-            "element": "vlauncher_avatar_sign",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 3,
-            "describe": "tap 'sign out' button on the popup",
-            "element": "vlauncher_avatar_btn_logout",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": "wait",
-            "describe": "wait for logout finish",
-            "element": "",
-            "gesture": "time_wait",
-            "args": "3",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 4,
-            "describe": "tap 'guest' button back to homepage",
-            "element": "vlauncher_btn_guest",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 5,
-            "describe": "crop avatar image to compare",
-            "element": "vlauncher_avatar",
-            "gesture": "crop_byID",
-            "args": [
-                "compareshot_1"
-            ],
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 6,
             "describe": "open settings activity",
             "element": [
                 "settings_package",
@@ -69,7 +13,7 @@
             "y": ""
         },
         {
-            "sequence": 7,
+            "sequence": 2,
             "describe": "open time zone list",
             "element": "settings_btn_time_zone",
             "gesture": "tap_byID",
@@ -78,7 +22,7 @@
             "y": ""
         },
         {
-            "sequence": 8,
+            "sequence": 3,
             "describe": "open time zone list",
             "element": "settings_window_time_zone",
             "gesture": "scroll_down_element",
@@ -87,7 +31,7 @@
             "y": ""
         },
         {
-            "sequence": 9,
+            "sequence": 4,
             "describe": "select taipei time zone to change to +8 taipei time",
             "element": "//*[@text='GMT+8:00 Taipei']",
             "gesture": "tap_byXpath",
@@ -96,7 +40,7 @@
             "y": ""
         },
         {
-            "sequence": 10,
+            "sequence": 5,
             "describe": "back to homepage",
             "element": "",
             "gesture": "homepage",
@@ -105,7 +49,7 @@
             "y": ""
         },
         {
-            "sequence": 11,
+            "sequence": 6,
             "describe": "tap avatar to logout",
             "element": "vlauncher_avatar",
             "gesture": "tap_byID",
@@ -114,7 +58,7 @@
             "y": ""
         },
         {
-            "sequence": 12,
+            "sequence": 7,
             "describe": "tap 'sign out' button",
             "element": "vlauncher_avatar_sign",
             "gesture": "tap_byID",
@@ -123,7 +67,7 @@
             "y": ""
         },
         {
-            "sequence": 13,
+            "sequence": 8,
             "describe": "tap 'sign out' button on the popup",
             "element": "vlauncher_avatar_btn_logout",
             "gesture": "tap_byID",
@@ -132,7 +76,7 @@
             "y": ""
         },
         {
-            "sequence": 14,
+            "sequence": 9,
             "describe": "tap 'sign in' button to the login page",
             "element": "vlauncher_btn_sign_in",
             "gesture": "tap_byID",
@@ -141,7 +85,7 @@
             "y": ""
         },
         {
-            "sequence": 15,
+            "sequence": 10,
             "describe": "tap 'education SSO' button to the login page",
             "element": "authenticator_btn_edu",
             "gesture": "tap_byID",
@@ -150,7 +94,7 @@
             "y": ""
         },
         {
-            "sequence": 16,
+            "sequence": 11,
             "describe": "input account",
             "element": "authenticator_edu_account",
             "gesture": "sendKey_byID",
@@ -159,7 +103,7 @@
             "y": ""
         },
         {
-            "sequence": 17,
+            "sequence": 12,
             "describe": "input password and verification code to login",
             "element": "",
             "gesture": "identify_edu_verification_code",
@@ -168,25 +112,32 @@
             "y": ""
         },
         {
-            "sequence": 18,
-            "describe": "crop avatar image to compare",
-            "element": "vlauncher_avatar",
-            "gesture": "crop_byID",
-            "args": [
-                "compareshot_2"
-            ],
+            "sequence": 13,
+            "describe": "wait for vlauncher title exists",
+            "element": "vlauncher_title",
+            "gesture": "wait_element_exist",
+            "args": "",
             "x": "",
             "y": ""
         },
         {
-            "sequence": 19,
-            "describe": "compare two screenshots different to verify login",
+            "sequence": 14,
+            "describe": "open whiteboard activity",
             "element": [
-                "compareshot_1.png",
-                "compareshot_2.png"
+                "whiteboard_package",
+                "whiteboard_activity"
             ],
-            "gesture": "compare_images_pixel",
+            "gesture": "open_activity",
             "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 15,
+            "describe": "get toast and compare to verify login",
+            "element": "",
+            "gesture": "get_toast_expect",
+            "args": "Auto sign-out time is 1 hour(s).",
             "x": "",
             "y": ""
         }

@@ -1,0 +1,97 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "describe": "tap avatar to logout",
+            "element": "vlauncher_avatar",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "tap 'sign out' button",
+            "element": "vlauncher_avatar_sign",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "tap 'sign out' button on the popup",
+            "element": "vlauncher_avatar_btn_logout",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "describe": "tap 'sign in' button to the login page",
+            "element": "vlauncher_btn_sign_in",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "describe": "input user name",
+            "element": "authenticator_myviewboard_account",
+            "gesture": "sendKey_byID",
+            "args": [0,"ian.viewsonic.test@gmail.com"],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 6,
+            "describe": "input user password",
+            "element": "authenticator_myviewboard_password",
+            "gesture": "sendKey_byID",
+            "args": [0,"vsMVBtest!1"],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 7,
+            "describe": "tap 'sign in' button to login",
+            "element": "authenticator_myviewboard_btn_login",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 8,
+            "describe": "wait for vlauncher title exists",
+            "element": "vlauncher_title",
+            "gesture": "wait_element_exist",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 9,
+            "describe": "open whiteboard activity",
+            "element": [
+                "whiteboard_package",
+                "whiteboard_activity"
+            ],
+            "gesture": "open_activity",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 10,
+            "describe": "get toast and compare to verify login",
+            "element": "",
+            "gesture": "get_toast_expect",
+            "args": "Auto sign-out time is 1 hour(s).",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

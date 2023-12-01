@@ -28,63 +28,7 @@
             "y": ""
         },
         {
-            "sequence": "wait",
-            "describe": "wait for logout finish",
-            "element": "",
-            "gesture": "time_wait",
-            "args": "3",
-            "x": "",
-            "y": ""
-        },
-        {
             "sequence": 4,
-            "describe": "tap 'guest' button back to homepage",
-            "element": "vlauncher_btn_guest",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 5,
-            "describe": "crop avatar image to compare",
-            "element": "vlauncher_avatar",
-            "gesture": "crop_byID",
-            "args": [
-                "compareshot_1"
-            ],
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 6,
-            "describe": "tap avatar to logout",
-            "element": "vlauncher_avatar",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 7,
-            "describe": "tap 'sign out' button",
-            "element": "vlauncher_avatar_sign",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 8,
-            "describe": "tap 'sign out' button on the popup",
-            "element": "vlauncher_avatar_btn_logout",
-            "gesture": "tap_byID",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 9,
             "describe": "tap 'sign in' button to the login page",
             "element": "vlauncher_btn_sign_in",
             "gesture": "tap_byID",
@@ -93,7 +37,7 @@
             "y": ""
         },
         {
-            "sequence": 10,
+            "sequence": 5,
             "describe": "tap 'microsoft SSO' button to the login page",
             "element": "authenticator_btn_microsoft",
             "gesture": "tap_byID",
@@ -102,7 +46,7 @@
             "y": ""
         },
         {
-            "sequence": 11,
+            "sequence": 6,
             "describe": "input user name",
             "element": "authenticator_text_microsoft_account",
             "gesture": "sendKey_byID",
@@ -111,7 +55,7 @@
             "y": ""
         },
         {
-            "sequence": 12,
+            "sequence": 7,
             "describe": "tap 'Next' button",
             "element": "authenticator_btn_microsoft_next",
             "gesture": "tap_byID",
@@ -120,8 +64,8 @@
             "y": ""
         },
         {
-            "sequence": 13,
-            "describe": "wait for password text view",
+            "sequence": 8,
+            "describe": "wait for microsoft password text exists",
             "element": "authenticator_text_microsoft_password",
             "gesture": "wait_element_exist",
             "args": "",
@@ -129,7 +73,7 @@
             "y": ""
         },
         {
-            "sequence": 14,
+            "sequence": 9,
             "describe": "input password",
             "element": "authenticator_text_microsoft_password",
             "gesture": "sendKey_byID",
@@ -138,7 +82,7 @@
             "y": ""
         },
         {
-            "sequence": 15,
+            "sequence": 10,
             "describe": "tap 'sign in' to  login account",
             "element": "authenticator_btn_microsoft_sign_in",
             "gesture": "tap_byID",
@@ -147,7 +91,7 @@
             "y": ""
         },
         {
-            "sequence": 16,
+            "sequence": 11,
             "describe": "skip stay sign in notification",
             "element": "",
             "gesture": "stay_sign_in_microsoft",
@@ -156,25 +100,32 @@
             "y": ""
         },
         {
-            "sequence": 17,
-            "describe": "crop avatar image to compare",
-            "element": "vlauncher_avatar",
-            "gesture": "crop_byID",
-            "args": [
-                "compareshot_2"
-            ],
+            "sequence": 12,
+            "describe": "wait for vlauncher title exists",
+            "element": "vlauncher_title",
+            "gesture": "wait_element_exist",
+            "args": "",
             "x": "",
             "y": ""
         },
         {
-            "sequence": 18,
-            "describe": "compare two screenshots different to verify login",
+            "sequence": 13,
+            "describe": "open whiteboard activity",
             "element": [
-                "compareshot_1.png",
-                "compareshot_2.png"
+                "whiteboard_package",
+                "whiteboard_activity"
             ],
-            "gesture": "compare_images_pixel",
+            "gesture": "open_activity",
             "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 14,
+            "describe": "get toast and compare to verify login",
+            "element": "",
+            "gesture": "get_toast_expect",
+            "args": "Auto sign-out time is 1 hour(s).",
             "x": "",
             "y": ""
         }

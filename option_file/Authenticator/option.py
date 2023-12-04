@@ -13,6 +13,7 @@ class Authenticator(item_strategy.Strategy):
         "6": "auto login viewboard by google account",
         "7": "auto login viewboard by microsoft account",
         "8": "auto login viewboard by education account",
+        "9": "back button",
         "all": "all Test",
     }
     folder_path = "option_file/Authenticator"
@@ -84,6 +85,14 @@ class Authenticator(item_strategy.Strategy):
         self.reporter.add_category("authenticator")
         self.reporter.test_case("auto login viewboard by education account")
 
+    def _back_button(self):
+        self.event_gen.generate_event(
+            json_path=f"{self.folder_path}/back_button.json",
+            driver=self.driver,
+        )
+        self.reporter.add_category("authenticator")
+        self.reporter.test_case("back button")
+
     def run_all(self):
         self.reporter.test_title("---Authenticator---")
         self._login_by_myviewboard()
@@ -94,6 +103,7 @@ class Authenticator(item_strategy.Strategy):
         self._auto_login_myviewboard_by_google()
         self._auto_login_myviewboard_by_microsoft()
         self._auto_login_myviewboard_by_education()
+        self._back_button()
 
     def run(self):
         while True:
@@ -119,6 +129,8 @@ class Authenticator(item_strategy.Strategy):
                     self._auto_login_myviewboard_by_microsoft()
                 case "8":
                     self._auto_login_myviewboard_by_education()
+                case "9":
+                    self._back_button()
                 case "all":
                     self.run_all()
                 case _:

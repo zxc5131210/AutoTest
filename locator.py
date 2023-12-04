@@ -84,6 +84,7 @@ locator = {
     "STB_btn_apps_tag_one": "com.viewsonic.sidetoolbar:id/RlAllAppsTagOne",
     "STB_btn_apps_tag_two": "com.viewsonic.sidetoolbar:id/RlAllAppsTagTwo",
     "STB_btn_apps_tag_three": "com.viewsonic.sidetoolbar:id/RlAllAppsTagThree",
+    "STB_btn_apps_tag_four": "com.viewsonic.sidetoolbar:id/RlAllAppsTagFour",
     "STB_btn_apps_container_two": "com.viewsonic.sidetoolbar:id/clApp2Container",
     "STB_btn_quicksettings": "com.viewsonic.sidetoolbar:id/imgBtnQuickSettings",
     "STB_btn_all_tools": "com.viewsonic.sidetoolbar:id/imgBtnAllTools",

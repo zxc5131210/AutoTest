@@ -13,6 +13,7 @@ class vLauncherTools(item_strategy.Strategy):
         "6": "ethernet settings",
         "7": "wifi settings",
         "8": "input source",
+        "9": "sign out button",
         "all": "all Test",
     }
     folder_path = "option_file/vLauncher/desktop_tools"
@@ -84,6 +85,14 @@ class vLauncherTools(item_strategy.Strategy):
         self.reporter.add_category("vlauncher")
         self.reporter.test_case("input source")
 
+    def _sign_out_button(self):
+        self.event_gen.generate_event(
+            json_path=f"{self.folder_path}/sign_out_button.json",
+            driver=self.driver,
+        )
+        self.reporter.add_category("vlauncher")
+        self.reporter.test_case("sign out button")
+
     def run_all(self):
         self.reporter.test_title("---desktop tools---")
         self._date_and_time()
@@ -94,6 +103,7 @@ class vLauncherTools(item_strategy.Strategy):
         self._ethernet()
         self._wifi()
         self._input_source()
+        self._sign_out_button()
 
     def run(self):
         while True:
@@ -119,6 +129,8 @@ class vLauncherTools(item_strategy.Strategy):
                     self._wifi()
                 case "8":
                     self._input_source()
+                case "9":
+                    self._sign_out_button()
                 case "all":
                     self.run_all()
                 case _:

@@ -13,7 +13,9 @@ class STB(item_strategy.Strategy):
         "5": "app order in shortcut",
         "6": "add & delete tools in shortcut",
         "7": "tools order in shortcut",
-        "8": "STB tools",
+        "8": "exists apps error message",
+        "9": "maximum apps error message",
+        "10": "STB tools",
         "all": "all test",
     }
     folder_path = "option_file/STB"
@@ -82,6 +84,22 @@ class STB(item_strategy.Strategy):
         self.reporter.add_category("STB")
         self.reporter.test_case("STB_tools-app order in shortcut")
 
+    def _STB_exists_apps_error_message(self):
+        self.event_gen.generate_event(
+            json_path=f"{self.folder_path}/SecondClass/exists_apps_popup.json",
+            driver=self.driver,
+        )
+        self.reporter.add_category("STB")
+        self.reporter.test_case("STB_apps-error message popup of exists app")
+
+    def _STB_maximum_apps_error_message(self):
+        self.event_gen.generate_event(
+            json_path=f"{self.folder_path}/SecondClass/maximum_apps_popup.json",
+            driver=self.driver,
+        )
+        self.reporter.add_category("STB")
+        self.reporter.test_case("STB_apps-maximum apps error message popup")
+
     def run_all(self):
         # STB root_view
         self.reporter.test_title("---STB root view---")
@@ -92,6 +110,8 @@ class STB(item_strategy.Strategy):
         self._STB_element_in_all_apps()
         self._STB_tools_add_delete_app_in_shortcut()
         self._STB_tools_order_in_shortcut()
+        self._STB_exists_apps_error_message()
+        self._STB_maximum_apps_error_message()
         # STB Tools
         STBTools(
             event_gen=self.event_gen, driver=self.driver, reporter=self.reporter
@@ -120,6 +140,10 @@ class STB(item_strategy.Strategy):
                 case "7":
                     self._STB_tools_order_in_shortcut()
                 case "8":
+                    self._STB_exists_apps_error_message()
+                case "9":
+                    self._STB_maximum_apps_error_message()
+                case "10":
                     STBTools(
                         event_gen=self.event_gen,
                         driver=self.driver,

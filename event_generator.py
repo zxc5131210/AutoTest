@@ -111,6 +111,11 @@ class EventGen:
                     time.sleep(3)
                     gesture.home_page()
 
+            case "tap_hot_seat_all_app":
+                elements = driver(resourceId=locator[json_element])
+                for element in elements:
+                    gesture.tap(element)
+
             case "tap_byID":
                 json_element = locator[json_element]
                 element = driver(resourceId=json_element)
@@ -332,7 +337,7 @@ class EventGen:
                 if element.exists:
                     pass
                 else:
-                    if event["args"] == "False":
+                    if event["args"].lower() == "false":
                         pass
                     else:
                         logging.error(msg=f"Find {element} FAIL")

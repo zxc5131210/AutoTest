@@ -42,7 +42,7 @@ locator = {
     # vlauncher
     "vlauncher_package": "com.viewsonic.vlauncher",
     "vlauncher_activity": "com.viewsonic.vLauncher.uioverrides.QuickstepLauncher",
-    "vlauncher_hots_eat": "com.viewsonic.vlauncher:id/cell",
+    "vlauncher_hot_seat": "com.viewsonic.vlauncher:id/cell",
     "vlauncher_remove_task": "com.viewsonic.vlauncher:id/remove_task",
     "vlauncher_title": "com.viewsonic.vlauncher:id/title",
     "vlauncher_btn_clear": "com.viewsonic.vlauncher:id/imageClear",
@@ -72,6 +72,14 @@ locator = {
     "vlauncher_btn_volume": "com.viewsonic.vlauncher:id/volume",
     "vlauncher_seekbar_volume": "com.viewsonic.vlauncher:id/volume_seekbar",
     "vlauncher_btn_wifi": "com.viewsonic.vlauncher:id/btnWifi",
+    "vlauncher_icon_confirm": "com.viewsonic.vlauncher:id/confirm_icon",
+    "vlauncher_edit_launcher_cell_1": "com.viewsonic.vlauncher:id/all_app_cell_1",
+    "vlauncher_edit_launcher_cell_2": "com.viewsonic.vlauncher:id/all_app_cell_2",
+    "vlauncher_edit_launcher_cell_3": "com.viewsonic.vlauncher:id/all_app_cell_3",
+    "vlauncher_edit_launcher_cell_4": "com.viewsonic.vlauncher:id/all_app_cell_4",
+    "vlauncher_edit_launcher_cell_5": "com.viewsonic.vlauncher:id/all_app_cell_5",
+    "vlauncher_edit_launcher_cell_6": "com.viewsonic.vlauncher:id/all_app_cell_6",
+    "vlauncher_edit_launcher_cell_7": "com.viewsonic.vlauncher:id/all_app_cell_7",
     # STB
     "STB": "com.viewsonic.sidetoolbar:id/flOpenBar",
     "STB_package": "com.viewsonic.sidetoolbar",

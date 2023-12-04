@@ -30,7 +30,7 @@
         {
             "sequence": 4,
             "describe": "open every Apps on hot seat",
-            "element": "vlauncher_hots_eat",
+            "element": "vlauncher_hot_seat",
             "gesture": "open_hot_seat_all_app",
             "args": "",
             "x": "",

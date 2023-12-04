@@ -1,0 +1,40 @@
+{
+    "steps": [
+         {
+            "sequence": 1,
+            "describe": "long press to open menu",
+            "element": "",
+            "gesture": "long_press_location",
+            "args": "",
+            "x": 0.5,
+            "y": 0.1
+        },
+        {
+            "sequence": 2,
+            "describe": "choose 'edit launcher' option",
+            "element": "//*[@resource-id=\"com.viewsonic.vlauncher:id/popup_container\"]/android.widget.FrameLayout[2]",
+            "gesture": "tap_byXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "click confirm button to close the edit launcher",
+            "element": "vlauncher_icon_confirm",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+          "sequence": 4,
+          "describe": "find the cell element not exists to verify edit launcher is closed",
+          "element": "vlauncher_edit_launcher_cell_1",
+          "gesture": "findelements_ByID",
+          "args": "false",
+          "x": "",
+          "y": ""
+        }
+    ]
+}

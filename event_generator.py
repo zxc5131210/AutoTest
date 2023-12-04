@@ -190,10 +190,8 @@ class EventGen:
                 while driver(resourceId="id1").exists:
                     # 擷取驗證碼的圖片
                     time.sleep(1)
-                    password = driver(
-                        resourceId=locator["authenticator_edu_password"], instance=0
-                    )
-                    gesture.send_keys(password, "Viewtest123@@")
+                    password = driver(resourceId=locator[json_element], instance=0)
+                    gesture.send_keys(password, event["args"])
                     element = driver.xpath(
                         "//*[@text='onesteplogin?0--container-passwordcheckform-captchaPanel-container-image"
                         "&Auth_Request_RedirectUri=https%253A%252F%252Fauth.myviewboard']"

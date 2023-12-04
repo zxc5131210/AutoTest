@@ -105,9 +105,9 @@
         {
             "sequence": 12,
             "describe": "input password and verification code to login",
-            "element": "",
+            "element": "authenticator_edu_password",
             "gesture": "identify_edu_verification_code",
-            "args": "",
+            "args": "Viewtest123@@",
             "x": "",
             "y": ""
         },

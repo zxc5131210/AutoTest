@@ -6,14 +6,16 @@ class Authenticator(item_strategy.Strategy):
     menu_dict = {
         "0": "Back to main menu",
         "1": "myviewboard account",
-        "2": "google account",
-        "3": "microsoft account",
-        "4": "education account",
+        "2": "google SSO",
+        "3": "microsoft SSO",
+        "4": "education SSO",
         "5": "auto login viewboard by myviewboard account",
-        "6": "auto login viewboard by google account",
-        "7": "auto login viewboard by microsoft account",
-        "8": "auto login viewboard by education account",
+        "6": "auto login viewboard by google SSO",
+        "7": "auto login viewboard by microsoft SSO",
+        "8": "auto login viewboard by education SSO",
         "9": "back button",
+        "10": "duplicate login by myviewboard",
+        "11": "duplicate login by google SSO",
         "all": "all Test",
     }
     folder_path = "option_file/Authenticator"
@@ -93,6 +95,24 @@ class Authenticator(item_strategy.Strategy):
         self.reporter.add_category("authenticator")
         self.reporter.test_case("back button")
 
+    def _duplicate_login_myviewboard(self):
+        for _ in range(10):
+            self.event_gen.generate_event(
+                json_path=f"{self.folder_path}/login_by_myviewboard.json",
+                driver=self.driver,
+            )
+        self.reporter.add_category("authenticator")
+        self.reporter.test_case("duplicate login by myviewboard")
+
+    def _duplicate_login_google(self):
+        for _ in range(10):
+            self.event_gen.generate_event(
+                json_path=f"{self.folder_path}/login_by_google.json",
+                driver=self.driver,
+            )
+        self.reporter.add_category("authenticator")
+        self.reporter.test_case("duplicate login by google SSO")
+
     def run_all(self):
         self.reporter.test_title("---Authenticator---")
         self._login_by_myviewboard()
@@ -104,6 +124,8 @@ class Authenticator(item_strategy.Strategy):
         self._auto_login_myviewboard_by_microsoft()
         self._auto_login_myviewboard_by_education()
         self._back_button()
+        self._duplicate_login_myviewboard()
+        self._duplicate_login_google()
 
     def run(self):
         while True:
@@ -131,6 +153,10 @@ class Authenticator(item_strategy.Strategy):
                     self._auto_login_myviewboard_by_education()
                 case "9":
                     self._back_button()
+                case "10":
+                    self._duplicate_login_myviewboard()
+                case "11":
+                    self._duplicate_login_google()
                 case "all":
                     self.run_all()
                 case _:

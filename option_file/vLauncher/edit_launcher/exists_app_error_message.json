@@ -1,0 +1,58 @@
+{
+    "steps": [
+         {
+            "sequence": 1,
+            "describe": "long press to open menu",
+            "element": "",
+            "gesture": "long_press_location",
+            "args": "",
+            "x": 0.5,
+            "y": 0.1
+        },
+        {
+            "sequence": 2,
+            "describe": "choose 'edit launcher' option",
+            "element": "//*[@resource-id=\"com.viewsonic.vlauncher:id/popup_container\"]/android.widget.FrameLayout[2]",
+            "gesture": "tap_byXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "add the first App on hot seat",
+            "element": "//*[@resource-id='com.viewsonic.vlauncher:id/all_app_cell_1']",
+            "gesture": "tap_byXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "describe": "add the first App again on hot seat",
+            "element": "//*[@resource-id='com.viewsonic.vlauncher:id/all_app_cell_1']",
+            "gesture": "tap_byXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "describe": "compare error message popup is expect",
+            "element": "",
+            "gesture": "get_toast_expect",
+            "args": "Already a shortcut",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 6,
+            "describe": "clear vLauncher user data",
+            "element": "vlauncher_package",
+            "gesture": "end_activity",
+            "args": "",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

@@ -111,6 +111,11 @@ class EventGen:
                     time.sleep(3)
                     gesture.home_page()
 
+            case "tap_hot_seat_all_app":
+                elements = driver(resourceId=locator[json_element])
+                for element in elements:
+                    gesture.tap(element)
+
             case "tap_byID":
                 json_element = locator[json_element]
                 element = driver(resourceId=json_element)
@@ -134,6 +139,11 @@ class EventGen:
                 element = driver(resourceId=locator[json_element])
                 text = gesture.get_element_text(element)
                 gesture.compare_different_list.append(text)
+
+            case "wait_element_exist":
+                element = driver(resourceId=locator[json_element])
+                gesture.wait_element_exist(element)
+                time.sleep(5)
 
             case "sendKey_byID":
                 """
@@ -185,10 +195,8 @@ class EventGen:
                 while driver(resourceId="id1").exists:
                     # 擷取驗證碼的圖片
                     time.sleep(1)
-                    password = driver(
-                        resourceId=locator["authenticator_edu_password"], instance=0
-                    )
-                    gesture.send_keys(password, "Viewtest123@@")
+                    password = driver(resourceId=locator[json_element], instance=0)
+                    gesture.send_keys(password, event["args"])
                     element = driver.xpath(
                         "//*[@text='onesteplogin?0--container-passwordcheckform-captchaPanel-container-image"
                         "&Auth_Request_RedirectUri=https%253A%252F%252Fauth.myviewboard']"
@@ -230,24 +238,14 @@ class EventGen:
                         time.sleep(5)
 
             case "stay_sign_in_microsoft":
-                time.sleep(5)
-                if driver(
-                    resourceId=locator["authenticator_microsoft_skip_checkbox"]
-                ).exists:
-                    gesture.tap(
-                        driver(
-                            resourceId=locator["authenticator_microsoft_skip_checkbox"]
-                        )
+                gesture.tap(
+                    driver(resourceId=locator["authenticator_microsoft_skip_checkbox"])
+                )
+                gesture.tap(
+                    driver(
+                        resourceId=locator["authenticator_btn_microsoft_skip_button"]
                     )
-                    gesture.tap(
-                        driver(
-                            resourceId=locator[
-                                "authenticator_btn_microsoft_skip_button"
-                            ]
-                        )
-                    )
-                else:
-                    pass
+                )
 
             case "swipe_up":
                 gesture.swipe_up()
@@ -333,13 +331,13 @@ class EventGen:
 
             case "findelements_ByID":
                 """
-                if verify not find the element = True, args ==False
+                If you want to verify that the element is not found, args ==False
                 """
                 element = driver(resourceId=locator[json_element])
                 if element.exists:
                     pass
                 else:
-                    if event["args"] == "False":
+                    if event["args"].lower() == "false":
                         pass
                     else:
                         logging.error(msg=f"Find {element} FAIL")
@@ -414,6 +412,17 @@ class EventGen:
                     logging.error(msg="app not found in recent app")
                     self.reporter.fail_step(msg="app not found in recent app")
 
+            case "recent_app_list":
+                elements = driver(resourceId=locator[json_element])
+                for running_apps in elements:
+                    gesture.compare_different_list.append(running_apps.get_text())
+                for expect_app in event["args"]:
+                    if expect_app in gesture.compare_different_list:
+                        pass
+                    else:
+                        logging.error("can't find the running app in recent app")
+                gesture.compare_different_list.clear()
+
             case "marker_fill_up":
                 element_bounds = driver.info
                 center_x = (element_bounds["displayWidth"]) // 2
@@ -425,7 +434,7 @@ class EventGen:
 
             case "marker_verify_file_is_exists":
                 # get toast msg and verify the file is existing
-                toast = driver.toast.get_message(wait_timeout=5)
+                toast = gesture.get_toast()
                 filename = toast.split("/")[-1]
                 filepath = f"/sdcard/pictures/{filename}"
                 gesture.file_is_exists(filepath)
@@ -468,61 +477,32 @@ class EventGen:
                         driver.swipe(x_a, y_a, x_b, y_b)
                     else:
                         logging.error(msg="Not Found App")
-                        self.reporter.fail_step(msg="Not Found App")
 
             case "STB_secondClass_initialization":
                 gesture.tap(driver(resourceId=locator["STB"]))
-                if (
-                    driver(
-                        resourceId="com.viewsonic.sidetoolbar:id/RlThirdPartyApp1"
-                    ).exists
-                    or driver(
-                        resourceId="com.viewsonic.sidetoolbar:id/RlThirdPartyApp2"
-                    ).exists
-                    or driver(
-                        resourceId="com.viewsonic.sidetoolbar:id/imgViewAddApp3"
-                    ).exists
-                ):
-                    gesture.tap(driver(resourceId=locator["STB_btn_all_apps"]))
-                    gesture.tap(driver(resourceId=locator["STB_btn_edit_apps"]))
-                    gesture.tap(
-                        driver(
-                            resourceId="com.viewsonic.sidetoolbar:id/clApp1Container"
-                        )
-                    )
-                    gesture.tap(
-                        driver(resourceId=locator["STB_btn_apps_container_two"])
-                    )
-                    gesture.tap(
-                        driver(
-                            resourceId="com.viewsonic.sidetoolbar:id/clApp3Container"
-                        )
-                    )
-                    gesture.tap(driver(resourceId=locator["STB_btn_home"]))
-                else:
-                    gesture.tap(driver(resourceId=locator["STB_btn_home"]))
+                gesture.tap(driver(resourceId=locator["STB_btn_all_apps"]))
+                gesture.tap(driver(resourceId=locator["STB_btn_edit_apps"]))
+
+                gesture.tap(
+                    driver(resourceId="com.viewsonic.sidetoolbar:id/clApp1Container")
+                )
+                gesture.tap(
+                    driver(resourceId="com.viewsonic.sidetoolbar:id/clApp2Container")
+                )
+                gesture.tap(
+                    driver(resourceId="com.viewsonic.sidetoolbar:id/clApp3Container")
+                )
+                gesture.tap(driver(resourceId=locator["STB_btn_home"]))
 
             case "STB_ThirdClass_initialization":
                 gesture.tap(driver(resourceId=locator["STB"]))
-                if (
-                    driver(resourceId=locator["STB_btn_tools_shortcut_one"]).exists
-                    or driver(
-                        resourceId="com.viewsonic.sidetoolbar:id/imgViewAddTool2"
-                    ).exists
-                ):
-                    gesture.tap(driver(resourceId=locator["STB_btn_all_tools"]))
-                    gesture.tap(driver(resourceId=locator["STB_btn_edit_tools"]))
-                    gesture.tap(
-                        driver(resourceId=locator["STB_btn_tools_shortcut_one"])
-                    )
-                    gesture.tap(
-                        driver(
-                            resourceId="com.viewsonic.sidetoolbar:id/imgViewAddTool2"
-                        )
-                    )
-                    gesture.tap(driver(resourceId=locator["STB_btn_home"]))
-                else:
-                    gesture.tap(driver(resourceId=locator["STB_btn_home"]))
+                gesture.tap(driver(resourceId=locator["STB_btn_all_tools"]))
+                gesture.tap(driver(resourceId=locator["STB_btn_edit_tools"]))
+                gesture.tap(driver(resourceId=locator["STB_btn_tools_shortcut_one"]))
+                gesture.tap(
+                    driver(resourceId="com.viewsonic.sidetoolbar:id/imgViewAddTool2")
+                )
+                gesture.tap(driver(resourceId=locator["STB_btn_home"]))
 
             case "STB_spotlight_initialization":
                 driver().pinch_in(percent=10, steps=10)
@@ -581,6 +561,14 @@ class EventGen:
 
             case "get_volume":
                 gesture.compare_different_list.append(gesture.get_volume())
+
+            case "get_toast_expect":
+                msg = gesture.get_toast()
+                if msg == event["args"]:
+                    pass
+                else:
+                    logging.error(msg="toast is not expect")
+                    self.reporter.fail_step(msg="toast is not expect")
 
             case "compare_different":
                 if (

@@ -28,8 +28,8 @@
             "y": ""
         },
         {
-            "sequence": "wait for logout finish",
-            "describe": "",
+            "sequence": "wait",
+            "describe": "wait for logout finish",
             "element": "",
             "gesture": "time_wait",
             "args": "3",
@@ -58,7 +58,7 @@
         },
         {
             "sequence": 6,
-            "describe": "open ScreenLock activity",
+            "describe": "open settings activity",
             "element": [
                 "settings_package",
                 "settings_time_activity"
@@ -161,9 +161,9 @@
         {
             "sequence": 17,
             "describe": "input password and verification code to login",
-            "element": "",
+            "element": "authenticator_edu_password",
             "gesture": "identify_edu_verification_code",
-            "args": "",
+            "args": "Viewtest123@@",
             "x": "",
             "y": ""
         },

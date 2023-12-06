@@ -7,6 +7,7 @@ class RecentApp(item_strategy.Strategy):
         "0": "Back to main menu",
         "1": "clear app",
         "2": "clear all button",
+        "3": "running apps in recent app",
         "all": "all Test",
     }
     folder_path = "option_file/vLauncher/recent_app"
@@ -30,10 +31,19 @@ class RecentApp(item_strategy.Strategy):
         self.reporter.add_category("vlauncher")
         self.reporter.test_case("'clear all' button in recent app")
 
+    def _running_apps_in_recent_app(self):
+        self.event_gen.generate_event(
+            json_path=f"{self.folder_path}/running_apps.json",
+            driver=self.driver,
+        )
+        self.reporter.add_category("vlauncher")
+        self.reporter.test_case("running apps in recent app")
+
     def run_all(self):
         self.reporter.test_title("---Recent App---")
         self._recent_app_clear_app()
         self._recent_app_clear_all_btn()
+        self._running_apps_in_recent_app()
 
     def run(self):
         while True:
@@ -47,6 +57,8 @@ class RecentApp(item_strategy.Strategy):
                     self._recent_app_clear_app()
                 case "2":
                     self._recent_app_clear_all_btn()
+                case "3":
+                    self._running_apps_in_recent_app()
                 case "all":
                     self.run_all()
                 case _:

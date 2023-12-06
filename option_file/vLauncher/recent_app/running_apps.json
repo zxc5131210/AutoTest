@@ -56,10 +56,10 @@
         },
         {
             "sequence": 7,
-            "describe": "clear the last open App on recent app",
-            "element": "vlauncher_remove_task",
-            "gesture": "recent_app_clear",
-            "args": "",
+            "describe": "compare running apps in recent app is expect to verify the running apps are all in recent app",
+            "element": "vlauncher_label",
+            "gesture": "recent_app_list",
+            "args": ["myViewBoard Manager", "myViewBoard Display", "myViewBoard Whiteboard"],
             "x": "",
             "y": ""
         },

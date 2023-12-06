@@ -412,6 +412,17 @@ class EventGen:
                     logging.error(msg="app not found in recent app")
                     self.reporter.fail_step(msg="app not found in recent app")
 
+            case "recent_app_list":
+                elements = driver(resourceId=locator[json_element])
+                for running_apps in elements:
+                    gesture.compare_different_list.append(running_apps.get_text())
+                for expect_app in event["args"]:
+                    if expect_app in gesture.compare_different_list:
+                        pass
+                    else:
+                        logging.error("can't find the running app in recent app")
+                gesture.compare_different_list.clear()
+
             case "marker_fill_up":
                 element_bounds = driver.info
                 center_x = (element_bounds["displayWidth"]) // 2

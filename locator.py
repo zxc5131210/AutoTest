@@ -43,6 +43,7 @@ locator = {
     "vlauncher_package": "com.viewsonic.vlauncher",
     "vlauncher_activity": "com.viewsonic.vLauncher.uioverrides.QuickstepLauncher",
     "vlauncher_hot_seat": "com.viewsonic.vlauncher:id/cell",
+    "vlauncher_label": "com.viewsonic.vlauncher:id/label",
     "vlauncher_remove_task": "com.viewsonic.vlauncher:id/remove_task",
     "vlauncher_title": "com.viewsonic.vlauncher:id/title",
     "vlauncher_btn_clear": "com.viewsonic.vlauncher:id/imageClear",

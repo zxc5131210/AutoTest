@@ -11,4 +11,8 @@ d = u2.connect()
 #         y_start = i
 #         d.swipe(fx=0, fy=y_start, tx=center_x, ty=y_start, duration=0.05)
 #     d(resourceId="com.viewsonic.sidetoolbar:id/close").click()
-print(d.current_app())
+ele = d(resourceId="com.viewsonic.vlauncher:id/label")
+list = []
+for i in ele:
+    list.append(i.get_text())
+print(list)

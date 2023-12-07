@@ -7,37 +7,44 @@ from option_file.vLauncher.user_select.option import UserSelect
 from option_file import item_strategy
 
 
-class TestClass:
-    def __init__(self, description, test_class):
+class Category:
+    def __init__(self, description, category):
         self.description = description
-        self.test_class = test_class
+        self.category = category
 
 
 class vLauncher(item_strategy.Strategy):
-    test_class = [
-        TestClass("vLauncher title", vLauncherTitle),
-        TestClass("Edit Launcher", EditLauncher),
-        TestClass("Recent App", RecentApp),
-        TestClass("Desktop tools", vLauncherTools),
-        TestClass("User Select", UserSelect),
+    categories = [
+        Category("vLauncher title", vLauncherTitle),
+        Category("Edit Launcher", EditLauncher),
+        Category("Recent App", RecentApp),
+        Category("Desktop tools", vLauncherTools),
+        Category("User Select", UserSelect),
     ]
 
     def __init__(self, event_gen, driver, reporter):
         super().__init__(event_gen, driver, reporter)
 
     def run_all(self):
-        for test_case in self.test_class:
-            test_case.test_class(self.event_gen, self.driver, self.reporter).run_all()
+        vlauncher_list = [
+            vLauncherTitle,
+            EditLauncher,
+            RecentApp,
+            vLauncherTools,
+            UserSelect,
+        ]
+        for test_case_all in vlauncher_list:
+            test_case_all(self.event_gen, self.driver, self.reporter).run_all()
 
-    def run(self, test_case):
-        test_case.test_class(
+    def run(self, category):
+        category.category(
             self.event_gen, self.driver, self.reporter
         ).run_with_interaction()
 
     def print_option(self):
         print(f"-1 : {self.option_menu}")
-        for _ in range(len(self.test_class)):
-            print(f"{_} : {self.test_class[_].description}")
+        for i in range(len(self.categories)):
+            print(f"{i} : {self.categories[i].description}")
         print(f"all : {self.option_all}")
 
     def run_with_interaction(self):
@@ -51,6 +58,6 @@ class vLauncher(item_strategy.Strategy):
             elif choice == "all":
                 self.run_all()
             elif isinstance(choice, int):
-                self.run(self.test_class[choice])
+                self.run(self.categories[choice])
             else:
                 print("Invalid input. Please enter a valid choice.")

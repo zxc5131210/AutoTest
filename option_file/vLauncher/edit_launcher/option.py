@@ -9,7 +9,7 @@ class TestCase:
 
 
 class EditLauncher(item_strategy.Strategy):
-    test_case = [
+    test_cases = [
         TestCase("Rearrange app on hot seat", "rearrange_apps.json"),
         TestCase("Install Testapp and find in all apps", "find_apps_in_All.json"),
         TestCase("Exists app error message popup", "exists_app_error_message.json"),
@@ -31,13 +31,13 @@ class EditLauncher(item_strategy.Strategy):
 
     def run_all(self):
         self.reporter.test_title("---Edit Launcher---")
-        for test_case in self.test_case:
+        for test_case in self.test_cases:
             self.run(test_case)
 
     def print_option(self):
         print(f"-1 : {self.option_menu}")
-        for _ in range(len(self.test_case)):
-            print(f"{_} : {self.test_case[_].description}")
+        for i in range(len(self.test_cases)):
+            print(f"{i} : {self.test_cases[i].description}")
         print(f"all : {self.option_all}")
 
     def run_with_interaction(self):
@@ -51,6 +51,6 @@ class EditLauncher(item_strategy.Strategy):
             elif choice == "all":
                 self.run_all()
             elif isinstance(choice, int):
-                self.run(self.test_case[choice])
+                self.run(self.test_cases[choice])
             else:
                 print("Invalid input. Please enter a valid choice.")

@@ -16,52 +16,64 @@ from option_file.Authenticator.option import Authenticator
 from event_generator import EventGen
 
 
-class TestClass:
-    def __init__(self, description, test_class):
+class Application:
+    def __init__(self, description, application):
         self.description = description
-        self.test_class = test_class
+        self.application = application
 
 
 class AutoTest:
     option_menu = "Exit auto test"
     option_all = "All Test"
-    test_class = [
-        TestClass("ScreenLock", ScreenLock),
-        TestClass("Wallpaper", WallPaper),
-        TestClass("vLauncher", vLauncher),
-        TestClass("STB", STB),
-        TestClass("Quicksettings", Quicksettings),
-        TestClass("Authenticator", Authenticator),
+    apps = [
+        Application("ScreenLock", ScreenLock),
+        Application("Wallpaper", WallPaper),
+        Application("vLauncher", vLauncher),
+        Application("STB", STB),
+        Application("Quicksettings", Quicksettings),
+        Application("Authenticator", Authenticator),
     ]
 
     def run_all(self):
-        for test_case in self.test_class:
-            test_case.test_class(event_gen, driver, reporter).run_all()
+        for test_case in self.apps:
+            test_case.application(event_gen, driver, reporter).run_all()
 
     @staticmethod
-    def run(test_case):
-        test_case.test_class(event_gen, driver, reporter).run_with_interaction()
+    def run(application):
+        application.application(event_gen, driver, reporter).run_with_interaction()
 
     def print_option(self):
         print(f"-1 : {self.option_menu}")
-        for _ in range(len(self.test_class)):
-            print(f"{_} : {self.test_class[_].description}")
-        print(f"all : {self.option_all}")
+        for i in range(len(self.apps)):
+            print(f"{i} : {self.apps[i].description}")
+        print(f"{len(self.apps)} : {self.option_all}")
+
+    def invalid(self, choice_int) -> bool:
+        """
+        check range in -1~len
+           1. < -1
+           2. > len
+        """
+        return choice_int < -1 or choice_int > len(self.apps)
 
     def run_with_interaction(self):
         while True:
             self.print_option()
             choice = input("Enter your choice: ").lower()
-            if choice.isnumeric():
-                choice = int(choice)
-            if choice == "-1":
-                exit()
-            elif choice == "all":
-                self.run_all()
-            elif isinstance(choice, int):
-                self.run(self.test_class[choice])
-            else:
-                print("Invalid input. Please enter a valid choice.")
+            try:
+                choice_int = int(choice)
+                if self.invalid(choice_int):
+                    raise ValueError
+                if choice_int == -1:
+                    exit()
+                if choice_int == len(self.apps):
+                    self.run_all()
+                    continue
+                self.run(self.apps[choice_int])
+            except ValueError:
+                print(
+                    "Invalid input. Please enter a valid choice, range is between -1 ~ length of apps."
+                )
 
 
 if __name__ == "__main__":

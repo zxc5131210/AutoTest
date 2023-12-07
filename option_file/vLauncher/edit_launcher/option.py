@@ -2,90 +2,55 @@
 from option_file import item_strategy
 
 
+class TestCase:
+    def __init__(self, description, json_path):
+        self.description = description
+        self.json_path = json_path
+
+
 class EditLauncher(item_strategy.Strategy):
-    menu_dict = {
-        "0": "Back to main menu",
-        "1": "Add_delete_re-range app on hot seat",
-        "2": "install Testapp and find in all apps",
-        "3": "exists app error popup",
-        "4": "maximum app error popup",
-        "5": "confirm button",
-        "all": "all Test",
-    }
+    test_case = [
+        TestCase("Rearrange app on hot seat", "rearrange_apps.json"),
+        TestCase("Install Testapp and find in all apps", "find_apps_in_All.json"),
+        TestCase("Exists app error message popup", "exists_app_error_message.json"),
+        TestCase("Maximum app error message popup", "maximum_app_error_message.json"),
+        TestCase("Confirm button", "confirm_button.json"),
+    ]
+
     folder_path = "option_file/vLauncher/edit_launcher"
 
     def __init__(self, event_gen, driver, reporter):
         super().__init__(event_gen, driver, reporter)
 
-    def _edit_launcher_add_app(self):
+    def run(self, test_case):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/add_delete_re-rangeApps.json",
+            json_path=f"{self.folder_path}/{test_case.json_path}",
             driver=self.driver,
         )
-        self.reporter.add_category("vlauncher")
-        self.reporter.test_case("Test App re-range on hot seat")
-
-    def _edit_launcher_find_all(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/find_apps_in_All.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("vlauncher")
-        self.reporter.test_case(
-            "install TestApp and find TestApp in Edit Launcher - all apps"
-        )
-
-    def _exists_app_popup(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/exists_app_error_message.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("vlauncher")
-        self.reporter.test_case("exists app error message popup")
-
-    def _maximum_app_popup(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/maximum_app_error_message.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("vlauncher")
-        self.reporter.test_case("maximum app error message popup")
-
-    def _confirm_button(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/confirm_button.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("vlauncher")
-        self.reporter.test_case("confirm button")
+        self.reporter.test_case(test_case.description)
 
     def run_all(self):
         self.reporter.test_title("---Edit Launcher---")
-        self._edit_launcher_add_app()
-        self._edit_launcher_find_all()
-        self._exists_app_popup()
-        self._maximum_app_popup()
-        self._confirm_button()
+        for test_case in self.test_case:
+            self.run(test_case)
 
-    def run(self):
+    def print_option(self):
+        print(f"-1 : {self.option_menu}")
+        for _ in range(len(self.test_case)):
+            print(f"{_} : {self.test_case[_].description}")
+        print(f"all : {self.option_all}")
+
+    def run_with_interaction(self):
         while True:
-            for option, test in self.menu_dict.items():
-                print(f"{option}: {test}")
+            self.print_option()
             choice = input("Enter your choice: ").lower()
-            match choice:
-                case "0":
-                    return
-                case "1":
-                    self._edit_launcher_add_app()
-                case "2":
-                    self._edit_launcher_find_all()
-                case "3":
-                    self._exists_app_popup()
-                case "4":
-                    self._maximum_app_popup()
-                case "5":
-                    self._confirm_button()
-                case "all":
-                    self.run_all()
-                case _:
-                    print("Invalid option")
+            if choice.isnumeric():
+                choice = int(choice)
+            if choice == "-1":
+                return
+            elif choice == "all":
+                self.run_all()
+            elif isinstance(choice, int):
+                self.run(self.test_case[choice])
+            else:
+                print("Invalid input. Please enter a valid choice.")

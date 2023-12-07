@@ -2,6 +2,12 @@
 from option_file import item_strategy
 
 
+class TestCase:
+    def __init__(self, description, json_path):
+        self.description = description
+        self.json_path = json_path
+
+
 class vLauncherTools(item_strategy.Strategy):
     menu_dict = {
         "0": "back to previous page",

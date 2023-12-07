@@ -7,55 +7,50 @@ from option_file.vLauncher.user_select.option import UserSelect
 from option_file import item_strategy
 
 
+class TestClass:
+    def __init__(self, description, test_class):
+        self.description = description
+        self.test_class = test_class
+
+
 class vLauncher(item_strategy.Strategy):
-    menu_dict = {
-        "0": "Back to main menu",
-        "1": "vLauncher title",
-        "2": "Edit Launcher",
-        "3": "Recent App",
-        "4": "Desktop tools",
-        "5": "User Select",
-    }
+    test_class = [
+        TestClass("vLauncher title", vLauncherTitle),
+        TestClass("Edit Launcher", EditLauncher),
+        TestClass("Recent App", RecentApp),
+        TestClass("Desktop tools", vLauncherTools),
+        TestClass("User Select", UserSelect),
+    ]
 
     def __init__(self, event_gen, driver, reporter):
         super().__init__(event_gen, driver, reporter)
 
     def run_all(self):
-        vLauncherTitle(self.event_gen, self.driver, self.reporter).run_all()
-        EditLauncher(self.event_gen, self.driver, self.reporter).run_all()
-        RecentApp(self.event_gen, self.driver, self.reporter).run_all()
-        vLauncherTools(self.event_gen, self.driver, self.reporter).run_all()
-        UserSelect(self.event_gen, self.driver, self.reporter).run_all()
+        for test_case in self.test_class:
+            test_case.test_class(self.event_gen, self.driver, self.reporter).run_all()
 
-    def run(self):
+    def run(self, test_case):
+        test_case.test_class(
+            self.event_gen, self.driver, self.reporter
+        ).run_with_interaction()
+
+    def print_option(self):
+        print(f"-1 : {self.option_menu}")
+        for _ in range(len(self.test_class)):
+            print(f"{_} : {self.test_class[_].description}")
+        print(f"all : {self.option_all}")
+
+    def run_with_interaction(self):
         while True:
-            for option, test in self.menu_dict.items():
-                print(f"{option}: {test}")
+            self.print_option()
             choice = input("Enter your choice: ").lower()
-            match choice:
-                case "0":
-                    return
-                case "1":
-                    vLauncherTitle(self.event_gen, self.driver, self.reporter).run()
-                case "2":
-                    EditLauncher(self.event_gen, self.driver, self.reporter).run()
-                case "3":
-                    RecentApp(self.event_gen, self.driver, self.reporter).run()
-                case "4":
-                    vLauncherTools(self.event_gen, self.driver, self.reporter).run()
-                case "5":
-                    UserSelect(self.event_gen, self.driver, self.reporter).run()
-                case "6":
-                    pass
-                case "7":
-                    pass
-                case "8":
-                    pass
-                case "9":
-                    pass
-                case "10":
-                    pass
-                case "all":
-                    self.run_all()
-                case _:
-                    print("Invalid option")
+            if choice.isnumeric():
+                choice = int(choice)
+            if choice == "-1":
+                return
+            elif choice == "all":
+                self.run_all()
+            elif isinstance(choice, int):
+                self.run(self.test_class[choice])
+            else:
+                print("Invalid input. Please enter a valid choice.")

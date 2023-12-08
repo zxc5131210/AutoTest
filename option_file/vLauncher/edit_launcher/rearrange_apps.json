@@ -73,10 +73,19 @@
             "y": ""
         },
         {
-            "sequence": "9",
+            "sequence": 9,
             "describe": "clear vLauncher user data",
             "element": "vlauncher_package",
             "gesture": "end_activity",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 10,
+            "describe": "back to homepage",
+            "element": "vlauncher_btn_guest",
+            "gesture": "tap_byID",
             "args": "",
             "x": "",
             "y": ""

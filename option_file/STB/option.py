@@ -13,7 +13,7 @@ class STB(item_strategy.Strategy):
     test_cases = [
         TestCase("back button", "FirstClass/back_button.json"),
         TestCase("homepage button", "FirstClass/homepage_button.json"),
-        TestCase("element in all apps", "app_show_in_all_apps.json"),
+        TestCase("element in all apps", "SecondClass/app_show_in_all_apps.json"),
         TestCase(
             "add & delete apps in shortcut", "SecondClass/add_delete_app_shortcut.json"
         ),

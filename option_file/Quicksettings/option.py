@@ -2,88 +2,61 @@
 from option_file import item_strategy
 
 
+class TestCase:
+    def __init__(self, description, json_path):
+        self.description = description
+        self.json_path = json_path
+
+
 class Quicksettings(item_strategy.Strategy):
-    menu_dict = {
-        "0": "Back to main menu",
-        "1": "backlight",
-        "2": "volume",
-        "3": "auto brightness",
-        "4": "eye care",
-        "5": "color temperature",
-        "all": "all Test",
-    }
+    test_cases = [
+        TestCase("backlight", "backlight.json"),
+        TestCase("volume", "volume.json"),
+        TestCase("auto brightness", "auto_brightness.json"),
+        TestCase("eye care", "eye_care.json"),
+        TestCase("color temperature", "color_temperature.json"),
+    ]
     folder_path = "option_file/Quicksettings"
 
     def __init__(self, event_gen, driver, reporter):
         super().__init__(event_gen, driver, reporter)
 
-    def _STB_quicksetting_backlight(self):
+    def run(self, test_case):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/backlight.json",
+            json_path=f"{self.folder_path}/{test_case.json_path}",
             driver=self.driver,
         )
-        self.reporter.add_category("quicksettings")
-        self.reporter.test_case("backlight")
-
-    def _STB_quicksetting_volume(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/volume.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("quicksettings")
-        self.reporter.test_case("volume")
-
-    def _STB_quicksetting_auto_brightness(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/auto_brightness.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("quicksettings")
-        self.reporter.test_case("autobrightness")
-
-    def _STB_quicksetting_eye_care(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/eye_care.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("quicksettings")
-        self.reporter.test_case("eye care")
-
-    def _STB_quicksetting_color_temperature(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/color_temperature.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("quicksettings")
-        self.reporter.test_case("color temperature")
+        self.reporter.test_case(test_case.description)
 
     def run_all(self):
         self.reporter.test_title("---STB - QuickSetting---")
-        self._STB_quicksetting_backlight()
-        self._STB_quicksetting_volume()
-        self._STB_quicksetting_auto_brightness()
-        self._STB_quicksetting_eye_care()
-        self._STB_quicksetting_color_temperature()
+        for test_case in self.test_cases:
+            self.run(test_case)
 
-    def run(self):
+    def print_option(self):
+        print(f"-1 : {self.option_menu}")
+        for i in range(len(self.test_cases)):
+            print(f"{i} : {self.test_cases[i].description}")
+        print(f"{len(self.test_cases)} : {self.option_all}")
+
+    def invalid(self, choice_int) -> bool:
+        return choice_int < -1 or choice_int > len(self.test_cases)
+
+    def run_with_interaction(self):
         while True:
-            for option, test in self.menu_dict.items():
-                print(f"{option}: {test}")
+            self.print_option()
             choice = input("Enter your choice: ").lower()
-            match choice:
-                case "0":
+            try:
+                choice_int = int(choice)
+                if self.invalid(choice_int):
+                    raise ValueError
+                if choice_int == -1:
                     return
-                case "1":
-                    self._STB_quicksetting_backlight()
-                case "2":
-                    self._STB_quicksetting_volume()
-                case "3":
-                    self._STB_quicksetting_auto_brightness()
-                case "4":
-                    self._STB_quicksetting_eye_care()
-                case "5":
-                    self._STB_quicksetting_color_temperature()
-                case "all":
+                if choice_int == len(self.test_cases):
                     self.run_all()
-                case _:
-                    print("Invalid option")
+                    continue
+                self.run(self.test_cases[choice_int])
+            except ValueError:
+                print(
+                    "Invalid input. Please enter a valid choice, range is between -1 ~ length of test cases."
+                )

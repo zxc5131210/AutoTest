@@ -8,48 +8,59 @@ from option_file.STB.Tools.Marker.option import Marker
 from option_file.STB.Tools.Screenshot.option import Screenshot
 
 
+class Category:
+    def __init__(self, description, category):
+        self.description = description
+        self.category = category
+
+
 class STBTools(item_strategy.Strategy):
-    menu_dict = {
-        "0": "Back to main menu",
-        "1": "Freezer",
-        "2": "Spotlight",
-        "3": "Stopwatch",
-        "4": "Timer",
-        "5": "Marker",
-        "6": "Screenshot",
-        "all": "all test",
-    }
+    categories = [
+        Category("Freezer", Freezer),
+        Category("Spotlight", Spotlight),
+        Category("Stopwatch", Stopwatch),
+        Category("Timer", Timer),
+        Category("Marker", Marker),
+        Category("Screenshot", Screenshot),
+    ]
 
     def __init__(self, event_gen, driver, reporter):
         super().__init__(event_gen, driver, reporter)
 
     def run_all(self):
         self.reporter.test_title("---STB Tools---")
-        items = [Freezer, Spotlight, Stopwatch, Timer, Marker, Screenshot]
-        for item in items:
-            item(self.event_gen, self.driver, self.reporter).run_all()
+        for category in self.categories:
+            category.category(self.event_gen, self.driver, self.reporter).run_all()
 
-    def run(self):
+    def run(self, category):
+        category.category(
+            self.event_gen, self.driver, self.reporter
+        ).run_with_interaction()
+
+    def print_option(self):
+        print(f"-1 : {self.option_menu}")
+        for i in range(len(self.categories)):
+            print(f"{i} : {self.categories[i].description}")
+        print(f"{len(self.categories)} : {self.option_all}")
+
+    def invalid(self, choice_int) -> bool:
+        return choice_int < -1 or choice_int > len(self.categories)
+
+    def run_with_interaction(self):
         while True:
-            for option, test in self.menu_dict.items():
-                print(f"{option}: {test}")
+            self.print_option()
             choice = input("Enter your choice: ").lower()
-            match choice:
-                case "0":
+            try:
+                choice_int = int(choice)
+                if self.invalid(choice_int):
+                    raise ValueError
+                if choice_int == -1:
                     return
-                case "1":
-                    Freezer(self.event_gen, self.driver, self.reporter).run()
-                case "2":
-                    Spotlight(self.event_gen, self.driver, self.reporter).run()
-                case "3":
-                    Stopwatch(self.event_gen, self.driver, self.reporter).run()
-                case "4":
-                    Timer(self.event_gen, self.driver, self.reporter).run()
-                case "5":
-                    Marker(self.event_gen, self.driver, self.reporter).run()
-                case "6":
-                    Screenshot(self.event_gen, self.driver, self.reporter).run()
-                case "all":
+                if choice_int == len(self.categories):
                     self.run_all()
-                case _:
-                    print("Invalid option")
+                    continue
+                self.run(self.categories[choice_int])
+            except ValueError:
+                print(
+                    "Invalid input. Please enter a valid choice, range is between -1 ~ length of test cases."
+                )

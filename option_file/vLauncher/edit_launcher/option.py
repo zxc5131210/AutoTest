@@ -16,7 +16,6 @@ class EditLauncher(item_strategy.Strategy):
         TestCase("Maximum app error message popup", "maximum_app_error_message.json"),
         TestCase("Confirm button", "confirm_button.json"),
     ]
-
     folder_path = "option_file/vLauncher/edit_launcher"
 
     def __init__(self, event_gen, driver, reporter):

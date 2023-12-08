@@ -2,100 +2,62 @@
 from option_file import item_strategy
 
 
+class TestCase:
+    def __init__(self, description, json_path):
+        self.description = description
+        self.json_path = json_path
+
+
 class vLauncherTitle(item_strategy.Strategy):
-    menu_dict = {
-        "0": "Back to main menu",
-        "1": "change title",
-        "2": "Set Password",
-        "3": "reset Password",
-        "4": "clear Password",
-        "5": "Reveal Password",
-        "6": "reset title to default",
-        "all": "all Test",
-    }
+    test_cases = [
+        TestCase("change title", "change_title.json"),
+        TestCase("set title password", "set_password.json"),
+        TestCase("reset title password", "reset_password.json"),
+        TestCase("clear title password", "clear_password.json"),
+        TestCase("reveal password", "reveal_password.json"),
+        TestCase("reset title to default", "reset_title_to_default.json"),
+    ]
     folder_path = "option_file/vLauncher/title"
 
     def __init__(self, event_gen, driver, reporter):
         super().__init__(event_gen, driver, reporter)
 
-    def _change_title(self):
+    def run(self, test_case):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/change_title.json",
+            json_path=f"{self.folder_path}/{test_case.json_path}",
             driver=self.driver,
         )
-        self.reporter.add_category("vlauncher")
-        self.reporter.test_case("change title")
-
-    def _set_password(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/set_password.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("vlauncher")
-        self.reporter.test_case("set title password")
-
-    def _reset_password(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/reset_password.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("vlauncher")
-        self.reporter.test_case("reset title password")
-
-    def _clear_password(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/clear_password.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("vlauncher")
-        self.reporter.test_case("clear title password")
-
-    def _reveal_password(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/reveal_password.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("vlauncher")
-        self.reporter.test_case("reveal password")
-
-    def _reset_title_to_default(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/reset_title_to_default.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("vlauncher")
-        self.reporter.test_case("reset title to default")
+        self.reporter.test_case(test_case.description)
 
     def run_all(self):
         self.reporter.test_title("---Title---")
-        self._change_title()
-        self._set_password()
-        self._reset_password()
-        self._clear_password()
-        self._reveal_password()
-        self._reset_title_to_default()
+        for test_case in self.test_cases:
+            self.run(test_case)
 
-    def run(self):
+    def print_option(self):
+        print(f"-1 : {self.option_menu}")
+        for i in range(len(self.test_cases)):
+            print(f"{i} : {self.test_cases[i].description}")
+        print(f"{len(self.test_cases)} : {self.option_all}")
+
+    def invalid(self, choice_int) -> bool:
+        return choice_int < -1 or choice_int > len(self.test_cases)
+
+    def run_with_interaction(self):
         while True:
-            for option, test in self.menu_dict.items():
-                print(f"{option}: {test}")
+            self.print_option()
             choice = input("Enter your choice: ").lower()
-            match choice:
-                case "0":
+            try:
+                choice_int = int(choice)
+                if self.invalid(choice_int):
+                    raise ValueError
+                if choice_int == -1:
                     return
-                case "1":
-                    self._change_title()
-                case "2":
-                    self._set_password()
-                case "3":
-                    self._reset_password()
-                case "4":
-                    self._clear_password()
-                case "5":
-                    self._reveal_password()
-                case "6":
-                    self._reset_title_to_default()
-                case "all":
+                if choice_int == len(self.test_cases):
                     self.run_all()
-                case _:
-                    print("Invalid option")
+                    continue
+                self.run(self.test_cases[choice_int])
+            except ValueError:
+                print(
+                    "Invalid input. Please enter a valid choice, range is between -1 ~ length of test cases."
+                )

@@ -2,136 +2,65 @@
 from option_file import item_strategy
 
 
+class TestCase:
+    def __init__(self, description, json_path):
+        self.description = description
+        self.json_path = json_path
+
+
 class Marker(item_strategy.Strategy):
-    menu_dict = {
-        "0": "Back to main menu",
-        "1": "selector",
-        "2": "pen",
-        "3": "highlighter",
-        "4": "eraser",
-        "5": "undo & redo",
-        "6": "delete",
-        "7": "save",
-        "8": "close",
-        "9": "moving",
-        "all": "all Test",
-    }
+    test_cases = [
+        TestCase("selector", "selector.json"),
+        TestCase("pen", "pen.json"),
+        TestCase("highlighter", "highlighter.json"),
+        TestCase("eraser", "eraser.json"),
+        TestCase("undo & redo", "undo_redo.json"),
+        TestCase("delete", "delete.json"),
+        TestCase("save", "save.json"),
+        TestCase("close", "close.json"),
+        TestCase("moving", "moving.json"),
+    ]
     folder_path = "option_file/STB/Tools/Marker"
 
     def __init__(self, event_gen, driver, reporter):
         super().__init__(event_gen, driver, reporter)
 
-    def _STB_marker_selector(self):
+    def run(self, test_case):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/selector.json",
+            json_path=f"{self.folder_path}/{test_case.json_path}",
             driver=self.driver,
         )
-        self.reporter.add_category("STB")
-        self.reporter.test_case("marker-selector")
-
-    def _STB_marker_pen(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/pen.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("STB")
-        self.reporter.test_case("marker-pen")
-
-    def _STB_marker_highlighter(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/highlighter.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("STB")
-        self.reporter.test_case("marker-highlighter")
-
-    def _STB_marker_eraser(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/eraser.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("STB")
-        self.reporter.test_case("marker-eraser")
-
-    def _STB_marker_undo_redo(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/undo_redo.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("STB")
-        self.reporter.test_case("marker-undo & redo")
-
-    def _STB_marker_delete(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/delete.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("STB")
-        self.reporter.test_case("marker-delete")
-
-    def _STB_marker_save(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/save.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("STB")
-        self.reporter.test_case("marker-save")
-
-    def _STB_marker_close(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/close.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("STB")
-        self.reporter.test_case("marker-close")
-
-    def _STB_marker_moving(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/moving.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("STB")
-        self.reporter.test_case("marker-moving")
+        self.reporter.test_case(test_case.description)
 
     def run_all(self):
         self.reporter.test_title("---STB Tool - Marker---")
-        self._STB_marker_selector()
-        self._STB_marker_pen()
-        self._STB_marker_highlighter()
-        self._STB_marker_eraser()
-        self._STB_marker_undo_redo()
-        self._STB_marker_delete()
-        self._STB_marker_save()
-        self._STB_marker_close()
-        self._STB_marker_moving()
+        for test_case in self.test_cases:
+            self.run(test_case)
 
-    def run(self):
+    def print_option(self):
+        print(f"-1 : {self.option_menu}")
+        for i in range(len(self.test_cases)):
+            print(f"{i} : {self.test_cases[i].description}")
+        print(f"{len(self.test_cases)} : {self.option_all}")
+
+    def invalid(self, choice_int) -> bool:
+        return choice_int < -1 or choice_int > len(self.test_cases)
+
+    def run_with_interaction(self):
         while True:
-            for option, test in self.menu_dict.items():
-                print(f"{option}: {test}")
+            self.print_option()
             choice = input("Enter your choice: ").lower()
-            match choice:
-                case "0":
+            try:
+                choice_int = int(choice)
+                if self.invalid(choice_int):
+                    raise ValueError
+                if choice_int == -1:
                     return
-                case "1":
-                    self._STB_marker_selector()
-                case "2":
-                    self._STB_marker_pen()
-                case "3":
-                    self._STB_marker_highlighter()
-                case "4":
-                    self._STB_marker_eraser()
-                case "5":
-                    self._STB_marker_undo_redo()
-                case "6":
-                    self._STB_marker_delete()
-                case "7":
-                    self._STB_marker_save()
-                case "8":
-                    self._STB_marker_close()
-                case "9":
-                    self._STB_marker_moving()
-                case "all":
+                if choice_int == len(self.test_cases):
                     self.run_all()
-                case _:
-                    print("Invalid option")
+                    continue
+                self.run(self.test_cases[choice_int])
+            except ValueError:
+                print(
+                    "Invalid input. Please enter a valid choice, range is between -1 ~ length of test cases."
+                )

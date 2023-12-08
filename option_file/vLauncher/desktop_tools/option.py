@@ -2,136 +2,59 @@
 from option_file import item_strategy
 
 
+class TestCase:
+    def __init__(self, description, json_path):
+        self.description = description
+        self.json_path = json_path
+
+
 class vLauncherTools(item_strategy.Strategy):
-    menu_dict = {
-        "0": "back to previous page",
-        "1": "Date & Time",
-        "2": "Device tip",
-        "3": "Drag seekbar to set the backlight",
-        "4": "set auto backlight",
-        "5": "set volume",
-        "6": "ethernet settings",
-        "7": "wifi settings",
-        "8": "input source",
-        "9": "sign out button",
-        "all": "all Test",
-    }
+    test_cases = [
+        TestCase("Date & Time", "date_and_time.json"),
+        TestCase("Device tip", "device_tip.json"),
+        TestCase("Drag seekbar to set the backlight", "backlight_seekbar.json"),
+        TestCase("set auto backlight", "backlight_auto.json"),
+        TestCase("set volume", "volume.json"),
+        TestCase("ethernet settings", "ethernet.json"),
+        TestCase("wifi settings", "wifi.json"),
+        TestCase("input source", "input_source.json"),
+        TestCase("sign out button", "sign_out_button.json"),
+    ]
     folder_path = "option_file/vLauncher/desktop_tools"
 
     def __init__(self, event_gen, driver, reporter):
         super().__init__(event_gen, driver, reporter)
 
-    def _date_and_time(self):
+    def run(self, test_case):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/date_and_time.json",
+            json_path=f"{self.folder_path}/{test_case.json_path}",
             driver=self.driver,
         )
-        self.reporter.add_category("vlauncher")
-        self.reporter.test_case("date & time")
-
-    def _device_tip(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/device_tip.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("vlauncher")
-        self.reporter.test_case("device tip")
-
-    def _backlight_seekbar(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/backlight_seekbar.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("vlauncher")
-        self.reporter.test_case("backlight by seekbar")
-
-    def _backlight_auto(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/backlight_auto.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("vlauncher")
-        self.reporter.test_case("backlight by autobrightness")
-
-    def _volume(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/volume.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("vlauncher")
-        self.reporter.test_case("set volume")
-
-    def _ethernet(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/ethernet.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("vlauncher")
-        self.reporter.test_case("ethernet settings")
-
-    def _wifi(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/wifi.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("vlauncher")
-        self.reporter.test_case("wifi settings")
-
-    def _input_source(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/input_source.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("vlauncher")
-        self.reporter.test_case("input source")
-
-    def _sign_out_button(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/sign_out_button.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("vlauncher")
-        self.reporter.test_case("sign out button")
+        self.reporter.test_case(test_case.description)
 
     def run_all(self):
         self.reporter.test_title("---desktop tools---")
-        self._date_and_time()
-        self._device_tip()
-        self._backlight_seekbar()
-        self._backlight_auto()
-        self._volume()
-        self._ethernet()
-        self._wifi()
-        self._input_source()
-        self._sign_out_button()
+        for test_case in self.test_cases:
+            self.run(test_case)
 
-    def run(self):
+    def invalid(self, choice_int) -> bool:
+        return choice_int < -1 or choice_int > len(self.test_cases)
+
+    def run_with_interaction(self):
         while True:
-            for option, test in self.menu_dict.items():
-                print(f"{option}: {test}")
+            self.print_option()
             choice = input("Enter your choice: ").lower()
-            match choice:
-                case "0":
+            try:
+                choice_int = int(choice)
+                if self.invalid(choice_int):
+                    raise ValueError
+                if choice_int == -1:
                     return
-                case "1":
-                    self._date_and_time()
-                case "2":
-                    self._device_tip()
-                case "3":
-                    self._backlight_seekbar()
-                case "4":
-                    self._backlight_auto()
-                case "5":
-                    self._volume()
-                case "6":
-                    self._ethernet()
-                case "7":
-                    self._wifi()
-                case "8":
-                    self._input_source()
-                case "9":
-                    self._sign_out_button()
-                case "all":
+                if choice_int == len(self.test_cases):
                     self.run_all()
-                case _:
-                    print("Invalid option")
+                    continue
+                self.run(self.test_cases[choice_int])
+            except ValueError:
+                print(
+                    "Invalid input. Please enter a valid choice, range is between -1 ~ length of test cases."
+                )

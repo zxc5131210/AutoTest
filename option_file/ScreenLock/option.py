@@ -2,88 +2,61 @@
 from option_file import item_strategy
 
 
+class TestCase:
+    def __init__(self, description, json_path):
+        self.description = description
+        self.json_path = json_path
+
+
 class ScreenLock(item_strategy.Strategy):
-    menu_dict = {
-        "0": "Back to main menu",
-        "1": "Set Password",
-        "2": "Change Password",
-        "3": "Remove Password",
-        "4": "Reveal Password",
-        "5": "Key pad",
-        "all": "all Test",
-    }
+    test_cases = [
+        TestCase("Set ScreenLock Password", "set_password.json"),
+        TestCase("Change ScreenLock Password", "change_password.json"),
+        TestCase("Remove ScreenLock Password", "remove_password.json"),
+        TestCase("Reveal ScreenLock Password", "reveal_password.json"),
+        TestCase("Key pad of ScreenLock", "keypad.json"),
+    ]
     folder_path = "option_file/ScreenLock"
 
     def __init__(self, event_gen, driver, reporter):
         super().__init__(event_gen, driver, reporter)
 
-    def _screen_lock_set_password(self):
+    def run(self, test_case):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/set_password.json",
+            json_path=f"{self.folder_path}/{test_case.json_path}",
             driver=self.driver,
         )
-        self.reporter.add_category("screenlock")
-        self.reporter.test_case("Set ScreenLock Password")
-
-    def _screen_lock_change_password(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/change_password.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("screenlock")
-        self.reporter.test_case("Change ScreenLock Password")
-
-    def _screen_lock_remove_password(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/remove_password.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("screenlock")
-        self.reporter.test_case("Change ScreenLock Password")
-
-    def _screen_lock_reveal_password(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/reveal_password.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("screenlock")
-        self.reporter.test_case("Reveal Password in ScreenLock")
-
-    def _screen_lock_number_keys(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/keypad.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("screenlock")
-        self.reporter.test_case("keypad of ScreenLock")
+        self.reporter.test_case(test_case.description)
 
     def run_all(self):
         self.reporter.test_title("---ScreenLock---")
-        self._screen_lock_set_password()
-        self._screen_lock_change_password()
-        self._screen_lock_remove_password()
-        self._screen_lock_reveal_password()
-        self._screen_lock_number_keys()
+        for test_case in self.test_cases:
+            self.run(test_case)
 
-    def run(self):
+    def print_option(self):
+        print(f"-1 : {self.option_menu}")
+        for i in range(len(self.test_cases)):
+            print(f"{i} : {self.test_cases[i].description}")
+        print(f"{len(self.test_cases)} : {self.option_all}")
+
+    def invalid(self, choice_int) -> bool:
+        return choice_int < -1 or choice_int > len(self.test_cases)
+
+    def run_with_interaction(self):
         while True:
-            for option, test in self.menu_dict.items():
-                print(f"{option}: {test}")
+            self.print_option()
             choice = input("Enter your choice: ").lower()
-            match choice:
-                case "0":
+            try:
+                choice_int = int(choice)
+                if self.invalid(choice_int):
+                    raise ValueError
+                if choice_int == -1:
                     return
-                case "1":
-                    self._screen_lock_set_password()
-                case "2":
-                    self._screen_lock_change_password()
-                case "3":
-                    self._screen_lock_remove_password()
-                case "4":
-                    self._screen_lock_reveal_password()
-                case "5":
-                    self._screen_lock_number_keys()
-                case "all":
+                if choice_int == len(self.test_cases):
                     self.run_all()
-                case _:
-                    print("Invalid option")
+                    continue
+                self.run(self.test_cases[choice_int])
+            except ValueError:
+                print(
+                    "Invalid input. Please enter a valid choice, range is between -1 ~ length of test cases."
+                )

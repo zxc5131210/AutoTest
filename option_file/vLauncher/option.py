@@ -7,55 +7,57 @@ from option_file.vLauncher.user_select.option import UserSelect
 from option_file import item_strategy
 
 
+class Category:
+    def __init__(self, description, category):
+        self.description = description
+        self.category = category
+
+
 class vLauncher(item_strategy.Strategy):
-    menu_dict = {
-        "0": "Back to main menu",
-        "1": "vLauncher title",
-        "2": "Edit Launcher",
-        "3": "Recent App",
-        "4": "Desktop tools",
-        "5": "User Select",
-    }
+    categories = [
+        Category("vLauncher title", vLauncherTitle),
+        Category("Edit Launcher", EditLauncher),
+        Category("Recent App", RecentApp),
+        Category("Desktop tools", vLauncherTools),
+        Category("User Select", UserSelect),
+    ]
 
     def __init__(self, event_gen, driver, reporter):
         super().__init__(event_gen, driver, reporter)
 
     def run_all(self):
-        vLauncherTitle(self.event_gen, self.driver, self.reporter).run_all()
-        EditLauncher(self.event_gen, self.driver, self.reporter).run_all()
-        RecentApp(self.event_gen, self.driver, self.reporter).run_all()
-        vLauncherTools(self.event_gen, self.driver, self.reporter).run_all()
-        UserSelect(self.event_gen, self.driver, self.reporter).run_all()
+        for category in self.categories:
+            category.category(self.event_gen, self.driver, self.reporter).run_all()
 
-    def run(self):
+    def run(self, category):
+        category.category(
+            self.event_gen, self.driver, self.reporter
+        ).run_with_interaction()
+
+    def print_option(self):
+        print(f"-1 : {self.option_menu}")
+        for i in range(len(self.categories)):
+            print(f"{i} : {self.categories[i].description}")
+        print(f"{len(self.categories)} : {self.option_all}")
+
+    def invalid(self, choice_int) -> bool:
+        return choice_int < -1 or choice_int > len(self.categories)
+
+    def run_with_interaction(self):
         while True:
-            for option, test in self.menu_dict.items():
-                print(f"{option}: {test}")
+            self.print_option()
             choice = input("Enter your choice: ").lower()
-            match choice:
-                case "0":
+            try:
+                choice_int = int(choice)
+                if self.invalid(choice_int):
+                    raise ValueError
+                if choice_int == -1:
                     return
-                case "1":
-                    vLauncherTitle(self.event_gen, self.driver, self.reporter).run()
-                case "2":
-                    EditLauncher(self.event_gen, self.driver, self.reporter).run()
-                case "3":
-                    RecentApp(self.event_gen, self.driver, self.reporter).run()
-                case "4":
-                    vLauncherTools(self.event_gen, self.driver, self.reporter).run()
-                case "5":
-                    UserSelect(self.event_gen, self.driver, self.reporter).run()
-                case "6":
-                    pass
-                case "7":
-                    pass
-                case "8":
-                    pass
-                case "9":
-                    pass
-                case "10":
-                    pass
-                case "all":
+                if choice_int == len(self.categories):
                     self.run_all()
-                case _:
-                    print("Invalid option")
+                    continue
+                self.run(self.categories[choice_int])
+            except ValueError:
+                print(
+                    "Invalid input. Please enter a valid choice, range is between -1 ~ length of test cases."
+                )

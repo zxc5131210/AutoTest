@@ -71,12 +71,12 @@ class EventGen:
                 )
                 logging.info(json_describe)
                 self.reporter.succeed_step(json_sequence, json_describe)
-                time.sleep(0.5)
+                time.sleep(1)
 
             except Exception:
                 logging.error(json_describe)
                 self.reporter.fail_step(json_sequence, json_describe)
-                time.sleep(0.5)
+                time.sleep(1)
 
         self.reporter.succeed_step("Test End", "Flow finished")
         delete_temporarily_screenshots()

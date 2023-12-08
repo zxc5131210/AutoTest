@@ -56,7 +56,7 @@
         },
         {
             "sequence": 7,
-            "describe": "add 'myviewboard whiteborad' App on hot seat",
+            "describe": "add 'myviewboard whiteboard' App on hot seat",
             "element": "//*[@resource-id='com.viewsonic.vlauncher:id/all_app_cell_4']",
             "gesture": "tap_byXpath",
             "args": "",
@@ -65,7 +65,7 @@
         },
         {
             "sequence": 8,
-            "describe": "back to re-range the hot seat",
+            "describe": "back to rearrange the hot seat",
             "element": "",
             "gesture": "back_btn",
             "args": "",

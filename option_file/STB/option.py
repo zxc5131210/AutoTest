@@ -3,153 +3,82 @@ from option_file.STB.Tools.option import STBTools
 from option_file import item_strategy
 
 
+class TestCase:
+    def __init__(self, description, json_path):
+        self.description = description
+        self.json_path = json_path
+
+
 class STB(item_strategy.Strategy):
-    menu_dict = {
-        "0": "Back to main menu",
-        "1": "back button",
-        "2": "homepage button",
-        "3": "element in all apps",
-        "4": "add & delete apps in shortcut",
-        "5": "app order in shortcut",
-        "6": "add & delete tools in shortcut",
-        "7": "tools order in shortcut",
-        "8": "exists apps error message",
-        "9": "maximum apps error message",
-        "10": "STB tools",
-        "all": "all test",
-    }
+    test_cases = [
+        TestCase("back button", "FirstClass/back_button.json"),
+        TestCase("homepage button", "FirstClass/homepage_button.json"),
+        TestCase("element in all apps", "app_show_in_all_apps.json"),
+        TestCase(
+            "add & delete apps in shortcut", "SecondClass/add_delete_app_shortcut.json"
+        ),
+        TestCase("app order in shortcut", "SecondClass/app_order_in_shortcut.json"),
+        TestCase(
+            "add & delete tools in shortcut", "ThirdClass/add_delete_app_shortcut.json"
+        ),
+        TestCase("tools order in shortcut", "ThirdClass/app_order_in_shortcut.json"),
+        TestCase(
+            "error message popup of exists app", "SecondClass/exists_apps_popup.json"
+        ),
+        TestCase(
+            "maximum apps error message popup", "SecondClass/maximum_apps_popup.json"
+        ),
+    ]
     folder_path = "option_file/STB"
 
     def __init__(self, event_gen, driver, reporter):
         super().__init__(event_gen, driver, reporter)
 
-    # STB first class
-    def _STB_back_btn(self):
+    def run(self, test_case):
         self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/FirstClass/back_button.json",
+            json_path=f"{self.folder_path}/{test_case.json_path}",
             driver=self.driver,
         )
-        self.reporter.add_category("STB")
-        self.reporter.test_case("STB-back button")
-
-    def _STB_homepage_btn(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/FirstClass/homepage_button.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("STB")
-        self.reporter.test_case("STB-homepage button")
-
-    # STB_Second class
-
-    def _STB_element_in_all_apps(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/SecondClass/app_show_in_all_apps.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("STB")
-        self.reporter.test_case("STB_apps-element in all apps")
-
-    def _STB_apps_add_delete_app_in_shortcut(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/SecondClass/add_delete_app_shortcut.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("STB")
-        self.reporter.test_case("STB_apps-add & delete apps in shortcut")
-
-    def _STB_apps_order_in_shortcut(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/SecondClass/app_order_in_shortcut.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("STB")
-        self.reporter.test_case("STB_apps-app order in shortcut")
-
-    # STB_Third class
-
-    def _STB_tools_add_delete_app_in_shortcut(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/ThirdClass/add_delete_app_shortcut.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("STB")
-        self.reporter.test_case("STB_tools-add & delete apps in shortcut")
-
-    def _STB_tools_order_in_shortcut(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/ThirdClass/app_order_in_shortcut.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("STB")
-        self.reporter.test_case("STB_tools-app order in shortcut")
-
-    def _STB_exists_apps_error_message(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/SecondClass/exists_apps_popup.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("STB")
-        self.reporter.test_case("STB_apps-error message popup of exists app")
-
-    def _STB_maximum_apps_error_message(self):
-        self.event_gen.generate_event(
-            json_path=f"{self.folder_path}/SecondClass/maximum_apps_popup.json",
-            driver=self.driver,
-        )
-        self.reporter.add_category("STB")
-        self.reporter.test_case("STB_apps-maximum apps error message popup")
+        self.reporter.test_case(test_case.description)
 
     def run_all(self):
         # STB root_view
         self.reporter.test_title("---STB root view---")
-        self._STB_back_btn()
-        self._STB_homepage_btn()
-        self._STB_apps_add_delete_app_in_shortcut()
-        self._STB_apps_order_in_shortcut()
-        self._STB_element_in_all_apps()
-        self._STB_tools_add_delete_app_in_shortcut()
-        self._STB_tools_order_in_shortcut()
-        self._STB_exists_apps_error_message()
-        self._STB_maximum_apps_error_message()
-        # STB Tools
-        STBTools(
-            event_gen=self.event_gen, driver=self.driver, reporter=self.reporter
-        ).run_all()
+        for test_case in self.test_cases:
+            self.run(test_case)
+        STBTools(self.event_gen, self.driver, self.reporter).run_all()
 
-    def run(self):
+    def print_option(self):
+        print(f"-1 : {self.option_menu}")
+        for i in range(len(self.test_cases)):
+            print(f"{i} : {self.test_cases[i].description}")
+        print(f"{len(self.test_cases)} : STB tools")
+        print(f"{len(self.test_cases)+1} : {self.option_all}")
+
+    def invalid(self, choice_int) -> bool:
+        if choice_int == len(self.test_cases):
+            STBTools(self.event_gen, self.driver, self.reporter).run_with_interaction()
+            return False
+        if choice_int < -1 or choice_int > len(self.test_cases) + 1:
+            return True
+
+    def run_with_interaction(self):
         while True:
-            for option, test in self.menu_dict.items():
-                print(f"{option}: {test}")
+            self.print_option()
             choice = input("Enter your choice: ").lower()
-            match choice:
-                case "0":
+            try:
+                choice_int = int(choice)
+                if not self.invalid(choice_int):
+                    continue
+                if self.invalid(choice_int):
+                    raise ValueError
+                if choice_int == -1:
                     return
-                case "1":
-                    self._STB_back_btn()
-                case "2":
-                    self._STB_homepage_btn()
-                case "3":
-                    self._STB_element_in_all_apps()
-                case "4":
-                    self._STB_apps_add_delete_app_in_shortcut()
-                case "5":
-                    self._STB_apps_order_in_shortcut()
-                case "6":
-                    self._STB_tools_add_delete_app_in_shortcut()
-                case "7":
-                    self._STB_tools_order_in_shortcut()
-                case "8":
-                    self._STB_exists_apps_error_message()
-                case "9":
-                    self._STB_maximum_apps_error_message()
-                case "10":
-                    STBTools(
-                        event_gen=self.event_gen,
-                        driver=self.driver,
-                        reporter=self.reporter,
-                    ).run()
-                case "all":
+                if choice_int == len(self.test_cases):
                     self.run_all()
-                case _:
-                    print("Invalid option")
+                    continue
+                self.run(self.test_cases[choice_int])
+            except ValueError:
+                print(
+                    "Invalid input. Please enter a valid choice, range is between -1 ~ length of test cases."
+                )

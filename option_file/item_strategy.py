@@ -1,5 +1,5 @@
 class Strategy:
-    option_menu = "Back to main menu"
+    option_menu = "Back to previous page"
     option_all = "All Test"
 
     def __init__(self, event_gen: object, driver: object, reporter: object):

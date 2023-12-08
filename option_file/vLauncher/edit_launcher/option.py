@@ -38,19 +38,26 @@ class EditLauncher(item_strategy.Strategy):
         print(f"-1 : {self.option_menu}")
         for i in range(len(self.test_cases)):
             print(f"{i} : {self.test_cases[i].description}")
-        print(f"all : {self.option_all}")
+        print(f"{len(self.test_cases)} : {self.option_all}")
+
+    def invalid(self, choice_int) -> bool:
+        return choice_int < -1 or choice_int > len(self.test_cases)
 
     def run_with_interaction(self):
         while True:
             self.print_option()
             choice = input("Enter your choice: ").lower()
-            if choice.isnumeric():
-                choice = int(choice)
-            if choice == "-1":
-                return
-            elif choice == "all":
-                self.run_all()
-            elif isinstance(choice, int):
-                self.run(self.test_cases[choice])
-            else:
-                print("Invalid input. Please enter a valid choice.")
+            try:
+                choice_int = int(choice)
+                if self.invalid(choice_int):
+                    raise ValueError
+                if choice_int == -1:
+                    return
+                if choice_int == len(self.test_cases):
+                    self.run_all()
+                    continue
+                self.run(self.test_cases[choice_int])
+            except ValueError:
+                print(
+                    "Invalid input. Please enter a valid choice, range is between -1 ~ length of test cases."
+                )

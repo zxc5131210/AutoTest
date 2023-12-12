@@ -10,10 +10,8 @@ class TestCase:
 
 class ThirdClass(item_strategy.Strategy):
     test_cases = [
-        TestCase(
-            "add & delete tools in shortcut", "ThirdClass/add_delete_app_shortcut.json"
-        ),
-        TestCase("tools order in shortcut", "ThirdClass/app_order_in_shortcut.json"),
+        TestCase("add & delete tools in shortcut", "add_delete_app_shortcut.json"),
+        TestCase("tools order in shortcut", "app_order_in_shortcut.json"),
     ]
     folder_path = "option_file/STB/ThirdClass/"
 

@@ -1,4 +1,4 @@
-"""desktop tools test case"""
+"""STB first class test case"""
 from option_file import item_strategy
 
 
@@ -8,19 +8,14 @@ class TestCase:
         self.json_path = json_path
 
 
-class vLauncherTools(item_strategy.Strategy):
+class ThirdClass(item_strategy.Strategy):
     test_cases = [
-        TestCase("Date & Time", "date_and_time.json"),
-        TestCase("Device tip", "device_tip.json"),
-        TestCase("Drag seekbar to set the backlight", "backlight_seekbar.json"),
-        TestCase("set auto backlight", "backlight_auto.json"),
-        TestCase("set volume", "volume.json"),
-        TestCase("ethernet settings", "ethernet.json"),
-        TestCase("wifi settings", "wifi.json"),
-        TestCase("input source", "input_source.json"),
-        TestCase("sign out button", "sign_out_button.json"),
+        TestCase(
+            "add & delete tools in shortcut", "ThirdClass/add_delete_app_shortcut.json"
+        ),
+        TestCase("tools order in shortcut", "ThirdClass/app_order_in_shortcut.json"),
     ]
-    folder_path = "option_file/vLauncher/desktop_tools"
+    folder_path = "option_file/STB/ThirdClass/"
 
     def __init__(self, event_gen, driver, reporter):
         super().__init__(event_gen, driver, reporter)
@@ -33,7 +28,6 @@ class vLauncherTools(item_strategy.Strategy):
         self.reporter.test_case(test_case.description)
 
     def run_all(self):
-        self.reporter.test_title("---desktop tools---")
         for test_case in self.test_cases:
             self.run(test_case)
 

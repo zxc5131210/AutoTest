@@ -12,11 +12,8 @@
         {
             "sequence": 2,
             "describe": "compare activity to verify input source button",
-            "element": [
-                "vlauncher_package",
-                "vlauncher_activity"
-            ],
-            "gesture": "STB_current_app_compare",
+            "element": "quicksettings_display_page",
+            "gesture": "findelements_ByIDe",
             "args": "",
             "x": "",
             "y": ""

@@ -2,9 +2,6 @@
 /.DS_Store/
 /.vscode/
 /__pycache__/
-/test.py/
-/option_file/Test/
-/Log/
 .DS_Store
 html_report/.DS_Store
 option_file/Quicksettings/__pycache__/
@@ -26,3 +23,6 @@ option_file/vLauncher/title/__pycache__/
 option_file/vLauncher/desktop_tools/__pycache__/
 option_file/Authenticator/__pycache__/
 option_file/vLauncher/user_select/__pycache__/
+option_file/STB/FirstClass/__pycache__/
+option_file/STB/SecondClass/__pycache__/
+option_file/STB/ThirdClass/__pycache__/

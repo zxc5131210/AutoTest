@@ -622,8 +622,9 @@ class EventGen:
 
             case "end_activity":
                 gesture.close_app(locator[json_element])
-                gesture.home_page()
                 gesture.clean_activity(locator[json_element])
+                time.sleep(5)
+                gesture.home_page()
 
             case _:
                 logging.warning(msg=f"gesture type: {json_gesture} not defined.")

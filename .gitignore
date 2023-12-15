@@ -2,9 +2,6 @@
 /.DS_Store/
 /.vscode/
 /__pycache__/
-/test.py/
-/option_file/Test/
-/Log/
 .DS_Store
 html_report/.DS_Store
 option_file/Quicksettings/__pycache__/

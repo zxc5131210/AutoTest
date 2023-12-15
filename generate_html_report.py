@@ -8,12 +8,12 @@ class TestReport:
         self.app_version = ""
         self.device_version = ""
         self.categories = {
-            "vlauncher": {},
+            "vLauncher": {},
             "STB": {},
-            "wallpaper": {},
-            "authenticator": {},
-            "quicksettings": {},
-            "screenlock": {},
+            "Wallpaper": {},
+            "Authenticator": {},
+            "Quicksettings": {},
+            "ScreenLock": {},
         }
 
     def add_entry(self, report_data):

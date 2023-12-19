@@ -90,6 +90,9 @@ locator = {
     "STB_btn_recent_clear_all": "com.viewsonic.vlauncher:id/btn_clear_all",
     "STB_btn_all_apps": "com.viewsonic.sidetoolbar:id/imgBtnAllApps",
     "STB_btn_edit_apps": "com.viewsonic.sidetoolbar:id/iv_all_app_edit_status",
+    "STB_btn_root_app1": "com.viewsonic.sidetoolbar:id/clApp1Container",
+    "STB_btn_root_app2": "com.viewsonic.sidetoolbar:id/clApp2Container",
+    "STB_btn_root_app3": "com.viewsonic.sidetoolbar:id/clApp3Container",
     "STB_btn_apps_tag_one": "com.viewsonic.sidetoolbar:id/RlAllAppsTagOne",
     "STB_btn_apps_tag_two": "com.viewsonic.sidetoolbar:id/RlAllAppsTagTwo",
     "STB_btn_apps_tag_three": "com.viewsonic.sidetoolbar:id/RlAllAppsTagThree",
@@ -177,4 +180,6 @@ locator = {
     "folder_roots_list": "com.android.documentsui:id/roots_list",
     "whiteboard_package": "com.viewsonic.droid",
     "whiteboard_activity": ".MainActivity",
+    "folder_package": "com.seewo.easifinder",
+    "folder_activity": ".FileBrowseMainActivity",
 }

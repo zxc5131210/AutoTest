@@ -43,7 +43,7 @@
                 "vlauncher_package",
                 "vlauncher_activity"
             ],
-            "gesture": "STB_current_app_compare",
+            "gesture": "current_app_compare",
             "args": "",
             "x": "",
             "y": ""

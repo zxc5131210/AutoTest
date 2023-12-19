@@ -16,7 +16,7 @@
                 "settings_package",
                 "settings_time_activity"
             ],
-            "gesture": "STB_current_app_compare",
+            "gesture": "current_app_compare",
             "args": "",
             "x": "",
             "y": ""

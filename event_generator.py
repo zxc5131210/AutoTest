@@ -507,7 +507,7 @@ class EventGen:
                     driver(resourceId=locator["spotlight_seekbar_transparency"])
                 )
 
-            case "STB_current_app_compare":
+            case "current_app_compare":
                 dictionary = gesture.current_app()
                 if (
                     dictionary["package"] == locator[json_element[0]]

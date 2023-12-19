@@ -1,0 +1,112 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "describe": "tap avatar to logout",
+            "element": "vlauncher_avatar",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "tap 'sign out' button",
+            "element": "vlauncher_avatar_sign",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "tap 'sign out' button on the popup",
+            "element": "vlauncher_avatar_btn_logout",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": "wait",
+            "describe": "wait for logout finish",
+            "element": "",
+            "gesture": "time_wait",
+            "args": "3",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "describe": "tap 'guest' button back to homepage",
+            "element": "vlauncher_btn_guest",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "describe": "expand STB",
+            "element": "STB",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 6,
+            "describe": "tap the first app on root view",
+            "element": "STB_btn_root_app1",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 7,
+            "describe": "compare the app is expect to verify settings is default",
+            "element": ["folder_package","folder_activity"],
+            "gesture": "current_app_compare",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 8,
+            "describe": "back to home page",
+            "element": "",
+            "gesture": "homepage",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 9,
+            "describe": "expand STB",
+            "element": "STB",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 10,
+            "describe": "find out whether there is a second app on shortcut, default is none",
+            "element": "STB_btn_root_app2",
+            "gesture": "findelements_ByID",
+            "args": "false",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 11,
+            "describe": "find out whether there is a third app on shortcut, default is none",
+            "element": "STB_btn_root_app3",
+            "gesture": "findelements_ByID",
+            "args": "false",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

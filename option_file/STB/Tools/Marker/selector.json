@@ -22,7 +22,7 @@
             "sequence": 3,
             "describe": "select Marker",
             "element": "//*[@text='Marker']",
-            "gesture": "tap_byXpath",
+            "gesture": "tap_by_xpath",
             "args": "",
             "x": "",
             "y": ""
@@ -40,7 +40,7 @@
             "sequence": 5,
             "describe": "tap myViewBoard on hot seat",
             "element": "//*[@text='myViewBoard Display']",
-            "gesture": "tap_byXpath",
+            "gesture": "tap_by_xpath",
             "args": "",
             "x": "",
             "y": ""

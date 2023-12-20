@@ -96,7 +96,7 @@ class EventGen:
                 except NoSuchElementException:
                     pass
 
-            case "tap_byXpath":
+            case "tap_by_xpath":
                 element = driver.xpath(json_element)
                 gesture.tap(element)
 

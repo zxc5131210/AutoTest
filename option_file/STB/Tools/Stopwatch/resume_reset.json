@@ -22,7 +22,7 @@
             "sequence": 3,
             "describe": "select Stopwatch",
             "element": "//*[@text='Stopwatch']",
-            "gesture": "tap_byXpath",
+            "gesture": "tap_by_xpath",
             "args": "",
             "x": "",
             "y": ""

@@ -34,7 +34,7 @@
             "sequence": 4,
             "describe": "select taipei time zone to change to +8 taipei time",
             "element": "//*[@text='GMT+8:00 Taipei']",
-            "gesture": "tap_byXpath",
+            "gesture": "tap_by_xpath",
             "args": "",
             "x": "",
             "y": ""

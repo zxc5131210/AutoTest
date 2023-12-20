@@ -13,7 +13,7 @@
             "sequence": 2,
             "describe": "choose 'edit launcher' option",
             "element": "//*[@resource-id=\"com.viewsonic.vlauncher:id/popup_container\"]/android.widget.FrameLayout[2]",
-            "gesture": "tap_byXpath",
+            "gesture": "tap_by_xpath",
             "args": "",
             "x": "",
             "y": ""

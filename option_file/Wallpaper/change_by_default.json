@@ -13,7 +13,7 @@
             "sequence": 2,
             "describe": "choose 'change wallpaper' option",
             "element": "//*[@resource-id='com.viewsonic.vlauncher:id/popup_container']/android.widget.FrameLayout[1]",
-            "gesture": "tap_byXpath",
+            "gesture": "tap_by_xpath",
             "args": "",
             "x": "",
             "y": ""
@@ -60,7 +60,7 @@
             "sequence": 7,
             "describe": "choose 'change wallpaper' option",
             "element": "//*[@resource-id='com.viewsonic.vlauncher:id/popup_container']/android.widget.FrameLayout[1]",
-            "gesture": "tap_byXpath",
+            "gesture": "tap_by_xpath",
             "args": "",
             "x": "",
             "y": ""

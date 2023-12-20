@@ -22,7 +22,7 @@
       "sequence": 3,
       "describe": "select Screenshot",
       "element": "//*[@text='Screenshot']",
-      "gesture": "tap_byXpath",
+      "gesture": "tap_by_xpath",
       "args": "",
       "x": "",
       "y": ""

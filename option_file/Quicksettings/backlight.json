@@ -59,7 +59,7 @@
             "sequence": 7,
             "describe": "crop backlight seekbar image to compare",
             "element": "quicksettings_backlight",
-            "gesture": "crop_byID",
+            "gesture": "crop_by_id",
             "args": [
                 "compareshot_1"
             ],
@@ -88,7 +88,7 @@
             "sequence": 10,
             "describe": "crop backlight seekbar image to compare",
             "element": "quicksettings_backlight",
-            "gesture": "crop_byID",
+            "gesture": "crop_by_id",
             "args": [
                 "compareshot_2"
             ],

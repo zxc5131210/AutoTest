@@ -49,7 +49,7 @@
             "sequence": 5,
             "describe": "crop avatar image to compare",
             "element": "vlauncher_avatar",
-            "gesture": "crop_byID",
+            "gesture": "crop_by_id",
             "args": [
                 "compareshot_1"
             ],
@@ -123,7 +123,7 @@
             "sequence": 13,
             "describe": "crop avatar image to compare",
             "element": "vlauncher_avatar",
-            "gesture": "crop_byID",
+            "gesture": "crop_by_id",
             "args": [
                 "compareshot_2"
             ],

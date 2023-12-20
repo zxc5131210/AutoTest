@@ -164,7 +164,7 @@ class EventGen:
                 filename = event["args"][-1]
                 gesture.screenshot(f"./{filename}.png")
 
-            case "crop_byID":
+            case "crop_by_id":
                 element = driver(resourceId=locator[json_element])
                 if element.wait(timeout=20):
                     time.sleep(3)

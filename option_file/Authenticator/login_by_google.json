@@ -141,7 +141,7 @@
             "sequence": 15,
             "describe": "tap go to login account",
             "element": "Go",
-            "gesture": "tap_byDescription",
+            "gesture": "tap_by_description",
             "args": "",
             "x": "",
             "y": ""

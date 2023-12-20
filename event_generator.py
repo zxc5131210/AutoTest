@@ -497,7 +497,7 @@ class EventGen:
                     logging.error(msg=f"{json_element} is not current")
                     self.reporter.fail_step(msg=f"{json_element} is not current")
 
-            case "Timer_scroll_to_findText":
+            case "timer_scroll_to_findtext":
                 target_text = event["args"]
                 # timer hour/min/sec setting
                 if json_element == "hour":

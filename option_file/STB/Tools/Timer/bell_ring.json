@@ -31,7 +31,7 @@
             "sequence": 4,
             "describe": "set the timer hour to '00' ",
             "element": "hour",
-            "gesture": "Timer_scroll_to_findText",
+            "gesture": "timer_scroll_to_findtext",
             "args": "00",
             "x": "",
             "y": ""
@@ -40,7 +40,7 @@
             "sequence": 5,
             "describe": "set the timer minute to '00' ",
             "element": "min",
-            "gesture": "Timer_scroll_to_findText",
+            "gesture": "timer_scroll_to_findtext",
             "args": "00",
             "x": "",
             "y": ""
@@ -49,7 +49,7 @@
             "sequence": 6,
             "describe": "set the timer second to '10' ",
             "element": "sec",
-            "gesture": "Timer_scroll_to_findText",
+            "gesture": "timer_scroll_to_findtext",
             "args": "10",
             "x": "",
             "y": ""

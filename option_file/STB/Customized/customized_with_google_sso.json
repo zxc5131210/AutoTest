@@ -101,8 +101,8 @@
         },
         {
             "sequence": 12,
-            "describe": "expand STB",
-            "element": "STB",
+            "describe": "expand stb",
+            "element": "stb",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -111,7 +111,7 @@
         {
             "sequence": 13,
             "describe": "tap the app on shortcut to verify account customize ",
-            "element": "STB_btn_root_app1",
+            "element": "stb_btn_root_app1",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",

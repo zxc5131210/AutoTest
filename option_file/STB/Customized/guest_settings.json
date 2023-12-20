@@ -47,8 +47,8 @@
         },
         {
             "sequence": 5,
-            "describe": "expand STB",
-            "element": "STB",
+            "describe": "expand stb",
+            "element": "stb",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -57,7 +57,7 @@
         {
             "sequence": 6,
             "describe": "tap the first app on root view",
-            "element": "STB_btn_root_app1",
+            "element": "stb_btn_root_app1",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -83,8 +83,8 @@
         },
         {
             "sequence": 9,
-            "describe": "expand STB",
-            "element": "STB",
+            "describe": "expand stb",
+            "element": "stb",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -93,7 +93,7 @@
         {
             "sequence": 10,
             "describe": "find out whether there is a second app on shortcut, default is none",
-            "element": "STB_btn_root_app2",
+            "element": "stb_btn_root_app2",
             "gesture": "findelement_by_id",
             "args": "false",
             "x": "",
@@ -102,7 +102,7 @@
         {
             "sequence": 11,
             "describe": "find out whether there is a third app on shortcut, default is none",
-            "element": "STB_btn_root_app3",
+            "element": "stb_btn_root_app3",
             "gesture": "findelement_by_id",
             "args": "false",
             "x": "",

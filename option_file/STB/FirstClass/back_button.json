@@ -23,8 +23,8 @@
         },
         {
             "sequence": 3,
-            "describe": "expand STB",
-            "element": "STB",
+            "describe": "expand stb",
+            "element": "stb",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -32,8 +32,8 @@
         },
         {
             "sequence": 4,
-            "describe": "tap back button on STB",
-            "element": "STB_btn_back",
+            "describe": "tap back button on stb",
+            "element": "stb_btn_back",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",

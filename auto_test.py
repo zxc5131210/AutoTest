@@ -34,7 +34,7 @@ abstract_reporter.FW_VERSION = subprocess.run(
 # Step 5 : Get every app version
 app_list = {
     "vLauncher": locator["vlauncher_package"],
-    "SideToolBar": locator["STB_package"],
+    "SideToolBar": locator["stb_package"],
     "ScreenLock": locator["screen_lock_package"],
     "QuickSettings": locator["quicksettings_package"],
     "WallpaperPicker": locator["wallpaper_package"],

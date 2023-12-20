@@ -2,8 +2,8 @@
     "steps": [
         {
             "sequence": 1,
-            "describe": "expand STB",
-            "element": "STB",
+            "describe": "expand stb",
+            "element": "stb",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -12,7 +12,7 @@
         {
             "sequence": 2,
             "describe": "open recent App",
-            "element": "STB_btn_recent",
+            "element": "stb_btn_recent",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -21,7 +21,7 @@
         {
             "sequence": 3,
             "describe": "tap 'clear all' button to initialize",
-            "element": "STB_btn_recent_clear_all",
+            "element": "stb_btn_recent_clear_all",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -38,8 +38,8 @@
         },
         {
             "sequence": 5,
-            "describe": "expand STB",
-            "element": "STB",
+            "describe": "expand stb",
+            "element": "stb",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -48,7 +48,7 @@
         {
             "sequence": 6,
             "describe": "open recent App",
-            "element": "STB_btn_recent",
+            "element": "stb_btn_recent",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",

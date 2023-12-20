@@ -2,7 +2,7 @@
     "steps": [
         {
             "sequence": 1,
-            "describe": "initialization to setup third class on STB",
+            "describe": "initialization to setup third class on stb",
             "element": "",
             "gesture": "stb_third_class_initialization",
             "args": "",
@@ -11,8 +11,8 @@
         },
         {
             "sequence": 2,
-            "describe": "expand STB",
-            "element": "STB",
+            "describe": "expand stb",
+            "element": "stb",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -20,8 +20,8 @@
         },
         {
             "sequence": 3,
-            "describe": "expand all tools on STB",
-            "element": "STB_btn_all_tools",
+            "describe": "expand all tools on stb",
+            "element": "stb_btn_all_tools",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -30,7 +30,7 @@
         {
             "sequence": 4,
             "describe": "edit tools button in all tools",
-            "element": "STB_btn_edit_tools",
+            "element": "stb_btn_edit_tools",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -39,7 +39,7 @@
         {
             "sequence": 5,
             "describe": "add the first tools on third class",
-            "element": "STB_btn_tools_tag_one",
+            "element": "stb_btn_tools_tag_one",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -48,7 +48,7 @@
         {
             "sequence": 6,
             "describe": "add the second tools on third class",
-            "element": "STB_btn_tools_tag_two",
+            "element": "stb_btn_tools_tag_two",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -57,7 +57,7 @@
         {
             "sequence": 7,
             "describe": "tap homepage button to return homepage",
-            "element": "STB_btn_home",
+            "element": "stb_btn_home",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",

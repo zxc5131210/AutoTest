@@ -11,8 +11,8 @@
         },
         {
             "sequence": 2,
-            "describe": "expand STB",
-            "element": "STB",
+            "describe": "expand stb",
+            "element": "stb",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -21,7 +21,7 @@
         {
             "sequence": 3,
             "describe": "expand all tools",
-            "element": "STB_btn_all_tools",
+            "element": "stb_btn_all_tools",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",

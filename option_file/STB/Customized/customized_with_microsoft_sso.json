@@ -155,8 +155,8 @@
         },
         {
             "sequence": 13,
-            "describe": "expand STB",
-            "element": "STB",
+            "describe": "expand stb",
+            "element": "stb",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -165,7 +165,7 @@
         {
             "sequence": 14,
             "describe": "tap the app on shortcut to verify account customize ",
-            "element": "STB_btn_root_app1",
+            "element": "stb_btn_root_app1",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -182,8 +182,8 @@
         },
         {
             "sequence": 16,
-            "describe": "expand STB",
-            "element": "STB",
+            "describe": "expand stb",
+            "element": "stb",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -192,7 +192,7 @@
         {
             "sequence": 17,
             "describe": "tap the tool on shortcut to verify account customize ",
-            "element": "STB_btn_tools_shortcut_one",
+            "element": "stb_btn_tools_shortcut_one",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",

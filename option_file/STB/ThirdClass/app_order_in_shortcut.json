@@ -2,7 +2,7 @@
     "steps": [
         {
            "sequence": 1,
-            "describe": "initialization to setup third class on STB",
+            "describe": "initialization to setup third class on stb",
             "element": "",
             "gesture": "stb_third_class_initialization",
             "args": "",
@@ -11,8 +11,8 @@
         },
         {
             "sequence": 2,
-            "describe": "expand STB",
-            "element": "STB",
+            "describe": "expand stb",
+            "element": "stb",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -20,8 +20,8 @@
         },
         {
             "sequence": 3,
-            "describe": "expand all tools on STB",
-            "element": "STB_btn_all_tools",
+            "describe": "expand all tools on stb",
+            "element": "stb_btn_all_tools",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -30,7 +30,7 @@
         {
             "sequence": 4,
             "describe": "edit tools button in all tools",
-            "element": "STB_btn_edit_tools",
+            "element": "stb_btn_edit_tools",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -39,7 +39,7 @@
         {
             "sequence": 5,
             "describe": "add the first tools on third class",
-            "element": "STB_btn_tools_tag_one",
+            "element": "stb_btn_tools_tag_one",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -48,7 +48,7 @@
         {
             "sequence": 6,
             "describe": "add the second tool on third class",
-            "element": "STB_btn_tools_tag_two",
+            "element": "stb_btn_tools_tag_two",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -57,7 +57,7 @@
         {
             "sequence": 7,
             "describe": "tap homepage button to return homepage",
-            "element": "STB_btn_home",
+            "element": "stb_btn_home",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -65,8 +65,8 @@
         },
         {
             "sequence": 8,
-            "describe": "expand STB",
-            "element": "STB",
+            "describe": "expand stb",
+            "element": "stb",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -74,8 +74,8 @@
         },
         {
             "sequence":9,
-            "describe": "expand all tools on STB",
-            "element": "STB_btn_all_tools",
+            "describe": "expand all tools on stb",
+            "element": "stb_btn_all_tools",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -84,7 +84,7 @@
         {
             "sequence": 10,
             "describe": "edit tools button in all tools",
-            "element": "STB_btn_edit_tools",
+            "element": "stb_btn_edit_tools",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -93,7 +93,7 @@
         {
             "sequence": 11,
             "describe": "remove the first tools on third class",
-            "element": "STB_btn_tools_shortcut_one",
+            "element": "stb_btn_tools_shortcut_one",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -102,7 +102,7 @@
         {
             "sequence": 12,
             "describe": "tap homepage button to return homepage",
-            "element": "STB_btn_home",
+            "element": "stb_btn_home",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -110,8 +110,8 @@
         },
         {
             "sequence": 13,
-            "describe": "expand STB",
-            "element": "STB",
+            "describe": "expand stb",
+            "element": "stb",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -119,8 +119,8 @@
         },
         {
             "sequence": 14,
-            "describe": "expand all tools on STB",
-            "element": "STB_btn_all_tools",
+            "describe": "expand all tools on stb",
+            "element": "stb_btn_all_tools",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -129,7 +129,7 @@
         {
             "sequence": 15,
             "describe": "edit tools button in all tools",
-            "element": "STB_btn_edit_tools",
+            "element": "stb_btn_edit_tools",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -138,7 +138,7 @@
         {
             "sequence": 16,
             "describe": "add the first tools on third class",
-            "element": "STB_btn_tools_tag_one",
+            "element": "stb_btn_tools_tag_one",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -147,7 +147,7 @@
         {
             "sequence": 17,
             "describe": "tap homepage button to return homepage",
-            "element": "STB_btn_home",
+            "element": "stb_btn_home",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -155,8 +155,8 @@
         },
         {
             "sequence": 18,
-            "describe": "expand STB",
-            "element": "STB",
+            "describe": "expand stb",
+            "element": "stb",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -165,7 +165,7 @@
         {
             "sequence": 19,
             "describe": "tap the first app on third class",
-            "element": "STB_btn_tools_shortcut_one",
+            "element": "stb_btn_tools_shortcut_one",
             "gesture": "tap_by_id",
             "args": "",
             "x": "",
@@ -184,7 +184,7 @@
             "sequence": 21,
             "describe": "verify the current App is expected",
             "element": [
-                "STB_package",
+                "stb_package",
                 "freezer_activity"
             ],
             "gesture": "current_app_compare",

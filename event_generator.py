@@ -287,7 +287,7 @@ class EventGen:
                     pass
                 else:
                     logging.error("the element does not move")
-                    self.reporter.fail_step(msg="the element does not move")
+                    self.reporter.fail_step("error", "the element does not move")
                 gesture.compare_different_list.clear()
 
             case "screen_zoom_in":
@@ -330,7 +330,7 @@ class EventGen:
                         pass
                     else:
                         logging.error(msg=f"Find {element} FAIL")
-                        self.reporter.fail_step(msg=f"Find {element} FAIL")
+                        self.reporter.fail_step("error", f"Find {element} FAIL")
 
             case "findelement_by_xpath":
                 """
@@ -344,7 +344,7 @@ class EventGen:
                         pass
                     else:
                         logging.error(msg=f"Find {element} FAIL")
-                        self.reporter.fail_step(msg=f"Find {element} FAIL")
+                        self.reporter.fail_step("error", f"Find {element} FAIL")
 
             case "findelement_by_text":
                 element = driver(text=json_element)
@@ -352,7 +352,7 @@ class EventGen:
                     pass
                 else:
                     logging.error(msg=f"Find {element} FAIL")
-                    self.reporter.fail_step(msg=f"Find {element} FAIL")
+                    self.reporter.fail_step("error", f"Find {element} FAIL")
 
             case "change_wallpaper_first":
                 if driver(text="com.viewsonic.wallpaperpicker").exists:
@@ -385,7 +385,7 @@ class EventGen:
                     element.click()
                 else:
                     logging.error(msg="app not found in recent app")
-                    self.reporter.fail_step(msg="app not found in recent app")
+                    self.reporter.fail_step("error", "app not found in recent app")
 
             case "recent_app_list":
                 elements = driver(resourceId=locator[json_element])
@@ -432,7 +432,7 @@ class EventGen:
                         driver.swipe(x_a, y_a, x_b, y_b)
                     else:
                         logging.error(msg="Not Found App")
-                        self.reporter.fail_step(msg="Not Found App")
+                        self.reporter.fail_step("error", "Not Found App")
 
             case "stb_scroll_horiz_to_element":
                 x_a, y_a = driver(
@@ -454,9 +454,9 @@ class EventGen:
                         logging.error(msg="Not Found App")
 
             case "stb_second_class_initialization":
-                gesture.tap(driver(resourceId=locator["STB"]))
-                gesture.tap(driver(resourceId=locator["STB_btn_all_apps"]))
-                gesture.tap(driver(resourceId=locator["STB_btn_edit_apps"]))
+                gesture.tap(driver(resourceId=locator["stb"]))
+                gesture.tap(driver(resourceId=locator["stb_btn_all_apps"]))
+                gesture.tap(driver(resourceId=locator["stb_btn_edit_apps"]))
 
                 gesture.tap(
                     driver(resourceId="com.viewsonic.sidetoolbar:id/clApp1Container")
@@ -467,19 +467,19 @@ class EventGen:
                 gesture.tap(
                     driver(resourceId="com.viewsonic.sidetoolbar:id/clApp3Container")
                 )
-                gesture.tap(driver(resourceId=locator["STB_btn_home"]))
+                gesture.tap(driver(resourceId=locator["stb_btn_home"]))
 
             case "stb_third_class_initialization":
-                gesture.tap(driver(resourceId=locator["STB"]))
-                gesture.tap(driver(resourceId=locator["STB_btn_all_tools"]))
-                gesture.tap(driver(resourceId=locator["STB_btn_edit_tools"]))
-                gesture.tap(driver(resourceId=locator["STB_btn_tools_shortcut_one"]))
+                gesture.tap(driver(resourceId=locator["stb"]))
+                gesture.tap(driver(resourceId=locator["stb_btn_all_tools"]))
+                gesture.tap(driver(resourceId=locator["stb_btn_edit_tools"]))
+                gesture.tap(driver(resourceId=locator["stb_btn_tools_shortcut_one"]))
                 gesture.tap(
                     driver(resourceId="com.viewsonic.sidetoolbar:id/imgViewAddTool2")
                 )
-                gesture.tap(driver(resourceId=locator["STB_btn_home"]))
+                gesture.tap(driver(resourceId=locator["stb_btn_home"]))
 
-            case "STB_spotlight_initialization":
+            case "stb_spotlight_initialization":
                 driver().pinch_in(percent=10, steps=10)
                 gesture.tap(driver(resourceId=locator["spotlight_btn_settings"]))
                 gesture.swipe_left(
@@ -495,7 +495,7 @@ class EventGen:
                     pass
                 else:
                     logging.error(msg=f"{json_element} is not current")
-                    self.reporter.fail_step(msg=f"{json_element} is not current")
+                    self.reporter.fail_step("error", f"{json_element} is not current")
 
             case "timer_scroll_to_findtext":
                 target_text = event["args"]
@@ -522,7 +522,7 @@ class EventGen:
                     element = json_element
                     target_scrollbar = None
                     logging.error(msg=f"{element} is not found")
-                    self.reporter.fail_step(msg=f"{element} is not found")
+                    self.reporter.fail_step("error", f"{element} is not found")
 
                 # scroll to find
                 for _ in range(60):
@@ -543,7 +543,7 @@ class EventGen:
                     pass
                 else:
                     logging.error(msg="toast is not expect")
-                    self.reporter.fail_step(msg="toast is not expect")
+                    self.reporter.fail_step("error", "toast is not expect")
 
             case "compare_different":
                 if (
@@ -557,7 +557,7 @@ class EventGen:
                     else:
                         logging.error(msg="The data is the same , not changed")
                         self.reporter.fail_step(
-                            msg="The data is the same , not changed"
+                            "error", "The data is the same , not changed"
                         )
                 gesture.compare_different_list.clear()
 
@@ -584,7 +584,7 @@ class EventGen:
                     pass
                 else:
                     logging.error(msg="title changes fail")
-                    self.reporter.fail_step(msg="title changes fail")
+                    self.reporter.fail_step("error", "title changes fail")
 
             case "close_app":
                 gesture.close_app(json_element)

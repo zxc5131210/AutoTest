@@ -346,7 +346,7 @@ class EventGen:
                         logging.error(msg=f"Find {element} FAIL")
                         self.reporter.fail_step(msg=f"Find {element} FAIL")
 
-            case "findelement_ByText":
+            case "findelement_by_text":
                 element = driver(text=json_element)
                 if element.exists:
                     pass

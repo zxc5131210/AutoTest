@@ -49,7 +49,7 @@
             "sequence": 6,
             "describe": "input user name",
             "element": "authenticator_text_google_account",
-            "gesture": "sendKey_byID",
+            "gesture": "send_key_by_id",
             "args": [0,"vsmvbtest@gmail.com"],
             "x": "",
             "y": ""

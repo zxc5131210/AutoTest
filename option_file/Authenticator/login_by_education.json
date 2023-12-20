@@ -153,7 +153,7 @@
             "sequence": 16,
             "describe": "input account",
             "element": "authenticator_edu_account",
-            "gesture": "sendKey_byID",
+            "gesture": "send_key_by_id",
             "args": [0,"zealcloud"],
             "x": "",
             "y": ""

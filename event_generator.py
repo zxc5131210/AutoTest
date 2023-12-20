@@ -138,7 +138,7 @@ class EventGen:
                 gesture.wait_element_exist(element)
                 time.sleep(5)
 
-            case "sendKey_byID":
+            case "send_key_by_id":
                 """
                 if there are multiple numbers with the same ID.
                 args=[count(int), message(str)]

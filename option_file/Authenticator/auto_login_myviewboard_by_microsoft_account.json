@@ -49,7 +49,7 @@
             "sequence": 6,
             "describe": "input user name",
             "element": "authenticator_text_microsoft_account",
-            "gesture": "sendKey_byID",
+            "gesture": "send_key_by_id",
             "args": [0,"ian.viewsonic@gmail.com"],
             "x": "",
             "y": ""
@@ -76,7 +76,7 @@
             "sequence": 9,
             "describe": "input password",
             "element": "authenticator_text_microsoft_password",
-            "gesture": "sendKey_byID",
+            "gesture": "send_key_by_id",
             "args": [0,"Aa1q2w3e4r"],
             "x": "",
             "y": ""

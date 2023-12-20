@@ -28,6 +28,51 @@
             "y": ""
         },
         {
+            "sequence": "wait",
+            "describe": "wait for logout finish",
+            "element": "",
+            "gesture": "time_wait",
+            "args": "3",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "describe": "tap 'guest' button back to homepage",
+            "element": "vlauncher_btn_guest",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 1,
+            "describe": "tap avatar to logout",
+            "element": "vlauncher_avatar",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "tap 'sign out' button",
+            "element": "vlauncher_avatar_sign",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "tap 'sign out' button on the popup",
+            "element": "vlauncher_avatar_btn_logout",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
             "sequence": 4,
             "describe": "tap 'sign in' button to the login page",
             "element": "vlauncher_btn_sign_in",
@@ -38,26 +83,26 @@
         },
         {
             "sequence": 5,
-            "describe": "input user name",
-            "element": "authenticator_myviewboard_account",
-            "gesture": "sendKey_byID",
-            "args": [0,"ian.viewsonic.test@gmail.com"],
+            "describe": "tap 'microsoft SSO' button to the login page",
+            "element": "authenticator_btn_microsoft",
+            "gesture": "tap_byID",
+            "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 6,
-            "describe": "input user password",
-            "element": "authenticator_myviewboard_password",
+            "describe": "input user name",
+            "element": "authenticator_text_microsoft_account",
             "gesture": "sendKey_byID",
-            "args": [0,"vsMVBtest!1"],
+            "args": [0,"ian.viewsonic@gmail.com"],
             "x": "",
             "y": ""
         },
         {
             "sequence": 7,
-            "describe": "tap 'sign in' button to login",
-            "element": "authenticator_myviewboard_btn_login",
+            "describe": "tap 'Next' button",
+            "element": "authenticator_btn_microsoft_next",
             "gesture": "tap_byID",
             "args": "",
             "x": "",
@@ -65,6 +110,42 @@
         },
         {
             "sequence": 8,
+            "describe": "wait for microsoft password text exists",
+            "element": "authenticator_text_microsoft_password",
+            "gesture": "wait_element_exist",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 9,
+            "describe": "input password",
+            "element": "authenticator_text_microsoft_password",
+            "gesture": "sendKey_byID",
+            "args": [0,"Aa1q2w3e4r"],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 10,
+            "describe": "tap 'sign in' to  login account",
+            "element": "authenticator_btn_microsoft_sign_in",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 11,
+            "describe": "skip stay sign in notification",
+            "element": "",
+            "gesture": "stay_sign_in_microsoft",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 12,
             "describe": "wait for vlauncher title exists",
             "element": "vlauncher_title",
             "gesture": "wait_element_exist",
@@ -73,7 +154,7 @@
             "y": ""
         },
         {
-            "sequence": 9,
+            "sequence": 13,
             "describe": "expand STB",
             "element": "STB",
             "gesture": "tap_byID",
@@ -82,7 +163,7 @@
             "y": ""
         },
         {
-            "sequence": 10,
+            "sequence": 14,
             "describe": "tap the app on shortcut to verify account customize ",
             "element": "STB_btn_root_app1",
             "gesture": "tap_byID",
@@ -91,16 +172,16 @@
             "y": ""
         },
         {
-            "sequence": 11,
+            "sequence": 15,
             "describe": "compare current app to verify customize",
-            "element": ["manager_package","manager_activity"],
+            "element": ["whiteboard_package","whiteboard_activity"],
             "gesture": "current_app_compare",
             "args": "",
             "x": "",
             "y": ""
         },
         {
-            "sequence": 12,
+            "sequence": 16,
             "describe": "expand STB",
             "element": "STB",
             "gesture": "tap_byID",
@@ -109,7 +190,7 @@
             "y": ""
         },
         {
-            "sequence": 13,
+            "sequence": 17,
             "describe": "tap the tool on shortcut to verify account customize ",
             "element": "STB_btn_tools_shortcut_one",
             "gesture": "tap_byID",
@@ -118,7 +199,7 @@
             "y": ""
         },
         {
-            "sequence": 14,
+            "sequence": 18,
             "describe": "compare current app to verify customize",
             "element": ["screen_lock_package","screen_lock_chosen_activity"],
             "gesture": "current_app_compare",

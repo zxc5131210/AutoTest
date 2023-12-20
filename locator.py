@@ -182,6 +182,10 @@ locator = {
     "folder_roots_list": "com.android.documentsui:id/roots_list",
     "whiteboard_package": "com.viewsonic.droid",
     "whiteboard_activity": ".MainActivity",
+    "manager_package": "com.viewsonic.dmagent",
+    "manager_activity": ".ui.enrollment.EnrollmentActivity",
     "folder_package": "com.seewo.easifinder",
     "folder_activity": ".FileBrowseMainActivity",
+    "chromium_package": "com.seewo.chromiumbrowser",
+    "chromium_activity": "com.google.android.apps.chrome.Main",
 }

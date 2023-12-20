@@ -2,6 +2,7 @@ locator = {
     # screenLock
     "screen_lock_package": "com.viewsonic.screenlock",
     "screen_lock_activity": "com.viewsonic.screenlock.DialogActivity",
+    "screen_lock_chosen_activity": ".DialogActivity",
     "screen_lock_btn_set_password": "com.viewsonic.screenlock:id/btnPassword",
     "screen_lock_btn_next": "com.viewsonic.screenlock:id/next",
     "screen_lock_edit_text_password": "com.viewsonic.screenlock:id/edittextPassword",
@@ -167,6 +168,7 @@ locator = {
     "wallpaper_btn_close": "com.viewsonic.wallpaperpicker:id/btn_close",
     # settings
     "settings_package": "com.ifpdos.vsettings",
+    "settings_activity": ".MainActivity",
     "settings_time_activity": ".Settings$TimeSettings",
     "settings_ethernet_activity": ".Settings$EthernetSettings",
     "settings_wifi_activity": ".Settings$WifiSettings",

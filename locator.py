@@ -2,6 +2,7 @@ locator = {
     # screenLock
     "screen_lock_package": "com.viewsonic.screenlock",
     "screen_lock_activity": "com.viewsonic.screenlock.DialogActivity",
+    "screen_lock_chosen_activity": ".DialogActivity",
     "screen_lock_btn_set_password": "com.viewsonic.screenlock:id/btnPassword",
     "screen_lock_btn_next": "com.viewsonic.screenlock:id/next",
     "screen_lock_edit_text_password": "com.viewsonic.screenlock:id/edittextPassword",
@@ -90,6 +91,9 @@ locator = {
     "STB_btn_recent_clear_all": "com.viewsonic.vlauncher:id/btn_clear_all",
     "STB_btn_all_apps": "com.viewsonic.sidetoolbar:id/imgBtnAllApps",
     "STB_btn_edit_apps": "com.viewsonic.sidetoolbar:id/iv_all_app_edit_status",
+    "STB_btn_root_app1": "com.viewsonic.sidetoolbar:id/clApp1Container",
+    "STB_btn_root_app2": "com.viewsonic.sidetoolbar:id/clApp2Container",
+    "STB_btn_root_app3": "com.viewsonic.sidetoolbar:id/clApp3Container",
     "STB_btn_apps_tag_one": "com.viewsonic.sidetoolbar:id/RlAllAppsTagOne",
     "STB_btn_apps_tag_two": "com.viewsonic.sidetoolbar:id/RlAllAppsTagTwo",
     "STB_btn_apps_tag_three": "com.viewsonic.sidetoolbar:id/RlAllAppsTagThree",
@@ -164,6 +168,7 @@ locator = {
     "wallpaper_btn_close": "com.viewsonic.wallpaperpicker:id/btn_close",
     # settings
     "settings_package": "com.ifpdos.vsettings",
+    "settings_activity": ".MainActivity",
     "settings_time_activity": ".Settings$TimeSettings",
     "settings_ethernet_activity": ".Settings$EthernetSettings",
     "settings_wifi_activity": ".Settings$WifiSettings",
@@ -177,4 +182,10 @@ locator = {
     "folder_roots_list": "com.android.documentsui:id/roots_list",
     "whiteboard_package": "com.viewsonic.droid",
     "whiteboard_activity": ".MainActivity",
+    "manager_package": "com.viewsonic.dmagent",
+    "manager_activity": ".ui.enrollment.EnrollmentActivity",
+    "folder_package": "com.seewo.easifinder",
+    "folder_activity": ".FileBrowseMainActivity",
+    "chromium_package": "com.seewo.chromiumbrowser",
+    "chromium_activity": "com.google.android.apps.chrome.Main",
 }

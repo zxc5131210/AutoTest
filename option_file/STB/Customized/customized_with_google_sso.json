@@ -1,0 +1,130 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "describe": "tap avatar to logout",
+            "element": "vlauncher_avatar",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "tap 'sign out' button",
+            "element": "vlauncher_avatar_sign",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "tap 'sign out' button on the popup",
+            "element": "vlauncher_avatar_btn_logout",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "describe": "tap 'sign in' button to the login page",
+            "element": "vlauncher_btn_sign_in",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "describe": "tap 'google SSO' button to the login page",
+            "element": "authenticator_btn_google",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 6,
+            "describe": "input user name",
+            "element": "authenticator_text_google_account",
+            "gesture": "sendKey_byID",
+            "args": [0,"vsmvbtest@gmail.com"],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 7,
+            "describe": "tap 'Next' button",
+            "element": "authenticator_btn_google_next",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 8,
+            "describe": "wait for password text view",
+            "element": "authenticator_selection",
+            "gesture": "wait_element_exist",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 9,
+            "describe": "input password",
+            "element": "android.widget.EditText",
+            "gesture": "sendKey_byClassName",
+            "args": ["vsMVBtest"],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 10,
+            "describe": "tap go to login account",
+            "element": "Go",
+            "gesture": "tap_byDescription",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 11,
+            "describe": "wait for vlauncher title exists",
+            "element": "vlauncher_title",
+            "gesture": "wait_element_exist",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 12,
+            "describe": "expand STB",
+            "element": "STB",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 13,
+            "describe": "tap the app on shortcut to verify account customize ",
+            "element": "STB_btn_root_app1",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 14,
+            "describe": "compare current app to verify customize",
+            "element": ["whiteboard_package","whiteboard_activity"],
+            "gesture": "current_app_compare",
+            "args": "",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

@@ -32,27 +32,14 @@ def delete_temporarily_screenshots():
             pass
 
 
-def crash_exclusion(driver):
-    gesture = Gesture(driver)
-    guest_btn = driver(resourceId=locator["vlauncher_btn_guest"])
-    if guest_btn.exists:
-        gesture.tap(guest_btn)
-    else:
-        pass
-
-
 class EventGen:
     def __init__(self, reporter):
         self.reporter = reporter
 
     # Gen Event for use
     def generate_event(self, json_path: str, driver):
-        gesture = Gesture(driver)
-        # initial setting
-        crash_exclusion(driver)
-        gesture.home_page()
-        event_flow = read_json(json_path)
-        flow = event_flow["steps"]
+        self.initial_setting(driver)
+        flow = read_json(json_path)["steps"]
         for event in flow:
             json_sequence = event["sequence"]
             json_describe = event["describe"]
@@ -81,6 +68,15 @@ class EventGen:
         self.reporter.succeed_step("Test End", "Flow finished")
         delete_temporarily_screenshots()
 
+    def initial_setting(self, driver):
+        gesture = Gesture(driver, self.reporter)
+        guest_btn = driver(resourceId=locator["vlauncher_btn_guest"])
+        if guest_btn.exists:
+            gesture.tap(guest_btn)
+        else:
+            pass
+        gesture.home_page()
+
     def gesture_cases(
         self,
         event,
@@ -90,7 +86,7 @@ class EventGen:
         location_x,
         location_y,
     ):
-        gesture = Gesture(driver)
+        gesture = Gesture(driver, self.reporter)
         match json_gesture:
             case "open_activity":
                 try:
@@ -511,7 +507,7 @@ class EventGen:
                     driver(resourceId=locator["spotlight_seekbar_transparency"])
                 )
 
-            case "STB_current_app_compare":
+            case "current_app_compare":
                 dictionary = gesture.current_app()
                 if (
                     dictionary["package"] == locator[json_element[0]]

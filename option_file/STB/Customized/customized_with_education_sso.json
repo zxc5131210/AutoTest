@@ -1,0 +1,151 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "describe": "open settings activity",
+            "element": [
+                "settings_package",
+                "settings_time_activity"
+            ],
+            "gesture": "open_activity",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "open time zone list",
+            "element": "settings_btn_time_zone",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "open time zone list",
+            "element": "settings_window_time_zone",
+            "gesture": "scroll_down_element",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 4,
+            "describe": "select taipei time zone to change to +8 taipei time",
+            "element": "//*[@text='GMT+8:00 Taipei']",
+            "gesture": "tap_byXpath",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
+            "describe": "back to homepage",
+            "element": "",
+            "gesture": "homepage",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 6,
+            "describe": "tap avatar to logout",
+            "element": "vlauncher_avatar",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 7,
+            "describe": "tap 'sign out' button",
+            "element": "vlauncher_avatar_sign",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 8,
+            "describe": "tap 'sign out' button on the popup",
+            "element": "vlauncher_avatar_btn_logout",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 9,
+            "describe": "tap 'sign in' button to the login page",
+            "element": "vlauncher_btn_sign_in",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 10,
+            "describe": "tap 'education SSO' button to the login page",
+            "element": "authenticator_btn_edu",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 11,
+            "describe": "input account",
+            "element": "authenticator_edu_account",
+            "gesture": "sendKey_byID",
+            "args": [0,"zealcloud"],
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 12,
+            "describe": "input password and verification code to login",
+            "element": "authenticator_edu_password",
+            "gesture": "identify_edu_verification_code",
+            "args": "Viewtest123@@",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 13,
+            "describe": "wait for vlauncher title exists",
+            "element": "vlauncher_title",
+            "gesture": "wait_element_exist",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 14,
+            "describe": "expand STB",
+            "element": "STB",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 15,
+            "describe": "tap the app on shortcut to verify account customize ",
+            "element": "STB_btn_root_app1",
+            "gesture": "tap_byID",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 16,
+            "describe": "compare current app to verify customize",
+            "element": ["display_package","display_activity"],
+            "gesture": "current_app_compare",
+            "args": "",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

@@ -2,7 +2,6 @@
 import logging
 import subprocess
 import time
-from html_runner import HTMLReporter
 import cv2
 import numpy as np
 
@@ -14,11 +13,11 @@ class Gesture:
 
     compare_different_list = []
 
-    def __init__(self, driver) -> None:
+    def __init__(self, driver, reporter) -> None:
         if not driver:
             raise ValueError("driver can not be null.")
         self.driver = driver
-        self.reporter = HTMLReporter()
+        self.reporter = reporter
 
     def open_activity(self, element) -> None:
         """
@@ -201,10 +200,10 @@ class Gesture:
                 pass
             else:
                 logging.error(msg="file is not exist")
-                self.reporter.fail_step(msg="file is not exist")
+                self.reporter.fail_step("error", "file is not exist")
         except subprocess.CalledProcessError:
             logging.error(msg="file is not exist")
-            self.reporter.fail_step(msg="file is not exist")
+            self.reporter.fail_step("error", "file is not exist")
 
     @staticmethod
     def get_overview_activities() -> list[str]:
@@ -212,7 +211,6 @@ class Gesture:
             ["adb", "shell", "dumpsys", "activity", "recents"], universal_newlines=True
         )
         lines = result.split("\n")
-        activities = []
         activities = [
             line.split()[2]
             for line in lines
@@ -232,10 +230,10 @@ class Gesture:
                 logging.info(msg=f"{element} is in the background")
             else:
                 logging.error(msg=f"{element} is not in the background")
-                self.reporter.fail_step(msg=f"{element} is not in the background")
+                self.reporter.fail_step("error", f"{element} is not in the background")
         else:
             logging.error(msg="No overview activities found.")
-            self.reporter.fail_step(msg=f"{element} is not in the background")
+            self.reporter.fail_step("error", f"{element} is not in the background")
 
     def compare_images_pixel(self, compare_1, compare_2) -> None:
         """
@@ -254,7 +252,7 @@ class Gesture:
             pass
         else:
             logging.error(msg="compare different fail")
-            self.reporter.fail_step(msg="compare different fail")
+            self.reporter.fail_step("error", "compare different fail")
 
     @staticmethod
     def clean_activity(element):
@@ -292,7 +290,7 @@ class Gesture:
             pass
         else:
             logging.error(msg=f"no file in {element}")
-            self.reporter.fail_step(msg=f"no file in {element}")
+            self.reporter.fail_step("error", f"no file in {element}")
 
     @staticmethod
     def reboot():

@@ -10,7 +10,6 @@ class FolderProcessor:
         self.reporter = reporter
         self.driver = driver
         self.root_folder = root_folder
-        self.actions = []
 
     @staticmethod
     def display_files(file_dict):
@@ -75,7 +74,7 @@ class FolderProcessor:
         while True:
             files = [file for file in os.listdir(folder_path) if file != "__pycache__"]
             file_dict = {str(i): file for i, file in enumerate(files)}
-            print(f"-1 : Exit auto test")
+            print(f"-1 : Previous page / Exit")
             self.display_files(file_dict)
             print(f"{len(file_dict)} : All Test")
             choice = self.get_user_choice()

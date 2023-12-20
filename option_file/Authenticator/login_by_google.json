@@ -132,7 +132,7 @@
             "sequence": 14,
             "describe": "input password",
             "element": "android.widget.EditText",
-            "gesture": "sendKey_byClassName",
+            "gesture": "send_key_by_classname",
             "args": ["vsMVBtest"],
             "x": "",
             "y": ""

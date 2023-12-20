@@ -154,14 +154,10 @@ class EventGen:
                 keyword = event["args"][-1]
                 gesture.send_keys(element, keyword)
 
-            case "sendKey_byClassName":
+            case "send_key_by_classname":
                 element = driver(className=json_element)
                 keyword = event["args"][-1]
                 gesture.send_keys(element, keyword)
-
-            case "clearKey_byID":
-                element = driver(resourceId=locator[json_element])
-                gesture.clear_keys(element)
 
             case "screenshot":
                 time.sleep(3)

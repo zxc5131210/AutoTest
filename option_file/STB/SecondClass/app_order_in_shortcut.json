@@ -4,7 +4,7 @@
             "sequence": 1,
             "describe": "initialization to setup second class on STB",
             "element": "",
-            "gesture": "STB_secondClass_initialization",
+            "gesture": "stb_second_class_initialization",
             "args": "",
             "x": "",
             "y": ""

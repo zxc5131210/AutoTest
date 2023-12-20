@@ -453,7 +453,7 @@ class EventGen:
                     else:
                         logging.error(msg="Not Found App")
 
-            case "STB_secondClass_initialization":
+            case "stb_second_class_initialization":
                 gesture.tap(driver(resourceId=locator["STB"]))
                 gesture.tap(driver(resourceId=locator["STB_btn_all_apps"]))
                 gesture.tap(driver(resourceId=locator["STB_btn_edit_apps"]))

@@ -318,7 +318,7 @@ class EventGen:
                 time.sleep(5)
                 gesture.tap(driver(resourceId=locator["vlauncher_btn_guest"]))
 
-            case "findelements_ByID":
+            case "findelement_by_id":
                 """
                 If you want to verify that the element is not found, args ==False
                 """

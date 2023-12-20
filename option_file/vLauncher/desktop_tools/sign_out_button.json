@@ -31,7 +31,7 @@
             "sequence": 4,
             "describe": "find guest button to verify sign out to user select page",
             "element": "vlauncher_btn_guest",
-            "gesture": "findelements_ByID",
+            "gesture": "findelement_by_id",
             "args": "",
             "x": "",
             "y": ""

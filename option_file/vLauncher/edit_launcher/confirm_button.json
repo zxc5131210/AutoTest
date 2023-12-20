@@ -31,7 +31,7 @@
           "sequence": 4,
           "describe": "find the cell element not exists to verify edit launcher is closed",
           "element": "vlauncher_edit_launcher_cell_1",
-          "gesture": "findelements_ByID",
+          "gesture": "findelement_by_id",
           "args": "false",
           "x": "",
           "y": ""

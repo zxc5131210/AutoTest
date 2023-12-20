@@ -13,7 +13,7 @@
             "sequence": 2,
             "describe": "compare activity to verify input source button",
             "element": "quicksettings_display_page",
-            "gesture": "findelements_ByIDe",
+            "gesture": "findelement_by_ide",
             "args": "",
             "x": "",
             "y": ""

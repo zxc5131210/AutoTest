@@ -76,7 +76,7 @@
             "sequence": 9,
             "describe": "find the bell element to verify the bell ring",
             "element": "timer_bell",
-            "gesture": "findelements_ByID",
+            "gesture": "findelement_by_id",
             "args": "",
             "x": "",
             "y": ""

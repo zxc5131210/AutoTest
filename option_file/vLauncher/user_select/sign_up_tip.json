@@ -40,7 +40,7 @@
             "sequence": 5,
             "describe": "find the qrcode to verify the function",
             "element": "vlauncher_qr",
-            "gesture": "findelements_ByID",
+            "gesture": "findelement_by_id",
             "args": "",
             "x": "",
             "y": ""

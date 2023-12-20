@@ -166,7 +166,7 @@
             "sequence": 19,
             "describe": "find the timeview to verify the reset function",
             "element": "stopwatch_time_view",
-            "gesture": "findelements_ByID",
+            "gesture": "findelement_by_id",
             "args": "False",
             "x": "",
             "y": ""

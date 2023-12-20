@@ -94,7 +94,7 @@
             "sequence": 10,
             "describe": "find out whether there is a second app on shortcut, default is none",
             "element": "STB_btn_root_app2",
-            "gesture": "findelements_ByID",
+            "gesture": "findelement_by_id",
             "args": "false",
             "x": "",
             "y": ""
@@ -103,7 +103,7 @@
             "sequence": 11,
             "describe": "find out whether there is a third app on shortcut, default is none",
             "element": "STB_btn_root_app3",
-            "gesture": "findelements_ByID",
+            "gesture": "findelement_by_id",
             "args": "false",
             "x": "",
             "y": ""

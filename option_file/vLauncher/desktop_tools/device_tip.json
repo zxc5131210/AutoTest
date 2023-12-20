@@ -13,7 +13,7 @@
             "sequence": 2,
             "describe": "find QR code to verify function success",
             "element": "vlauncher_qr",
-            "gesture": "findelements_ByID",
+            "gesture": "findelement_by_id",
             "args": "",
             "x": "",
             "y": ""

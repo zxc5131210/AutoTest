@@ -4,7 +4,7 @@
             "sequence": 1,
             "describe": "tap backlight on desktop",
             "element": "vlauncher_btn_backlight",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -13,7 +13,7 @@
             "sequence": 2,
             "describe": "setting auto brightness to manual",
             "element": "vlauncher_btn_backlight_manual",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -31,7 +31,7 @@
             "sequence": 4,
             "describe": "expand STB",
             "element": "STB",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -41,7 +41,7 @@
             "sequence": 5,
             "describe": "expand quicksetting",
             "element": "STB_btn_quicksettings",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -70,7 +70,7 @@
             "sequence": 8,
             "describe": "change to display page",
             "element": "quicksettings_display_page",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -79,7 +79,7 @@
             "sequence": 9,
             "describe": "switch on the auto brightness",
             "element": "quicksettings_autobrightness",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -88,7 +88,7 @@
             "sequence": 10,
             "describe": "change to input page",
             "element": "quicksettings_input_page",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

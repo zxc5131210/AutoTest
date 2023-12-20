@@ -31,7 +31,7 @@
             "sequence": 4,
             "describe": "select the first app to set on hot seat",
             "element": "vlauncher_edit_launcher_cell_1",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -40,7 +40,7 @@
             "sequence": 5,
             "describe": "select the first app to set on hot seat",
             "element": "vlauncher_edit_launcher_cell_2",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -49,7 +49,7 @@
             "sequence": 6,
             "describe": "select the first app to set on hot seat",
             "element": "vlauncher_edit_launcher_cell_3",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -58,7 +58,7 @@
             "sequence": 7,
             "describe": "select the first app to set on hot seat",
             "element": "vlauncher_edit_launcher_cell_4",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -67,7 +67,7 @@
             "sequence": 8,
             "describe": "select the first app to set on hot seat",
             "element": "vlauncher_edit_launcher_cell_5",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -76,7 +76,7 @@
             "sequence": 9,
             "describe": "select the first app to set on hot seat",
             "element": "vlauncher_edit_launcher_cell_6",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -85,7 +85,7 @@
             "sequence": 10,
             "describe": "select the first app to set on hot seat",
             "element": "vlauncher_edit_launcher_cell_7",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -112,7 +112,7 @@
             "sequence": 13,
             "describe": "back to homepage",
             "element": "vlauncher_btn_guest",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

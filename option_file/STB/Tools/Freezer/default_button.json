@@ -4,7 +4,7 @@
             "sequence": 1,
             "describe": "expand STB",
             "element": "STB",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -13,7 +13,7 @@
             "sequence": 2,
             "describe": "expand all tools",
             "element": "STB_btn_all_tools",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -31,7 +31,7 @@
             "sequence": 4,
             "describe": "use button to zoom in",
             "element": "freezer_btn_zoom_in",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -51,7 +51,7 @@
             "sequence": 6,
             "describe": "tap default button",
             "element": "freezer_btn_default",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

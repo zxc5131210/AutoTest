@@ -4,7 +4,7 @@
             "sequence": 1,
             "describe": "expand STB",
             "element": "STB",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -13,7 +13,7 @@
             "sequence": 2,
             "describe": "expand all tools",
             "element": "STB_btn_all_tools",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -31,7 +31,7 @@
             "sequence": 4,
             "describe": "tap start button to start the timer",
             "element": "timer_btn_start",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -51,7 +51,7 @@
             "sequence": 6,
             "describe": "tap start button to expand the timer",
             "element": "timer_btn_expand",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -83,7 +83,7 @@
             "sequence": 9,
             "describe": "tap close button to narrow the window",
             "element": "timer_btn_close",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -101,7 +101,7 @@
             "sequence": 11,
             "describe": "tap close button to close timer",
             "element": "timer_btn_close",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

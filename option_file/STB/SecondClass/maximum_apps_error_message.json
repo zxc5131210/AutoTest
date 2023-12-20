@@ -13,7 +13,7 @@
             "sequence": 2,
             "describe": "expand STB",
             "element": "STB",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -22,7 +22,7 @@
             "sequence": 3,
             "describe": "expand all apps on STB",
             "element": "STB_btn_all_apps",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -31,7 +31,7 @@
             "sequence": 4,
             "describe": "edit apps button in all apps",
             "element": "STB_btn_edit_apps",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -40,7 +40,7 @@
             "sequence": 5,
             "describe": "add the first app on second class",
             "element": "STB_btn_apps_tag_one",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -49,7 +49,7 @@
             "sequence": 6,
             "describe": "add the second app on second class",
             "element": "STB_btn_apps_tag_two",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -58,7 +58,7 @@
             "sequence": 7,
             "describe": "add the third app on second class",
             "element": "STB_btn_apps_tag_three",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -67,7 +67,7 @@
             "sequence": 8,
             "describe": "add the fourth app on second class",
             "element": "STB_btn_apps_tag_four",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -85,7 +85,7 @@
             "sequence": 10,
             "describe": "tap homepage button to return homepage",
             "element": "STB_btn_home",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

@@ -4,7 +4,7 @@
             "sequence": 1,
             "describe": "tap ethernet icon to open settings ethernet",
             "element": "vlauncher_btn_ethernet",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

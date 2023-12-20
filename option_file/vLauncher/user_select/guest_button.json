@@ -4,7 +4,7 @@
             "sequence": 1,
             "describe": "tap avatar to logout",
             "element": "vlauncher_avatar",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -13,7 +13,7 @@
             "sequence": 2,
             "describe": "tap 'sign out' button",
             "element": "vlauncher_avatar_sign",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -22,7 +22,7 @@
             "sequence": 3,
             "describe": "tap 'sign out' button on the popup",
             "element": "vlauncher_avatar_btn_logout",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -31,7 +31,7 @@
             "sequence": 4,
             "describe": "tap 'guest' button back to homepage",
             "element": "vlauncher_btn_guest",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

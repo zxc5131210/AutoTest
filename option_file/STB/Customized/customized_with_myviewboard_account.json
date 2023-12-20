@@ -4,7 +4,7 @@
             "sequence": 1,
             "describe": "tap avatar to logout",
             "element": "vlauncher_avatar",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -13,7 +13,7 @@
             "sequence": 2,
             "describe": "tap 'sign out' button",
             "element": "vlauncher_avatar_sign",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -22,7 +22,7 @@
             "sequence": 3,
             "describe": "tap 'sign out' button on the popup",
             "element": "vlauncher_avatar_btn_logout",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -31,7 +31,7 @@
             "sequence": 4,
             "describe": "tap 'sign in' button to the login page",
             "element": "vlauncher_btn_sign_in",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -58,7 +58,7 @@
             "sequence": 7,
             "describe": "tap 'sign in' button to login",
             "element": "authenticator_myviewboard_btn_login",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -76,7 +76,7 @@
             "sequence": 9,
             "describe": "expand STB",
             "element": "STB",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -85,7 +85,7 @@
             "sequence": 10,
             "describe": "tap the app on shortcut to verify account customize ",
             "element": "STB_btn_root_app1",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -103,7 +103,7 @@
             "sequence": 12,
             "describe": "expand STB",
             "element": "STB",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -112,7 +112,7 @@
             "sequence": 13,
             "describe": "tap the tool on shortcut to verify account customize ",
             "element": "STB_btn_tools_shortcut_one",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

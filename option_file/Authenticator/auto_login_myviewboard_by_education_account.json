@@ -16,7 +16,7 @@
             "sequence": 2,
             "describe": "open time zone list",
             "element": "settings_btn_time_zone",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -52,7 +52,7 @@
             "sequence": 6,
             "describe": "tap avatar to logout",
             "element": "vlauncher_avatar",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -61,7 +61,7 @@
             "sequence": 7,
             "describe": "tap 'sign out' button",
             "element": "vlauncher_avatar_sign",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -70,7 +70,7 @@
             "sequence": 8,
             "describe": "tap 'sign out' button on the popup",
             "element": "vlauncher_avatar_btn_logout",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -79,7 +79,7 @@
             "sequence": 9,
             "describe": "tap 'sign in' button to the login page",
             "element": "vlauncher_btn_sign_in",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -88,7 +88,7 @@
             "sequence": 10,
             "describe": "tap 'education SSO' button to the login page",
             "element": "authenticator_btn_edu",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

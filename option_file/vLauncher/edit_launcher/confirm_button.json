@@ -22,7 +22,7 @@
             "sequence": 3,
             "describe": "click confirm button to close the edit launcher",
             "element": "vlauncher_icon_confirm",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

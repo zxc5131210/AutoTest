@@ -4,7 +4,7 @@
             "sequence": 1,
             "describe": "tap backlight on desktop",
             "element": "vlauncher_btn_backlight",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -13,7 +13,7 @@
             "sequence": 2,
             "describe": "setting auto brightness to manual",
             "element": "vlauncher_btn_backlight_manual",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

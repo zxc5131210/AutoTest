@@ -4,7 +4,7 @@
             "sequence": 1,
             "describe": "expand STB",
             "element": "STB",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -13,7 +13,7 @@
             "sequence": 2,
             "describe": "expand all tools",
             "element": "STB_btn_all_tools",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -42,7 +42,7 @@
             "sequence": 5,
             "describe": "tap expand button to expand the window",
             "element": "stopwatch_btn_expand",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -74,7 +74,7 @@
             "sequence": 8,
             "describe": "tap close button to narrow the window",
             "element": "stopwatch_btn_close",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -83,7 +83,7 @@
             "sequence": 9,
             "describe": "tap close button to close stopwatch",
             "element": "stopwatch_btn_close",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

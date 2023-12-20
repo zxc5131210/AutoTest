@@ -58,7 +58,7 @@
             "sequence": 7,
             "describe": "back to homepage",
             "element": "vlauncher_btn_guest",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

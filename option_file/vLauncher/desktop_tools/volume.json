@@ -4,7 +4,7 @@
             "sequence": 1,
             "describe": "tap desktop volume",
             "element": "vlauncher_btn_volume",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

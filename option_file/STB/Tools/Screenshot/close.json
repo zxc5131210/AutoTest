@@ -4,7 +4,7 @@
       "sequence": 1,
       "describe": "expand STB",
       "element": "STB",
-      "gesture": "tap_byID",
+      "gesture": "tap_by_id",
       "args": "",
       "x": "",
       "y": ""
@@ -13,7 +13,7 @@
       "sequence": 2,
       "describe": "expand all tools",
       "element": "STB_btn_all_tools",
-      "gesture": "tap_byID",
+      "gesture": "tap_by_id",
       "args": "",
       "x": "",
       "y": ""
@@ -31,7 +31,7 @@
       "sequence": 4,
       "describe": "tap 'Exit' button to close the screenshot tool",
       "element": "screenshot_btn_exit",
-      "gesture": "tap_byID",
+      "gesture": "tap_by_id",
       "args": "",
       "x": "",
       "y": ""

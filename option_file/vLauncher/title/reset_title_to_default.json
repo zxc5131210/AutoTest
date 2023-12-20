@@ -4,7 +4,7 @@
             "sequence": 1,
             "describe": "tap title to open 'vlauncher title' ",
             "element": "vlauncher_title",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -13,7 +13,7 @@
             "sequence": 2,
             "describe": "clear default title text",
             "element": "vlauncher_btn_clear",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -22,7 +22,7 @@
             "sequence": 3,
             "describe": "tap 'confirm' button to set the title",
             "element": "vlauncher_btn_confirm",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -31,7 +31,7 @@
             "sequence": 4,
             "describe": "tap title to open 'vlauncher title' ",
             "element": "vlauncher_title",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -40,7 +40,7 @@
             "sequence": 5,
             "describe": "clear default title text",
             "element": "vlauncher_btn_clear",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -58,7 +58,7 @@
             "sequence": 7,
             "describe": "tap 'confirm' button to set the title",
             "element": "vlauncher_btn_confirm",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -67,7 +67,7 @@
             "sequence": 8,
             "describe": "tap title to open 'vlauncher title' ",
             "element": "vlauncher_title",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -76,7 +76,7 @@
             "sequence": 9,
             "describe": "clear default title text",
             "element": "vlauncher_btn_clear",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -85,7 +85,7 @@
             "sequence": 10,
             "describe": "tap 'confirm' button to set the title",
             "element": "vlauncher_btn_confirm",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

@@ -4,7 +4,7 @@
             "sequence": 1,
             "describe": "expand STB",
             "element": "STB",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -13,7 +13,7 @@
             "sequence": 2,
             "describe": "expand all tools",
             "element": "STB_btn_all_tools",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -58,7 +58,7 @@
             "sequence": 7,
             "describe": "tap start button to start the timer",
             "element": "timer_btn_start",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -67,7 +67,7 @@
             "sequence": 8,
             "describe": "tap pause button to pause the timer",
             "element": "timer_btn_pause",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -121,7 +121,7 @@
             "sequence": 14,
             "describe": "tap resume button to resume the timer",
             "element": "timer_btn_pause",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -157,7 +157,7 @@
             "sequence": 18,
             "describe": "tap reset button to reset the timer",
             "element": "stopwatch_btn_reset",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -175,7 +175,7 @@
             "sequence": 20,
             "describe": "tap close button to close timer",
             "element": "timer_btn_cancel",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

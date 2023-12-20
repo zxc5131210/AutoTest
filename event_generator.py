@@ -112,7 +112,7 @@ class EventGen:
                 for element in elements:
                     gesture.tap(element)
 
-            case "tap_byID":
+            case "tap_by_id":
                 json_element = locator[json_element]
                 element = driver(resourceId=json_element)
                 gesture.tap(element)

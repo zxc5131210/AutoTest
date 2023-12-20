@@ -31,7 +31,7 @@
             "sequence": 4,
             "describe": "select '+' to add wallpaper to wallpaper picker",
             "element": "wallpaper_image",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -67,7 +67,7 @@
             "sequence": 8,
             "describe": "set the upload image to wallpaper",
             "element": "wallpaper_btn_set",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -105,7 +105,7 @@
             "sequence": 12,
             "describe": "delete the upload wallpaper",
             "element": "wallpaper_btn_delete",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -123,7 +123,7 @@
             "sequence": 14,
             "describe": "set the first wallpaper",
             "element": "wallpaper_btn_set",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

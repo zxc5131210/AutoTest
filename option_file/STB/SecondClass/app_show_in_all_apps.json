@@ -31,7 +31,7 @@
             "sequence": 4,
             "describe": "swipe to find the TestApp in all apps",
             "element": "My Application",
-            "gesture": "STB_scroll_horiz_to_element",
+            "gesture": "stb_scroll_horiz_to_element",
             "args": "",
             "x": "",
             "y": ""

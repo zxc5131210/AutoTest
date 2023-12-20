@@ -373,25 +373,11 @@ class EventGen:
                 for lap in range(10):
                     gesture.tap(element)
 
-            case "is_screenShot_enable":
-                current_directory = os.getcwd()
-                file_list = os.listdir(current_directory)
-                for filename in file_list:
-                    if event["args"][-1] in filename:
-                        pass
-                    else:
-                        logging.error(msg="ScreenShot Fail")
-                        self.reporter.fail_step(msg="ScreenShot Fail")
-
             case "install_app":
                 gesture.install_app(json_element)
 
             case "uninstall_app":
                 gesture.uninstall_app(locator[json_element])
-
-            case "is_activity_background":
-                gesture.get_overview_activities()
-                gesture.check_background_activities(json_element)
 
             case "recent_app_clear":
                 element = driver(resourceId=locator[json_element])
@@ -448,7 +434,7 @@ class EventGen:
                         logging.error(msg="Not Found App")
                         self.reporter.fail_step(msg="Not Found App")
 
-            case "STB_scroll_horiz_to_element":
+            case "stb_scroll_horiz_to_element":
                 x_a, y_a = driver(
                     resourceId="com.viewsonic.sidetoolbar:id/RlAllAppsTagFiveTeen"
                 ).center()

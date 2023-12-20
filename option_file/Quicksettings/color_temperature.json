@@ -67,7 +67,7 @@
             "sequence": 7,
             "describe": "tap any location to close the quicksetting",
             "element": "",
-            "gesture": "tap_byLocation",
+            "gesture": "tap_by_location",
             "args": "",
             "x": 0.5,
             "y": 0.1

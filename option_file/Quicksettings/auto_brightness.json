@@ -22,7 +22,7 @@
             "sequence": 3,
             "describe": "tap any location to close the backlight",
             "element": "",
-            "gesture": "tap_byLocation",
+            "gesture": "tap_by_location",
             "args": "",
             "x": 0.5,
             "y": 0.1
@@ -129,7 +129,7 @@
             "sequence": 14,
             "describe": "tap any location to close the quicksetting",
             "element": "",
-            "gesture": "tap_byLocation",
+            "gesture": "tap_by_location",
             "args": "",
             "x": 0.5,
             "y": 0.1

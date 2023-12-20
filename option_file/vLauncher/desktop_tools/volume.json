@@ -67,7 +67,7 @@
             "sequence": 8,
             "describe": "tap any location to close the seekbar",
             "element": "",
-            "gesture": "tap_byLocation",
+            "gesture": "tap_by_location",
             "args": "",
             "x": 0.5,
             "y": 0.1

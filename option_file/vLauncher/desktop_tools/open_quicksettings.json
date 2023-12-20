@@ -22,7 +22,7 @@
             "sequence": 3,
             "describe": "tap any location to close quicksettings",
             "element": "",
-            "gesture": "tap_byLocation",
+            "gesture": "tap_by_location",
             "args": "",
             "x": 0.5,
             "y": 0.1

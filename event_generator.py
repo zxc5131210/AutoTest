@@ -531,7 +531,7 @@ class EventGen:
                     else:
                         break
 
-            case "STB_screenshot_verify_saving":
+            case "stb_screenshot_verify_saving":
                 gesture.get_file_count(json_element)
 
             case "get_volume":

@@ -58,7 +58,7 @@
             "sequence":7,
             "describe": "find files in Pictures folder to verify saving function",
             "element": "Pictures",
-            "gesture": "STB_screenshot_verify_saving",
+            "gesture": "stb_screenshot_verify_saving",
             "args":"",
             "x": "",
             "y": ""

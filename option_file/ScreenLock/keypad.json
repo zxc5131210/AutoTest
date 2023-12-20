@@ -70,7 +70,7 @@
             "sequence": 8,
             "describe": "find text='1234' to verify the number keys",
             "element": "//*[@text='1234']",
-            "gesture": "findelement_ByXpath",
+            "gesture": "findelement_by_xpath",
             "args": "",
             "x": "",
             "y": ""
@@ -88,7 +88,7 @@
             "sequence": 10,
             "describe": "find text='123' to verify backspace button",
             "element": "//*[@text='123']",
-            "gesture": "findelement_ByXpath",
+            "gesture": "findelement_by_xpath",
             "args": "",
             "x": "",
             "y": ""
@@ -115,7 +115,7 @@
             "sequence": 13,
             "describe": "find the description the verify the check button is success",
             "element": "//*[@text='New password successfully set.']",
-            "gesture": "findelement_ByXpath",
+            "gesture": "findelement_by_xpath",
             "args": "",
             "x": "",
             "y": ""

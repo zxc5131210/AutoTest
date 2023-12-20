@@ -332,7 +332,7 @@ class EventGen:
                         logging.error(msg=f"Find {element} FAIL")
                         self.reporter.fail_step(msg=f"Find {element} FAIL")
 
-            case "findelement_ByXpath":
+            case "findelement_by_xpath":
                 """
                 if verify not find the element = True, args ==False
                 """

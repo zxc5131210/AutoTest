@@ -4,7 +4,7 @@
            "sequence": 1,
             "describe": "initialization to setup third class on STB",
             "element": "",
-            "gesture": "STB_ThirdClass_initialization",
+            "gesture": "stb_third_class_initialization",
             "args": "",
             "x": "",
             "y": ""

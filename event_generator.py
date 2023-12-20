@@ -469,7 +469,7 @@ class EventGen:
                 )
                 gesture.tap(driver(resourceId=locator["STB_btn_home"]))
 
-            case "STB_ThirdClass_initialization":
+            case "stb_third_class_initialization":
                 gesture.tap(driver(resourceId=locator["STB"]))
                 gesture.tap(driver(resourceId=locator["STB_btn_all_tools"]))
                 gesture.tap(driver(resourceId=locator["STB_btn_edit_tools"]))

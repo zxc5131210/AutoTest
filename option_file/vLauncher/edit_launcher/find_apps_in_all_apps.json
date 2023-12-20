@@ -40,7 +40,7 @@
             "sequence": 5,
             "describe": "select TestApp to set on the hot seat",
             "element": "My Application",
-            "gesture": "tap_byText",
+            "gesture": "tap_by_text",
             "args": "",
             "x": "",
             "y": ""

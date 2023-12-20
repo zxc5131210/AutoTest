@@ -124,10 +124,7 @@ class EventGen:
                 element = driver(description=json_element)
                 gesture.tap(element)
 
-            case "tap_byImage":
-                gesture.tap_image(json_element)
-
-            case "tap_byText":
+            case "tap_by_text":
                 element = driver(text=json_element)
                 gesture.tap(element)
 

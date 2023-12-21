@@ -458,15 +458,9 @@ class EventGen:
                 gesture.tap(driver(resourceId=locator["stb_btn_all_apps"]))
                 gesture.tap(driver(resourceId=locator["stb_btn_edit_apps"]))
 
-                gesture.tap(
-                    driver(resourceId="com.viewsonic.sidetoolbar:id/clApp1Container")
-                )
-                gesture.tap(
-                    driver(resourceId="com.viewsonic.sidetoolbar:id/clApp2Container")
-                )
-                gesture.tap(
-                    driver(resourceId="com.viewsonic.sidetoolbar:id/clApp3Container")
-                )
+                gesture.tap(driver(resourceId=locator["stb_btn_root_app1"]))
+                gesture.tap(driver(resourceId=locator["stb_btn_root_app2"]))
+                gesture.tap(driver(resourceId=locator["stb_btn_root_app3"]))
                 gesture.tap(driver(resourceId=locator["stb_btn_home"]))
 
             case "stb_third_class_initialization":
@@ -475,7 +469,7 @@ class EventGen:
                 gesture.tap(driver(resourceId=locator["stb_btn_edit_tools"]))
                 gesture.tap(driver(resourceId=locator["stb_btn_tools_shortcut_one"]))
                 gesture.tap(
-                    driver(resourceId="com.viewsonic.sidetoolbar:id/imgViewAddTool2")
+                    driver(resourceId="com.viewsonic.sidetoolbar:id/clTool2Container")
                 )
                 gesture.tap(driver(resourceId=locator["stb_btn_home"]))
 

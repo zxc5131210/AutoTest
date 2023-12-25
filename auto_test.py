@@ -30,6 +30,7 @@ abstract_reporter.FW_VERSION = subprocess.run(
     shell=True,
     capture_output=True,
     text=True,
+    check=False,
 ).stdout
 # Step 5 : Get every app version
 app_list = {

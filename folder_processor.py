@@ -3,6 +3,8 @@ import glob
 
 
 class FolderProcessor:
+    EXCLUDE_FILES = ["__pycache__", ".DS_Store", "Customized"]
+
     def __init__(
         self, event_gen: object, driver: object, reporter: object, root_folder
     ):
@@ -25,7 +27,7 @@ class FolderProcessor:
     @staticmethod
     def get_user_choice():
         # Get user input for file selection
-        return input(f"Enter the number to select a file :")
+        return input("Enter the number to select a file :")
 
     def handle_selected_file(self, folder_path, selected_file):
         # Construct the file path and perform actions accordingly
@@ -72,9 +74,13 @@ class FolderProcessor:
 
     def parse_folder(self, folder_path):
         while True:
-            files = [file for file in os.listdir(folder_path) if file != "__pycache__"]
+            files = [
+                file
+                for file in os.listdir(folder_path)
+                if all(file != i for i in self.EXCLUDE_FILES)
+            ]
             file_dict = {str(i): file for i, file in enumerate(files)}
-            print(f"-1 : Previous page / Exit")
+            print("-1 : Previous page / Exit")
             self.display_files(file_dict)
             print(f"{len(file_dict)} : All Test")
             choice = self.get_user_choice()
@@ -99,4 +105,7 @@ class FolderProcessor:
         for file_path in json_files:
             # Extract display_name from the file_path, excluding ".json" extension
             display_name = os.path.splitext(os.path.basename(file_path))[0]
-            self.perform_function(file_path, display_name)
+            if not any(
+                excluded_item in file_path for excluded_item in self.EXCLUDE_FILES
+            ):
+                self.perform_function(file_path, display_name)

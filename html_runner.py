@@ -24,12 +24,12 @@ class HTMLReporter(AbstractReporter):
         self.report_data = ReportData("STB", "NONE", None, None, {}, None)
 
     def succeed_step(self, steps, msg):
-        self.add_step(steps, msg, "Pass")
+        self._add_step(steps, msg, "Pass")
 
     def fail_step(self, steps, msg):
-        self.add_step(steps, msg, "Fail")
+        self._add_step(steps, msg, "Fail")
 
-    def add_step(self, steps, msg, status):
+    def _add_step(self, steps, msg, status):
         self.report_data.add_steps(steps, msg, status)
 
     def add_category(self, msg: str):
@@ -41,13 +41,13 @@ class HTMLReporter(AbstractReporter):
             abstract_reporter.FW_VERSION,
             abstract_reporter.APP_VERSION,
         )
-        self.add_entry(msg)
+        self._add_entry(msg)
         self.save_report()
 
     def test_title(self, msg: str) -> None:
         self.report_data.subcategory = msg
 
-    def add_entry(self, msg: str) -> None:
+    def _add_entry(self, msg: str) -> None:
         status = "Fail" if "Fail" in self.report_data.steps.values() else "Pass"
         self.report_data.testcase = msg
         self.report_data.detail = msg

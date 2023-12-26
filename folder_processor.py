@@ -3,6 +3,8 @@ import glob
 
 
 class FolderProcessor:
+    EXCLUDE_FILES = ["__pycache__", ".DS_Store", "Customized"]
+
     def __init__(
         self, event_gen: object, driver: object, reporter: object, root_folder
     ):
@@ -12,7 +14,7 @@ class FolderProcessor:
         self.root_folder = root_folder
 
     @staticmethod
-    def display_files(file_dict):
+    def _display_files(file_dict):
         # Display a numbered list of files in the folder
         for i, file_name in file_dict.items():
             display_name = (
@@ -23,11 +25,11 @@ class FolderProcessor:
             print(f"{i}: {display_name}")
 
     @staticmethod
-    def get_user_choice():
+    def _get_user_choice():
         # Get user input for file selection
-        return input(f"Enter the number to select a file :")
+        return input("Enter the number to select a file :")
 
-    def handle_selected_file(self, folder_path, selected_file):
+    def _handle_selected_file(self, folder_path, selected_file):
         # Construct the file path and perform actions accordingly
         file_path = os.path.join(folder_path, selected_file)
         # Exclude the ".json" extension
@@ -35,7 +37,7 @@ class FolderProcessor:
         if os.path.isfile(file_path) and file_path.endswith(".json"):
             self.perform_function(file_path, display_name)
         elif os.path.isdir(file_path):
-            self.parse_folder(file_path)
+            self._parse_folder(file_path)
         else:
             print("Selected path is neither a file nor a folder.")
 
@@ -44,19 +46,19 @@ class FolderProcessor:
             json_path=f"{file_path}",
             driver=self.driver,
         )
-        self.write_to_report(file_path, display_name)
+        self._write_to_report(file_path, display_name)
 
-    def write_to_report(self, file_path, display_name):
+    def _write_to_report(self, file_path, display_name):
         folder_name = os.path.basename(os.path.dirname(file_path))
         # use project name to category
-        self.reporter.add_category(self.get_category(file_path))
+        self.reporter.add_category(self._get_category(file_path))
         # use folder name to title
         self.reporter.test_title(folder_name)
         # json file name to testcase name
         self.reporter.test_case(display_name)
 
     @staticmethod
-    def get_category(file_path):
+    def _get_category(file_path):
         if "Quicksettings" in file_path:
             return "Quicksettings"
         elif "Authenticator" in file_path:
@@ -70,28 +72,32 @@ class FolderProcessor:
         elif "vLauncher" in file_path:
             return "vLauncher"
 
-    def parse_folder(self, folder_path):
+    def _parse_folder(self, folder_path):
         while True:
-            files = [file for file in os.listdir(folder_path) if file != "__pycache__"]
+            files = [
+                file
+                for file in os.listdir(folder_path)
+                if all(file != i for i in self.EXCLUDE_FILES)
+            ]
             file_dict = {str(i): file for i, file in enumerate(files)}
-            print(f"-1 : Previous page / Exit")
-            self.display_files(file_dict)
+            print("-1 : Previous page / Exit")
+            self._display_files(file_dict)
             print(f"{len(file_dict)} : All Test")
-            choice = self.get_user_choice()
+            choice = self._get_user_choice()
             if choice == "-1":
                 return
             if choice == str(len(file_dict)):
-                self.run_all(folder_path)
+                self._run_all(folder_path)
             if choice in file_dict:
                 selected_file = file_dict[choice]
-                self.handle_selected_file(folder_path, selected_file)
+                self._handle_selected_file(folder_path, selected_file)
             else:
                 print("Invalid choice. Please enter a valid number.")
 
     def run(self):
-        self.parse_folder(self.root_folder)
+        self._parse_folder(self.root_folder)
 
-    def run_all(self, folder_path=None):
+    def _run_all(self, folder_path=None):
         if folder_path is None:
             folder_path = self.root_folder
         # Use glob to find all JSON files directly
@@ -99,4 +105,7 @@ class FolderProcessor:
         for file_path in json_files:
             # Extract display_name from the file_path, excluding ".json" extension
             display_name = os.path.splitext(os.path.basename(file_path))[0]
-            self.perform_function(file_path, display_name)
+            if not any(
+                excluded_item in file_path for excluded_item in self.EXCLUDE_FILES
+            ):
+                self.perform_function(file_path, display_name)

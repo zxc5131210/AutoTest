@@ -13,7 +13,7 @@
             "sequence": 2,
             "describe": "choose 'edit launcher' option",
             "element": "//*[@resource-id=\"com.viewsonic.vlauncher:id/popup_container\"]/android.widget.FrameLayout[2]",
-            "gesture": "tap_byXpath",
+            "gesture": "tap_by_xpath",
             "args": "",
             "x": "",
             "y": ""
@@ -22,7 +22,7 @@
             "sequence": 3,
             "describe": "add the first App on hot seat",
             "element": "//*[@resource-id='com.viewsonic.vlauncher:id/all_app_cell_1']",
-            "gesture": "tap_byXpath",
+            "gesture": "tap_by_xpath",
             "args": "",
             "x": "",
             "y": ""
@@ -31,7 +31,7 @@
             "sequence": 4,
             "describe": "add the first App again on hot seat",
             "element": "//*[@resource-id='com.viewsonic.vlauncher:id/all_app_cell_1']",
-            "gesture": "tap_byXpath",
+            "gesture": "tap_by_xpath",
             "args": "",
             "x": "",
             "y": ""
@@ -58,7 +58,7 @@
             "sequence": 7,
             "describe": "back to homepage",
             "element": "vlauncher_btn_guest",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

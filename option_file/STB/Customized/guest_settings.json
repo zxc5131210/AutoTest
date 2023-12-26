@@ -4,7 +4,7 @@
             "sequence": 1,
             "describe": "tap avatar to logout",
             "element": "vlauncher_avatar",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -13,7 +13,7 @@
             "sequence": 2,
             "describe": "tap 'sign out' button",
             "element": "vlauncher_avatar_sign",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -22,7 +22,7 @@
             "sequence": 3,
             "describe": "tap 'sign out' button on the popup",
             "element": "vlauncher_avatar_btn_logout",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -40,16 +40,16 @@
             "sequence": 4,
             "describe": "tap 'guest' button back to homepage",
             "element": "vlauncher_btn_guest",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 5,
-            "describe": "expand STB",
-            "element": "STB",
-            "gesture": "tap_byID",
+            "describe": "expand stb",
+            "element": "stb",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -57,8 +57,8 @@
         {
             "sequence": 6,
             "describe": "tap the first app on root view",
-            "element": "STB_btn_root_app1",
-            "gesture": "tap_byID",
+            "element": "stb_btn_root_app1",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -83,9 +83,9 @@
         },
         {
             "sequence": 9,
-            "describe": "expand STB",
-            "element": "STB",
-            "gesture": "tap_byID",
+            "describe": "expand stb",
+            "element": "stb",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -93,8 +93,8 @@
         {
             "sequence": 10,
             "describe": "find out whether there is a second app on shortcut, default is none",
-            "element": "STB_btn_root_app2",
-            "gesture": "findelements_ByID",
+            "element": "stb_btn_root_app2",
+            "gesture": "findelement_by_id",
             "args": "false",
             "x": "",
             "y": ""
@@ -102,8 +102,8 @@
         {
             "sequence": 11,
             "describe": "find out whether there is a third app on shortcut, default is none",
-            "element": "STB_btn_root_app3",
-            "gesture": "findelements_ByID",
+            "element": "stb_btn_root_app3",
+            "gesture": "findelement_by_id",
             "args": "false",
             "x": "",
             "y": ""

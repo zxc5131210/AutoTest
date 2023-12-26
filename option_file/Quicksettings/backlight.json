@@ -4,7 +4,7 @@
             "sequence": 1,
             "describe": "tap backlight on desktop",
             "element": "vlauncher_btn_backlight",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -13,7 +13,7 @@
             "sequence": 2,
             "describe": "setting auto brightness to manual",
             "element": "vlauncher_btn_backlight_manual",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -22,16 +22,16 @@
             "sequence": 3,
             "describe": "tap any location to close the backlight",
             "element": "",
-            "gesture": "tap_byLocation",
+            "gesture": "tap_by_location",
             "args": "",
             "x": 0.5,
             "y": 0.1
         },
         {
             "sequence": 4,
-            "describe": "expand STB",
-            "element": "STB",
-            "gesture": "tap_byID",
+            "describe": "expand stb",
+            "element": "stb",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -40,8 +40,8 @@
         {
             "sequence": 5,
             "describe": "expand quicksetting",
-            "element": "STB_btn_quicksettings",
-            "gesture": "tap_byID",
+            "element": "stb_btn_quicksettings",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -59,7 +59,7 @@
             "sequence": 7,
             "describe": "crop backlight seekbar image to compare",
             "element": "quicksettings_backlight",
-            "gesture": "crop_byID",
+            "gesture": "crop_by_id",
             "args": [
                 "compareshot_1"
             ],
@@ -88,7 +88,7 @@
             "sequence": 10,
             "describe": "crop backlight seekbar image to compare",
             "element": "quicksettings_backlight",
-            "gesture": "crop_byID",
+            "gesture": "crop_by_id",
             "args": [
                 "compareshot_2"
             ],
@@ -111,7 +111,7 @@
             "sequence": 12,
             "describe": "tap any location to close the quicksetting",
             "element": "",
-            "gesture": "tap_byLocation",
+            "gesture": "tap_by_location",
             "args": "",
             "x": 0.5,
             "y": 0.1

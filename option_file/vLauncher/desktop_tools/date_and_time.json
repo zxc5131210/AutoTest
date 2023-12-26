@@ -4,7 +4,7 @@
             "sequence": 1,
             "describe": "tap time to open settings date & time",
             "element": "vlauncher_btn_time",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

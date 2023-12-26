@@ -2,27 +2,27 @@
     "steps": [
         {
             "sequence": 1,
-            "describe": "initialization to setup second class on STB",
+            "describe": "initialization to setup second class on stb",
             "element": "",
-            "gesture": "STB_secondClass_initialization",
+            "gesture": "stb_second_class_initialization",
             "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 2,
-            "describe": "expand STB",
-            "element": "STB",
-            "gesture": "tap_byID",
+            "describe": "expand stb",
+            "element": "stb",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 3,
-            "describe": "expand all apps on STB",
-            "element": "STB_btn_all_apps",
-            "gesture": "tap_byID",
+            "describe": "expand all apps on stb",
+            "element": "stb_btn_all_apps",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -30,8 +30,8 @@
         {
             "sequence": 4,
             "describe": "edit apps button in all apps",
-            "element": "STB_btn_edit_apps",
-            "gesture": "tap_byID",
+            "element": "stb_btn_edit_apps",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -39,8 +39,8 @@
         {
             "sequence": 5,
             "describe": "add the first app on second class",
-            "element": "STB_btn_apps_tag_one",
-            "gesture": "tap_byID",
+            "element": "stb_btn_apps_tag_one",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -48,8 +48,8 @@
         {
             "sequence": 6,
             "describe": "add the second app on second class",
-            "element": "STB_btn_apps_tag_two",
-            "gesture": "tap_byID",
+            "element": "stb_btn_apps_tag_two",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -57,8 +57,8 @@
         {
             "sequence": 7,
             "describe": "add the third app on second class",
-            "element": "STB_btn_apps_tag_three",
-            "gesture": "tap_byID",
+            "element": "stb_btn_apps_tag_three",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -66,26 +66,26 @@
         {
             "sequence": 8,
             "describe": "tap homepage button to return homepage",
-            "element": "STB_btn_home",
-            "gesture": "tap_byID",
+            "element": "stb_btn_home",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 9,
-            "describe": "expand STB",
-            "element": "STB",
-            "gesture": "tap_byID",
+            "describe": "expand stb",
+            "element": "stb",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 10,
-            "describe": "expand all apps on STB",
-            "element": "STB_btn_all_apps",
-            "gesture": "tap_byID",
+            "describe": "expand all apps on stb",
+            "element": "stb_btn_all_apps",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -93,8 +93,8 @@
         {
             "sequence": 11,
             "describe": "edit apps button in all apps",
-            "element": "STB_btn_edit_apps",
-            "gesture": "tap_byID",
+            "element": "stb_btn_edit_apps",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -102,8 +102,8 @@
         {
             "sequence": 12,
             "describe": "remove the second App on shortcut",
-            "element": "STB_btn_apps_container_two",
-            "gesture": "tap_byID",
+            "element": "stb_btn_apps_container_two",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -111,26 +111,26 @@
         {
             "sequence": 13,
             "describe": "tap homepage button to return homepage",
-            "element": "STB_btn_home",
-            "gesture": "tap_byID",
+            "element": "stb_btn_home",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 14,
-            "describe": "expand STB",
-            "element": "STB",
-            "gesture": "tap_byID",
+            "describe": "expand stb",
+            "element": "stb",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 15,
-            "describe": "expand all apps on STB",
-            "element": "STB_btn_all_apps",
-            "gesture": "tap_byID",
+            "describe": "expand all apps on stb",
+            "element": "stb_btn_all_apps",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -138,8 +138,8 @@
         {
             "sequence": 16,
             "describe": "edit apps button in all apps",
-            "element": "STB_btn_edit_apps",
-            "gesture": "tap_byID",
+            "element": "stb_btn_edit_apps",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -147,8 +147,8 @@
         {
             "sequence": 17,
             "describe": "add the second app on second class",
-            "element": "STB_btn_apps_tag_two",
-            "gesture": "tap_byID",
+            "element": "stb_btn_apps_tag_two",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -156,17 +156,17 @@
         {
             "sequence": 18,
             "describe": "tap homepage button to return homepage",
-            "element": "STB_btn_home",
-            "gesture": "tap_byID",
+            "element": "stb_btn_home",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
         },
         {
             "sequence": 19,
-            "describe": "expand STB",
-            "element": "STB",
-            "gesture": "tap_byID",
+            "describe": "expand stb",
+            "element": "stb",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -174,8 +174,8 @@
         {
             "sequence": 20,
             "describe": "tap the second App on second class",
-            "element": "STB_btn_apps_container_two",
-            "gesture": "tap_byID",
+            "element": "stb_btn_apps_container_two",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

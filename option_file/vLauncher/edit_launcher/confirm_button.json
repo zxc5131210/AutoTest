@@ -13,7 +13,7 @@
             "sequence": 2,
             "describe": "choose 'edit launcher' option",
             "element": "//*[@resource-id=\"com.viewsonic.vlauncher:id/popup_container\"]/android.widget.FrameLayout[2]",
-            "gesture": "tap_byXpath",
+            "gesture": "tap_by_xpath",
             "args": "",
             "x": "",
             "y": ""
@@ -22,7 +22,7 @@
             "sequence": 3,
             "describe": "click confirm button to close the edit launcher",
             "element": "vlauncher_icon_confirm",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -31,7 +31,7 @@
           "sequence": 4,
           "describe": "find the cell element not exists to verify edit launcher is closed",
           "element": "vlauncher_edit_launcher_cell_1",
-          "gesture": "findelements_ByID",
+          "gesture": "findelement_by_id",
           "args": "false",
           "x": "",
           "y": ""

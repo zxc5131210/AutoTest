@@ -4,7 +4,7 @@
             "sequence": 1,
             "describe": "tap desktop volume",
             "element": "vlauncher_btn_volume",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -67,7 +67,7 @@
             "sequence": 8,
             "describe": "tap any location to close the seekbar",
             "element": "",
-            "gesture": "tap_byLocation",
+            "gesture": "tap_by_location",
             "args": "",
             "x": 0.5,
             "y": 0.1

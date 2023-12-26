@@ -4,7 +4,7 @@
             "sequence": 1,
             "describe": "tap light icon to open device tip",
             "element": "vlauncher_btn_tip",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -13,7 +13,7 @@
             "sequence": 2,
             "describe": "find QR code to verify function success",
             "element": "vlauncher_qr",
-            "gesture": "findelements_ByID",
+            "gesture": "findelement_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -22,7 +22,7 @@
             "sequence": 3,
             "describe": "tap close button to close the popup",
             "element": "vlauncher_btn_close",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

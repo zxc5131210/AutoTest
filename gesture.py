@@ -278,13 +278,15 @@ class Gesture:
     def get_volume():
         command = "adb shell settings get system volume_music_speaker"
         volume = subprocess.run(
-            command, shell=True, capture_output=True, text=True
+            command, shell=True, capture_output=True, text=True, check=False
         ).stdout
         return volume
 
     def get_file_count(self, element):
         command = f"adb shell ls -1 /sdcard/{element} | wc -l"
-        result = subprocess.run(command, shell=True, capture_output=True, text=True)
+        result = subprocess.run(
+            command, shell=True, capture_output=True, text=True, check=False
+        )
         file_count = int(result.stdout.strip())
         if file_count >= 1:
             pass

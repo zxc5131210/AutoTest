@@ -2,9 +2,9 @@
     "steps": [
         {
             "sequence": 1,
-            "describe": "expand STB",
-            "element": "STB",
-            "gesture": "tap_byID",
+            "describe": "expand stb",
+            "element": "stb",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -12,8 +12,8 @@
         {
             "sequence": 2,
             "describe": "expand all tools",
-            "element": "STB_btn_all_tools",
-            "gesture": "tap_byID",
+            "element": "stb_btn_all_tools",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -22,7 +22,7 @@
             "sequence": 3,
             "describe": "select Screenshot",
             "element": "//*[@text='Screenshot']",
-            "gesture": "tap_byXpath",
+            "gesture": "tap_by_xpath",
             "args": "",
             "x": "",
             "y": ""
@@ -31,7 +31,7 @@
             "sequence":4,
             "describe": "tap crop button to crop the screen",
             "element": "screenshot_btn_crop",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args":"",
             "x": "",
             "y": ""
@@ -51,7 +51,7 @@
             "sequence":6,
             "describe": "tap fullscreen button to crop full screen",
             "element": "screenshot_btn_fullscreen",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

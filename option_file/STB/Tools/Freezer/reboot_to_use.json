@@ -11,9 +11,9 @@
         },
         {
             "sequence": 2,
-            "describe": "expand STB",
-            "element": "STB",
-            "gesture": "tap_byID",
+            "describe": "expand stb",
+            "element": "stb",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -21,8 +21,8 @@
         {
             "sequence": 3,
             "describe": "expand all tools",
-            "element": "STB_btn_all_tools",
-            "gesture": "tap_byID",
+            "element": "stb_btn_all_tools",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -31,7 +31,7 @@
             "sequence": 4,
             "describe": "select Freezer",
             "element": "//*[@text='Freezer']",
-            "gesture": "tap_byXpath",
+            "gesture": "tap_by_xpath",
             "args": "",
             "x": "",
             "y": ""
@@ -51,7 +51,7 @@
             "sequence": 6,
             "describe": "use button to zoom in",
             "element": "freezer_btn_zoom_in",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

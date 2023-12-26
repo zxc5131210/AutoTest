@@ -4,7 +4,7 @@
             "sequence": 1,
             "describe": "tap avatar to logout",
             "element": "vlauncher_avatar",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -13,7 +13,7 @@
             "sequence": 2,
             "describe": "tap 'sign out' button",
             "element": "vlauncher_avatar_sign",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -22,7 +22,7 @@
             "sequence": 3,
             "describe": "tap 'sign out' button on the popup",
             "element": "vlauncher_avatar_btn_logout",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -40,7 +40,7 @@
             "sequence": 4,
             "describe": "tap 'guest' button back to homepage",
             "element": "vlauncher_btn_guest",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -49,7 +49,7 @@
             "sequence": 5,
             "describe": "crop avatar image to compare",
             "element": "vlauncher_avatar",
-            "gesture": "crop_byID",
+            "gesture": "crop_by_id",
             "args": [
                 "compareshot_1"
             ],
@@ -60,7 +60,7 @@
             "sequence": 6,
             "describe": "tap avatar to logout",
             "element": "vlauncher_avatar",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -69,7 +69,7 @@
             "sequence": 7,
             "describe": "tap 'sign out' button",
             "element": "vlauncher_avatar_sign",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -78,7 +78,7 @@
             "sequence": 8,
             "describe": "tap 'sign out' button on the popup",
             "element": "vlauncher_avatar_btn_logout",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -87,7 +87,7 @@
             "sequence": 9,
             "describe": "tap 'sign in' button to the login page",
             "element": "vlauncher_btn_sign_in",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -96,7 +96,7 @@
             "sequence": 10,
             "describe": "tap 'microsoft SSO' button to the login page",
             "element": "authenticator_btn_microsoft",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -105,7 +105,7 @@
             "sequence": 11,
             "describe": "input user name",
             "element": "authenticator_text_microsoft_account",
-            "gesture": "sendKey_byID",
+            "gesture": "send_key_by_id",
             "args": [0,"ian.viewsonic@gmail.com"],
             "x": "",
             "y": ""
@@ -114,7 +114,7 @@
             "sequence": 12,
             "describe": "tap 'Next' button",
             "element": "authenticator_btn_microsoft_next",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -132,7 +132,7 @@
             "sequence": 14,
             "describe": "input password",
             "element": "authenticator_text_microsoft_password",
-            "gesture": "sendKey_byID",
+            "gesture": "send_key_by_id",
             "args": [0,"Aa1q2w3e4r"],
             "x": "",
             "y": ""
@@ -141,7 +141,7 @@
             "sequence": 15,
             "describe": "tap 'sign in' to  login account",
             "element": "authenticator_btn_microsoft_sign_in",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -159,7 +159,7 @@
             "sequence": 17,
             "describe": "crop avatar image to compare",
             "element": "vlauncher_avatar",
-            "gesture": "crop_byID",
+            "gesture": "crop_by_id",
             "args": [
                 "compareshot_2"
             ],

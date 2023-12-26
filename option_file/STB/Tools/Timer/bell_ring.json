@@ -2,9 +2,9 @@
     "steps": [
         {
             "sequence": 1,
-            "describe": "expand STB",
-            "element": "STB",
-            "gesture": "tap_byID",
+            "describe": "expand stb",
+            "element": "stb",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -12,8 +12,8 @@
         {
             "sequence": 2,
             "describe": "expand all tools",
-            "element": "STB_btn_all_tools",
-            "gesture": "tap_byID",
+            "element": "stb_btn_all_tools",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -22,7 +22,7 @@
             "sequence": 3,
             "describe": "select Timer",
             "element": "//*[@text='Timer']",
-            "gesture": "tap_byXpath",
+            "gesture": "tap_by_xpath",
             "args": "",
             "x": "",
             "y": ""
@@ -31,7 +31,7 @@
             "sequence": 4,
             "describe": "set the timer hour to '00' ",
             "element": "hour",
-            "gesture": "Timer_scroll_to_findText",
+            "gesture": "timer_scroll_to_findtext",
             "args": "00",
             "x": "",
             "y": ""
@@ -40,7 +40,7 @@
             "sequence": 5,
             "describe": "set the timer minute to '00' ",
             "element": "min",
-            "gesture": "Timer_scroll_to_findText",
+            "gesture": "timer_scroll_to_findtext",
             "args": "00",
             "x": "",
             "y": ""
@@ -49,7 +49,7 @@
             "sequence": 6,
             "describe": "set the timer second to '10' ",
             "element": "sec",
-            "gesture": "Timer_scroll_to_findText",
+            "gesture": "timer_scroll_to_findtext",
             "args": "10",
             "x": "",
             "y": ""
@@ -58,7 +58,7 @@
             "sequence": 7,
             "describe": "tap start button to start the timer",
             "element": "timer_btn_start",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -76,7 +76,7 @@
             "sequence": 9,
             "describe": "find the bell element to verify the bell ring",
             "element": "timer_bell",
-            "gesture": "findelements_ByID",
+            "gesture": "findelement_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -85,7 +85,7 @@
             "sequence": 10,
             "describe": "tap close button to close timer",
             "element": "timer_btn_close",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

@@ -2,9 +2,9 @@
     "steps": [
         {
             "sequence": 1,
-            "describe": "expand STB",
-            "element": "STB",
-            "gesture": "tap_byID",
+            "describe": "expand stb",
+            "element": "stb",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -12,8 +12,8 @@
         {
             "sequence": 2,
             "describe": "expand all tools",
-            "element": "STB_btn_all_tools",
-            "gesture": "tap_byID",
+            "element": "stb_btn_all_tools",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -22,7 +22,7 @@
             "sequence": 3,
             "describe": "select Marker",
             "element": "//*[@text='Marker']",
-            "gesture": "tap_byXpath",
+            "gesture": "tap_by_xpath",
             "args": "",
             "x": "",
             "y": ""
@@ -31,7 +31,7 @@
             "sequence": 4,
             "describe": "tap close button to close marker",
             "element": "marker_btn_close",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

@@ -13,7 +13,7 @@
             "sequence": 2,
             "describe": "choose 'change wallpaper' option",
             "element": "//*[@resource-id='com.viewsonic.vlauncher:id/popup_container']/android.widget.FrameLayout[1]",
-            "gesture": "tap_byXpath",
+            "gesture": "tap_by_xpath",
             "args": "",
             "x": "",
             "y": ""
@@ -31,7 +31,7 @@
             "sequence": 4,
             "describe": "set the first wallpaper",
             "element": "wallpaper_btn_set",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -69,7 +69,7 @@
             "sequence": 8,
             "describe": "choose 'change wallpaper' option",
             "element": "//*[@resource-id='com.viewsonic.vlauncher:id/popup_container']/android.widget.FrameLayout[1]",
-            "gesture": "tap_byXpath",
+            "gesture": "tap_by_xpath",
             "args": "",
             "x": "",
             "y": ""
@@ -78,7 +78,7 @@
             "sequence": 9,
             "describe": "select '+' to add wallpaper to wallpaper picker",
             "element": "wallpaper_image",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""
@@ -87,7 +87,7 @@
             "sequence": 10,
             "describe": "open form to select device storage",
             "element": "//*[@content-desc='Show roots']",
-            "gesture": "tap_byXpath",
+            "gesture": "tap_by_xpath",
             "args": "",
             "x": "",
             "y": ""
@@ -105,7 +105,7 @@
             "sequence": 12,
             "describe": "select the upload image",
             "element": "//*[contains(@content-desc, 'wallpaper_image_2k.jpg')]",
-            "gesture": "tap_byXpath",
+            "gesture": "tap_by_xpath",
             "args": "",
             "x": "",
             "y": ""
@@ -114,7 +114,7 @@
             "sequence": 13,
             "describe": "set the upload image to wallpaper",
             "element": "wallpaper_btn_set",
-            "gesture": "tap_byID",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

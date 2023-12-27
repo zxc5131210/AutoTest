@@ -4,6 +4,7 @@ import subprocess
 import time
 import cv2
 import numpy as np
+import remote_controller_map
 
 
 class Gesture:
@@ -306,3 +307,24 @@ class Gesture:
 
     def close_app(self, element):
         self.driver.app_stop(element)
+
+    def send_event(self, event):
+        device_model = self.driver.device_info["model"]
+        # get model to map
+        if device_model == "IFP8633" or device_model == "IFP7550-5":
+            controller_map = remote_controller_map.ifp33_keycode
+        else:
+            controller_map = None
+            logging.error(msg=f"can't map the device")
+            self.reporter.fail_step("error", "can't map the device")
+
+        send_event = controller_map[event]
+        input_event = "/dev/input/event{}".format(controller_map["input_event"])
+        subprocess.call(
+            ["adb", "shell", "sendevent", input_event, "1", f"{send_event}", "1"]
+        )
+        subprocess.call(["adb", "shell", "sendevent", input_event, "0", "0", "0"])
+        subprocess.call(
+            ["adb", "shell", "sendevent", input_event, "1", f"{send_event}", "0"]
+        )
+        subprocess.call(["adb", "shell", "sendevent", input_event, "0", "0", "0"])

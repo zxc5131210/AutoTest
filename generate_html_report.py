@@ -14,6 +14,7 @@ class TestReport:
             "Authenticator": {},
             "Quicksettings": {},
             "ScreenLock": {},
+            "RemoteController": {},
         }
 
     def add_entry(self, report_data):

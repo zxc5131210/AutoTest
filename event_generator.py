@@ -329,8 +329,8 @@ class EventGen:
                     if event["args"].lower() == "false":
                         pass
                     else:
-                        logging.error(msg=f"Find {element} FAIL")
-                        self.reporter.fail_step("error", f"Find {element} FAIL")
+                        logging.error(msg=f"Find [{json_element}] FAIL")
+                        self.reporter.fail_step("error", f"Find [{json_element}] FAIL")
 
             case "findelement_by_xpath":
                 """
@@ -594,6 +594,9 @@ class EventGen:
                 gesture.clean_activity(locator[json_element])
                 time.sleep(5)
                 gesture.home_page()
+
+            case "send_remote_controller_event":
+                gesture.send_event(json_element)
 
             case _:
                 logging.warning(msg=f"gesture type: {json_gesture} not defined.")

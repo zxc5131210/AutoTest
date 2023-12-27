@@ -1,0 +1,22 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "describe": "remote controller settings button",
+            "element": "settings",
+            "gesture": "send_remote_controller_event",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "verify current app is expect",
+            "element": ["settings_package","settings_activity"],
+            "gesture": "current_app_compare",
+            "args": "",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

@@ -71,6 +71,8 @@ class FolderProcessor:
             return "ScreenLock"
         elif "vLauncher" in file_path:
             return "vLauncher"
+        elif "RemoteController" in file_path:
+            return "RemoteController"
 
     def _parse_folder(self, folder_path):
         while True:

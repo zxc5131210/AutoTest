@@ -37,7 +37,7 @@ class TestReport:
         self.app_version = app_version
         return self.device_version, self.app_version
 
-    def _generate_html(self):
+    def __generate_html(self):
         # html temp
         html_head = f"""<html> <head> <title>Automation Test Report</title> <link href="./html_css/bootstrap.min.css" 
         rel="stylesheet"> <script src="./html_css/jquery.min.js"></script><script 
@@ -77,7 +77,7 @@ class TestReport:
         id="passButton" class="btn btn-success">Pass</button> <button id="failButton" class="btn 
         btn-danger">Fail</button></div> <br>"""
 
-        html_report = self._generate_report_html()
+        html_report = self.__generate_report_html()
 
         html_end = """<div id="statusModal" class="modal fade" role="dialog"> 
         <div class="modal-dialog"> <div class="modal-content"> <div class="modal-body"> 
@@ -90,16 +90,16 @@ class TestReport:
         html = f"{html_head}{html_report}{html_end}"
         return html
 
-    def _generate_report_html(self):
+    def __generate_report_html(self):
         report_html = ""
         for category, subcategories in self.categories.items():
             safe_category_id = category.replace(" ", "_").replace("-", "_")
-            report_html += self._generate_category_html(
+            report_html += self.__generate_category_html(
                 category, safe_category_id, subcategories
             )
         return report_html
 
-    def _generate_category_html(self, category, safe_category_id, subcategories):
+    def __generate_category_html(self, category, safe_category_id, subcategories):
         category_html = f"<div class='panel panel-primary category-panel' id='category_{safe_category_id}'>"
         category_html += (
             f"<div class='panel-heading' data-toggle='collapse' "
@@ -112,8 +112,8 @@ class TestReport:
 
         for subclass, testcases in subcategories.items():
             safe_subcategories_id = subclass.replace(" ", "_").replace("-", "_")
-            pass_count, total_count = self._get_pass_and_total_count(testcases)
-            category_html += self._generate_subcategory_html(
+            pass_count, total_count = self.__get_pass_and_total_count(testcases)
+            category_html += self.__generate_subcategory_html(
                 safe_category_id,
                 safe_subcategories_id,
                 subclass,
@@ -125,7 +125,7 @@ class TestReport:
         category_html += "</div></div>"
         return category_html
 
-    def _generate_subcategory_html(
+    def __generate_subcategory_html(
         self,
         safe_category_id,
         safe_subcategories_id,
@@ -151,7 +151,7 @@ class TestReport:
 
         for idx, (testcase, detail, steps, status) in enumerate(testcases):
             panel_id = f"{safe_category_id}_{safe_subcategories_id}_{idx}"
-            subcategory_html += self._generate_testcase_html(
+            subcategory_html += self.__generate_testcase_html(
                 panel_id, testcase, detail, steps, status
             )
 
@@ -159,7 +159,7 @@ class TestReport:
         return subcategory_html
 
     @staticmethod
-    def _generate_testcase_html(panel_id, testcase, detail, steps, status):
+    def __generate_testcase_html(panel_id, testcase, detail, steps, status):
         testcase_html = f"<div class='panel panel-default test-case {status.lower()}'>"
         testcase_html += (
             f"<div class='panel-heading' data-panel-id='{panel_id}' data-toggle='collapse' "
@@ -188,11 +188,11 @@ class TestReport:
         return testcase_html
 
     @staticmethod
-    def _get_pass_and_total_count(testcases):
+    def __get_pass_and_total_count(testcases):
         pass_count = sum(1 for _, _, _, status, in testcases if status == "Pass")
         total_count = len(testcases)
         return pass_count, total_count
 
     def save_to_file(self, filename):
         with open(filename, "w", encoding="utf-8") as file:
-            file.write(self._generate_html())
+            file.write(self.__generate_html())

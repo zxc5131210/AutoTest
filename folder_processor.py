@@ -4,10 +4,17 @@ import glob
 
 class FolderProcessor:
     EXCLUDE_FILES = ["__pycache__", ".DS_Store", "Customized"]
+    CATEGORY_MAPPING = {
+        "Quicksettings": "Quicksettings",
+        "Authenticator": "Authenticator",
+        "Wallpaper": "Wallpaper",
+        "STB": "STB",
+        "ScreenLock": "ScreenLock",
+        "vLauncher": "vLauncher",
+        "RemoteController": "RemoteController",
+    }
 
-    def __init__(
-        self, event_gen: object, driver: object, reporter: object, root_folder
-    ):
+    def __init__(self, event_gen, driver, reporter, root_folder):
         self.event_gen = event_gen
         self.reporter = reporter
         self.driver = driver
@@ -59,20 +66,10 @@ class FolderProcessor:
 
     @staticmethod
     def __get_category(file_path):
-        if "Quicksettings" in file_path:
-            return "Quicksettings"
-        elif "Authenticator" in file_path:
-            return "Authenticator"
-        elif "Wallpaper" in file_path:
-            return "Wallpaper"
-        elif "STB" in file_path:
-            return "STB"
-        elif "ScreenLock" in file_path:
-            return "ScreenLock"
-        elif "vLauncher" in file_path:
-            return "vLauncher"
-        elif "RemoteController" in file_path:
-            return "RemoteController"
+        for keyword, category in FolderProcessor.CATEGORY_MAPPING.items():
+            if keyword in file_path:
+                return category
+        return None
 
     def __parse_folder(self, folder_path):
         while True:

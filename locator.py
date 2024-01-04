@@ -121,6 +121,7 @@ locator = {
     "marker_btn_save": "com.viewsonic.sidetoolbar:id/save",
     "marker_btn_delete": "com.viewsonic.sidetoolbar:id/delete",
     "marker_bar": "com.viewsonic.sidetoolbar:id/iv_annotation_bar_right",
+    "marker_popup_title": "com.viewsonic.sidetoolbar:id/tv_title",
     # stb tools - screenshot
     "screenshot_btn_exit": "com.viewsonic.sidetoolbar:id/rlExit",
     "screenshot_btn_crop": "com.viewsonic.sidetoolbar:id/rlCrop",

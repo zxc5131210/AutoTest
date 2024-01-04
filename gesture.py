@@ -4,6 +4,7 @@ import subprocess
 import time
 import cv2
 import numpy as np
+import remote_controller_map
 
 
 class Gesture:
@@ -37,13 +38,11 @@ class Gesture:
         self.driver.image.click(element)
 
     def zoom_in(self, element=None) -> None:
-        if element is None:
-            element = self.driver()
+        element = element or self.driver()
         element.pinch_out(percent=10, steps=10)
 
     def zoom_out(self, element=None) -> None:
-        if element is None:
-            element = self.driver()
+        element = element or self.driver()
         element.pinch_in(percent=10, steps=10)
 
     @staticmethod
@@ -103,26 +102,22 @@ class Gesture:
 
     def swipe_left(self, element=None) -> None:
         # swipe left function
-        if element is None:
-            element = self.driver()
+        element = element or self.driver()
         element.swipe("left")
 
     def swipe_right(self, element=None) -> None:
         # swipe left function
-        if element is None:
-            element = self.driver()
+        element = element or self.driver()
         element.swipe("right")
 
     def swipe_up(self, element=None) -> None:
         # Swipe up function
-        if element is None:
-            element = self.driver()
+        element = element or self.driver()
         element.swipe("up")
 
     def swipe_down(self, element=None) -> None:
         # Swipe up function
-        if element is None:
-            element = self.driver()
+        element = element or self.driver()
         element.swipe("down")
 
     @staticmethod
@@ -131,16 +126,14 @@ class Gesture:
 
     def scroll_down(self, element=None) -> None:
         # scroll down function
-        if element is None:
-            element = self.driver()
+        element = element or self.driver()
         element.scroll.toEnd()
 
     def get_element_location(self, element) -> None:
         element_bounds = element.info["bounds"]
         center_x = (element_bounds["left"] + element_bounds["right"]) // 2
         center_y = (element_bounds["top"] + element_bounds["bottom"]) // 2
-        self.compare_different_list.append(center_x)
-        self.compare_different_list.append(center_y)
+        self.compare_different_list.extend([center_x, center_y])
 
     def drag_element_to_screen_edge(self, element, direction) -> None:
         """
@@ -177,8 +170,7 @@ class Gesture:
         args:
             element= package name
         """
-        command = ["adb", "uninstall", element]
-        subprocess.run(command, check=False)
+        subprocess.run(["adb", "uninstall", element], check=False)
 
     def file_is_exists(self, filepath) -> None:
         """
@@ -196,9 +188,7 @@ class Gesture:
                 text=True,
             )
             # check the command success or not
-            if result.returncode == 0:
-                pass
-            else:
+            if result.returncode != 0:
                 logging.error(msg="file is not exist")
                 self.reporter.fail_step("error", "file is not exist")
         except subprocess.CalledProcessError:
@@ -223,17 +213,15 @@ class Gesture:
         check background activities match the app or not
         """
         overview_activities = self.get_overview_activities()
-        activity_list = []
-        if overview_activities:
-            activity_list.extend(overview_activities)
-            if any(element in background for background in activity_list):
-                logging.info(msg=f"{element} is in the background")
-            else:
-                logging.error(msg=f"{element} is not in the background")
-                self.reporter.fail_step("error", f"{element} is not in the background")
+        if not overview_activities:
+            logging.error(msg="not find the event.")
+            self.reporter.fail_step("error", f"{element} not in the background")
+            return
+        if any(element in background for background in overview_activities):
+            logging.info(msg=f"{element} in the background")
         else:
-            logging.error(msg="No overview activities found.")
-            self.reporter.fail_step("error", f"{element} is not in the background")
+            logging.error(msg=f"{element} not in background")
+            self.reporter.fail_step("error", f"{element} not in background")
 
     def compare_images_pixel(self, compare_1, compare_2) -> None:
         """
@@ -260,19 +248,27 @@ class Gesture:
         clean activity user data
         arg: element= package name
         """
-        command = ["adb", "shell", "pm", "clear", element]
-        subprocess.run(command, capture_output=True, text=True, check=True)
+        subprocess.run(
+            ["adb", "shell", "pm", "clear", element],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
         time.sleep(5)
 
     @staticmethod
     def update_file(element):
-        command = ["adb", "push", element, "/sdcard/"]
-        subprocess.run(command, check=False)
+        subprocess.run(["adb", "push", element, "/sdcard/"], check=False)
 
     @staticmethod
     def delete_file(element):
-        command = f"adb shell rm /sdcard/{element}"
-        subprocess.run(command, shell=True, capture_output=True, text=True, check=False)
+        subprocess.run(
+            f"adb shell rm /sdcard/{element}",
+            shell=True,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
 
     @staticmethod
     def get_volume():
@@ -288,21 +284,38 @@ class Gesture:
             command, shell=True, capture_output=True, text=True, check=False
         )
         file_count = int(result.stdout.strip())
-        if file_count >= 1:
-            pass
-        else:
+        if file_count < 1:
             logging.error(msg=f"no file in {element}")
             self.reporter.fail_step("error", f"no file in {element}")
 
     @staticmethod
     def reboot():
-        command = ["adb", "reboot"]
-        subprocess.run(command, check=True)
+        subprocess.run(["adb", "reboot"], check=True)
 
     @staticmethod
     def wait_for_device():
-        command = ["adb", "wait-for-device"]
-        subprocess.run(command, check=True)
+        subprocess.run(["adb", "wait-for-device"], check=True)
 
     def close_app(self, element):
         self.driver.app_stop(element)
+
+    def send_event(self, event):
+        device_model = self.driver.device_info["model"]
+        # get model to map
+        if device_model == "IFP8633" or device_model == "IFP7550-5":
+            controller_map = remote_controller_map.ifp33_keycode
+        else:
+            controller_map = None
+            logging.error(msg=f"can't map the device")
+            self.reporter.fail_step("error", "can't map the device")
+
+        send_event = controller_map[event]
+        input_event = "/dev/input/event{}".format(controller_map["input_event"])
+        subprocess.call(
+            ["adb", "shell", "sendevent", input_event, "1", f"{send_event}", "1"]
+        )
+        subprocess.call(["adb", "shell", "sendevent", input_event, "0", "0", "0"])
+        subprocess.call(
+            ["adb", "shell", "sendevent", input_event, "1", f"{send_event}", "0"]
+        )
+        subprocess.call(["adb", "shell", "sendevent", input_event, "0", "0", "0"])

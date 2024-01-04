@@ -1,0 +1,34 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "describe": "open settings activity",
+            "element": [
+                "settings_package",
+                "settings_activity"
+            ],
+            "gesture": "open_activity",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "remote controller home button",
+            "element": "home",
+            "gesture": "send_remote_controller_event",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "find the title to verify back to homepage",
+            "element": "vlauncher_title",
+            "gesture": "findelement_by_id",
+            "args": "",
+            "x": "",
+            "y": ""
+        }
+    ]
+}

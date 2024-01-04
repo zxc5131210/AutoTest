@@ -1,0 +1,31 @@
+{
+    "steps": [
+        {
+            "sequence": 1,
+            "describe": "remote controller quicksettings button",
+            "element": "quicksettings",
+            "gesture": "send_remote_controller_event",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 2,
+            "describe": "find the display button to verify back to homepage",
+            "element": "quicksettings_display_page",
+            "gesture": "findelement_by_id",
+            "args": "",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 3,
+            "describe": "tap any location to close quicksettings",
+            "element": "",
+            "gesture": "tap_by_location",
+            "args": "",
+            "x": 0.5,
+            "y": 0.1
+        }
+    ]
+}

@@ -38,11 +38,13 @@ class Gesture:
         self.driver.image.click(element)
 
     def zoom_in(self, element=None) -> None:
-        element = element or self.driver()
+        if element is None:
+            element = self.driver()
         element.pinch_out(percent=10, steps=10)
 
     def zoom_out(self, element=None) -> None:
-        element = element or self.driver()
+        if element is None:
+            element = self.driver()
         element.pinch_in(percent=10, steps=10)
 
     @staticmethod
@@ -103,22 +105,26 @@ class Gesture:
 
     def swipe_left(self, element=None) -> None:
         # swipe left function
-        element = element or self.driver()
+        if element is None:
+            element = self.driver()
         element.swipe("left")
 
     def swipe_right(self, element=None) -> None:
         # swipe left function
-        element = element or self.driver()
+        if element is None:
+            element = self.driver()
         element.swipe("right")
 
     def swipe_up(self, element=None) -> None:
         # Swipe up function
-        element = element or self.driver()
+        if element is None:
+            element = self.driver()
         element.swipe("up")
 
     def swipe_down(self, element=None) -> None:
         # Swipe up function
-        element = element or self.driver()
+        if element is None:
+            element = self.driver()
         element.swipe("down")
 
     @staticmethod
@@ -127,7 +133,8 @@ class Gesture:
 
     def scroll_down(self, element=None) -> None:
         # scroll down function
-        element = element or self.driver()
+        if element is None:
+            element = self.driver()
         element.scroll.toEnd()
 
     def get_element_location(self, element) -> None:

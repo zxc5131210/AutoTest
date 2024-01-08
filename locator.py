@@ -42,7 +42,7 @@ locator = {
     "authenticator_edu_login": "id15",
     # vlauncher
     "vlauncher_package": "com.viewsonic.vlauncher",
-    "vlauncher_activity": "com.viewsonic.vLauncher.uioverrides.QuickstepLauncher",
+    "vlauncher_activity": ".uioverrides.QuickstepLauncher",
     "vlauncher_hot_seat": "com.viewsonic.vlauncher:id/cell",
     "vlauncher_label": "com.viewsonic.vlauncher:id/label",
     "vlauncher_remove_task": "com.viewsonic.vlauncher:id/remove_task",

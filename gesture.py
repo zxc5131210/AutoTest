@@ -69,6 +69,7 @@ class Gesture:
 
     def long_press_location(self, location_x, location_y):
         self.driver.click(x=location_x, y=location_y)
+        self.driver.click(x=location_x, y=location_y)
         self.driver.long_click(x=location_x, y=location_y)
 
     def home_page(self) -> None:

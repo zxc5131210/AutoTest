@@ -302,9 +302,14 @@ class Gesture:
 
     def send_event(self, event):
         device_model = self.driver.device_info["model"]
-        # get model to map
-        if device_model == "IFP8633" or device_model == "IFP7550-5":
+        device_model = device_model[5:7]
+        android_version = self.driver.device_info["version"]
+
+        # get model and android version to map
+        if device_model == "33" or device_model == "50" and android_version == "11":
             controller_map = remote_controller_map.ifp33_keycode
+        elif device_model == "50" and android_version == "13":
+            controller_map = remote_controller_map.ifp50_5_a13_keycode
         else:
             controller_map = None
             logging.error(msg=f"can't map the device")

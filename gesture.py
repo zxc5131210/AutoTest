@@ -278,9 +278,12 @@ class Gesture:
             check=False,
         )
 
-    @staticmethod
-    def get_volume():
-        command = "adb shell settings get system volume_music_speaker"
+    def get_volume(self):
+        android_version = self.driver.device_info["version"]
+        if android_version == "13":
+            command = "adb shell settings get system volume_music_remote_submix"
+        else:
+            command = "adb shell settings get system volume_music_speaker"
         volume = subprocess.run(
             command, shell=True, capture_output=True, text=True, check=False
         ).stdout

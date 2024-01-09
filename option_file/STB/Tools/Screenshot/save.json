@@ -50,7 +50,7 @@
             "describe": "wait 5 seconds to finish saving",
             "element": "",
             "gesture": "time_wait",
-            "args":"3",
+            "args":"5",
             "x": "",
             "y": ""
         },

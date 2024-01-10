@@ -38,13 +38,11 @@ class Gesture:
         self.driver.image.click(element)
 
     def zoom_in(self, element=None) -> None:
-        if element is None:
-            element = self.driver()
+        element = self.check_element_exists(element)
         element.pinch_out(percent=10, steps=10)
 
     def zoom_out(self, element=None) -> None:
-        if element is None:
-            element = self.driver()
+        element = self.check_element_exists(element)
         element.pinch_in(percent=10, steps=10)
 
     @staticmethod
@@ -103,28 +101,29 @@ class Gesture:
     def get_toast(self):
         return self.driver.toast.get_message()
 
-    def swipe_left(self, element=None) -> None:
-        # swipe left function
+    def check_element_exists(self, element):
         if element is None:
             element = self.driver()
+        return element
+
+    def swipe_left(self, element=None) -> None:
+        # swipe left function
+        element = self.check_element_exists(element)
         element.swipe("left")
 
     def swipe_right(self, element=None) -> None:
         # swipe left function
-        if element is None:
-            element = self.driver()
+        element = self.check_element_exists(element)
         element.swipe("right")
 
     def swipe_up(self, element=None) -> None:
         # Swipe up function
-        if element is None:
-            element = self.driver()
+        element = self.check_element_exists(element)
         element.swipe("up")
 
     def swipe_down(self, element=None) -> None:
         # Swipe up function
-        if element is None:
-            element = self.driver()
+        element = self.check_element_exists(element)
         element.swipe("down")
 
     @staticmethod
@@ -133,8 +132,7 @@ class Gesture:
 
     def scroll_down(self, element=None) -> None:
         # scroll down function
-        if element is None:
-            element = self.driver()
+        element = self.check_element_exists(element)
         element.scroll.toEnd()
 
     def get_element_location(self, element) -> None:

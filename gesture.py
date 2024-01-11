@@ -7,6 +7,15 @@ import numpy as np
 import remote_controller_map
 
 
+def check_element(check_exists):
+    def give_element(self, element=None):
+        if element is None:
+            element = self.driver()
+        return check_exists(self, element)
+
+    return give_element
+
+
 class Gesture:
     """
     define gesture needed
@@ -37,12 +46,12 @@ class Gesture:
     def tap_image(self, element) -> None:
         self.driver.image.click(element)
 
+    @check_element
     def zoom_in(self, element=None) -> None:
-        element = self.check_element_exists(element)
         element.pinch_out(percent=10, steps=10)
 
+    @check_element
     def zoom_out(self, element=None) -> None:
-        element = self.check_element_exists(element)
         element.pinch_in(percent=10, steps=10)
 
     @staticmethod
@@ -101,38 +110,33 @@ class Gesture:
     def get_toast(self):
         return self.driver.toast.get_message()
 
-    def check_element_exists(self, element):
-        if element is None:
-            element = self.driver()
-        return element
-
-    def swipe_left(self, element=None) -> None:
+    @check_element
+    def swipe_left(self, element=None):
         # swipe left function
-        element = self.check_element_exists(element)
         element.swipe("left")
 
+    @check_element
     def swipe_right(self, element=None) -> None:
         # swipe left function
-        element = self.check_element_exists(element)
         element.swipe("right")
 
+    @check_element
     def swipe_up(self, element=None) -> None:
         # Swipe up function
-        element = self.check_element_exists(element)
         element.swipe("up")
 
+    @check_element
     def swipe_down(self, element=None) -> None:
         # Swipe up function
-        element = self.check_element_exists(element)
         element.swipe("down")
 
     @staticmethod
     def wait_element_exist(element):
         element.wait()
 
+    @check_element
     def scroll_down(self, element=None) -> None:
         # scroll down function
-        element = self.check_element_exists(element)
         element.scroll.toEnd()
 
     def get_element_location(self, element) -> None:

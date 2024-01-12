@@ -71,10 +71,12 @@ class EventGen:
     def initial_setting(self, driver):
         gesture = Gesture(driver, self.reporter)
         guest_btn = driver(resourceId=locator["vlauncher_btn_guest"])
-        if guest_btn.exists:
-            gesture.tap(guest_btn)
-        else:
-            pass
+        while True:
+            if guest_btn.exists:
+                gesture.tap(guest_btn)
+                time.sleep(1)
+            else:
+                break
         gesture.home_page()
 
     def gesture_cases(

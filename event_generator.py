@@ -13,6 +13,7 @@ import ddddocr
 from selenium.common.exceptions import NoSuchElementException
 from gesture import Gesture
 from locator import locator
+import steps_parser
 
 
 def read_json(json_path: str) -> dict:
@@ -39,7 +40,7 @@ class EventGen:
     # Gen Event for use
     def generate_event(self, json_path: str, driver):
         self.initial_setting(driver)
-        flow = read_json(json_path)["steps"]
+        flow = steps_parser.Step.read_json(json_path)
         for event in flow:
             json_sequence = event["sequence"]
             json_describe = event["describe"]

@@ -7,6 +7,15 @@ import numpy as np
 import remote_controller_map
 
 
+def check_element(check_exists):
+    def give_element(self, element=None):
+        if element is None:
+            element = self.driver()
+        return check_exists(self, element)
+
+    return give_element
+
+
 class Gesture:
     """
     define gesture needed
@@ -37,12 +46,12 @@ class Gesture:
     def tap_image(self, element) -> None:
         self.driver.image.click(element)
 
+    @check_element
     def zoom_in(self, element=None) -> None:
-        element = element or self.driver()
         element.pinch_out(percent=10, steps=10)
 
+    @check_element
     def zoom_out(self, element=None) -> None:
-        element = element or self.driver()
         element.pinch_in(percent=10, steps=10)
 
     @staticmethod
@@ -68,6 +77,7 @@ class Gesture:
         self.driver.screenshot(save_location)
 
     def long_press_location(self, location_x, location_y):
+        self.driver.click(x=location_x, y=location_y)
         self.driver.click(x=location_x, y=location_y)
         self.driver.long_click(x=location_x, y=location_y)
 
@@ -100,33 +110,33 @@ class Gesture:
     def get_toast(self):
         return self.driver.toast.get_message()
 
-    def swipe_left(self, element=None) -> None:
+    @check_element
+    def swipe_left(self, element=None):
         # swipe left function
-        element = element or self.driver()
         element.swipe("left")
 
+    @check_element
     def swipe_right(self, element=None) -> None:
         # swipe left function
-        element = element or self.driver()
         element.swipe("right")
 
+    @check_element
     def swipe_up(self, element=None) -> None:
         # Swipe up function
-        element = element or self.driver()
         element.swipe("up")
 
+    @check_element
     def swipe_down(self, element=None) -> None:
         # Swipe up function
-        element = element or self.driver()
         element.swipe("down")
 
     @staticmethod
     def wait_element_exist(element):
         element.wait()
 
+    @check_element
     def scroll_down(self, element=None) -> None:
         # scroll down function
-        element = element or self.driver()
         element.scroll.toEnd()
 
     def get_element_location(self, element) -> None:
@@ -270,9 +280,12 @@ class Gesture:
             check=False,
         )
 
-    @staticmethod
-    def get_volume():
-        command = "adb shell settings get system volume_music_speaker"
+    def get_volume(self):
+        android_version = self.driver.device_info["version"]
+        if android_version == "13":
+            command = "adb shell settings get system volume_music_remote_submix"
+        else:
+            command = "adb shell settings get system volume_music_speaker"
         volume = subprocess.run(
             command, shell=True, capture_output=True, text=True, check=False
         ).stdout
@@ -301,9 +314,14 @@ class Gesture:
 
     def send_event(self, event):
         device_model = self.driver.device_info["model"]
-        # get model to map
-        if device_model == "IFP8633" or device_model == "IFP7550-5":
+        device_model = device_model[5:7]
+        android_version = self.driver.device_info["version"]
+
+        # get model and android version to map
+        if device_model == "33" or device_model == "50" and android_version == "11":
             controller_map = remote_controller_map.ifp33_keycode
+        elif device_model == "50" and android_version == "13":
+            controller_map = remote_controller_map.ifp50_5_a13_keycode
         else:
             controller_map = None
             logging.error(msg=f"can't map the device")

@@ -40,34 +40,37 @@ class EventGen:
     # Gen Event for use
     def generate_event(self, json_path: str, driver):
         self.initial_setting(driver)
-        flow = steps_parser.Step.read_json(json_path)
+        flow = steps_parser.parseSteps.read_json(json_path)
         for event in flow:
-            json_sequence = event["sequence"]
-            json_describe = event["describe"]
-            json_element = event["element"]
-            json_gesture = event["gesture"]
-            location_x = event["x"]
-            location_y = event["y"]
-            try:
-                self.gesture_cases(
-                    event,
-                    driver,
-                    json_element,
-                    json_gesture,
-                    location_x,
-                    location_y,
-                )
-                logging.info(json_describe)
-                self.reporter.succeed_step(json_sequence, json_describe)
-                time.sleep(1)
-
-            except Exception:
-                logging.error(json_describe)
-                self.reporter.fail_step(json_sequence, json_describe)
-                time.sleep(1)
-
+            self.process_event(event, driver)
         self.reporter.succeed_step("Test End", "Flow finished")
         delete_temporarily_screenshots()
+
+    def process_event(self, event, driver):
+        json_sequence = event["sequence"]
+        json_describe = event["describe"]
+        json_element = event["element"]
+        json_gesture = event["gesture"]
+        location_x = event["x"]
+        location_y = event["y"]
+
+        try:
+            self.gesture_cases(
+                event,
+                driver,
+                json_element,
+                json_gesture,
+                location_x,
+                location_y,
+            )
+            logging.info(json_describe)
+            self.reporter.succeed_step(json_sequence, json_describe)
+            time.sleep(1)
+
+        except Exception:
+            logging.error(json_describe)
+            self.reporter.fail_step(json_sequence, json_describe)
+            time.sleep(1)
 
     def initial_setting(self, driver):
         gesture = Gesture(driver, self.reporter)
@@ -90,6 +93,7 @@ class EventGen:
         location_y,
     ):
         gesture = Gesture(driver, self.reporter)
+        element = steps_parser.ProcessStep.assort_element(json_element, driver)
         match json_gesture:
             case "open_activity":
                 try:
@@ -104,20 +108,16 @@ class EventGen:
                 gesture.tap(element)
 
             case "open_hot_seat_all_app":
-                elements = driver(resourceId=locator[json_element])
-                for element in elements:
-                    gesture.tap(element)
+                for i in element:
+                    gesture.tap(i)
                     time.sleep(3)
                     gesture.home_page()
 
             case "tap_hot_seat_all_app":
-                elements = driver(resourceId=locator[json_element])
-                for element in elements:
-                    gesture.tap(element)
+                for i in element:
+                    gesture.tap(i)
 
             case "tap_by_id":
-                json_element = locator[json_element]
-                element = driver(resourceId=json_element)
                 gesture.tap(element)
 
             case "tap_by_location":
@@ -132,12 +132,10 @@ class EventGen:
                 gesture.tap(element)
 
             case "get_element_text":
-                element = driver(resourceId=locator[json_element])
                 text = gesture.get_element_text(element)
                 gesture.compare_different_list.append(text)
 
             case "wait_element_exist":
-                element = driver(resourceId=locator[json_element])
                 gesture.wait_element_exist(element)
                 time.sleep(5)
 
@@ -152,8 +150,6 @@ class EventGen:
                     element = driver(
                         resourceId=locator[json_element], instance=event["args"][0]
                     )
-                else:
-                    element = driver(resourceId=locator[json_element])
                 keyword = event["args"][-1]
                 gesture.send_keys(element, keyword)
 
@@ -168,7 +164,6 @@ class EventGen:
                 gesture.screenshot(f"./{filename}.png")
 
             case "crop_by_id":
-                element = driver(resourceId=locator[json_element])
                 if element.wait(timeout=20):
                     time.sleep(3)
                     screenshot = driver.screenshot(format="pillow")
@@ -252,33 +247,26 @@ class EventGen:
                 gesture.swipe_down()
 
             case "swipe_left_element":
-                element = driver(resourceId=locator[json_element])
                 gesture.swipe_left(element)
 
             case "swipe_right_element":
-                element = driver(resourceId=locator[json_element])
                 gesture.swipe_right(element)
 
             case "swipe_up_element":
-                element = driver(resourceId=locator[json_element])
                 gesture.swipe_up(element)
 
             case "swipe_down_element":
-                element = driver(resourceId=locator[json_element])
                 gesture.swipe_down(element)
 
             case "scroll_down_element":
-                element = driver(resourceId=locator[json_element])
                 gesture.scroll_down(element)
 
             case "drag_element_to_screen_edge":
-                element = driver(resourceId=locator[json_element])
                 direction = event["args"]
                 gesture.drag_element_to_screen_edge(element, direction=direction)
                 time.sleep(2)
 
             case "get_element_location":
-                element = driver(resourceId=locator[json_element])
                 gesture.get_element_location(element)
 
             case "compare_location_different":
@@ -325,7 +313,6 @@ class EventGen:
                 """
                 If you want to verify that the element is not found, args ==False
                 """
-                element = driver(resourceId=locator[json_element])
                 if element.exists:
                     pass
                 else:
@@ -361,18 +348,14 @@ class EventGen:
                 if driver(text="com.viewsonic.wallpaperpicker").exists:
                     gesture.tap(driver(text="com.viewsonic.wallpaperpicker"))
                     gesture.tap(driver(resourceId="android:id/button_always"))
-
-                element = driver(resourceId=locator[json_element])
                 first_element = element[1]
                 gesture.tap(first_element)
 
             case "change_wallpaper_second":
-                element = driver(resourceId=locator[json_element])
                 first_element = element[2]
                 gesture.tap(first_element)
 
             case "stopwatch_lap":
-                element = driver(resourceId=locator[json_element])
                 for lap in range(10):
                     gesture.tap(element)
 
@@ -383,7 +366,6 @@ class EventGen:
                 gesture.uninstall_app(locator[json_element])
 
             case "recent_app_clear":
-                element = driver(resourceId=locator[json_element])
                 if element.exists:
                     element.click()
                 else:
@@ -391,8 +373,7 @@ class EventGen:
                     self.reporter.fail_step("error", "app not found in recent app")
 
             case "recent_app_list":
-                elements = driver(resourceId=locator[json_element])
-                for running_apps in elements:
+                for running_apps in element:
                     gesture.compare_different_list.append(running_apps.get_text())
                 for expect_app in event["args"]:
                     if expect_app in gesture.compare_different_list:

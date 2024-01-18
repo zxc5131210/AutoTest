@@ -1,7 +1,8 @@
 import json
+from locator import locator
 
 
-class Step:
+class parseSteps:
     @staticmethod
     def read_json(json_path) -> dict:
         with open(json_path, encoding="utf-8") as flow:
@@ -10,18 +11,8 @@ class Step:
 
 
 class ProcessStep:
-    def __init__(self, step, driver):
-        self.step = step
-        self.driver = driver
-
-    #
-    # def define_event(self):
-    #     for event in Step.parse_event:
-    #         json_sequence = event["sequence"]
-    #         json_describe = event["describe"]
-    #         json_element = event["element"]
-    #         json_gesture = event["gesture"]
-    #         location_x = event["x"]
-    #         location_y = event["y"]
-    #
-    #     print(json_sequence)
+    @staticmethod
+    def assort_element(element, driver):
+        if element in locator:
+            element = driver(resourceId=locator[element])
+        return element

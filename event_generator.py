@@ -13,13 +13,7 @@ import ddddocr
 from selenium.common.exceptions import NoSuchElementException
 from gesture import Gesture
 from locator import locator
-import steps_parser
-
-
-def read_json(json_path: str) -> dict:
-    with open(json_path, encoding="utf-8") as flow:
-        flow = json.load(flow)
-        return flow
+import util
 
 
 def delete_temporarily_screenshots():
@@ -40,7 +34,7 @@ class EventGen:
     # Gen Event for use
     def generate_event(self, json_path: str, driver):
         self.initial_setting(driver)
-        flow = steps_parser.parseSteps.read_json(json_path)
+        flow = util.parse_step(json_path)
         for event in flow:
             self.process_event(event, driver)
         self.reporter.succeed_step("Test End", "Flow finished")
@@ -93,7 +87,7 @@ class EventGen:
         location_y,
     ):
         gesture = Gesture(driver, self.reporter)
-        element = steps_parser.ProcessStep.assort_element(json_element, driver)
+        element = util.assort_element(json_elemegint, driver)
         match json_gesture:
             case "open_activity":
                 try:

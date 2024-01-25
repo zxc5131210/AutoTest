@@ -10,17 +10,12 @@ def parse_step(json_path) -> dict:
 
 def assort_element(element, gesture, driver):
     if element in locator:
-        element = driver(resourceId=locator[element])
-        return element
+        return driver(resourceId=locator[element])
     if "xpath" in gesture:
-        element = driver.xpath(element)
-        return element
+        return driver.xpath(element)
     elif "description" in gesture:
-        element = driver(description=element)
-        return element
+        return driver(description=element)
     elif "text" in gesture:
-        element = driver(text=element)
-        return element
+        return driver(text=element)
     elif "classname" in gesture:
-        element = driver(className=element)
-        return element
+        return driver(className=element)

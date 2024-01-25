@@ -104,6 +104,7 @@ locator = {
     "stb_btn_tools_tag_one": "com.viewsonic.sidetoolbar:id/RlAllToolsTagOne",
     "stb_btn_tools_tag_two": "com.viewsonic.sidetoolbar:id/RlAllToolsTagTwo",
     "stb_btn_tools_shortcut_one": "com.viewsonic.sidetoolbar:id/clTool1Container",
+    "stb_btn_tools_shortcut_two": "com.viewsonic.sidetoolbar:id/clTool2Container",
     "stb_btn_quicksettings": "com.viewsonic.sidetoolbar:id/imgBtnQuickSettings",
     # stb tools - freezer
     "freezer_activity": ".zoom.ZoomActivity",

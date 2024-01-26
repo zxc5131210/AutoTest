@@ -10,9 +10,10 @@ import PIL.Image
 import PIL.ImageEnhance
 import ddddocr
 from selenium.common.exceptions import NoSuchElementException
+
+import util
 from gesture import Gesture
 from locator import locator
-import util
 
 
 def delete_temporarily_screenshots():
@@ -524,9 +525,7 @@ class EventGen:
             case "tap_by_device_model":
                 device = gesture.get_device_info()
                 device_model = device["model"]
-                element = element.child(
-                    text=device_model
-                )
+                element = element.child(text=device_model)
                 gesture.tap(element)
 
             case "time_wait":

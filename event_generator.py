@@ -5,15 +5,15 @@ Event generator will read a .json file and generate event.
 import logging
 import os
 import time
-import json
 
 import PIL.Image
 import PIL.ImageEnhance
 import ddddocr
 from selenium.common.exceptions import NoSuchElementException
+
+import util
 from gesture import Gesture
 from locator import locator
-import util
 
 
 def delete_temporarily_screenshots():
@@ -87,7 +87,7 @@ class EventGen:
         location_y,
     ):
         gesture = Gesture(driver, self.reporter)
-        element = util.assort_element(json_elemegint, driver)
+        element = util.assort_element(json_element, json_gesture, driver)
         match json_gesture:
             case "open_activity":
                 try:
@@ -98,7 +98,6 @@ class EventGen:
                     pass
 
             case "tap_by_xpath":
-                element = driver.xpath(json_element)
                 gesture.tap(element)
 
             case "open_hot_seat_all_app":
@@ -118,11 +117,9 @@ class EventGen:
                 driver.click(location_x, location_y)
 
             case "tap_by_description":
-                element = driver(description=json_element)
                 gesture.tap(element)
 
             case "tap_by_text":
-                element = driver(text=json_element)
                 gesture.tap(element)
 
             case "get_element_text":
@@ -148,7 +145,6 @@ class EventGen:
                 gesture.send_keys(element, keyword)
 
             case "send_key_by_classname":
-                element = driver(className=json_element)
                 keyword = event["args"][-1]
                 gesture.send_keys(element, keyword)
 
@@ -276,11 +272,9 @@ class EventGen:
                 gesture.compare_different_list.clear()
 
             case "screen_zoom_in":
-                element = driver()
                 gesture.zoom_in(element)
 
             case "screen_zoom_out":
-                element = driver()
                 gesture.zoom_out(element)
 
             case "long_press_location":
@@ -320,7 +314,6 @@ class EventGen:
                 """
                 if verify not find the element = True, args ==False
                 """
-                element = driver.xpath(json_element)
                 if element.exists:
                     pass
                 else:
@@ -331,7 +324,6 @@ class EventGen:
                         self.reporter.fail_step("error", f"Find {element} FAIL")
 
             case "findelement_by_text":
-                element = driver(text=json_element)
                 if element.exists:
                     pass
                 else:
@@ -446,13 +438,11 @@ class EventGen:
                 gesture.tap(driver(resourceId=locator["stb_btn_all_tools"]))
                 gesture.tap(driver(resourceId=locator["stb_btn_edit_tools"]))
                 gesture.tap(driver(resourceId=locator["stb_btn_tools_shortcut_one"]))
-                gesture.tap(
-                    driver(resourceId="com.viewsonic.sidetoolbar:id/clTool2Container")
-                )
+                gesture.tap(driver(resourceId=locator["stb_btn_tools_shortcut_two"]))
                 gesture.tap(driver(resourceId=locator["stb_btn_home"]))
 
             case "stb_spotlight_initialization":
-                driver().pinch_in(percent=10, steps=10)
+                gesture.zoom_out()
                 gesture.tap(driver(resourceId=locator["spotlight_btn_settings"]))
                 gesture.swipe_left(
                     driver(resourceId=locator["spotlight_seekbar_transparency"])
@@ -491,15 +481,14 @@ class EventGen:
                         ".FrameLayout[2]/android.widget.LinearLayout[1]/android.widget.TextView[1]"
                     )
                 else:
-                    element = json_element
                     target_scrollbar = None
-                    logging.error(msg=f"{element} is not found")
-                    self.reporter.fail_step("error", f"{element} is not found")
+                    logging.error(msg=f"{json_element} is not found")
+                    self.reporter.fail_step("error", f"{json_element} is not found")
 
                 # scroll to find
-                for _ in range(60):
+                for i in range(60):
                     if driver.xpath(element).text != target_text:
-                        driver(resourceId=target_scrollbar).swipe("up")
+                        gesture.swipe_up(driver(resourceId=target_scrollbar))
                     else:
                         break
 
@@ -536,9 +525,7 @@ class EventGen:
             case "tap_by_device_model":
                 device = gesture.get_device_info()
                 device_model = device["model"]
-                element = driver(resourceId=locator[json_element]).child(
-                    text=device_model
-                )
+                element = element.child(text=device_model)
                 gesture.tap(element)
 
             case "time_wait":

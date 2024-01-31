@@ -2,8 +2,10 @@
 import logging
 import subprocess
 import time
+
 import cv2
 import numpy as np
+
 import remote_controller_map
 
 
@@ -267,7 +269,7 @@ class Gesture:
         time.sleep(5)
 
     @staticmethod
-    def update_file(element):
+    def upload_file(element):
         subprocess.run(["adb", "push", element, "/sdcard/"], check=False)
 
     @staticmethod

@@ -541,7 +541,7 @@ class EventGen:
                 gesture.compare_images_pixel(compare_1, compare_2)
 
             case "verify_text":
-                title_name = driver(resourceId=locator[json_element]).info["text"]
+                title_name = element.info["text"]
                 if title_name == event["args"]:
                     pass
                 else:
@@ -551,8 +551,8 @@ class EventGen:
             case "close_app":
                 gesture.close_app(json_element)
 
-            case "update_image":
-                gesture.update_file(json_element)
+            case "upload_image":
+                gesture.upload_file(json_element)
 
             case "delete_file":
                 gesture.delete_file(json_element)

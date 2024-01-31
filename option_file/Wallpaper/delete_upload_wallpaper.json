@@ -1,173 +1,173 @@
 {
-    "steps": [
-        {
-            "sequence": 1,
-            "describe": "upload test wallpaper image",
-            "element": "./file/wallpaper_image.jpg",
-            "gesture": "update_image",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 2,
-            "describe": "long press to open menu",
-            "element": "",
-            "gesture": "long_press_location",
-            "args": "",
-            "x": 0.5,
-            "y": 0.1
-        },
-        {
-            "sequence": 3,
-            "describe": "choose 'change wallpaper' option",
-            "element": "//*[@resource-id='com.viewsonic.vlauncher:id/popup_container']/android.widget.FrameLayout[1]",
-            "gesture": "tap_by_xpath",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 4,
-            "describe": "select '+' to add wallpaper to wallpaper picker",
-            "element": "wallpaper_image",
-            "gesture": "tap_by_id",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 5,
-            "describe": "open form to select device storage",
-            "element": "//*[@content-desc='Show roots']",
-            "gesture": "tap_by_xpath",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 6,
-            "describe": "choose the device storage",
-            "element": "folder_roots_list",
-            "gesture": "tap_by_device_model",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 7,
-            "describe": "select the upload image",
-            "element": "//*[contains(@content-desc, 'wallpaper_image.jpg')]",
-            "gesture": "tap_by_xpath",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 8,
-            "describe": "set the upload image to wallpaper",
-            "element": "wallpaper_btn_set",
-            "gesture": "tap_by_id",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 9,
-            "describe": "screenshot screen to compare",
-            "element": "",
-            "gesture": "screenshot",
-            "args": [
-                "compareshot_1"
-            ],
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 10,
-            "describe": "long press to open menu",
-            "element": "",
-            "gesture": "long_press_location",
-            "args": "",
-            "x": 0.5,
-            "y": 0.1
-        },
-        {
-            "sequence": 11,
-            "describe": "choose 'change wallpaper' option",
-            "element": "//*[@resource-id='com.viewsonic.vlauncher:id/popup_container']/android.widget.FrameLayout[1]",
-            "gesture": "tap_by_xpath",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 12,
-            "describe": "delete the upload wallpaper",
-            "element": "wallpaper_btn_delete",
-            "gesture": "tap_by_id",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 13,
-            "describe": "select first wallpaper",
-            "element": "wallpaper_image",
-            "gesture": "change_wallpaper_first",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 14,
-            "describe": "set the first wallpaper",
-            "element": "wallpaper_btn_set",
-            "gesture": "tap_by_id",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 15,
-            "describe": "screenshot screen to compare",
-            "element": "",
-            "gesture": "screenshot",
-            "args": [
-                "compareshot_2"
-            ],
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 16,
-            "describe": "compare two screenshots different",
-            "element": [
-                "compareshot_1.png",
-                "compareshot_2.png"
-            ],
-            "gesture": "compare_images_pixel",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 17,
-            "describe": "delete upload image in device",
-            "element": "wallpaper_image.jpg",
-            "gesture": "delete_file",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": "END",
-            "describe": "clear wallpaper picker user data",
-            "element": "wallpaper_package",
-            "gesture": "end_activity",
-            "args": "",
-            "x": "",
-            "y": ""
-        }
-    ]
+  "steps": [
+    {
+      "sequence": 1,
+      "describe": "upload test wallpaper image",
+      "element": "./file/wallpaper_image.jpg",
+      "gesture": "upload_image",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 2,
+      "describe": "long press to open menu",
+      "element": "",
+      "gesture": "long_press_location",
+      "args": "",
+      "x": 0.5,
+      "y": 0.1
+    },
+    {
+      "sequence": 3,
+      "describe": "choose 'change wallpaper' option",
+      "element": "//*[@resource-id='com.viewsonic.vlauncher:id/popup_container']/android.widget.FrameLayout[1]",
+      "gesture": "tap_by_xpath",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 4,
+      "describe": "select '+' to add wallpaper to wallpaper picker",
+      "element": "wallpaper_image",
+      "gesture": "tap_by_id",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 5,
+      "describe": "open form to select device storage",
+      "element": "//*[@content-desc='Show roots']",
+      "gesture": "tap_by_xpath",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 6,
+      "describe": "choose the device storage",
+      "element": "folder_roots_list",
+      "gesture": "tap_by_device_model",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 7,
+      "describe": "select the upload image",
+      "element": "//*[contains(@content-desc, 'wallpaper_image.jpg')]",
+      "gesture": "tap_by_xpath",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 8,
+      "describe": "set the upload image to wallpaper",
+      "element": "wallpaper_btn_set",
+      "gesture": "tap_by_id",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 9,
+      "describe": "screenshot screen to compare",
+      "element": "",
+      "gesture": "screenshot",
+      "args": [
+        "compareshot_1"
+      ],
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 10,
+      "describe": "long press to open menu",
+      "element": "",
+      "gesture": "long_press_location",
+      "args": "",
+      "x": 0.5,
+      "y": 0.1
+    },
+    {
+      "sequence": 11,
+      "describe": "choose 'change wallpaper' option",
+      "element": "//*[@resource-id='com.viewsonic.vlauncher:id/popup_container']/android.widget.FrameLayout[1]",
+      "gesture": "tap_by_xpath",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 12,
+      "describe": "delete the upload wallpaper",
+      "element": "wallpaper_btn_delete",
+      "gesture": "tap_by_id",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 13,
+      "describe": "select first wallpaper",
+      "element": "wallpaper_image",
+      "gesture": "change_wallpaper_first",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 14,
+      "describe": "set the first wallpaper",
+      "element": "wallpaper_btn_set",
+      "gesture": "tap_by_id",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 15,
+      "describe": "screenshot screen to compare",
+      "element": "",
+      "gesture": "screenshot",
+      "args": [
+        "compareshot_2"
+      ],
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 16,
+      "describe": "compare two screenshots different",
+      "element": [
+        "compareshot_1.png",
+        "compareshot_2.png"
+      ],
+      "gesture": "compare_images_pixel",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 17,
+      "describe": "delete upload image in device",
+      "element": "wallpaper_image.jpg",
+      "gesture": "delete_file",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": "END",
+      "describe": "clear wallpaper picker user data",
+      "element": "wallpaper_package",
+      "gesture": "end_activity",
+      "args": "",
+      "x": "",
+      "y": ""
+    }
+  ]
 }

@@ -1,85 +1,85 @@
 {
-    "steps": [
-        {
-            "sequence": 1,
-            "describe": "expand stb",
-            "element": "stb",
-            "gesture": "tap_by_id",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 2,
-            "describe": "expand quicksetting",
-            "element": "stb_btn_quicksettings",
-            "gesture": "tap_by_id",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 3,
-            "describe": "turn volume to the minimum",
-            "element": "quicksettings_volume",
-            "gesture": "swipe_left_element",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 4,
-            "describe": "get device volume",
-            "element": "",
-            "gesture": "get_volume",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 5,
-            "describe": "turn volume to the maximum",
-            "element": "quicksettings_volume",
-            "gesture": "swipe_right_element",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 6,
-            "describe": "wait for volume changes",
-            "element": "",
-            "gesture": "time_wait",
-            "args": "3",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 7,
-            "describe": "get device volume",
-            "element": "",
-            "gesture": "get_volume",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 8,
-            "describe": "compare volume different to verify volume function",
-            "element": "",
-            "gesture": "compare_different",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 9,
-            "describe": "tap any location to close the quicksetting",
-            "element": "",
-            "gesture": "tap_by_location",
-            "args": "",
-            "x": 0.5,
-            "y": 0.1
-        }
-    ]
+  "steps": [
+    {
+      "sequence": 1,
+      "describe": "expand stb",
+      "element": "stb",
+      "gesture": "tap_by_id",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 2,
+      "describe": "expand quicksetting",
+      "element": "stb_btn_quicksettings",
+      "gesture": "tap_by_id",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 3,
+      "describe": "turn volume to the minimum",
+      "element": "quicksettings_volume",
+      "gesture": "swipe_left_element",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 4,
+      "describe": "get device volume",
+      "element": "",
+      "gesture": "get_volume",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 5,
+      "describe": "turn volume to the maximum",
+      "element": "quicksettings_volume",
+      "gesture": "swipe_right_element",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 6,
+      "describe": "wait for volume changes",
+      "element": "",
+      "gesture": "wait_time",
+      "args": "3",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 7,
+      "describe": "get device volume",
+      "element": "",
+      "gesture": "get_volume",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 8,
+      "describe": "compare volume different to verify volume function",
+      "element": "",
+      "gesture": "compare_different",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 9,
+      "describe": "tap any location to close the quicksetting",
+      "element": "",
+      "gesture": "tap_by_location",
+      "args": "",
+      "x": 0.5,
+      "y": 0.1
+    }
+  ]
 }

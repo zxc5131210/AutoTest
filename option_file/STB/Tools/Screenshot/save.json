@@ -1,85 +1,85 @@
 {
-    "steps": [
-        {
-            "sequence": 1,
-            "describe": "expand stb",
-            "element": "stb",
-            "gesture": "tap_by_id",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 2,
-            "describe": "expand all tools",
-            "element": "stb_btn_all_tools",
-            "gesture": "tap_by_id",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 3,
-            "describe": "select Screenshot",
-            "element": "//*[@text='Screenshot']",
-            "gesture": "tap_by_xpath",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 4,
-            "describe": "delete the files in Pictures folder",
-            "element": "Pictures/*",
-            "gesture": "delete_file",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence":5,
-            "describe": "tap save button to save the screenshot",
-            "element": "screenshot_btn_save",
-            "gesture": "tap_by_id",
-            "args":"",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence":6,
-            "describe": "wait 5 seconds to finish saving",
-            "element": "",
-            "gesture": "time_wait",
-            "args":"5",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence":7,
-            "describe": "find files in Pictures folder to verify saving function",
-            "element": "Pictures",
-            "gesture": "stb_screenshot_verify_saving",
-            "args":"",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 8,
-            "describe": "skip the popup massage",
-            "element": "screenshot_btn_secondary",
-            "gesture": "tap_by_id",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 9,
-            "describe": "return to homepage",
-            "element": "",
-            "gesture": "homepage",
-            "args": "",
-            "x": "",
-            "y": ""
-        }
-    ]
+  "steps": [
+    {
+      "sequence": 1,
+      "describe": "expand stb",
+      "element": "stb",
+      "gesture": "tap_by_id",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 2,
+      "describe": "expand all tools",
+      "element": "stb_btn_all_tools",
+      "gesture": "tap_by_id",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 3,
+      "describe": "select Screenshot",
+      "element": "//*[@text='Screenshot']",
+      "gesture": "tap_by_xpath",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 4,
+      "describe": "delete the files in Pictures folder",
+      "element": "Pictures/*",
+      "gesture": "delete_file",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 5,
+      "describe": "tap save button to save the screenshot",
+      "element": "screenshot_btn_save",
+      "gesture": "tap_by_id",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 6,
+      "describe": "wait 5 seconds to finish saving",
+      "element": "",
+      "gesture": "wait_time",
+      "args": "5",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 7,
+      "describe": "find files in Pictures folder to verify saving function",
+      "element": "Pictures",
+      "gesture": "stb_screenshot_verify_saving",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 8,
+      "describe": "skip the popup massage",
+      "element": "screenshot_btn_secondary",
+      "gesture": "tap_by_id",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 9,
+      "describe": "return to homepage",
+      "element": "",
+      "gesture": "homepage",
+      "args": "",
+      "x": "",
+      "y": ""
+    }
+  ]
 }

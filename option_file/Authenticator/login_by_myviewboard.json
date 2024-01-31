@@ -1,146 +1,152 @@
 {
-    "steps": [
-        {
-            "sequence": 1,
-            "describe": "tap avatar to logout",
-            "element": "vlauncher_avatar",
-            "gesture": "tap_by_id",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 2,
-            "describe": "tap 'sign out' button",
-            "element": "vlauncher_avatar_sign",
-            "gesture": "tap_by_id",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 3,
-            "describe": "tap 'sign out' button on the popup",
-            "element": "vlauncher_avatar_btn_logout",
-            "gesture": "tap_by_id",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": "wait",
-            "describe": "wait for logout finish",
-            "element": "",
-            "gesture": "time_wait",
-            "args": "3",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 4,
-            "describe": "tap 'guest' button back to homepage",
-            "element": "vlauncher_btn_guest",
-            "gesture": "tap_by_id",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 5,
-            "describe": "crop avatar image to compare",
-            "element": "vlauncher_avatar",
-            "gesture": "crop_by_id",
-            "args": [
-                "compareshot_1"
-            ],
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 6,
-            "describe": "tap avatar to logout",
-            "element": "vlauncher_avatar",
-            "gesture": "tap_by_id",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 7,
-            "describe": "tap 'sign out' button",
-            "element": "vlauncher_avatar_sign",
-            "gesture": "tap_by_id",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 8,
-            "describe": "tap 'sign out' button on the popup",
-            "element": "vlauncher_avatar_btn_logout",
-            "gesture": "tap_by_id",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 9,
-            "describe": "tap 'sign in' button to the login page",
-            "element": "vlauncher_btn_sign_in",
-            "gesture": "tap_by_id",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 10,
-            "describe": "input user name",
-            "element": "authenticator_myviewboard_account",
-            "gesture": "send_key_by_id",
-            "args": [0,"ian.viewsonic.test@gmail.com"],
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 11,
-            "describe": "input user password",
-            "element": "authenticator_myviewboard_password",
-            "gesture": "send_key_by_id",
-            "args": [0,"vsMVBtest!1"],
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 12,
-            "describe": "tap 'sign in' button to login",
-            "element": "authenticator_myviewboard_btn_login",
-            "gesture": "tap_by_id",
-            "args": "",
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 13,
-            "describe": "crop avatar image to compare",
-            "element": "vlauncher_avatar",
-            "gesture": "crop_by_id",
-            "args": [
-                "compareshot_2"
-            ],
-            "x": "",
-            "y": ""
-        },
-        {
-            "sequence": 14,
-            "describe": "compare two screenshots different to verify login",
-            "element": [
-                "compareshot_1.png",
-                "compareshot_2.png"
-            ],
-            "gesture": "compare_images_pixel",
-            "args": "",
-            "x": "",
-            "y": ""
-        }
-    ]
+  "steps": [
+    {
+      "sequence": 1,
+      "describe": "tap avatar to logout",
+      "element": "vlauncher_avatar",
+      "gesture": "tap_by_id",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 2,
+      "describe": "tap 'sign out' button",
+      "element": "vlauncher_avatar_sign",
+      "gesture": "tap_by_id",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 3,
+      "describe": "tap 'sign out' button on the popup",
+      "element": "vlauncher_avatar_btn_logout",
+      "gesture": "tap_by_id",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": "wait",
+      "describe": "wait for logout finish",
+      "element": "",
+      "gesture": "wait_time",
+      "args": "3",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 4,
+      "describe": "tap 'guest' button back to homepage",
+      "element": "vlauncher_btn_guest",
+      "gesture": "tap_by_id",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 5,
+      "describe": "crop avatar image to compare",
+      "element": "vlauncher_avatar",
+      "gesture": "crop_by_id",
+      "args": [
+        "compareshot_1"
+      ],
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 6,
+      "describe": "tap avatar to logout",
+      "element": "vlauncher_avatar",
+      "gesture": "tap_by_id",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 7,
+      "describe": "tap 'sign out' button",
+      "element": "vlauncher_avatar_sign",
+      "gesture": "tap_by_id",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 8,
+      "describe": "tap 'sign out' button on the popup",
+      "element": "vlauncher_avatar_btn_logout",
+      "gesture": "tap_by_id",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 9,
+      "describe": "tap 'sign in' button to the login page",
+      "element": "vlauncher_btn_sign_in",
+      "gesture": "tap_by_id",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 10,
+      "describe": "input user name",
+      "element": "authenticator_myviewboard_account",
+      "gesture": "send_key_by_id",
+      "args": [
+        0,
+        "ian.viewsonic.test@gmail.com"
+      ],
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 11,
+      "describe": "input user password",
+      "element": "authenticator_myviewboard_password",
+      "gesture": "send_key_by_id",
+      "args": [
+        0,
+        "vsMVBtest!1"
+      ],
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 12,
+      "describe": "tap 'sign in' button to login",
+      "element": "authenticator_myviewboard_btn_login",
+      "gesture": "tap_by_id",
+      "args": "",
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 13,
+      "describe": "crop avatar image to compare",
+      "element": "vlauncher_avatar",
+      "gesture": "crop_by_id",
+      "args": [
+        "compareshot_2"
+      ],
+      "x": "",
+      "y": ""
+    },
+    {
+      "sequence": 14,
+      "describe": "compare two screenshots different to verify login",
+      "element": [
+        "compareshot_1.png",
+        "compareshot_2.png"
+      ],
+      "gesture": "compare_images_pixel",
+      "args": "",
+      "x": "",
+      "y": ""
+    }
+  ]
 }

@@ -327,8 +327,11 @@ class EventGen:
                 if element.exists:
                     pass
                 else:
-                    logging.error(msg=f"Find {element} FAIL")
-                    self.reporter.fail_step("error", f"Find {element} FAIL")
+                    if event["args"] == "False":
+                        pass
+                    else:
+                        logging.error(msg=f"Find {element} FAIL")
+                        self.reporter.fail_step("error", f"Find {element} FAIL")
 
             case "change_wallpaper_first":
                 if driver(text="com.viewsonic.wallpaperpicker").exists:
@@ -528,7 +531,7 @@ class EventGen:
                 element = element.child(text=device_model)
                 gesture.tap(element)
 
-            case "time_wait":
+            case "wait_time":
                 wait_time = event["args"]
                 time.sleep(int(wait_time))
 

@@ -219,8 +219,9 @@ class EventGen:
                     driver(resourceId=locator["authenticator_microsoft_skip_checkbox"])
                 )
                 gesture.tap(
-                    driver(
-                        resourceId=locator["authenticator_btn_microsoft_skip_button"]
+                    driver.xpath(
+                        "//*[@resource-id='pageContent']/android.view.View[1]/android.view.View[1]/android.view.View["
+                        "2]/android.view.View[2]"
                     )
                 )
 

@@ -29,6 +29,15 @@
     },
     {
       "sequence": 4,
+      "describe": "tap any location to close volume window",
+      "element": "",
+      "gesture": "tap_by_location",
+      "args": "",
+      "x": 0.5,
+      "y": 0.1
+    },
+    {
+      "sequence": 5,
       "describe": "remote controller volume down button",
       "element": "volume_down",
       "gesture": "send_remote_controller_event",
@@ -37,7 +46,7 @@
       "y": ""
     },
     {
-      "sequence": 5,
+      "sequence": 6,
       "describe": "get device volume",
       "element": "",
       "gesture": "get_volume",
@@ -46,7 +55,7 @@
       "y": ""
     },
     {
-      "sequence": 6,
+      "sequence": 7,
       "describe": "compare volume different to verify volume down button",
       "element": "",
       "gesture": "compare_different",

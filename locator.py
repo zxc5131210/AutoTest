@@ -35,7 +35,7 @@ locator = {
     "authenticator_text_microsoft_account": "i0116",
     "authenticator_btn_microsoft_next": "idSIButton9",
     "authenticator_btn_microsoft_sign_in": "idSIButton9",
-    "authenticator_microsoft_skip_checkbox": "KmsiCheckboxField",
+    "authenticator_microsoft_skip_checkbox": "checkboxField",
     "authenticator_btn_microsoft_skip_button": "idSIButton9",
     "authenticator_edu_account": "id24",
     "authenticator_edu_password": "id2",

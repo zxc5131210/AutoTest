@@ -39,9 +39,9 @@ class TestReport:
 
     def __generate_html(self):
         # html temp
-        html_head = f"""<html> <head> <title>Automation Test Report</title> <link href="./html_css/bootstrap.min.css" 
-        rel="stylesheet"> <script src="./html_css/jquery.min.js"></script><script 
-        src="./html_css/bootstrap.min.js"></script><script src="./html_css/filter.js"></script> <style> #summary {{ 
+        html_head = f"""<html> <head> <title>Automation Test Report</title> <link href="./bootstrap.min.css" 
+        rel="stylesheet"> <script src="./jquery.min.js"></script><script 
+        src="./bootstrap.min.js"></script><script src="./filter.js"></script> <style> #summary {{ 
         font-size: 20px; }} #summary-card .card-body {{ margin-bottom: 0; }} #device-version .list-group-item {{ 
         border: none; }} #device-version table {{ width: 100%; }} #device-version table th, #device-version table td 
         {{ padding: 12px; text-align: left; border: 1px solid #ddd; }} #device-version table th {{ background-color: 

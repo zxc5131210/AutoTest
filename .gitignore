@@ -4,6 +4,7 @@
 /__pycache__/
 .DS_Store
 html_report/.DS_Store
+html_report/*.html
 option_file/Quicksettings/__pycache__/
 option_file/STB/Tools/Freezer/__pycache__/
 option_file/STB/Tools/Marker/__pycache__/

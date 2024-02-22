@@ -73,7 +73,7 @@ def reboot_device():
     subprocess.run(["adb", "wait-for-device"], check=True)
 
 
-if __name__ == "__main__":
+def main_script():
     # clear release folder
     clear_folder("release")
     # Establish SSH connection
@@ -100,3 +100,7 @@ if __name__ == "__main__":
         upload_path = "/var/www/html/UI_3.0/Latest/report"
         report_path = "/Users/wuia/Desktop/AppiumAutotest/html_report"
         upload_folder(c, report_path, upload_path)
+
+
+if __name__ == "__main__":
+    main_script()

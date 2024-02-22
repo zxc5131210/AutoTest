@@ -86,7 +86,7 @@ class FolderProcessor:
             if choice == "-1":
                 return
             if choice == str(len(file_dict)):
-                self.__run_all(folder_path)
+                self.run_all(folder_path)
             if choice in file_dict:
                 selected_file = file_dict[choice]
                 self.__handle_selected_file(folder_path, selected_file)
@@ -96,7 +96,7 @@ class FolderProcessor:
     def run(self):
         self.__parse_folder(self.root_folder)
 
-    def __run_all(self, folder_path=None):
+    def run_all(self, folder_path=None):
         if folder_path is None:
             folder_path = self.root_folder
         # Use glob to find all JSON files directly

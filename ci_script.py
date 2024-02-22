@@ -94,12 +94,11 @@ def main_script():
     # run all testcases
     auto_test.run_all_test()
 
-    # upload html report to remote
-    with Connection(host=config.hostname, user=config.username, connect_kwargs={"password": config.password}) as c:
-        # Specify remote file path and local target path
-        upload_path = "/var/www/html/UI_3.0/Latest/report"
-        report_path = "/Users/wuia/Desktop/AppiumAutotest/html_report"
-        upload_folder(c, report_path, upload_path)
+    # Specify remote file path and local target path
+    upload_path = "/var/www/html/UI_3.0/Latest/report"
+    report_path = "/Users/wuia/Desktop/AppiumAutotest/html_report"
+    # upload report to remote
+    upload_folder(c, report_path, upload_path)
 
 
 if __name__ == "__main__":

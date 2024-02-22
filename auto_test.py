@@ -3,7 +3,7 @@ import subprocess
 import uiautomator2 as u2
 
 import abstract_reporter
-from abstract_reporter import MODEL, FW_VERSION, APP_VERSION
+import config
 from html_runner import HTMLReporter
 from event_generator import EventGen
 from folder_processor import FolderProcessor
@@ -14,7 +14,7 @@ def connect_driver():
     """
     Connect to the UI Automator2 driver.
     """
-    driver = u2.connect()
+    driver = u2.connect(config.device_ip)
     driver.service("uiautomator").start()
     return driver
 
@@ -50,20 +50,10 @@ def get_app_versions(driver, app_list):
     for app_name, package_name in app_list.items():
         version_info = driver.app_info(package_name)
         version_name = version_info["versionName"]
-        APP_VERSION.extend([app_name, version_name])
+        abstract_reporter.APP_VERSION.extend([app_name, version_name])
 
 
-def main():
-    # Step 1: Connect driver
-    driver = connect_driver()
-
-    # Step 2: Choose report type
-    reporter = HTMLReporter()
-    event_gen = EventGen(reporter)
-
-    # Step 3: Log config
-    setup_logger()
-
+def common_setup(driver):
     # Step 4: Get model name & fw version
     abstract_reporter.MODEL = driver.device_info["model"]
     abstract_reporter.FW_VERSION = get_fw_version()
@@ -78,10 +68,30 @@ def main():
         "Authenticator": locator["authenticator_package"],
     }
     get_app_versions(driver, app_list)
+    return abstract_reporter.MODEL, abstract_reporter.FW_VERSION, app_list
 
-    # Step 6: Process folders and run tests
+
+def setup_and_run(driver, run_type=""):
+    reporter = HTMLReporter()
+    event_gen = EventGen(reporter)
+    setup_logger()
+    common_setup(driver)
     option_file = "option_file"
-    FolderProcessor(event_gen, driver, reporter, option_file).run()
+
+    if run_type == "all":
+        FolderProcessor(event_gen, driver, reporter, option_file).run_all(option_file)
+    else:
+        FolderProcessor(event_gen, driver, reporter, option_file).run()
+
+
+def run_all_test():
+    driver = connect_driver()
+    setup_and_run(driver, run_type="all")
+
+
+def main():
+    driver = connect_driver()
+    setup_and_run(driver, run_type="")
 
 
 if __name__ == "__main__":

@@ -26,3 +26,4 @@ option_file/vLauncher/user_select/__pycache__/
 option_file/STB/FirstClass/__pycache__/
 option_file/STB/SecondClass/__pycache__/
 option_file/STB/ThirdClass/__pycache__/
+release/*.apk

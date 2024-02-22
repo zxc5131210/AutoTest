@@ -456,7 +456,7 @@ class EventGen:
                 dictionary = gesture.current_app()
                 if (
                     dictionary["package"] == locator[json_element[0]]
-                    and dictionary["activity"] == locator[json_element[1]]
+                    and locator[json_element[1]] in dictionary["activity"]
                 ):
                     pass
                 else:

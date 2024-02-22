@@ -29,6 +29,15 @@
         },
         {
             "sequence": 4,
+            "describe": "tap fullscreen button to fullscreen the screen",
+            "element": "screenshot_btn_fullscreen",
+            "gesture": "tap_by_id",
+            "args":"",
+            "x": "",
+            "y": ""
+        },
+        {
+            "sequence": 5,
             "describe": "screenshot screen to compare",
             "element": "",
             "gesture": "screenshot",
@@ -39,7 +48,7 @@
             "y": ""
         },
         {
-            "sequence": 5,
+            "sequence": 6,
             "describe": "tap crop button to crop the screen",
             "element": "screenshot_btn_crop",
             "gesture": "tap_by_id",
@@ -48,7 +57,7 @@
             "y": ""
         },
         {
-            "sequence": 6,
+            "sequence": 7,
             "describe": "screenshot screen to compare",
             "element": "",
             "gesture": "screenshot",
@@ -59,7 +68,7 @@
             "y": ""
         },
         {
-            "sequence": 7,
+            "sequence": 8,
             "describe": "compare two screenshots different to verify crop function",
             "element": [
                 "compareshot_1.png",
@@ -71,7 +80,7 @@
             "y": ""
         },
         {
-            "sequence": 5,
+            "sequence": 9,
             "describe": "return to homepage",
             "element": "",
             "gesture": "homepage",

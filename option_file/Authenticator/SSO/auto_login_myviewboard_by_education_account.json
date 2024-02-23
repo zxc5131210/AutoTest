@@ -2,12 +2,9 @@
     "steps": [
         {
             "sequence": 1,
-            "describe": "open settings activity",
-            "element": [
-                "settings_package",
-                "settings_time_activity"
-            ],
-            "gesture": "open_activity",
+            "describe": "tap time to open settings date & time",
+            "element": "vlauncher_btn_time",
+            "gesture": "tap_by_id",
             "args": "",
             "x": "",
             "y": ""

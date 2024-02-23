@@ -3,7 +3,7 @@ import glob
 
 
 class FolderProcessor:
-    EXCLUDE_FILES = ["__pycache__", ".DS_Store", "Customized"]
+    EXCLUDE_FILES = ["__pycache__", ".DS_Store", "Customized", "SSO"]
     CATEGORY_MAPPING = {
         "Quicksettings": "Quicksettings",
         "Authenticator": "Authenticator",

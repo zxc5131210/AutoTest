@@ -105,17 +105,17 @@ def main_script():
 
     # upload report to remote
     check_report_folder_exists = c.run(
-        f'test -d {remote_upload_path} && echo "Folder exists" || echo "Folder does not exist"',
+        f"test -d {remote_upload_path} && echo 'Folder exists' || echo 'Folder does not exist'",
         hide=True,
     )
     if "Folder does not exist" in check_report_folder_exists.stdout:
         c.run(f"mkdir {remote_upload_path}/report")
     check_latest_folder_exists = c.run(
-        f'test -d {remote_latest_folder} && echo "Folder exists" || echo "Folder does not exist"',
+        f"test -d {remote_latest_folder} && echo 'Folder exists' || echo 'Folder does not exist'",
         hide=True,
     )
     if "Folder does not exist" in check_latest_folder_exists.stdout:
-        c.run(f"ln -s {remote_upload_path}/report '/var/www/html/UI_3.0/Latest'")
+        c.run(f"ln -s {remote_upload_path}/report '{remote_latest_folder}'")
     upload_folder(c, local_report_path, f"{remote_upload_path}/report")
 
 

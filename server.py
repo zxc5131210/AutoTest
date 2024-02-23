@@ -6,7 +6,7 @@ def start_server():
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     # blind ip address and port
-    server_address = ('', 12345)
+    server_address = ("", 12345)
     server_socket.bind(server_address)
 
     # start listen

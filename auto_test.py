@@ -3,7 +3,6 @@ import subprocess
 import uiautomator2 as u2
 
 import abstract_reporter
-import config
 from html_runner import HTMLReporter
 from event_generator import EventGen
 from folder_processor import FolderProcessor
@@ -14,7 +13,7 @@ def connect_driver():
     """
     Connect to the UI Automator2 driver.
     """
-    driver = u2.connect(config.device_ip)
+    driver = u2.connect()
     driver.service("uiautomator").start()
     return driver
 

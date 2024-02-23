@@ -5,6 +5,14 @@ from fabric import Connection
 from pathlib import Path
 import auto_test
 import config
+import datetime
+
+# setting parameter
+date = datetime.date.today().strftime("%Y%m%d")
+remote_latest_folder = "/var/www/html/UI_3.0/Latest"
+local_release_path = "/Users/wuia/Desktop/AppiumAutotest/release/"
+remote_upload_path = f"/var/www/html/UI_3.0/{date}"
+local_report_path = "/Users/wuia/Desktop/AppiumAutotest/html_report"
 
 
 def clear_folder(folder_path):
@@ -39,7 +47,7 @@ def download_remote_folder(connection, remote_path, local_path):
 def upload_folder(connect, local_dir, remote_dir):
     try:
         # Make sure the remote directory exists
-        connect.run(f'mkdir -p {remote_dir}')
+        connect.run(f"mkdir -p {remote_dir}")
         for root, dirs, files in os.walk(local_dir):
             for file in files:
                 local_path = Path(root) / file
@@ -77,14 +85,15 @@ def main_script():
     # clear release folder
     clear_folder("release")
     # Establish SSH connection
-    with Connection(host=config.hostname, user=config.username, connect_kwargs={"password": config.password}) as c:
-        # Specify remote file path and local target path
-        remote_folder_path = "/var/www/html/UI_3.0/Latest"
-        local_target_path = "/Users/wuia/Desktop/AppiumAutotest/release/"
-        download_remote_folder(c, remote_folder_path, local_target_path)
+    with Connection(
+        host=config.hostname,
+        user=config.username,
+        connect_kwargs={"password": config.password},
+    ) as c:
+        download_remote_folder(c, remote_latest_folder, local_release_path)
 
-    # Get a list of APK files in the local target path
-    apk_files = glob.glob(f"{local_target_path}/*.apk")
+    # Get a list of APK files in the local path
+    apk_files = glob.glob(f"{local_release_path}/*.apk")
     # Install APK files on the target device using ADB
     install_apk_files(apk_files)
     # uninstall atx and rebuild to make sure uiautomator2 working
@@ -94,11 +103,20 @@ def main_script():
     # run all testcases
     auto_test.run_all_test()
 
-    # Specify remote file path and local target path
-    upload_path = "/var/www/html/UI_3.0/Latest/report"
-    report_path = "/Users/wuia/Desktop/AppiumAutotest/html_report"
     # upload report to remote
-    upload_folder(c, report_path, upload_path)
+    check_report_folder_exists = c.run(
+        f'test -d {remote_upload_path} && echo "Folder exists" || echo "Folder does not exist"',
+        hide=True,
+    )
+    if "Folder does not exist" in check_report_folder_exists.stdout:
+        c.run(f"mkdir {remote_upload_path}/report")
+    check_latest_folder_exists = c.run(
+        f'test -d {remote_latest_folder} && echo "Folder exists" || echo "Folder does not exist"',
+        hide=True,
+    )
+    if "Folder does not exist" in check_latest_folder_exists.stdout:
+        c.run(f"ln -s {remote_upload_path}/report '/var/www/html/UI_3.0/Latest'")
+    upload_folder(c, local_report_path, f"{remote_upload_path}/report")
 
 
 if __name__ == "__main__":

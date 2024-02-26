@@ -174,10 +174,7 @@ class EventGen:
                     time.sleep(1)
                     password = driver(resourceId=locator[json_element], instance=0)
                     gesture.send_keys(password, event["args"])
-                    element = driver.xpath(
-                        "//*[@text='onesteplogin?0--container-passwordcheckform-captchaPanel-container-image"
-                        "&Auth_Request_RedirectUri=https%253A%252F%252Fauth.myviewboard']"
-                    )
+                    element = driver.xpath("//*[@resource-id='id2b']")
                     screenshot = driver.screenshot(format="pillow")
                     bounds = element.info["bounds"]
                     element_image = screenshot.crop(
@@ -456,7 +453,7 @@ class EventGen:
                 dictionary = gesture.current_app()
                 if (
                     dictionary["package"] == locator[json_element[0]]
-                    and dictionary["activity"] == locator[json_element[1]]
+                    and locator[json_element[1]] in dictionary["activity"]
                 ):
                     pass
                 else:

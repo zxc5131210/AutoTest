@@ -3,10 +3,9 @@ import subprocess
 import uiautomator2 as u2
 
 import abstract_reporter
-from abstract_reporter import MODEL, FW_VERSION, APP_VERSION
 from html_runner import HTMLReporter
 from event_generator import EventGen
-from folder_processor import FolderProcessor
+from folder_parser import FolderParser
 from locator import locator
 
 
@@ -50,25 +49,16 @@ def get_app_versions(driver, app_list):
     for app_name, package_name in app_list.items():
         version_info = driver.app_info(package_name)
         version_name = version_info["versionName"]
-        APP_VERSION.extend([app_name, version_name])
+        abstract_reporter.APP_VERSION.extend([app_name, version_name])
 
 
-def main():
-    # Step 1: Connect driver
-    driver = connect_driver()
-
-    # Step 2: Choose report type
-    reporter = HTMLReporter()
-    event_gen = EventGen(reporter)
-
-    # Step 3: Log config
-    setup_logger()
-
-    # Step 4: Get model name & fw version
+def common_setup(driver):
+    """setup model name, fw version, app version to report and use"""
+    # Get model name & fw version
     abstract_reporter.MODEL = driver.device_info["model"]
     abstract_reporter.FW_VERSION = get_fw_version()
 
-    # Step 5: Get every app version
+    # Get every app version
     app_list = {
         "vLauncher": locator["vlauncher_package"],
         "SideToolBar": locator["stb_package"],
@@ -78,11 +68,31 @@ def main():
         "Authenticator": locator["authenticator_package"],
     }
     get_app_versions(driver, app_list)
+    return abstract_reporter.MODEL, abstract_reporter.FW_VERSION, app_list
 
-    # Step 6: Process folders and run tests
+
+def setup_and_parse(driver, run_type=""):
+    reporter = HTMLReporter()
+    event_gen = EventGen(reporter)
+    setup_logger()
+    common_setup(driver)
     option_file = "option_file"
-    FolderProcessor(event_gen, driver, reporter, option_file).run()
+    parse_testcases_from_folder(event_gen, driver, reporter, option_file, run_type)
+
+
+def parse_testcases_from_folder(event_gen, driver, reporter, option_file, run_type):
+    FolderParser(event_gen, driver, reporter, option_file, run_type).run()
+
+
+def run_all_test():
+    driver = connect_driver()
+    setup_and_parse(driver, run_type="all")
+
+
+def run_test():
+    driver = connect_driver()
+    setup_and_parse(driver, run_type="")
 
 
 if __name__ == "__main__":
-    main()
+    run_test()

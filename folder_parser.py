@@ -2,7 +2,7 @@ import os
 import glob
 
 
-class FolderProcessor:
+class FolderParser:
     EXCLUDE_FILES = ["__pycache__", ".DS_Store", "Customized", "SSO"]
     CATEGORY_MAPPING = {
         "Quicksettings": "Quicksettings",
@@ -14,11 +14,12 @@ class FolderProcessor:
         "RemoteController": "RemoteController",
     }
 
-    def __init__(self, event_gen, driver, reporter, root_folder):
+    def __init__(self, event_gen, driver, reporter, root_folder, run_type):
         self.event_gen = event_gen
         self.reporter = reporter
         self.driver = driver
         self.root_folder = root_folder
+        self.run_type = run_type
 
     @staticmethod
     def __display_files(file_dict):
@@ -66,7 +67,7 @@ class FolderProcessor:
 
     @staticmethod
     def __get_category(file_path):
-        for keyword, category in FolderProcessor.CATEGORY_MAPPING.items():
+        for keyword, category in FolderParser.CATEGORY_MAPPING.items():
             if keyword in file_path:
                 return category
         return None
@@ -86,25 +87,28 @@ class FolderProcessor:
             if choice == "-1":
                 return
             if choice == str(len(file_dict)):
-                self.run_all(folder_path)
+                self.run_type = "all"
+                self.run(folder_path)
             if choice in file_dict:
                 selected_file = file_dict[choice]
                 self.__handle_selected_file(folder_path, selected_file)
             else:
                 print("Invalid choice. Please enter a valid number.")
 
-    def run(self):
-        self.__parse_folder(self.root_folder)
-
-    def run_all(self, folder_path=None):
-        if folder_path is None:
-            folder_path = self.root_folder
-        # Use glob to find all JSON files directly
-        json_files = glob.glob(os.path.join(folder_path, "**/*.json"), recursive=True)
-        for file_path in json_files:
-            # Extract display_name from the file_path, excluding ".json" extension
-            display_name = os.path.splitext(os.path.basename(file_path))[0]
-            if not any(
-                excluded_item in file_path for excluded_item in self.EXCLUDE_FILES
-            ):
-                self.perform_function(file_path, display_name)
+    def run(self, folder_path=None):
+        if self.run_type == "all":
+            if folder_path is None:
+                folder_path = self.root_folder
+            # Use glob to find all JSON files directly
+            json_files = glob.glob(
+                os.path.join(folder_path, "**/*.json"), recursive=True
+            )
+            for file_path in json_files:
+                # Extract display_name from the file_path, excluding ".json" extension
+                display_name = os.path.splitext(os.path.basename(file_path))[0]
+                if not any(
+                    excluded_item in file_path for excluded_item in self.EXCLUDE_FILES
+                ):
+                    self.perform_function(file_path, display_name)
+        else:
+            self.__parse_folder(self.root_folder)

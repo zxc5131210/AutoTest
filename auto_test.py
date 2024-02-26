@@ -5,7 +5,7 @@ import uiautomator2 as u2
 import abstract_reporter
 from html_runner import HTMLReporter
 from event_generator import EventGen
-from folder_processor import FolderProcessor
+from folder_parser import FolderParser
 from locator import locator
 
 
@@ -71,28 +71,28 @@ def common_setup(driver):
     return abstract_reporter.MODEL, abstract_reporter.FW_VERSION, app_list
 
 
-def setup_and_run(driver, run_type=""):
+def setup_and_parse(driver, run_type=""):
     reporter = HTMLReporter()
     event_gen = EventGen(reporter)
     setup_logger()
     common_setup(driver)
     option_file = "option_file"
+    parse_testcases_from_folder(event_gen, driver, reporter, option_file, run_type)
 
-    if run_type == "all":
-        FolderProcessor(event_gen, driver, reporter, option_file).run_all(option_file)
-    else:
-        FolderProcessor(event_gen, driver, reporter, option_file).run()
+
+def parse_testcases_from_folder(event_gen, driver, reporter, option_file, run_type):
+    FolderParser(event_gen, driver, reporter, option_file, run_type).run()
 
 
 def run_all_test():
     driver = connect_driver()
-    setup_and_run(driver, run_type="all")
+    setup_and_parse(driver, run_type="all")
 
 
-def main():
+def run_test():
     driver = connect_driver()
-    setup_and_run(driver, run_type="")
+    setup_and_parse(driver, run_type="")
 
 
 if __name__ == "__main__":
-    main()
+    run_test()

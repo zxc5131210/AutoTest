@@ -80,15 +80,12 @@ def reboot_device():
 
 def check_and_create_folder(connection, folder_path):
     """Check whether the remote folder exists, create it if it does not exist"""
-    try:
-        check_folder_exists = connection.run(
-            f"test -d {folder_path} && echo 'Folder exists' || echo 'Folder does not exist'",
-            hide=True,
-        )
-        if "Folder does not exist" in check_folder_exists.stdout:
-            connection.run(f"mkdir -p {folder_path}")
-    except Exception as e:
-        logging.error(f"An error occurred while checking and creating the folder: {e}")
+    check_folder_exists = connection.run(
+        f"test -d {folder_path} && echo 'Folder exists' || echo 'Folder does not exist'",
+        hide=True,
+    )
+    if "Folder does not exist" in check_folder_exists.stdout:
+        connection.run(f"mkdir -p {folder_path}")
 
 
 def main_script():

@@ -1,21 +1,20 @@
 import logging
 import subprocess
 import os
-import glob  # 添加這一行
+import glob
 from fabric import Connection
 from pathlib import Path
 import auto_test
 import config
 import datetime
 
-# 設定日誌紀錄
+# setting log
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s %(levelname)-2s %(message)s",
     datefmt="%Y%m%d %H:%M:%S",
 )
 
-# 常數
 REMOTE_LATEST_FOLDER = "/var/www/html/UI_3.0/Latest"
 LOCAL_RELEASE_PATH = "/Users/wuia/Desktop/AppiumAutotest/release/"
 REMOTE_UPLOAD_PATH = f"/var/www/html/UI_3.0/{datetime.date.today().strftime('%Y%m%d')}"
@@ -80,7 +79,7 @@ def reboot_device():
 
 
 def check_and_create_folder(connection, folder_path):
-    """檢查遠端資料夾是否存在，不存在則創建"""
+    """Check whether the remote folder exists, create it if it does not exist"""
     try:
         check_folder_exists = connection.run(
             f"test -d {folder_path} && echo 'Folder exists' || echo 'Folder does not exist'",
@@ -89,7 +88,7 @@ def check_and_create_folder(connection, folder_path):
         if "Folder does not exist" in check_folder_exists.stdout:
             connection.run(f"mkdir -p {folder_path}")
     except Exception as e:
-        logging.error(f"檢查並創建資料夾時發生錯誤: {e}")
+        logging.error(f"An error occurred while checking and creating the folder: {e}")
 
 
 def main_script():

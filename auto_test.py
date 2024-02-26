@@ -53,11 +53,12 @@ def get_app_versions(driver, app_list):
 
 
 def common_setup(driver):
-    # Step 4: Get model name & fw version
+    """setup model name, fw version, app version to report and use"""
+    # Get model name & fw version
     abstract_reporter.MODEL = driver.device_info["model"]
     abstract_reporter.FW_VERSION = get_fw_version()
 
-    # Step 5: Get every app version
+    # Get every app version
     app_list = {
         "vLauncher": locator["vlauncher_package"],
         "SideToolBar": locator["stb_package"],

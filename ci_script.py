@@ -17,7 +17,7 @@ logging.basicConfig(
 )
 
 LATEST_FOLDER = "/var/www/html/UI_3.0/Latest"
-RELEASE_FOLDER = ",/release"
+RELEASE_FOLDER = "./release"
 UPLOAD_PATH = f"/var/www/html/UI_3.0/{datetime.date.today().strftime('%Y%m%d')}"
 REPORT_PATH = "./html_report"
 

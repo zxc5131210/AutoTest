@@ -17,9 +17,9 @@ logging.basicConfig(
 )
 
 LATEST_FOLDER = "/var/www/html/UI_3.0/Latest"
-RELEASE_FOLDER = "/release/"
+RELEASE_FOLDER = ",/release"
 UPLOAD_PATH = f"/var/www/html/UI_3.0/{datetime.date.today().strftime('%Y%m%d')}"
-REPORT_PATH = "/html_report"
+REPORT_PATH = "./html_report"
 
 
 def clear_folder(folder_path):
@@ -38,7 +38,11 @@ def clear_folder(folder_path):
 
 def download_remote_folder(remote_path, local_path):
     """Get the list of files in the remote folder"""
-    remote_files = subprocess.run(f"ls {remote_path}").stdout.strip().split("\n")
+    remote_files = (
+        subprocess.run(["ls", remote_path], capture_output=True, text=True)
+        .stdout.strip()
+        .split("\n")
+    )
     for remote_file in remote_files:
         if remote_file.endswith(".apk"):
             remote_file_path = f"{remote_path}/{remote_file}"

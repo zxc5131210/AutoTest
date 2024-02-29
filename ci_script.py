@@ -3,7 +3,6 @@ import shutil
 import subprocess
 import os
 import glob
-from fabric import Connection
 from pathlib import Path
 import auto_test
 import config

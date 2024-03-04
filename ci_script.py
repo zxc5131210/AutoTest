@@ -119,6 +119,7 @@ def main_script():
         subprocess.run(["ln", "-s", f"{UPLOAD_PATH}/report", LATEST_FOLDER], check=True)
         # upload to remote
         upload_folder(REPORT_PATH, f"{UPLOAD_PATH}/report")
+        logging.info("CI process finished")
 
     except Exception as e:
         logging.error(f"main script error: {e}")

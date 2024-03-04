@@ -69,7 +69,11 @@ class EventGen:
     def initial_setting(self, driver):
         gesture = Gesture(driver, self.reporter)
         guest_btn = driver(resourceId=locator["vlauncher_btn_guest"])
+        back_btn = driver(resourceId=locator["authenticator_btn_back"])
         while True:
+            if back_btn.exists:
+                gesture.tap(back_btn)
+                time.sleep(1)
             if guest_btn.exists:
                 gesture.tap(guest_btn)
                 time.sleep(1)

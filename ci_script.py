@@ -102,7 +102,9 @@ def main_script():
         # setup SSH connection
         download_release_folder(LATEST_FOLDER, RELEASE_FOLDER)
         # Get the list of APK files in the local path
-        apk_files = glob.glob(f"{RELEASE_FOLDER}/*.apk")
+        apk_files = [
+            file for file in glob.glob(f"{RELEASE_FOLDER}/*.apk") if "edla" not in file
+        ]
         # install apk files
         install_apk_files(apk_files)
         # Uninstall the ATX application and rebuild it to ensure that uiautomator2 works properly

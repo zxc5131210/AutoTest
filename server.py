@@ -1,13 +1,11 @@
 import socket
 import logging
-import ci_script
+import time
 import threading
-from datetime import datetime, timedelta
+from queue import Queue
 
+import ci_script
 import config
-
-# Flag to indicate whether the CI process is running
-ci_process_running = False
 
 
 def start_server():
@@ -27,41 +25,58 @@ def start_server():
         # start listening
         server_socket.listen(1)
 
-        latest_client_time = None
+        # Create a queue to store incoming client information
+        client_info_queue = Queue()
+
+        # Create a flag to indicate if a delay is in progress
+        delay_in_progress = False
+
+        def process_client_info():
+            nonlocal delay_in_progress
+            while True:
+                # Wait for client information
+                client_info = client_info_queue.get()
+
+                # If there's no delay in progress, start one with the CI process
+                if not delay_in_progress:
+                    delay_in_progress = True
+                    logging.info(
+                        "Received client information. Starting 30-minute delay..."
+                    )
+                    threading.Timer(
+                        config.waiting_minutes * 60, lambda: run_ci_process(client_info)
+                    ).start()  # Schedule CI after 30 minutes
+
+                # If a delay is in progress, reset the timer and update CI information
+                else:
+                    logging.info(
+                        "Received new client information during delay. Resetting timer."
+                    )
+                    delay_in_progress = False  # Cancel previous delay
+                    client_info_queue.put(
+                        client_info
+                    )  # Put new info back in queue for processing
+
+        # Start a separate thread for processing client information
+        client_info_thread = threading.Thread(target=process_client_info)
+        client_info_thread.daemon = True  # Set as daemon to avoid blocking program exit
+        client_info_thread.start()
 
         while True:
-            # waiting for a connection
+            # Wait for a connection
             logging.info("Waiting for a connection...")
-
-            # Check if CI process is running, if not, accept new clients
-            if not ci_process_running:
-                client_socket, client_address = server_socket.accept()
-                try:
-                    # get the client data
-                    data = client_socket.recv(1024)
-                    if data.decode():
-                        latest_client_time = datetime.now()
-                        logging.info(
-                            f"Received data from client at {latest_client_time}"
-                        )
-                except Exception as e:
-                    logging.error(f"Error processing client data: {e}")
-                finally:
-                    # close client
-                    client_socket.close()
-
-                # Check if the latest client and if it's time to run CI script
-                if latest_client_time:
-                    delay_time = (
-                        latest_client_time
-                        + timedelta(minutes=config.waiting_minutes)
-                        - datetime.now()
-                    )
-                    if delay_time.total_seconds() > 0:
-                        logging.info(
-                            f"Scheduling CI script to run in {delay_time.total_seconds()} seconds"
-                        )
-                        schedule_ci_script(delay_time.total_seconds())
+            client_socket, client_address = server_socket.accept()
+            try:
+                # Get the client data
+                data = client_socket.recv(1024)
+                if data.decode():
+                    # Put received data in the queue for processing
+                    client_info_queue.put(data.decode())
+            except Exception as e:
+                logging.error(f"Error processing client data: {e}")
+            finally:
+                # Close client socket
+                client_socket.close()
 
     except Exception as e:
         logging.error(f"Error in server: {e}")
@@ -69,20 +84,10 @@ def start_server():
         server_socket.close()
 
 
-def delayed_ci_script():
-    global ci_process_running
-    logging.info("Executing CI script...")
-    ci_process_running = True
-    start_ci_process()
-    ci_process_running = False
-
-
-def schedule_ci_script(delay_seconds):
-    threading.Timer(delay_seconds, delayed_ci_script).start()
-
-
-def start_ci_process():
-    ci_script.main_script()
+def run_ci_process(client_info):
+    # Access and process the client information (replace with actual logic)
+    logging.info(f"Running CI process with client information: {client_info}")
+    ci_script.main_script()  # Pass client information to CI script
 
 
 if __name__ == "__main__":

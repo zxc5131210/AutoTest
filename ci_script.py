@@ -97,8 +97,9 @@ def check_and_create_folder(folder_path):
 
 def main_script():
     try:
-        # clear release folder
+        # clear release folder and old report
         clear_folder(RELEASE_FOLDER)
+        subprocess.run(["rm", f"{REPORT_PATH}/*.html"], check=True)
         # setup SSH connection
         download_release_folder(LATEST_FOLDER, RELEASE_FOLDER)
         # Get the list of APK files in the local path

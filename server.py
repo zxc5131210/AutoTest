@@ -1,6 +1,11 @@
 import socket
 import logging
+import time
+import threading
+from queue import Queue
+
 import ci_script
+import config
 
 
 def start_server():
@@ -20,19 +25,57 @@ def start_server():
         # start listening
         server_socket.listen(1)
 
+        # Create a queue to store incoming client information
+        client_info_queue = Queue()
+
+        # Create a flag to indicate if a delay is in progress
+        delay_in_progress = False
+
+        def process_client_info():
+            nonlocal delay_in_progress
+            while True:
+                # Wait for client information
+                client_info = client_info_queue.get()
+
+                # If there's no delay in progress, start one with the CI process
+                if not delay_in_progress:
+                    delay_in_progress = True
+                    logging.info(
+                        "Received client information. Starting 30-minute delay..."
+                    )
+                    threading.Timer(
+                        config.waiting_minutes * 60, lambda: run_ci_process(client_info)
+                    ).start()  # Schedule CI after 30 minutes
+
+                # If a delay is in progress, reset the timer and update CI information
+                else:
+                    logging.info(
+                        "Received new client information during delay. Resetting timer."
+                    )
+                    delay_in_progress = False  # Cancel previous delay
+                    client_info_queue.put(
+                        client_info
+                    )  # Put new info back in queue for processing
+
+        # Start a separate thread for processing client information
+        client_info_thread = threading.Thread(target=process_client_info)
+        client_info_thread.daemon = True  # Set as daemon to avoid blocking program exit
+        client_info_thread.start()
+
         while True:
-            # waiting for a connection
+            # Wait for a connection
             logging.info("Waiting for a connection...")
             client_socket, client_address = server_socket.accept()
             try:
-                # get the client data
+                # Get the client data
                 data = client_socket.recv(1024)
                 if data.decode():
-                    start_ci_process()
+                    # Put received data in the queue for processing
+                    client_info_queue.put(data.decode())
             except Exception as e:
                 logging.error(f"Error processing client data: {e}")
             finally:
-                # close client
+                # Close client socket
                 client_socket.close()
 
     except Exception as e:
@@ -41,8 +84,10 @@ def start_server():
         server_socket.close()
 
 
-def start_ci_process():
-    ci_script.main_script()
+def run_ci_process(client_info):
+    # Access and process the client information (replace with actual logic)
+    logging.info(f"Running CI process with client information: {client_info}")
+    ci_script.main_script()  # Pass client information to CI script
 
 
 if __name__ == "__main__":

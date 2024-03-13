@@ -1,8 +1,8 @@
 import logging
+import shutil
 import subprocess
 import os
 import glob
-from fabric import Connection
 from pathlib import Path
 import auto_test
 import config
@@ -15,10 +15,10 @@ logging.basicConfig(
     datefmt="%Y%m%d %H:%M:%S",
 )
 
-REMOTE_LATEST_FOLDER = "/var/www/html/UI_3.0/Latest"
-LOCAL_RELEASE_PATH = "/Users/wuia/Desktop/AppiumAutotest/release/"
-REMOTE_UPLOAD_PATH = f"/var/www/html/UI_3.0/{datetime.date.today().strftime('%Y%m%d')}"
-LOCAL_REPORT_PATH = "/Users/wuia/Desktop/AppiumAutotest/html_report"
+LATEST_FOLDER = "/var/www/html/UI_3.0/Latest"
+RELEASE_FOLDER = "./release"
+UPLOAD_PATH = f"/var/www/html/UI_3.0/{datetime.date.today().strftime('%Y%m%d')}"
+REPORT_PATH = "./html_report"
 
 
 def clear_folder(folder_path):
@@ -35,26 +35,30 @@ def clear_folder(folder_path):
             logging.error(f"delete {file_path} has error: {e}")
 
 
-def download_remote_folder(connection, remote_path, local_path):
+def download_release_folder(download_path, local_path):
     """Get the list of files in the remote folder"""
-    remote_files = connection.run(f"ls {remote_path}").stdout.strip().split("\n")
+    remote_files = (
+        subprocess.run(["ls", download_path], capture_output=True, text=True)
+        .stdout.strip()
+        .split("\n")
+    )
     for remote_file in remote_files:
         if remote_file.endswith(".apk"):
-            remote_file_path = f"{remote_path}/{remote_file}"
+            remote_file_path = f"{download_path}/{remote_file}"
             local_file_path = f"{local_path}/{remote_file}"
-            connection.get(remote_file_path, local_file_path)
+            shutil.copy(remote_file_path, local_file_path)
 
 
-def upload_folder(connect, local_dir, remote_dir):
+def upload_folder(local_dir, remote_dir):
     """upload folder to remote"""
     try:
-        connect.run(f"mkdir -p {remote_dir}")
+        subprocess.run(["mkdir", "-p", remote_dir], check=True)
         for root, dirs, files in os.walk(local_dir):
             for file in files:
                 local_path = Path(root) / file
                 relative_path = local_path.relative_to(local_dir)
                 remote_path = Path(remote_dir) / relative_path
-                connect.put(str(local_path), str(remote_path))
+                shutil.copy(str(local_path), str(remote_path))
     except Exception as e:
         logging.error(f"Error uploading folder: {e}")
 
@@ -78,29 +82,30 @@ def reboot_device():
     subprocess.run(["adb", "wait-for-device"], check=True)
 
 
-def check_and_create_folder(connection, folder_path):
+def check_and_create_folder(folder_path):
     """Check whether the remote folder exists, create it if it does not exist"""
-    check_folder_exists = connection.run(
-        f"test -d {folder_path} && echo 'Folder exists' || echo 'Folder does not exist'",
-        hide=True,
-    )
-    if "Folder does not exist" in check_folder_exists.stdout:
-        connection.run(f"mkdir -p {folder_path}")
+    try:
+        subprocess.run(
+            ["test", "-d", folder_path],
+            check=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+    except subprocess.CalledProcessError:
+        subprocess.run(["mkdir", "-p", folder_path])
 
 
 def main_script():
     try:
-        # clear release folder
-        clear_folder(LOCAL_RELEASE_PATH)
+        # clear release folder and old report
+        clear_folder(RELEASE_FOLDER)
+        subprocess.run(["rm", "-f", f"{REPORT_PATH}/*.html"], check=True)
         # setup SSH connection
-        with Connection(
-            host=config.hostname,
-            user=config.username,
-            connect_kwargs={"password": config.password},
-        ) as c:
-            download_remote_folder(c, REMOTE_LATEST_FOLDER, LOCAL_RELEASE_PATH)
+        download_release_folder(LATEST_FOLDER, RELEASE_FOLDER)
         # Get the list of APK files in the local path
-        apk_files = glob.glob(f"{LOCAL_RELEASE_PATH}/*.apk")
+        apk_files = [
+            file for file in glob.glob(f"{RELEASE_FOLDER}/*.apk") if "edla" not in file
+        ]
         # install apk files
         install_apk_files(apk_files)
         # Uninstall the ATX application and rebuild it to ensure that uiautomator2 works properly
@@ -111,13 +116,13 @@ def main_script():
         auto_test.run_all_test()
 
         # After running testcases, upload report to remote
-        check_and_create_folder(c, REMOTE_UPLOAD_PATH)
-        check_and_create_folder(c, f"{REMOTE_UPLOAD_PATH}/report")
-        # Check if the latest folder exists and create a soft link if it does not exist
-        check_and_create_folder(c, REMOTE_LATEST_FOLDER)
-        c.run(f"ln -s {REMOTE_UPLOAD_PATH}/report '{REMOTE_LATEST_FOLDER}'")
+        check_and_create_folder(UPLOAD_PATH)
+        check_and_create_folder(f"{UPLOAD_PATH}/report")
+        subprocess.run(["rm", "-rf", f"{LATEST_FOLDER}/report"], check=True)
+        subprocess.run(["ln", "-s", f"{UPLOAD_PATH}/report", LATEST_FOLDER], check=True)
         # upload to remote
-        upload_folder(c, LOCAL_REPORT_PATH, f"{REMOTE_UPLOAD_PATH}/report")
+        upload_folder(REPORT_PATH, f"{UPLOAD_PATH}/report")
+        logging.info("CI process finished")
 
     except Exception as e:
         logging.error(f"main script error: {e}")

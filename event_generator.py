@@ -292,6 +292,7 @@ class EventGen:
                 gesture.home_page()
 
             case "reboot_to_homepage":
+                gesture.uninstall_utx()
                 gesture.reboot()
                 gesture.wait_for_device()
                 time.sleep(5)

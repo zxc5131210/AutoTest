@@ -4,6 +4,7 @@ from abc import ABC, abstractmethod
 MODEL = None
 FW_VERSION = None
 APP_VERSION = []
+APP_LIST = {}
 
 
 class AbstractReporter(ABC):

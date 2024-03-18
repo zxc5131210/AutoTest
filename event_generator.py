@@ -6,8 +6,6 @@ import logging
 import os
 import time
 
-import PIL.Image
-import PIL.ImageEnhance
 import ddddocr
 from selenium.common.exceptions import NoSuchElementException
 

@@ -318,10 +318,15 @@ class Gesture:
     def close_app(self, element):
         self.driver.app_stop(element)
 
+    def get_device_model(self):
+        return self.driver.device_info["model"][5:7]
+
+    def get_android_version(self):
+        return self.driver.device_info["version"]
+
     def send_event(self, event):
-        device_model = self.driver.device_info["model"]
-        device_model = device_model[5:7]
-        android_version = self.driver.device_info["version"]
+        device_model = self.get_device_model()
+        android_version = self.get_android_version()
 
         # get model and android version to map
         if device_model == "33" or device_model == "50" and android_version == "11":

@@ -460,7 +460,10 @@ class EventGen:
                 dictionary = gesture.current_app()
                 if (
                     dictionary["package"] == locator[json_element[0]]
-                    and locator[json_element[1]] in dictionary["activity"]
+                    or dictionary["package"] == locator["lango_" + json_element[0]]
+                ) and (
+                    locator[json_element[1]] in dictionary["activity"]
+                    or locator["lango_" + json_element[1]] in dictionary["activity"]
                 ):
                     pass
                 else:

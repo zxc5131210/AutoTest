@@ -284,7 +284,7 @@ class Gesture:
 
     def get_volume(self):
         android_version = self.driver.device_info["version"]
-        if android_version == "13":
+        if android_version == "13" and self.driver.device_info["model"][5:7] == "50":
             command = "adb shell settings get system volume_music_remote_submix"
         else:
             command = "adb shell settings get system volume_music_speaker"

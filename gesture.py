@@ -328,6 +328,8 @@ class Gesture:
             controller_map = remote_controller_map.ifp33_keycode
         elif device_model == "50" and android_version == "13":
             controller_map = remote_controller_map.ifp50_5_a13_keycode
+        elif device_model == "0G" and android_version == "13":
+            controller_map = remote_controller_map.ifp110G_a13_keycode
         else:
             controller_map = None
             logging.error(msg=f"can't map the device")

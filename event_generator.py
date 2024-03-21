@@ -429,6 +429,8 @@ class EventGen:
 
             case "stb_second_class_initialization":
                 gesture.tap(driver(resourceId=locator["stb"]))
+                while not driver(resourceId=locator["stb_btn_all_apps"]).exists:
+                    gesture.tap(driver(resourceId=locator["stb"]))
                 gesture.tap(driver(resourceId=locator["stb_btn_all_apps"]))
                 gesture.tap(driver(resourceId=locator["stb_btn_edit_apps"]))
 
@@ -439,6 +441,8 @@ class EventGen:
 
             case "stb_third_class_initialization":
                 gesture.tap(driver(resourceId=locator["stb"]))
+                while not driver(resourceId=locator["stb_btn_all_apps"]).exists:
+                    gesture.tap(driver(resourceId=locator["stb"]))
                 gesture.tap(driver(resourceId=locator["stb_btn_all_tools"]))
                 gesture.tap(driver(resourceId=locator["stb_btn_edit_tools"]))
                 gesture.tap(driver(resourceId=locator["stb_btn_tools_shortcut_one"]))

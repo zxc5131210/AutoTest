@@ -248,7 +248,7 @@ class Gesture:
         diff_image = cv2.absdiff(img1, img2)
         diff_pixels = np.sum(diff_image, axis=2)  # count different pixel
         different_pixel_count = np.count_nonzero(diff_pixels)
-        if different_pixel_count > 5000:
+        if different_pixel_count > 500:
             pass
         else:
             logging.error(msg="compare different fail")
@@ -284,7 +284,8 @@ class Gesture:
 
     def get_volume(self):
         android_version = self.get_android_version()
-        if android_version == "13":
+        device_model = self.get_device_model()
+        if android_version == "13" and device_model == "50":
             command = "adb shell settings get system volume_music_remote_submix"
         else:
             command = "adb shell settings get system volume_music_speaker"

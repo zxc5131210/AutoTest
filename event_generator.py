@@ -172,7 +172,7 @@ class EventGen:
 
             case "identify_edu_verification_code":
                 while driver(resourceId="id1").exists:
-                    # 擷取驗證碼的圖片
+                    # Capture the image of the verification code.
                     time.sleep(1)
                     password = driver(resourceId=locator[json_element], instance=0)
                     gesture.send_keys(password, event["args"])
@@ -188,17 +188,18 @@ class EventGen:
                         )
                     )
                     element_image.save("2fa.png")
-                    # 調整圖片的明度和亮度使的圖片比較好去做辨識
+                    # Adjust the brightness and contrast of the image to make it easier to recognize
                     image = PIL.Image.open("2fa.png")
                     image = PIL.ImageEnhance.Contrast(image).enhance(1.5)
                     image = PIL.ImageEnhance.Brightness(image).enhance(2)
                     image.save("2fa.png")
-                    # 從train data去做比對辨識
+                    # Perform recognition by comparing against the train data.
                     ocr = ddddocr.DdddOcr()
                     with open("2fa.png", "rb") as f:
                         image = f.read()
                     verification_code = ocr.classification(image)
-                    # 如果辨識出來的verification code不為三個整數,就換下一張照片進行辨識
+                    # If the recognized verification code is not three integers, switch to the next photo for
+                    # recognition.
                     if not verification_code.isnumeric() or len(verification_code) != 3:
                         gesture.tap(driver.xpath("//*[@text='換下一個']"))
                     else:

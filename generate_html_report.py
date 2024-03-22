@@ -45,7 +45,7 @@ class TestReport:
         class="text-center alert summary-alert"> <table class="table"> <thead> <tr> <th>Device Information</th> </tr> 
         </thead> <tbody>"""
 
-        # 逐行将 device_version 中的每个信息添加到 HTML 表格中
+        # Add each piece of information from device_version into an HTML table row by row.
         for _ in self.device_version:
             html_head += f"<tr><td>{_}</td></tr>"
         html_head += """</tbody>
@@ -58,9 +58,8 @@ class TestReport:
                     </thead>
                     <tbody>"""
 
-        # 逐行将 device_version 中的每个信息添加到 HTML 表格中
+        # Add each piece of information from device_version into an HTML table row by row.
         for i, _ in enumerate(self.app_version):
-            # 使用 i 来确定是第一列还是第二列
             column_index = i % 2
             if column_index == 0:
                 html_head += "<tr>"
@@ -121,13 +120,13 @@ class TestReport:
         return category_html
 
     def __generate_subcategory_html(
-            self,
-            safe_category_id,
-            safe_subcategories_id,
-            subclass,
-            pass_count,
-            total_count,
-            testcases,
+        self,
+        safe_category_id,
+        safe_subcategories_id,
+        subclass,
+        pass_count,
+        total_count,
+        testcases,
     ):
         subcategory_html = (
             f"<div class='panel panel-info subcategory-panel' "

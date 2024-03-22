@@ -99,7 +99,9 @@ def main_script():
     try:
         # clear release folder and old report
         clear_folder(RELEASE_FOLDER)
-        subprocess.run(["rm", "-rf", f"{REPORT_PATH}/*.html"], check=False)
+        # remove old report
+        for file in glob.glob(f"{REPORT_PATH}/*.html"):
+            os.remove(file)
         # setup SSH connection
         download_release_folder(LATEST_FOLDER, RELEASE_FOLDER)
         # Get the list of APK files in the local path

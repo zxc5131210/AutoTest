@@ -78,6 +78,7 @@ class EventGen:
             else:
                 break
         gesture.home_page()
+        driver.click(0.5, 0.1)
 
     def gesture_cases(
         self,

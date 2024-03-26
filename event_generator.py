@@ -78,7 +78,6 @@ class EventGen:
             else:
                 break
         gesture.home_page()
-        driver.click(0.5, 0.1)
 
     def gesture_cases(
         self,
@@ -430,9 +429,9 @@ class EventGen:
                         logging.error(msg="Not Found App")
 
             case "stb_second_class_initialization":
-                gesture.tap(driver(resourceId=locator["stb"]))
                 while not driver(resourceId=locator["stb_btn_all_apps"]).exists:
                     gesture.tap(driver(resourceId=locator["stb"]))
+                    time.sleep(1)
                 gesture.tap(driver(resourceId=locator["stb_btn_all_apps"]))
                 gesture.tap(driver(resourceId=locator["stb_btn_edit_apps"]))
 
@@ -442,11 +441,12 @@ class EventGen:
                 gesture.tap(driver(resourceId=locator["stb_btn_home"]))
 
             case "stb_third_class_initialization":
-                gesture.tap(driver(resourceId=locator["stb"]))
-                while not driver(resourceId=locator["stb_btn_all_apps"]).exists:
+                while not driver(resourceId=locator["stb_btn_all_tools"]).exists:
                     gesture.tap(driver(resourceId=locator["stb"]))
+                    time.sleep(1)
                 gesture.tap(driver(resourceId=locator["stb_btn_all_tools"]))
                 gesture.tap(driver(resourceId=locator["stb_btn_edit_tools"]))
+
                 gesture.tap(driver(resourceId=locator["stb_btn_tools_shortcut_one"]))
                 gesture.tap(driver(resourceId=locator["stb_btn_tools_shortcut_two"]))
                 gesture.tap(driver(resourceId=locator["stb_btn_home"]))

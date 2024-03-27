@@ -6,8 +6,6 @@ import logging
 import os
 import time
 
-import PIL.Image
-import PIL.ImageEnhance
 import ddddocr
 from selenium.common.exceptions import NoSuchElementException
 
@@ -292,6 +290,7 @@ class EventGen:
                 gesture.home_page()
 
             case "reboot_to_homepage":
+                gesture.uninstall_utx()
                 gesture.reboot()
                 gesture.wait_for_device()
                 time.sleep(5)

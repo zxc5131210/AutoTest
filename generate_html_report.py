@@ -1,23 +1,18 @@
 """
 python report to html
 """
+import abstract_reporter
 
 
 class TestReport:
     def __init__(self):
         self.app_version = ""
         self.device_version = ""
-        self.categories = {
-            "vLauncher": {},
-            "STB": {},
-            "Wallpaper": {},
-            "Authenticator": {},
-            "Quicksettings": {},
-            "ScreenLock": {},
-            "RemoteController": {},
-        }
+        self.categories = {key: {} for key in abstract_reporter.APP_LIST.keys()}
 
     def add_entry(self, report_data):
+        if report_data.category not in self.categories:
+            self.categories[report_data.category] = {}
         if report_data.subcategory not in self.categories[report_data.category]:
             self.categories[report_data.category][report_data.subcategory] = []
         self.categories[report_data.category][report_data.subcategory].append(
@@ -126,13 +121,13 @@ class TestReport:
         return category_html
 
     def __generate_subcategory_html(
-        self,
-        safe_category_id,
-        safe_subcategories_id,
-        subclass,
-        pass_count,
-        total_count,
-        testcases,
+            self,
+            safe_category_id,
+            safe_subcategories_id,
+            subclass,
+            pass_count,
+            total_count,
+            testcases,
     ):
         subcategory_html = (
             f"<div class='panel panel-info subcategory-panel' "

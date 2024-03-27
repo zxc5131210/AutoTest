@@ -3,6 +3,7 @@ import subprocess
 import uiautomator2 as u2
 
 import abstract_reporter
+from gesture import Gesture
 from html_runner import HTMLReporter
 from event_generator import EventGen
 from folder_parser import FolderParser
@@ -47,9 +48,12 @@ def get_app_versions(driver, app_list):
     Get versions of specified apps.
     """
     for app_name, package_name in app_list.items():
-        version_info = driver.app_info(package_name)
-        version_name = version_info["versionName"]
-        abstract_reporter.APP_VERSION.extend([app_name, version_name])
+        try:
+            version_info = driver.app_info(package_name)
+            version_name = version_info["versionName"]
+            abstract_reporter.APP_VERSION.extend([app_name, version_name])
+        except Exception:
+            abstract_reporter.APP_VERSION.extend([app_name, package_name])
 
 
 def common_setup(driver):
@@ -66,9 +70,11 @@ def common_setup(driver):
         "QuickSettings": locator["quicksettings_package"],
         "WallpaperPicker": locator["wallpaper_package"],
         "Authenticator": locator["authenticator_package"],
+        "RemoteController": abstract_reporter.FW_VERSION,
     }
+    abstract_reporter.APP_LIST = app_list
     get_app_versions(driver, app_list)
-    return abstract_reporter.MODEL, abstract_reporter.FW_VERSION, app_list
+    return abstract_reporter.MODEL, abstract_reporter.FW_VERSION, abstract_reporter.APP_LIST
 
 
 def setup_and_parse(driver, run_type=""):
@@ -77,6 +83,7 @@ def setup_and_parse(driver, run_type=""):
     setup_logger()
     common_setup(driver)
     option_file = "option_file"
+    Gesture(driver, reporter).uninstall_utx()
     parse_testcases_from_folder(event_gen, driver, reporter, option_file, run_type)
 
 

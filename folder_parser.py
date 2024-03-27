@@ -1,18 +1,11 @@
 import os
 import glob
 
+import abstract_reporter
+
 
 class FolderParser:
     EXCLUDE_FILES = ["__pycache__", ".DS_Store", "Customized", "SSO"]
-    CATEGORY_MAPPING = {
-        "Quicksettings": "Quicksettings",
-        "Authenticator": "Authenticator",
-        "Wallpaper": "Wallpaper",
-        "STB": "STB",
-        "ScreenLock": "ScreenLock",
-        "vLauncher": "vLauncher",
-        "RemoteController": "RemoteController",
-    }
 
     def __init__(self, event_gen, driver, reporter, root_folder, run_type):
         self.event_gen = event_gen
@@ -20,6 +13,7 @@ class FolderParser:
         self.driver = driver
         self.root_folder = root_folder
         self.run_type = run_type
+        self.CATEGORY_MAPPING = dict((key, key) for key in abstract_reporter.APP_LIST.keys())
 
     @staticmethod
     def __display_files(file_dict):
@@ -65,9 +59,8 @@ class FolderParser:
         # json file name to testcase name
         self.reporter.test_case(display_name)
 
-    @staticmethod
-    def __get_category(file_path):
-        for keyword, category in FolderParser.CATEGORY_MAPPING.items():
+    def __get_category(self, file_path):
+        for keyword, category in self.CATEGORY_MAPPING.items():
             if keyword in file_path:
                 return category
         return None

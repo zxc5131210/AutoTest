@@ -308,6 +308,10 @@ class Gesture:
         subprocess.run(["adb", "reboot"], check=True)
 
     @staticmethod
+    def uninstall_utx():
+        subprocess.run(["adb", "uninstall", "com.github.uiautomator"], check=False)
+
+    @staticmethod
     def wait_for_device():
         subprocess.run(["adb", "wait-for-device"], check=True)
 

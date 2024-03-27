@@ -171,9 +171,13 @@ locator = {
     # settings
     "settings_package": "com.ifpdos.vsettings",
     "settings_activity": ".MainActivity",
+    "lango_settings_activity": ".SettingsActivity",
     "settings_time_activity": ".Settings$TimeSettings",
+    "lango_settings_time_activity": ".SettingMenuActivity",
     "settings_ethernet_activity": ".Settings$EthernetSettings",
+    "lango_settings_ethernet_activity": ".SettingMenuActivity",
     "settings_wifi_activity": ".Settings$WifiSettings",
+    "lango_settings_wifi_activity": ".SettingMenuActivity",
     "settings_btn_time_zone": "com.ifpdos.vsettings:id/main_spinner_head_image",
     "settings_window_time_zone": "com.ifpdos.vsettings:id/window_spinner_recycler_view",
     # other

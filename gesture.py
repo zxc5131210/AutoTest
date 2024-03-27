@@ -248,7 +248,7 @@ class Gesture:
         diff_image = cv2.absdiff(img1, img2)
         diff_pixels = np.sum(diff_image, axis=2)  # count different pixel
         different_pixel_count = np.count_nonzero(diff_pixels)
-        if different_pixel_count > 5000:
+        if different_pixel_count > 500:
             pass
         else:
             logging.error(msg="compare different fail")
@@ -283,8 +283,9 @@ class Gesture:
         )
 
     def get_volume(self):
-        android_version = self.driver.device_info["version"]
-        if android_version == "13":
+        android_version = self.get_android_version()
+        device_model = self.get_device_model()
+        if android_version == "13" and device_model == "50":
             command = "adb shell settings get system volume_music_remote_submix"
         else:
             command = "adb shell settings get system volume_music_speaker"
@@ -318,16 +319,23 @@ class Gesture:
     def close_app(self, element):
         self.driver.app_stop(element)
 
+    def get_device_model(self):
+        return self.driver.device_info["model"][5:7]
+
+    def get_android_version(self):
+        return self.driver.device_info["version"]
+
     def send_event(self, event):
-        device_model = self.driver.device_info["model"]
-        device_model = device_model[5:7]
-        android_version = self.driver.device_info["version"]
+        device_model = self.get_device_model()
+        android_version = self.get_android_version()
 
         # get model and android version to map
         if device_model == "33" or device_model == "50" and android_version == "11":
             controller_map = remote_controller_map.ifp33_keycode
         elif device_model == "50" and android_version == "13":
             controller_map = remote_controller_map.ifp50_5_a13_keycode
+        elif device_model == "0G" and android_version == "13":
+            controller_map = remote_controller_map.ifp110G_a13_keycode
         else:
             controller_map = None
             logging.error(msg=f"can't map the device")

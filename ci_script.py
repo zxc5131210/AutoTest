@@ -93,6 +93,9 @@ def check_and_create_folder(folder_path):
         )
     except subprocess.CalledProcessError:
         subprocess.run(["mkdir", "-p", folder_path])
+        os.system(
+            "echo %s | sudo -S %s" % (12345678, f"sudo chown cts:cts {folder_path}")
+        )
 
 
 def main_script():

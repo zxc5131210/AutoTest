@@ -126,6 +126,15 @@
       "y": ""
     },
     {
+      "sequence": "wait",
+      "describe": "wait for 5 seconds for costume wallpaper to load",
+      "element": "",
+      "gesture": "wait_time",
+      "args": "5",
+      "x": "",
+      "y": ""
+    },
+    {
       "sequence": 13,
       "describe": "crop avatar image to compare",
       "element": "vlauncher_avatar",

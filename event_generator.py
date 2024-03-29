@@ -160,11 +160,14 @@ class EventGen:
                     time.sleep(3)
                     screenshot = driver.screenshot(format="pillow")
                     bounds = element.info["bounds"]
-                    left = bounds["left"]
-                    top = bounds["top"]
-                    right = bounds["right"]
-                    bottom = bounds["bottom"]
-                    element_image = screenshot.crop((left, top, right, bottom))
+                    element_image = screenshot.crop(
+                        (
+                            bounds["left"],
+                            bounds["top"],
+                            bounds["right"],
+                            bounds["bottom"],
+                        )
+                    )
                     filename = event["args"][-1]
                     element_image.save(f"{filename}.png")
                 else:
@@ -303,37 +306,22 @@ class EventGen:
                 """
                 If you want to verify that the element is not found, args ==False
                 """
-                if element.exists:
-                    pass
-                else:
-                    if event["args"].lower() == "false":
-                        pass
-                    else:
-                        logging.error(msg=f"Find [{json_element}] FAIL")
-                        self.reporter.fail_step("error", f"Find [{json_element}] FAIL")
+                if not element.exists and event["args"].lower() != "false":
+                    logging.error(msg=f"Find [{json_element}] FAIL")
+                    self.reporter.fail_step("error", f"Find [{json_element}] FAIL")
 
             case "findelement_by_xpath":
                 """
                 if verify not find the element = True, args ==False
                 """
-                if element.exists:
-                    pass
-                else:
-                    if event["args"] == "False":
-                        pass
-                    else:
-                        logging.error(msg=f"Find {element} FAIL")
-                        self.reporter.fail_step("error", f"Find {element} FAIL")
+                if not element.exists and event["args"].lower() != "false":
+                    logging.error(msg=f"Find [{element}] FAIL")
+                    self.reporter.fail_step("error", f"Find [{element}] FAIL")
 
             case "findelement_by_text":
-                if element.exists:
-                    pass
-                else:
-                    if event["args"] == "False":
-                        pass
-                    else:
-                        logging.error(msg=f"Find {element} FAIL")
-                        self.reporter.fail_step("error", f"Find {element} FAIL")
+                if not element.exists and event["args"] != "False":
+                    logging.error(f"Find {element} FAIL")
+                    self.reporter.fail_step("error", f"Find {element} FAIL")
 
             case "change_wallpaper_first":
                 if driver(text="com.viewsonic.wallpaperpicker").exists:
@@ -364,20 +352,14 @@ class EventGen:
                     self.reporter.fail_step("error", "app not found in recent app")
 
             case "recent_app_list":
-                for running_apps in element:
-                    gesture.compare_different_list.append(running_apps.get_text())
+                running_apps_list = [app.get_text() for app in element]
                 for expect_app in event["args"]:
-                    if expect_app in gesture.compare_different_list:
-                        pass
-                    else:
+                    if expect_app not in running_apps_list:
                         logging.error("can't find the running app in recent app")
-                gesture.compare_different_list.clear()
 
             case "marker_fill_up":
-                element_bounds = driver.info
-                center_x = (element_bounds["displayWidth"]) // 2
-                for i in range(50):
-                    y_start = i
+                center_x = driver.info["displayWidth"] // 2
+                for y_start in range(50):
                     driver.swipe(
                         fx=0, fy=y_start, tx=center_x, ty=y_start, duration=0.05
                     )
@@ -400,14 +382,13 @@ class EventGen:
                     resourceId="com.viewsonic.vlauncher:id/all_app_cell_10"
                 )
                 element = driver(text=json_element)
-                while True:
-                    if element.exists:
-                        break
-                    elif determine_swipe.exists:
+                while not element.exists:
+                    if determine_swipe.exists:
                         driver.swipe(x_a, y_a, x_b, y_b)
                     else:
                         logging.error(msg="Not Found App")
                         self.reporter.fail_step("error", "Not Found App")
+                        break
 
             case "stb_scroll_horiz_to_element":
                 x_a, y_a = driver(
@@ -420,13 +401,13 @@ class EventGen:
                     resourceId="com.viewsonic.sidetoolbar:id/RlAllAppsTagFiveTeen"
                 )
                 element = driver(text=json_element)
-                while True:
-                    if element.exists:
-                        break
-                    elif determine_swipe.exists:
+                while not element.exists:
+                    if determine_swipe.exists:
                         driver.swipe(x_a, y_a, x_b, y_b)
                     else:
                         logging.error(msg="Not Found App")
+                        self.reporter.fail_step("error", "Not Found App")
+                        break
 
             case "stb_second_class_initialization":
                 while not driver(resourceId=locator["stb_btn_all_apps"]).exists:

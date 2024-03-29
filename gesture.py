@@ -189,23 +189,38 @@ class Gesture:
         verify the file is existing
         args: filepath
         """
-        command = f"adb shell ls {filepath}"
+        command = f"adb shell test -e {filepath} && echo File exists || echo File does not exist"
         try:
             result = subprocess.run(
                 command,
-                check=False,
+                shell=True,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
-                shell=True,
                 text=True,
             )
-            # check the command success or not
-            if result.returncode != 0:
-                logging.error(msg="file is not exist")
-                self.reporter.fail_step("error", "file is not exist")
-        except subprocess.CalledProcessError:
-            logging.error(msg="file is not exist")
-            self.reporter.fail_step("error", "file is not exist")
+
+            if "File does not exist" in result.stdout:
+                logging.error("File does not exist at path: %s", filepath)
+                self.reporter.fail_step(
+                    "error", "File does not exist at path: " + filepath
+                )
+            elif "File exists" in result.stdout:
+                logging.info("File exists at path: %s", filepath)
+            else:
+                # If the output is neither, there might be an issue with adb or the device
+                logging.error(
+                    "Unable to check file existence, please check adb connection and device status."
+                )
+                self.reporter.fail_step(
+                    "error",
+                    "Unable to check file existence, please check adb connection and device status.",
+                )
+
+        except (
+            subprocess.SubprocessError
+        ) as e:  # This is more general, catching any subprocess-related errors
+            logging.error("Subprocess execution failed: %s", str(e))
+            self.reporter.fail_step("error", "Subprocess execution failed: " + str(e))
 
     @staticmethod
     def get_overview_activities() -> list[str]:
@@ -330,7 +345,7 @@ class Gesture:
         android_version = self.get_android_version()
 
         # get model and android version to map
-        if device_model == "33" or device_model == "50" and android_version == "11":
+        if (device_model == "33" or device_model == "50") and android_version == "11":
             controller_map = remote_controller_map.ifp33_keycode
         elif device_model == "50" and android_version == "13":
             controller_map = remote_controller_map.ifp50_5_a13_keycode
@@ -338,16 +353,35 @@ class Gesture:
             controller_map = remote_controller_map.ifp110G_a13_keycode
         else:
             controller_map = None
-            logging.error(msg=f"can't map the device")
-            self.reporter.fail_step("error", "can't map the device")
 
-        send_event = controller_map[event]
-        input_event = "/dev/input/event{}".format(controller_map["input_event"])
-        subprocess.call(
-            ["adb", "shell", "sendevent", input_event, "1", f"{send_event}", "1"]
-        )
-        subprocess.call(["adb", "shell", "sendevent", input_event, "0", "0", "0"])
-        subprocess.call(
-            ["adb", "shell", "sendevent", input_event, "1", f"{send_event}", "0"]
-        )
+        if controller_map is None:
+            logging.error("Can't map the device model and Android version.")
+            self.reporter.fail_step("error", "Can't map the device")
+        else:
+            send_event = controller_map.get(event)
+            input_event_path = "/dev/input/event{}".format(
+                controller_map.get("input_event")
+            )
+            if send_event and input_event_path:
+                self.send_remote_controller_event(input_event_path, send_event, 1)
+                self.send_remote_controller_event(input_event_path, send_event, 0)
+            else:
+                logging.error("Invalid controller map configuration.")
+                self.reporter.fail_step(
+                    "error", "Invalid controller map configuration."
+                )
+
+    @staticmethod
+    def send_remote_controller_event(input_event, send_event, value):
+        """Send an event command to the device via adb."""
+        command = [
+            "adb",
+            "shell",
+            "sendevent",
+            input_event,
+            "1",
+            str(send_event),
+            str(value),
+        ]
+        subprocess.call(command)
         subprocess.call(["adb", "shell", "sendevent", input_event, "0", "0", "0"])

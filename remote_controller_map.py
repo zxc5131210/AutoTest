@@ -22,7 +22,7 @@ ifp50_5_a13_keycode = {
     "back": "15",
     "mute": "113",
 }
-ifp110G_a13_keycode = {
+ifp110_a13_keycode = {
     "input_event": "0",
     "home": "102",
     "quicksettings": "806",

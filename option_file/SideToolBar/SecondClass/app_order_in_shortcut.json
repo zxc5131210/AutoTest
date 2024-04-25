@@ -184,8 +184,8 @@
             "sequence": 21,
             "describe": "verify the current App is expected",
             "element": [
-                "display_package",
-                "display_activity"
+                "manager_package",
+                "manager_activity"
             ],
             "gesture": "current_app_compare",
             "args": "",

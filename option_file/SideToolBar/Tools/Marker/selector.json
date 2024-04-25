@@ -39,7 +39,7 @@
         {
             "sequence": 5,
             "describe": "tap myViewBoard on hot seat",
-            "element": "//*[@text='myViewBoard Display']",
+            "element": "//*[@text='myViewBoard Whiteboard']",
             "gesture": "tap_by_xpath",
             "args": "",
             "x": "",
@@ -49,8 +49,8 @@
             "sequence": 6,
             "describe": "compare current app is myViewBoard to verify selector can select",
             "element": [
-                "display_package",
-                "display_activity"
+                "whiteboard_package",
+                "whiteboard_activity"
             ],
             "gesture": "current_app_compare",
             "args": "",
